@@ -1,5 +1,5 @@
 # This is chess pet project
-Implemented chess logic, timers, moves recording. The game is available for two players from one device. App is adaptive for different screens. 
+Implemented chess logic, timers, move recording. The game is available for two players from one device. The application is adaptive for different screens.
 
 ## Stack
 
@@ -8,11 +8,7 @@ Implemented chess logic, timers, moves recording. The game is available for two 
     <a href="https://www.typescriptlang.org/"><img src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg" title="TypeScript"  alt="TypeScript" width="40" height="40"/></a>&nbsp;
 </p>
 
-# You can see it <a href="https://chess-game-9aj0mo3mb-alca-code.vercel.app/">`HERE`</a>
-
-## Install app:
-
-#### `cd chess_game/`
+## Deployed version: https://chess-game-react-omega.vercel.app/
 
 ### To install dependencies
 
