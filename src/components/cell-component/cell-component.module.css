@@ -1,0 +1,61 @@
+.cell {
+    width: Calc(100%/8);
+    padding-bottom: Calc(100%/8);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell img {
+    width: 80%;
+    position: absolute;
+    right: 10%;
+    top: 10%
+}
+
+.black {
+    background-color: #759656;
+}
+
+.white {
+    background-color: #e5c486;
+}
+
+.check {
+
+}
+
+.y {
+    color: white;
+    font-size: 80%;
+    position: absolute;
+    top: 0;
+    left: 2%;
+}
+
+.x {
+    color: white;
+    font-size: 80%;
+    position: absolute;
+    bottom: 0;
+    right: 4%;
+}
+
+.selected {
+    background-color: lightskyblue;
+}
+
+.available {
+    width: 20%;
+    height: 20%;
+    background-color: lightskyblue;
+    border-radius: 50%;
+    position: absolute;
+    right: 40%;
+    top: 40%
+}
+
+.attacked {
+    background-color: indianred;
+}

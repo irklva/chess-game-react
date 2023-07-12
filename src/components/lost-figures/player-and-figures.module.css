@@ -1,0 +1,36 @@
+.main {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #c7bfb3;
+    border-radius: 5px;
+}
+
+.player {
+    width: fit-content;
+    padding: 2px;
+    margin: 0;
+}
+
+.player.active {
+    background-color: #759656;
+    color: white;
+    border-radius: 5px;
+}
+
+.figures {
+    min-height: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.figure {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.figure img {
+    height: 20px;
+}

@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    max-width: 100vw;
+    min-height: 100vh;
+    padding: 10px;
+    background-color: #dad2c5;
+}
+
+.board_block {
+    max-height: 472px;
+}

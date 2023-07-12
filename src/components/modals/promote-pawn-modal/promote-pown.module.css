@@ -1,0 +1,23 @@
+.figure_btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.figure_btn {
+    width: 20%;
+    padding: 10px;
+    background-color: #e5c486;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.figure_btn:hover {
+    cursor: pointer;
+    background-color: #759656;
+}
+
+.figure_btn img {
+    width: 80%;
+}

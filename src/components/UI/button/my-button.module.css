@@ -1,0 +1,26 @@
+.btn {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: unset;
+    font-weight: bold;
+}
+
+.first {
+    background-color: #b2aba1;
+}
+
+.second {
+    background-color: lightgray;
+ }
+
+.first:hover {
+    background-color: #8a857d;
+    color: white;
+}
+
+.second:hover {
+    background-color: #a6a6a6;
+    color: white;
+}
