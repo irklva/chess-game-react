@@ -9,3 +9,14 @@
     align-items: center;
     justify-content: center;
 }
+
+.name {
+    word-break: break-all;
+    margin-right: 5px;
+}
+
+.time {
+    width: 53px;
+    display: flex;
+    justify-content: center;
+}

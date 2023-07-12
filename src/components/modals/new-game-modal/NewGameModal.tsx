@@ -43,15 +43,15 @@ const NewGameModal: FC<ModalsComponentProps> = ({
                 <label htmlFor="blackPlayer">Black player: </label>
                 <MyInput id="blackPlayer" type="text" value={newBlackName}
                          onChange={(e: any) => setNewBlackName(e.target.value)}/>
-                {(newBlackName === '' || newBlackName.length > 240) &&
-                    <div className={`text-danger ${st.message}`}>Input the 1 - 240 symbols name</div>}
+                {(newBlackName === '' || newBlackName.length > 50) &&
+                    <div className={`text-danger ${st.message}`}>Input the 1 - 50 symbols name</div>}
             </div>
             <div className={st.input}>
                 <label htmlFor="whitePlayer">White player: </label>
                 <MyInput id="whitePlayer" type="text" value={newWhiteName}
                          onChange={(e: any) => setNewWhiteName(e.target.value)}/>
-                {(newWhiteName === '' || newWhiteName.length > 240) &&
-                    <div className={`text-danger ${st.message}`}>Input the 1 - 240 symbols name</div>}
+                {(newWhiteName === '' || newWhiteName.length > 50) &&
+                    <div className={`text-danger ${st.message}`}>Input the 1 - 50 symbols name</div>}
             </div>
             <div className={st.input}>
                 <label htmlFor="infiniteSeconds">Infinite seconds: </label>

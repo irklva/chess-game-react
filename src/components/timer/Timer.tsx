@@ -10,6 +10,8 @@ interface TimerProps {
     setBlackTimer: Dispatch<SetStateAction<number | null>>;
     whiteTimer: number | null;
     setWhiteTimer: Dispatch<SetStateAction<number | null>>;
+    blackName: string;
+    whiteName: string;
     setModalNewGame: Dispatch<SetStateAction<boolean>>;
     setModalGameOver: Dispatch<SetStateAction<boolean>>;
 }
@@ -20,6 +22,8 @@ const Timer: FC<TimerProps> = ({
                                    setBlackTimer,
                                    whiteTimer,
                                    setWhiteTimer,
+                                   blackName,
+                                   whiteName,
                                    setModalNewGame,
                                    setModalGameOver
                                }) => {
@@ -74,8 +78,14 @@ const Timer: FC<TimerProps> = ({
     return (
         <div className={st.main}>
             <MyButton action={newGame}>New game</MyButton>
-            <h5>Black: {blackTimer === null ? '∞' : blackTimer}</h5>
-            <h5>White: {whiteTimer === null ? '∞' : whiteTimer}</h5>
+            <div className="d-flex align-items-center">
+                <h5 className={st.name}>{blackName}:</h5>
+                <h5 className={st.time}>{blackTimer === null ? '∞' : blackTimer}</h5>
+            </div>
+            <div className="d-flex align-items-center">
+                <h5 className={st.name}>{whiteName}:</h5>
+                <h5 className={st.time}>{whiteTimer === null ? '∞' : whiteTimer}</h5>
+            </div>
         </div>
     );
 };

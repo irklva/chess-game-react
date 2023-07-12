@@ -26,8 +26,8 @@ function App() {
 
     function restart(timer: number | null, newWhiteName: string, newBlackName: string) {
         if ((timer === null || (timer > 0 && timer <= 10000)) &&
-            newWhiteName !== '' && newWhiteName.length < 240 &&
-            newBlackName !== '' && newBlackName.length < 240) {
+            newWhiteName !== '' && newWhiteName.length <= 50 &&
+            newBlackName !== '' && newBlackName.length <= 50) {
             setBlackTimer(timer);
             setWhiteTimer(timer);
             setWhiteName(newWhiteName);
@@ -100,6 +100,8 @@ function App() {
                             setBlackTimer={setBlackTimer}
                             whiteTimer={whiteTimer}
                             setWhiteTimer={setWhiteTimer}
+                            blackName={blackName}
+                            whiteName={whiteName}
                             currentPlayer={board.currentPlayer}
                             setModalNewGame={setModalNewGame}
                             setModalGameOver={setModalGameOver}
