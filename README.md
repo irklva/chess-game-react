@@ -1,4 +1,4 @@
-# This is chess pet project
+# Chess React pet project
 Implemented chess logic, timers, move recording. The game is available for two players from one device. The application is adaptive for different screens.
 
 ## Stack
