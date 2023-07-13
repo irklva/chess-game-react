@@ -1,5 +1,5 @@
 # Chess React pet project 
-Implemented chess logic, timers, move recording. The game is available for two players from one device. The application is adaptive for different screens.
+Implemented chess logic(moves, check, mate, stalemate, castling, pawn promotion), timers, move recording. The game is available for two players from one device. The application is adaptive for different screens.
 
 ## Stack
 
