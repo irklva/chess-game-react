@@ -10,7 +10,7 @@ Implemented chess logic(moves, check, mate, stalemate, castling, pawn promotion)
 
 ## Deployed version
 
-### https://chess-game-react-omega.vercel.app/
+### https://chess-game-react-irklva.vercel.app/
 
 ## Run the app
 
