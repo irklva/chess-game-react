@@ -32,4 +32,4 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
     );
 };
 
-export default PlayerAndFigures;
+export default React.memo(PlayerAndFigures);

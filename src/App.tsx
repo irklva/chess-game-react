@@ -3,7 +3,7 @@ import './App.css';
 import {Board} from "./models/Board";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BoardComponent from "./components/board-component/BoardComponent";
-import PlayerAndFigures from "./components/lost-figures/PlayerAndFigures";
+import PlayerAndFigures from "./components/player-and-figures/PlayerAndFigures";
 import Timer from "./components/timer/Timer";
 import Moves from "./components/moves/Moves";
 import {Colors} from "./models/Colors";
@@ -11,6 +11,7 @@ import {Cell} from "./models/Cell";
 import NewGameModal from "./components/modals/new-game-modal/NewGameModal";
 import GameOverModal from "./components/modals/game-over-modal/GameOverModal";
 import PromotePawnModal from "./components/modals/promote-pawn-modal/PromotePawnModal";
+import {nameSymbolsLimit, secondsLimit} from "./utils/constants";
 
 function App() {
 
@@ -18,38 +19,42 @@ function App() {
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
     const [whiteName, setWhiteName] = useState('White');
     const [blackName, setBlackName] = useState('Black');
-    const [modalNewGame, setModalNewGame] = useState(false);
+    const [modalNewGame, setModalNewGame] = useState(true);
     const [modalGameOver, setModalGameOver] = useState(false);
     const [modalPromotePawn, setModalPromotePawn] = useState(false);
-    const [blackTimer, setBlackTimer] = useState<number | null>(null);
-    const [whiteTimer, setWhiteTimer] = useState<number | null>(null);
+    const [seconds, setSeconds] = useState<number | null>(300);
+    const [timeWinner, setTimeWinner] = useState<string | null>(null);
 
-    function restart(timer: number | null, newWhiteName: string, newBlackName: string) {
-        if ((timer === null || (timer > 0 && timer <= 10000)) &&
-            newWhiteName !== '' && newWhiteName.length <= 50 &&
-            newBlackName !== '' && newBlackName.length <= 50) {
-            setBlackTimer(timer);
-            setWhiteTimer(timer);
-            setWhiteName(newWhiteName);
-            setBlackName(newBlackName);
-            setModalNewGame(false);
-            const newBoard = new Board();
-            newBoard.initCells();
-            newBoard.addFigures();
-            setBoard(newBoard);
-            setSelectedCell(null);
-        }
+    function gameSettings(timer: number | null, newWhiteName: string, newBlackName: string) {
+        setSeconds(timer);
+        setTimeWinner(null);
+        setWhiteName(newWhiteName);
+        setBlackName(newBlackName);
+        setModalNewGame(false);
     }
 
-    useEffect(() => {
-        setModalNewGame(true);
-    }, []);
+    function boardSettings() {
+        const newBoard = new Board();
+        newBoard.initCells();
+        newBoard.addFigures();
+        setBoard(newBoard);
+        setSelectedCell(null);
+    }
+
+    function start(timer: number | null, newWhiteName: string, newBlackName: string) {
+        if ((timer === null || (timer > 0 && timer <= secondsLimit)) &&
+            newWhiteName !== '' && newWhiteName.length <= nameSymbolsLimit &&
+            newBlackName !== '' && newBlackName.length <= nameSymbolsLimit) {
+            gameSettings(timer, newWhiteName, newBlackName)
+            boardSettings();
+        }
+    }
 
     return (
         <div className="app">
 
             <NewGameModal modalNewGame={modalNewGame}
-                          restart={restart}
+                          start={start}
             />
 
             <GameOverModal board={board}
@@ -58,8 +63,7 @@ function App() {
                            setModalGameOver={setModalGameOver}
                            whiteName={whiteName}
                            blackName={blackName}
-                           whiteTimer={whiteTimer}
-                           blackTimer={blackTimer}
+                           timeWinner={timeWinner}
             />
 
             <PromotePawnModal
@@ -70,7 +74,7 @@ function App() {
 
             <div className="container">
                 <div className="row justify-content-center">
-                    <div className="col-12 col-sm-9 col-lg-5 my-1">
+                    <div className="col-12 col-sm-10 col-lg-5 my-1">
                         <PlayerAndFigures
                             playerName={blackName}
                             figures={board.lostWhiteFigures}
@@ -83,8 +87,7 @@ function App() {
                             setSelectedCell={setSelectedCell}
                             setModalGameOver={setModalGameOver}
                             setModalPromotePawn={setModalPromotePawn}
-                            blackTimer={blackTimer}
-                            whiteTimer={whiteTimer}
+                            timeWinner={timeWinner}
                         />
                         <PlayerAndFigures
                             playerName={whiteName}
@@ -94,20 +97,21 @@ function App() {
                         />
                     </div>
                     <div
-                        className="col-12 col-sm-6 col-lg-3 order-lg-first d-flex justify-content-center align-items-center">
+                        className="col-12 col-sm-5 col-lg-3 order-lg-first
+                        d-flex justify-content-center align-items-center">
                         <Timer
-                            blackTimer={blackTimer}
-                            setBlackTimer={setBlackTimer}
-                            whiteTimer={whiteTimer}
-                            setWhiteTimer={setWhiteTimer}
+                            board={board}
+                            seconds={seconds}
+                            setSeconds={setSeconds}
+                            setTimeWinner={setTimeWinner}
                             blackName={blackName}
                             whiteName={whiteName}
-                            currentPlayer={board.currentPlayer}
                             setModalNewGame={setModalNewGame}
                             setModalGameOver={setModalGameOver}
                         />
                     </div>
-                    <div className="col-12 col-sm-6 col-lg-3 d-flex justify-content-center align-items-center">
+                    <div className="col-12 col-sm-5 col-lg-3
+                    d-flex justify-content-center align-items-center">
                         <Moves whiteMoves={board.whiteMoves} blackMoves={board.blackMoves}/>
                     </div>
                 </div>

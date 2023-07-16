@@ -53,16 +53,16 @@ export class Cell {
         }
     }
 
-    public getCopyCell(board: Board, cell: Cell): Cell {
+    public getCopyCell(board: Board): Cell {
         const newCell = new Cell(
             board,
-            cell.x,
-            cell.y,
-            cell.color,
+            this.x,
+            this.y,
+            this.color,
             null
         );
-        if (cell.figure) {
-            newCell.figure = this.getCopyFigure(cell.figure, newCell);
+        if (this.figure) {
+            newCell.figure = this.getCopyFigure(this.figure, newCell);
         }
         return newCell;
     }
@@ -131,7 +131,7 @@ export class Cell {
 
     public pawnCanMove(target: Cell, isFirstStep: boolean, direction: number, firstStepDirection: number): boolean {
         if ((target.y === this.y + direction
-                || isFirstStep && (target.y === this.y + firstStepDirection))
+                || (isFirstStep && (target.y === this.y + firstStepDirection)))
             && target.x === this.x
             && this.board.getCell(target.x, target.y).isEmpty()) {
             return (
@@ -165,33 +165,43 @@ export class Cell {
         if (this.figure) {
             const move = {
                 id: this.board.blackMoves.length + 1,
-                from: this.coordinates.x.concat(this.coordinates.y),
+                figure: this.figure,
                 to: target.coordinates.x.concat(target.coordinates.y),
-                figure: this.figure
+                attack: false,
+                castling: <string | null> null,
+                board: this.board
             }
-            this.figure.color === Colors.BLACK
-                ?
-                this.board.blackMoves.push(move)
-                :
-                this.board.whiteMoves.push(move)
             this.figure.moveFigure(target);
             if (target.figure) {
                 this.board.addLostFigure(target.figure);
+                move.attack = true;
+            }
+            if (this.board.castling) {
+                move.castling = this.board.castling;
+                this.board.castling = null;
             }
             target.setFigure(this.figure);
             this.figure = null;
             this.board.swipePlayer();
             this.board.checkUpd();
             this.board.stalemateAndMateUpd();
+            move.board = this.board.copyBoardDeep();
+            this.board.currentPlayer.color === Colors.BLACK
+                ?
+                this.board.whiteMoves.push(move)
+                :
+                this.board.blackMoves.push(move)
         }
     }
 
     public isMoveDangerousForKing(target: Cell) {
         if (this.figure) {
-            const tempBoard = this.board.getCopyBoard();
-            const newTargetCell = this.getCopyCell(tempBoard, target);
-            newTargetCell.setFigure(this.getCopyFigure(this.figure, newTargetCell));
-            const newFigureCell = this.getCopyCell(tempBoard, this);
+            const tempBoard = this.board.copyBoardForMoves();
+            const newTargetCell = target.getCopyCell(tempBoard);
+            const newFigureCell = this.getCopyCell(tempBoard);
+            if (newFigureCell.figure) {
+                newTargetCell.setFigure(newFigureCell.figure);
+            }
             newFigureCell.figure = null;
             tempBoard.cells[target.y][target.x] = newTargetCell;
             tempBoard.cells[this.y][this.x] = newFigureCell;

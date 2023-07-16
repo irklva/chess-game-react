@@ -27,8 +27,6 @@ const PromotePawnModal: FC<ModalsComponentProps> = ({
 
     function promotePawn(figure: FigureNames) {
         board.promotePawn(figure);
-        board.checkUpd();
-        board.stalemateAndMateUpd();
         setModalPromotePawn(false);
     }
 

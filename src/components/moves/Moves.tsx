@@ -1,10 +1,13 @@
 import React, {FC} from 'react';
 import st from "./moves.module.css";
 import {Figure} from "../../models/figures/Figure";
+import {Board} from "../../models/Board";
+import MoveEntry from "./move-entry/MoveEntry";
+import {Colors} from "../../models/Colors";
 
 interface MovesProps {
-    whiteMoves: { id: number, from: string, to: string, figure: Figure }[];
-    blackMoves: { id: number, from: string, to: string, figure: Figure }[];
+    whiteMoves: { id: number, figure: Figure, to: string, attack: boolean, castling: string | null, board: Board }[];
+    blackMoves: { id: number, figure: Figure, to: string, attack: boolean, castling: string | null, board: Board }[];
 }
 
 const Moves: FC<MovesProps> = ({whiteMoves, blackMoves}) => {
@@ -17,17 +20,9 @@ const Moves: FC<MovesProps> = ({whiteMoves, blackMoves}) => {
                         <div className="col-3 d-flex align-items-end">
                             {move.id}.
                         </div>
-                        <div className="col d-flex align-items-end">
-                            {<img src={move.figure.logo} alt={move.figure.name}
-                                  className={st.logo}/>} {move.from}-{move.to}
-                        </div>
+                            <MoveEntry move={move} playerColor={Colors.WHITE}/>
                         {blackMoves[move.id - 1] &&
-                            <div className="col d-flex align-items-end">
-                                {<img src={blackMoves[move.id - 1].figure.logo}
-                                      alt={blackMoves[move.id - 1].figure.name}
-                                      className={st.logo}/>}
-                                {blackMoves[move.id - 1].from + '-' + blackMoves[move.id - 1].to}
-                            </div>
+                            <MoveEntry move={blackMoves[move.id - 1]} playerColor={Colors.BLACK}/>
                         }
                     </div>
                 )}

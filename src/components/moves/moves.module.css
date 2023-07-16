@@ -9,12 +9,7 @@
 
 .moves {
     height: Calc(100% - 37px);
-    font-size: 80%;
     overflow: auto;
     overflow-x: hidden;
-}
-
-.logo {
-    width: 15px;
-    margin-bottom: 4px;
+    font-size: 90%;
 }

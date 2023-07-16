@@ -1,15 +1,14 @@
-import {Player} from "../../models/Player";
 import React, {Dispatch, FC, SetStateAction, useEffect, useRef, useState} from "react";
 import {Colors} from "../../models/Colors";
 import st from "./timer.module.css";
 import MyButton from "../UI/button/MyButton";
+import {Board} from "../../models/Board";
 
 interface TimerProps {
-    currentPlayer: Player | null;
-    blackTimer: number | null;
-    setBlackTimer: Dispatch<SetStateAction<number | null>>;
-    whiteTimer: number | null;
-    setWhiteTimer: Dispatch<SetStateAction<number | null>>;
+    board: Board;
+    seconds: number | null;
+    setTimeWinner: Dispatch<SetStateAction<string | null>>;
+    setSeconds: Dispatch<SetStateAction<number | null>>;
     blackName: string;
     whiteName: string;
     setModalNewGame: Dispatch<SetStateAction<boolean>>;
@@ -17,11 +16,10 @@ interface TimerProps {
 }
 
 const Timer: FC<TimerProps> = ({
-                                   currentPlayer,
-                                   blackTimer,
-                                   setBlackTimer,
-                                   whiteTimer,
-                                   setWhiteTimer,
+                                   board,
+                                   seconds,
+                                   setSeconds,
+                                   setTimeWinner,
                                    blackName,
                                    whiteName,
                                    setModalNewGame,
@@ -30,13 +28,26 @@ const Timer: FC<TimerProps> = ({
 
     const timer = useRef<null | ReturnType<typeof setInterval>>(null);
     const [needTimer, setNeedTimer] = useState(true);
+    const [blackTimer, setBlackTimer] = useState<number | null>(null);
+    const [whiteTimer, setWhiteTimer] = useState<number | null>(null);
+
+    function timerCheck() {
+        if (blackTimer === 0 || whiteTimer === 0) {
+            setNeedTimer(false);
+            setTimeWinner(blackTimer ? blackName : whiteName);
+            setSeconds(0);
+            setModalGameOver(true);
+        } else {
+            setNeedTimer(true);
+        }
+    }
 
     function startTimer() {
-        if (blackTimer && whiteTimer && needTimer) {
+        if (blackTimer && whiteTimer && needTimer && !board.isMate && !board.isStalemate) {
             if (timer.current) {
                 clearInterval(timer.current);
             }
-            const callback = currentPlayer?.color === Colors.WHITE ? decrementWhiteTimer : decrementBlackTimer;
+            const callback = board.currentPlayer?.color === Colors.WHITE ? decrementWhiteTimer : decrementBlackTimer;
             timer.current = setInterval(callback, 1000);
         } else {
             if (timer.current) {
@@ -56,24 +67,23 @@ const Timer: FC<TimerProps> = ({
     function newGame() {
         setModalNewGame(true);
         setNeedTimer(false);
-    }
-
-    function timerCheck() {
-        if (blackTimer === 0 || whiteTimer === 0) {
-            setNeedTimer(false);
-            setModalGameOver(true);
-        } else {
-            setNeedTimer(true);
-        }
+        setSeconds(0);
     }
 
     useEffect(() => {
         startTimer();
-    }, [currentPlayer, needTimer]);
+    }, [board.currentPlayer, needTimer]);
 
     useEffect(() => {
         timerCheck();
-    }, [blackTimer, whiteTimer])
+    }, [blackTimer, whiteTimer]);
+
+    useEffect(() => {
+        if (seconds !== 0) {
+            setBlackTimer(seconds);
+            setWhiteTimer(seconds);
+        }
+    }, [seconds]);
 
     return (
         <div className={st.main}>

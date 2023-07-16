@@ -10,10 +10,11 @@ import {Figure, FigureNames} from "./figures/Figure";
 import {Player} from "./Player";
 
 export class Board {
-    flag: boolean = false;
     cells: Cell[][] = [];
-    whiteMoves: { id: number, from: string, to: string, figure: Figure }[] = [];
-    blackMoves: { id: number, from: string, to: string, figure: Figure }[] = [];
+    whiteMoves: { id: number, figure: Figure, to: string, attack: boolean,
+        castling: string | null, board: Board }[] = [];
+    blackMoves: { id: number, figure: Figure, to: string, attack: boolean,
+        castling: string | null, board: Board }[] = [];
     whitePlayer: Player = new Player(Colors.WHITE);
     blackPlayer: Player = new Player(Colors.BLACK);
     currentPlayer: Player = this.whitePlayer;
@@ -26,6 +27,7 @@ export class Board {
     isMate: boolean = false;
     isStalemate: boolean = false;
     promotedPawnCell: Cell | null = null;
+    castling: string | null = null;
 
     public initCells() {
         for (let i = 0; i < 8; i++) {
@@ -41,27 +43,49 @@ export class Board {
         }
     }
 
-    public getCopyBoard(): Board {
-        const newBoard = new Board();
-        newBoard.flag = true;
-
+    private copyAllCells(newBoard: Board) {
         const newCells: Cell[][] = [];
         for (let y = 0; y < this.cells.length; y++) {
             const xArray: Cell[] = []
             this.cells[y].forEach(x => {
-                xArray.push(x.getCopyCell(newBoard, x))
+                xArray.push(x.getCopyCell(newBoard))
             })
             newCells.push(xArray);
         }
+        return newCells;
+    }
 
-        newBoard.cells = newCells;
-        newBoard.currentPlayer = new Player(this.currentPlayer.color);
+    public copyBoardDeep(): Board {
+        const newBoard = new Board();
+        newBoard.cells = this.copyAllCells(newBoard);
         newBoard.lostBlackFigures = this.lostBlackFigures.slice(0);
         newBoard.lostWhiteFigures = this.lostWhiteFigures.slice(0);
         newBoard.blackKingCell = {...this.blackKingCell};
         newBoard.whiteKingCell = {...this.whiteKingCell};
         newBoard.isBlackCheck = this.isBlackCheck;
         newBoard.isWhiteCheck = this.isWhiteCheck;
+        newBoard.whiteMoves = this.whiteMoves;
+        newBoard.blackMoves = this.blackMoves;
+        newBoard.whitePlayer = this.whitePlayer;
+        newBoard.blackPlayer = this.blackPlayer;
+        newBoard.currentPlayer = this.currentPlayer;
+        newBoard.isMate = this.isMate;
+        newBoard.isStalemate = this.isStalemate;
+        newBoard.promotedPawnCell = this.promotedPawnCell ?
+            this.promotedPawnCell.getCopyCell(newBoard)
+            :
+            null;
+
+        return newBoard;
+    }
+
+    public copyBoardForMoves(): Board {
+        const newBoard = new Board();
+        newBoard.cells = this.copyAllCells(newBoard);
+        newBoard.currentPlayer = this.currentPlayer;
+        newBoard.blackKingCell = {...this.blackKingCell};
+        newBoard.whiteKingCell = {...this.whiteKingCell};
+
         return newBoard;
     }
 
@@ -69,14 +93,6 @@ export class Board {
         this.cells.forEach(row => {
             row.forEach(target => {
                 target.available = !!selectedCell?.figure?.canMove(target);
-            })
-        })
-    }
-
-    private areAvailableCells(selectedCell: Cell) {
-        return this.cells.some(row => {
-            return row.some(target => {
-                return selectedCell?.figure?.canMove(target) === true;
             })
         })
     }
@@ -106,12 +122,20 @@ export class Board {
         this.isWhiteCheck = this.getCell(this.whiteKingCell.x, this.whiteKingCell.y).attackedCell(Colors.WHITE);
     }
 
+    private areCellsForMove(selectedCell: Cell) {
+        return this.cells.some(row => {
+            return row.some(target => {
+                return selectedCell?.figure?.canMove(target) === true;
+            })
+        })
+    }
+
     private areActiveCells() {
         return this.cells.some(row => {
             return row.some(target => {
                 if (target.figure?.color !== this.currentPlayer.color)
                     return false;
-                return this.areAvailableCells(target);
+                return this.areCellsForMove(target);
             })
         });
     }
@@ -143,6 +167,8 @@ export class Board {
                     break
             }
             this.promotedPawnCell = null;
+            this.checkUpd();
+            this.stalemateAndMateUpd();
         }
     }
 

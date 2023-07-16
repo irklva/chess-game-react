@@ -9,8 +9,7 @@ interface ModalsComponentProps {
     setModalGameOver: Dispatch<SetStateAction<boolean>>;
     whiteName: string;
     blackName: string;
-    whiteTimer: number | null;
-    blackTimer: number | null;
+    timeWinner: string | null;
 }
 
 const GameOverModal: FC<ModalsComponentProps> = ({
@@ -20,8 +19,7 @@ const GameOverModal: FC<ModalsComponentProps> = ({
                                                      setModalGameOver,
                                                      whiteName,
                                                      blackName,
-                                                     whiteTimer,
-                                                     blackTimer
+                                                     timeWinner
                                                  }) => {
 
     function setNewGame() {
@@ -37,20 +35,17 @@ const GameOverModal: FC<ModalsComponentProps> = ({
                      btnName={'New game'}
                      closeBtn={true}
         >
-            {board.isMate && board.isWhiteCheck &&
+            {board.isMate && board.isWhiteCheck && !timeWinner &&
                 <>Mate! {blackName} wins</>
             }
-            {board.isMate && board.isBlackCheck &&
+            {board.isMate && board.isBlackCheck && !timeWinner &&
                 <>Mate! {whiteName} wins</>
             }
-            {board.isStalemate &&
+            {board.isStalemate && !timeWinner &&
                 <>Stalemate</>
             }
-            {whiteTimer === 0 &&
-                <>Time is over! {blackName} wins</>
-            }
-            {blackTimer === 0 &&
-                <>Time is over! {whiteName} wins</>
+            {timeWinner &&
+                <>Time is over! {timeWinner} wins</>
             }
         </ModalWindow>
     );
