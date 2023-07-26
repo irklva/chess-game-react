@@ -13,3 +13,20 @@
     overflow-x: hidden;
     font-size: 90%;
 }
+
+.moves::-webkit-scrollbar {
+    width: 12px;
+    background-color: #c8bfb3;
+}
+
+.moves::-webkit-scrollbar-thumb {
+    border: 2px #b2aba1 solid;
+    border-radius: 6px;
+    background-color: #8a857d;
+}
+
+.moves::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    background-color: #b2aba1;
+}
