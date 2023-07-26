@@ -53,6 +53,7 @@
 }
 
 .available {
+    z-index: 10;
     width: 26%;
     height: 26%;
     background-color: #355264;
@@ -71,6 +72,6 @@
     top: 0;
 }
 
-.move.attacked {
+.attacked {
     background-color: indianred !important;
 }
