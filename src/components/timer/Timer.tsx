@@ -115,7 +115,7 @@ const Timer: FC<TimerProps> = ({board}) => {
                 }</h5>
             </div>
             {blackTimer !== null && !board.getMate && !board.getStalemate &&
-                <MyButton action={infiniteSeconds}>Infinite seconds</MyButton>
+                <MyButton action={infiniteSeconds}>Infinite timers</MyButton>
             }
         </div>
     );

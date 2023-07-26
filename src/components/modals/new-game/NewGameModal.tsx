@@ -119,7 +119,7 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
             <div className={st.checkbox}>
                 <label htmlFor="infiniteSeconds">
                     <div className={st.name}>
-                        Infinite timer
+                        Infinite timers
                     </div>
                     <input id="infiniteSeconds" type="checkbox" checked={infiniteSeconds}
                            onChange={handleCheckboxChange}/>
