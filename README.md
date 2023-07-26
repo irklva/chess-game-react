@@ -1,6 +1,6 @@
 # Chess React pet project 
 <p>
-Implemented chess logic: moves, check, mate, stalemate, castling, pawn promotion.
+Implemented chess logic: moves, check, mate, stalemate, castling, pawn promotion, moves saving.
 The chess models are accessed through the methods of the Board object. The abstraction allows isolating internal fields and methods.
 </p>
 <p>
