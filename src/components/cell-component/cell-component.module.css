@@ -49,21 +49,17 @@
 }
 
 .selected {
-    background-color: lightskyblue !important;
+    background-color: #869194 !important;
 }
 
 .available {
-    width: 30%;
-    height: 30%;
-    background-color: lightskyblue;
+    width: 26%;
+    height: 26%;
+    background-color: #355264;
     border-radius: 50%;
     position: absolute;
-    right: 35%;
-    top: 35%
-}
-
-.attacked {
-    background-color: indianred !important;
+    right: 37%;
+    top: 37%
 }
 
 .move {
@@ -73,4 +69,8 @@
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.move.attacked {
+    background-color: indianred !important;
 }

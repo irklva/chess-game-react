@@ -65,7 +65,7 @@ const CellComponent: FC<CellProps> = ({
         >
             <div className={st.content}>
                 {cell.getAvailable && !cell.getFigureName && <div className={st.available}/>}
-                {(cell.getMoveFrom || cell.getMoveTo) &&
+                {(cell.getMoveFrom || cell.getMoveTo || (cell.getAvailable && cell.getFigureName)) &&
                     <div className={(cell.getAvailable && cell.getFigureName) ? `${st.move} ${st.attacked}` : st.move}></div>}
                 {cell.getFigureLogo && <img src={cell.getFigureLogo} alt=""/>}
                 {cell.getY === 7 &&
