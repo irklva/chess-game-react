@@ -16,7 +16,9 @@
 }
 
 .time {
-    width: 53px;
-    display: flex;
-    justify-content: center;
+    width: 55px;
+}
+
+.infinite {
+    width: fit-content;
 }

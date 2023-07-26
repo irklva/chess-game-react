@@ -1,6 +1,6 @@
 import React, {Dispatch, FC, ReactNode, SetStateAction} from 'react';
 import {Modal} from "react-bootstrap";
-import MyButton from "../../UI/button/MyButton";
+import MyButton from "../UI/button/MyButton";
 import st from "./modal-window.module.css";
 
 interface ModalProps {

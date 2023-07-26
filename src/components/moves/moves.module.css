@@ -1,6 +1,6 @@
 .main {
     width: 100%;
-    height: 40vh;
+    height: 45vh;
     margin: 4px 0;
     padding: 10px;
     background-color: #c7bfb3;
@@ -8,7 +8,7 @@
 }
 
 .moves {
-    height: Calc(100% - 37px);
+    height: Calc(100% - 43px);
     overflow: auto;
     overflow-x: hidden;
     font-size: 90%;

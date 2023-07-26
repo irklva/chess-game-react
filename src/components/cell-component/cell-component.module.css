@@ -11,7 +11,7 @@
     width: 80%;
     position: absolute;
     right: 10%;
-    top: 10%
+    top: 10%;
 }
 
 .black {
@@ -32,6 +32,9 @@
     position: absolute;
     top: 0;
     left: 2%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .x {
@@ -40,22 +43,34 @@
     position: absolute;
     bottom: 0;
     right: 4%;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .selected {
-    background-color: lightskyblue;
+    background-color: lightskyblue !important;
 }
 
 .available {
-    width: 20%;
-    height: 20%;
+    width: 30%;
+    height: 30%;
     background-color: lightskyblue;
     border-radius: 50%;
     position: absolute;
-    right: 40%;
-    top: 40%
+    right: 35%;
+    top: 35%
 }
 
 .attacked {
-    background-color: indianred;
+    background-color: indianred !important;
+}
+
+.move {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(135, 206, 250, 0.5);
+    position: absolute;
+    right: 0;
+    top: 0;
 }

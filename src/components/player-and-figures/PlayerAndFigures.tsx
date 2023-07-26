@@ -1,4 +1,4 @@
-import {Figure} from "../../models/figures/Figure";
+import {FigureModel} from "../../models/figures/FigureModel";
 import React, {FC} from "react";
 import st from "./player-and-figures.module.css";
 import {Player} from "../../models/Player";
@@ -6,7 +6,7 @@ import {Colors} from "../../models/Colors";
 
 interface LostFiguresProps {
     playerName: string;
-    figures: Figure[];
+    figures: FigureModel[];
     playerColor: Colors;
     currentPlayer: Player;
 }
@@ -23,8 +23,8 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
             <div className={st.figures}>
                 {figures.map(figure =>
                     <div key={figure.id} className={st.figure}>
-                        {figure.logo &&
-                            <img src={figure.logo} alt={figure.name}/>}
+                        {figure.getLogo &&
+                            <img src={figure.getLogo} alt={figure.getName}/>}
                     </div>
                 )}
             </div>
