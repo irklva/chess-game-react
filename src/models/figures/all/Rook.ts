@@ -6,11 +6,10 @@ import {CellModel} from "../../cell/functionality/CellModel";
 
 export class Rook extends FigureModel {
 
-    constructor(color: Colors, cell: CellModel) {
-        super(color, cell);
+    constructor(color: Colors, cell: CellModel, isFirstStep: boolean | null = true) {
+        super(color, cell, isFirstStep);
         this.setLogo = color === Colors.WHITE ? whiteLogo : blackLogo;
         this.setName = FigureNames.ROOK;
-        this.setFirstStep = true;
     }
 
     canMove(target: CellModel, kingIsSaved = true): boolean {

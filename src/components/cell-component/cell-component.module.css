@@ -49,14 +49,14 @@
 }
 
 .selected {
-    background-color: #869194 !important;
+    background-color: royalblue !important;
 }
 
 .available {
     z-index: 10;
     width: 26%;
     height: 26%;
-    background-color: #355264;
+    background-color: royalblue;
     border-radius: 50%;
     position: absolute;
     right: 37%;
@@ -73,5 +73,5 @@
 }
 
 .attacked {
-    background-color: indianred !important;
+    background-color: indianred;
 }

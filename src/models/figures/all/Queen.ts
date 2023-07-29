@@ -12,11 +12,12 @@ export class Queen extends FigureModel {
     }
 
     canMove(target: CellModel, kingIsSaved = true): boolean {
+        const cellParams = this.getCell.parameters;
         if (!super.canMove(target, kingIsSaved))
             return false;
-        if (!this.getCell.parameters.isEmptyVertical(target)
-            && !this.getCell.parameters.isEmptyHorizontal(target)
-            && !this.getCell.parameters.isEmptyDiagonal(target))
+        if (!cellParams.isEmptyVertical(target)
+            && !cellParams.isEmptyHorizontal(target)
+            && !cellParams.isEmptyDiagonal(target))
             return false;
         if (this.getCell.cellFigure.isMoveDangerousForKing(target))
             return false;

@@ -40,9 +40,10 @@ export class CellFigure {
             row.forEach(cell => {
                 cell.parameters.setMoveFrom = false;
                 cell.parameters.setMoveTo = false;
-                if (cell.cellFigure.object?.color === this.object?.color &&
-                    cell.cellFigure.object?.getName === this.object?.getName &&
-                    cell.cellFigure.object?.canMove(target, true) &&
+                const cellFigure = cell.cellFigure.object;
+                if (cellFigure?.color === this.object?.color &&
+                    cellFigure?.getName === this.object?.getName &&
+                    cellFigure?.canMove(target, true) &&
                     cell !== this.cell
                 ) {
                     figures.push(cell);
@@ -50,10 +51,11 @@ export class CellFigure {
             })
         })
         figures.some((figure) => {
-            if (figure.parameters.coordinates.x !== this.cell.parameters.coordinates.x)
-                difX = this.cell.parameters.coordinates.x;
+            const figureCoordinates = this.cell.parameters.coordinates;
+            if (figure.parameters.coordinates.x !== figureCoordinates.x)
+                difX = figureCoordinates.x;
             else
-                difY = this.cell.parameters.coordinates.y;
+                difY = figureCoordinates.y;
             return (difX && difY);
         })
         return (difX + difY);
@@ -88,20 +90,22 @@ export class CellFigure {
     public move(target: CellModel,
                 blackTimer: number | null,
                 whiteTimer: number | null) {
-        if (this.object && target.parameters.getAvailable) {
+        const targetParams = target.parameters;
+        if (this.object && targetParams.getAvailable) {
+            const boardMoves = this.board.moves;
             if (this.board.isDeepCopy) {
                 const boardId = this.board.getId;
-                this.board.moves.newMovesArray(this.board, boardId, Colors.BLACK);
-                this.board.moves.newMovesArray(this.board, boardId, Colors.WHITE);
+                boardMoves.newMovesArray(this.board, boardId, Colors.BLACK);
+                boardMoves.newMovesArray(this.board, boardId, Colors.WHITE);
                 this.board.notCopy();
             }
             const sameCoordinates = this.cellsPreparation(target);
             const moveObject: Move = {
-                id: this.board.moves.black.length + 1,
+                id: boardMoves.black.length + 1,
                 figure: this.object,
                 to: sameCoordinates +
-                    target.parameters.coordinates.x +
-                    target.parameters.coordinates.y,
+                    targetParams.coordinates.x +
+                    targetParams.coordinates.y,
                 attack: false,
                 castling: null,
                 board: null,
@@ -113,13 +117,13 @@ export class CellFigure {
             this.moveFlags(target, moveObject);
             this.relocateObject(target);
             this.cell.parameters.setMoveFrom = true;
-            target.parameters.setMoveTo = true;
+            targetParams.setMoveTo = true;
             if (!this.board.flags.getPawnObject) {
                 this.board.players.swipePlayer();
                 this.board.checkAndMate.checkUpd();
                 this.board.checkAndMate.stalemateAndMateUpd();
                 moveObject.board = this.board.copyBoardDeep();
-                this.board.moves.newMove = moveObject;
+                boardMoves.newMove = moveObject;
             }
         }
     }
@@ -156,11 +160,13 @@ export class CellFigure {
     }
 
     getCopyFigure(cell: CellModel) {
+        const isFirstStep = this.object?.getFirstStep;
+
         switch (this.object?.getName) {
             case FigureNames.PAWN:
-                return new Pawn(this.object.color, cell);
+                return new Pawn(this.object.color, cell, isFirstStep);
             case FigureNames.ROOK:
-                return new Rook(this.object.color, cell);
+                return new Rook(this.object.color, cell, isFirstStep);
             case FigureNames.BISHOP:
                 return new Bishop(this.object.color, cell);
             case FigureNames.KNIGHT:
@@ -168,7 +174,7 @@ export class CellFigure {
             case FigureNames.QUEEN:
                 return new Queen(this.object.color, cell);
             case FigureNames.KING:
-                return new King(this.object.color, cell);
+                return new King(this.object.color, cell, isFirstStep);
             default:
                 return null
         }

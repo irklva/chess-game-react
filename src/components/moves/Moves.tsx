@@ -13,7 +13,7 @@ interface MovesProps {
 const Moves: FC<MovesProps> = ({board, changeBoard}) => {
 
     return (
-        <div className={st.main}>
+        <div className={st.moves_block}>
             <h5>Moves</h5>
             <div className={st.moves}>
                 {board.getWhiteMoves.map((move: Move) =>

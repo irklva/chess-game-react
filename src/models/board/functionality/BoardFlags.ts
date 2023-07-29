@@ -49,11 +49,12 @@ export class BoardFlags {
             board.players.swipePlayer();
             board.checkAndMate.checkUpd();
             board.checkAndMate.stalemateAndMateUpd();
-            this.promoPawnObject.moveObject.board = board.copyBoardDeep();
-            this.promoPawnObject.moveObject.blackTimer = blackTimer;
-            this.promoPawnObject.moveObject.whiteTimer = whiteTimer;
-            this.promoPawnObject.moveObject.promoFigure = newFigure;
-            board.moves.newMove = this.promoPawnObject.moveObject;
+            const promoMove = this.promoPawnObject.moveObject;
+            promoMove.board = board.copyBoardDeep();
+            promoMove.blackTimer = blackTimer;
+            promoMove.whiteTimer = whiteTimer;
+            promoMove.promoFigure = newFigure;
+            board.moves.newMove = promoMove;
             this.promoPawnObject = null;
         }
     }

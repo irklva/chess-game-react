@@ -49,25 +49,56 @@ const CellComponent: FC<CellProps> = ({
         }
     }
 
+    const isBlackKingAttacked = (
+        cell.getFigureName === FigureNames.KING &&
+        cell.getFigureColor === Colors.BLACK &&
+        board.getBlackCheck
+    )
+
+    const isWhiteKingAttacked = (
+        cell.getFigureName === FigureNames.KING &&
+        cell.getFigureColor === Colors.WHITE &&
+        board.getWhiteCheck
+    )
+
+    const isBlackMate = (
+        cell.getFigureColor === Colors.BLACK && board.getBlackCheck && board.getMate
+    )
+
+    const isWhiteMate = (
+        cell.getFigureColor === Colors.WHITE && board.getWhiteCheck && board.getMate
+    )
+
+    const isAttacked = cell.getAvailable && cell.getFigureName;
+
+    const cellClasses = [
+        st.cell,
+        cell.getColor === Colors.BLACK ? st.black : st.white,
+        isAttacked ? st.attacked : '',
+        isBlackKingAttacked ? st.attacked : '',
+        isWhiteKingAttacked ? st.attacked : '',
+        isBlackMate ? st.attacked : '',
+        isWhiteMate ? st.attacked : '',
+        selected ? st.selected : ''
+    ]
+
+    const movedCell = (cell.getMoveFrom || cell.getMoveTo) && !(cell.getAvailable && cell.getFigureName)
+
     return (
         <div
-            className={[st.cell,
-                cell.getColor === Colors.BLACK ? st.black : st.white,
-                cell.getFigureName === FigureNames.KING && cell.getFigureColor === Colors.BLACK
-                    && board.getBlackCheck ? st.attacked : '',
-                cell.getFigureName === FigureNames.KING && cell.getFigureColor === Colors.WHITE
-                    && board.getWhiteCheck ? st.attacked : '',
-                cell.getFigureColor === Colors.BLACK && board.getBlackCheck && board.getMate ? st.attacked : '',
-                cell.getFigureColor === Colors.WHITE && board.getWhiteCheck && board.getMate ? st.attacked : '',
-                selected ? st.selected : ""
-            ].join(' ')}
+            className={cellClasses.join(' ')}
             onClick={() => click()}
         >
             <div className={st.content}>
-                {cell.getAvailable && !cell.getFigureName && <div className={st.available}/>}
-                {(cell.getMoveFrom || cell.getMoveTo || (cell.getAvailable && cell.getFigureName)) &&
-                    <div className={(cell.getAvailable && cell.getFigureName) ? `${st.move} ${st.attacked}` : st.move}></div>}
-                {cell.getFigureLogo && <img src={cell.getFigureLogo} alt=""/>}
+                {cell.getAvailable && !cell.getFigureName &&
+                    <div className={st.available}/>
+                }
+                {movedCell &&
+                    <div className={st.move}></div>
+                }
+                {cell.getFigureLogo &&
+                    <img src={cell.getFigureLogo} alt=""/>
+                }
                 {cell.getY === 7 &&
                     <div className={st.x}>
                         {cell.getChessCoordinates.x}

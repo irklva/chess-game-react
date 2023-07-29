@@ -20,12 +20,12 @@ export class FigureModel {
     readonly id: number;
     private isFirstStep: boolean | null;
 
-    constructor(color: Colors, cell: CellModel) {
+    constructor(color: Colors, cell: CellModel, isFirstStep: boolean | null = null) {
         this.color = color;
         this.logo = null;
         this.name = FigureNames.FIGURE;
         this.id = Math.random();
-        this.isFirstStep = null;
+        this.isFirstStep = isFirstStep;
         this.cell = cell;
         this.cell.cellFigure.setObject = this;
     }
@@ -60,7 +60,7 @@ export class FigureModel {
         return this.isFirstStep;
     }
 
-    protected set setFirstStep(isFirstStep: boolean | null) {
+    protected set setFirstStep(isFirstStep: boolean) {
         this.isFirstStep = isFirstStep;
     }
 

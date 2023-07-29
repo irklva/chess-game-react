@@ -52,9 +52,10 @@ function App() {
                             playerColor={Colors.BLACK}
                             currentPlayer={board.getCurrentPlayer}
                         />
-                        <BoardComponent board={board}
-                        selectedCell={selectedCell}
-                        setSelectedCell={setSelectedCell}
+                        <BoardComponent
+                            board={board}
+                            selectedCell={selectedCell}
+                            setSelectedCell={setSelectedCell}
                         />
                         <PlayerAndFigures
                             playerName={whiteName}

@@ -3,7 +3,7 @@ import st from './my-input.module.css';
 
 const MyInput = ({...props}) => {
     return (
-        <input className={st.main}
+        <input className={st.input}
             {...props}
         />
     );

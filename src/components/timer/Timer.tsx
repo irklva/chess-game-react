@@ -42,6 +42,14 @@ const Timer: FC<TimerProps> = ({board}) => {
         }
     }
 
+    const decrementBlackTimer = () => {
+        dispatch(blackTimerMove());
+    }
+
+    const decrementWhiteTimer = () => {
+        dispatch(whiteTimerMove());
+    }
+
     const startTimer = () => {
         if (blackTimer && whiteTimer && needTimer) {
             if (timer.current) {
@@ -56,15 +64,10 @@ const Timer: FC<TimerProps> = ({board}) => {
         }
     }
 
-    const decrementBlackTimer = () => {
-        dispatch(blackTimerMove());
-    }
-
-    const decrementWhiteTimer = () => {
-        dispatch(whiteTimerMove());
-    }
-
-    const formatTimer = (timer: number) => {
+    const formatTimer = (timer: number | null) => {
+        if (timer === null) {
+            return '∞';
+        }
         const minutes = Math.floor(timer / 60000);
         const seconds = Math.ceil((timer % 60000) / 1000);
         const formattedSeconds = seconds === 60 ? 0 : seconds;
@@ -92,27 +95,23 @@ const Timer: FC<TimerProps> = ({board}) => {
     }, [blackTimer, whiteTimer]);
 
     return (
-        <div className={st.main}>
+        <div className={st.timer_block}>
             <MyButton action={newGame}>New game</MyButton>
             <div className="d-flex align-items-center">
-                <h5 className={st.name}>{blackName}:</h5>
-                <h5 className={blackTimer === null ? st.infinite : st.time}>{
-                    blackTimer === null
-                        ?
-                        '∞'
-                        :
-                        formatTimer(blackTimer)
-                }</h5>
+                <h5 className={st.name}>
+                    {blackName}:
+                </h5>
+                <h5 className={blackTimer === null ? st.infinite : st.time}>
+                    {formatTimer(blackTimer)}
+                </h5>
             </div>
             <div className="d-flex align-items-center">
-                <h5 className={st.name}>{whiteName}:</h5>
-                <h5 className={whiteTimer === null ? st.infinite : st.time}>{
-                    whiteTimer === null
-                        ?
-                        '∞'
-                        :
-                        formatTimer(whiteTimer)
-                }</h5>
+                <h5 className={st.name}>
+                    {whiteName}:
+                </h5>
+                <h5 className={whiteTimer === null ? st.infinite : st.time}>
+                    {formatTimer(whiteTimer)}
+                </h5>
             </div>
             {blackTimer !== null && !board.getMate && !board.getStalemate &&
                 <MyButton action={infiniteSeconds}>Infinite timers</MyButton>

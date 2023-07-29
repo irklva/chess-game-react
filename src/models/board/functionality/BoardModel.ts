@@ -46,12 +46,6 @@ export class BoardModel {
         this.cells.addFigures();
     }
 
-    public promotePawn(figure: FigureNames,
-                       blackTimer: number | null,
-                       whiteTimer: number | null) {
-        this.flags.promotePawn(figure, this, blackTimer, whiteTimer);
-    }
-
     copyBoardDeep(newId: boolean = true): Board {
         const newPlayers = new BoardPlayers(
             this.players.black,
@@ -99,6 +93,12 @@ export class BoardModel {
         newBoard.kings.setBlackKing = {...this.kings.getBlackKing};
         newBoard.kings.setWhiteKing = {...this.kings.getWhiteKing};
         return newBoard;
+    }
+
+    public promotePawn(figure: FigureNames,
+                       blackTimer: number | null,
+                       whiteTimer: number | null) {
+        this.flags.promotePawn(figure, this, blackTimer, whiteTimer);
     }
 
     get getId() {

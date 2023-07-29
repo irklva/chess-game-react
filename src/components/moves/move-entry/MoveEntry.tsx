@@ -33,12 +33,16 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, board, changeBoard}) => {
 
     return (
         <div className={`col-6 d-flex align-items-end 
-                        ${st.main}
+                        ${st.entry}
                         ${move.board?.getId !== board.getId && st.other} 
                         ${move.board?.getId === board.getId && st.current}`}
              onClick={() => changeMove()}>
-            {move.castling === 'big' && "0-0-0"}
-            {move.castling === 'small' && "0-0"}
+            {move.castling === 'big' &&
+                "0-0-0"
+            }
+            {move.castling === 'small' &&
+                "0-0"
+            }
             {!move.castling &&
                 <>
                     {move.figure.getName !== FigureNames.PAWN &&
@@ -48,19 +52,31 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, board, changeBoard}) => {
                                  className={st.logo}/>
                         </div>
                     }
-                    {move.attack && "x"}
+                    {move.attack &&
+                        "x"
+                    }
                     {move.to}
                 </>
             }
             {playerColor === Colors.BLACK && move.board?.getWhiteCheck &&
-                move.board?.getMate && "#"}
+                move.board?.getMate &&
+                "#"
+            }
             {playerColor === Colors.WHITE && move.board?.getBlackCheck &&
-                move.board?.getMate && "#"}
+                move.board?.getMate &&
+                "#"
+            }
             {playerColor === Colors.BLACK && move.board?.getWhiteCheck &&
-                !move.board?.getMate && "+"}
+                !move.board?.getMate &&
+                "+"
+            }
             {playerColor === Colors.WHITE && move.board?.getBlackCheck &&
-                !move.board?.getMate && "+"}
-            {move.board?.getStalemate && "="}
+                !move.board?.getMate &&
+                "+"
+            }
+            {move.board?.getStalemate &&
+                "="
+            }
             {move.promoFigure &&
                 <img src={move.promoFigure.getLogo}
                      alt={move.promoFigure.getName}
