@@ -6,11 +6,16 @@ import {
     initialMinutes,
     initialSeconds,
     minutesLimit,
-    nameSymbolsLimit,
-    secondsLimit
-} from "../../../utils/constants";
+    nameSymbolsLimit
+} from "../../../utils/newGameConstants";
 import {useDispatch, useSelector} from "react-redux";
-import {setBlackTimer, setTimeWinner, setWhiteTimer} from "../../../store/reducers/timersSlice";
+import {
+    setBlackTimer,
+    setBlackTimerMoment, setTimeMoment,
+    setTimeWinner,
+    setWhiteTimer,
+    setWhiteTimerMoment
+} from "../../../store/reducers/timersSlice";
 import {setBlackName, setWhiteName} from "../../../store/reducers/playersSlice";
 import {getModalNewGame, setModalNewGame} from "../../../store/reducers/modalsSlice";
 import TimerSettings from "./timer-settings/TimerSettings";
@@ -33,19 +38,24 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
     const gameSettings = () => {
         dispatch(setBlackTimer(timerMs));
         dispatch(setWhiteTimer(timerMs));
+        dispatch(setBlackTimerMoment(timerMs));
+        dispatch(setWhiteTimerMoment(timerMs));
+        dispatch(setTimeMoment(new Date().getTime()));
         dispatch(setTimeWinner(null));
         dispatch(setWhiteName(newWhiteName));
         dispatch(setBlackName(newBlackName));
         dispatch(setModalNewGame(false));
     }
 
+    const timersConditions = timer && timer >= 30 && timer <= minutesLimit * 60 &&
+        minutesInput !== null && minutesInput >= 0 &&
+        secondsInput !== null && secondsInput >= 0 && secondsInput <= 59
+
+    const namesConditions = newWhiteName !== '' && newWhiteName.length <= nameSymbolsLimit &&
+        newBlackName !== '' && newBlackName.length <= nameSymbolsLimit;
+
     const newGame = () => {
-        if (timer === null
-            || (timer && timer >= 30 && timer <= minutesLimit * 60
-                && minutesInput !== null && minutesInput >= 0
-                && secondsInput !== null && secondsInput >= 0 && secondsInput <= 59
-                && newWhiteName !== '' && newWhiteName.length <= nameSymbolsLimit
-                && newBlackName !== '' && newBlackName.length <= nameSymbolsLimit)) {
+        if (namesConditions && (timer === null || timersConditions)) {
             gameSettings();
             boardSettings();
         }

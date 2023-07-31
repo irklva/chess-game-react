@@ -15,7 +15,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {getModalPromotePawn, setModalGameOver, setModalPromotePawn} from "../../../store/reducers/modalsSlice";
 import {Board} from "../../../models/board/Board";
 import {Cell} from "../../../models/cell/Cell";
-import {getBlackTimer, getWhiteTimer} from "../../../store/reducers/timersSlice";
+import {
+    getBlackTimerMoment,
+    getTimeMoment, getWhiteTimerMoment,
+    setBlackTimerMoment, setTimeMoment,
+    setWhiteTimerMoment
+} from "../../../store/reducers/timersSlice";
+import {momentsSettings} from "../../../utils/timerUtils";
 
 interface PromotePawnProps {
     board: Board;
@@ -26,11 +32,20 @@ const PromotePawnModal: FC<PromotePawnProps> = ({board, setSelectedCell}) => {
 
     const dispatch = useDispatch();
     const modalPromotePawn = useSelector(getModalPromotePawn);
-    const blackTimer = useSelector(getBlackTimer);
-    const whiteTimer = useSelector(getWhiteTimer);
+    const oldMoment = useSelector(getTimeMoment);
+    const blackTimerMoment = useSelector(getBlackTimerMoment);
+    const whiteTimerMoment = useSelector(getWhiteTimerMoment);
 
     const promotePawn = (figure: FigureNames) => {
-        board.promotePawn(figure, blackTimer, whiteTimer);
+        const [newMoment, newBlackMoment, newWhiteMoment] = momentsSettings(board, oldMoment,
+            blackTimerMoment, whiteTimerMoment);
+        board.getCurrentPlayerColor === Colors.BLACK
+            ?
+            dispatch(setBlackTimerMoment(newBlackMoment))
+            :
+            dispatch(setWhiteTimerMoment(newWhiteMoment))
+        dispatch(setTimeMoment(newMoment));
+        board.promotePawn(figure, newBlackMoment, newWhiteMoment);
         dispatch(setModalPromotePawn(false));
         setSelectedCell(null);
         if (board.getMate || board.getStalemate) {
@@ -48,19 +63,19 @@ const PromotePawnModal: FC<PromotePawnProps> = ({board, setSelectedCell}) => {
         >
             <div className={st.figure_btns}>
                 <div className={st.figure_btn}>
-                    <img src={board.getPromotedPawnCellColor === Colors.BLACK ? black_queen : white_queen}
+                    <img src={board.getPromotedPawnColor === Colors.BLACK ? black_queen : white_queen}
                          alt="black_queen" onClick={() => promotePawn(FigureNames.QUEEN)}/>
                 </div>
                 <div className={st.figure_btn}>
-                    <img src={board.getPromotedPawnCellColor === Colors.BLACK ? black_knight : white_knight}
+                    <img src={board.getPromotedPawnColor === Colors.BLACK ? black_knight : white_knight}
                          alt="black_knight" onClick={() => promotePawn(FigureNames.KNIGHT)}/>
                 </div>
                 <div className={st.figure_btn}>
-                    <img src={board.getPromotedPawnCellColor === Colors.BLACK ? black_bishop : white_bishop}
+                    <img src={board.getPromotedPawnColor === Colors.BLACK ? black_bishop : white_bishop}
                          alt="black_bishop" onClick={() => promotePawn(FigureNames.BISHOP)}/>
                 </div>
                 <div className={st.figure_btn}>
-                    <img src={board.getPromotedPawnCellColor === Colors.BLACK ? black_rook : white_rook}
+                    <img src={board.getPromotedPawnColor === Colors.BLACK ? black_rook : white_rook}
                          alt="black_rook" onClick={() => promotePawn(FigureNames.ROOK)}/>
                 </div>
             </div>

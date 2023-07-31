@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BoardComponent from "./components/board-component/BoardComponent";
-import Timer from "./components/timer/Timer";
+import TimerAndBtns from "./components/timer-and-btns/timerAndBtns";
 import Moves from "./components/moves/Moves";
 import NewGameModal from "./components/modals/new-game/NewGameModal";
 import GameOverModal from "./components/modals/game-over/GameOverModal";
@@ -50,7 +50,7 @@ function App() {
                             playerName={blackName}
                             figures={board.getLostWhiteFigures}
                             playerColor={Colors.BLACK}
-                            currentPlayer={board.getCurrentPlayer}
+                            currentPlayerColor={board.getCurrentPlayerColor}
                         />
                         <BoardComponent
                             board={board}
@@ -61,16 +61,24 @@ function App() {
                             playerName={whiteName}
                             figures={board.getLostBlackFigures}
                             playerColor={Colors.WHITE}
-                            currentPlayer={board.getCurrentPlayer}
+                            currentPlayerColor={board.getCurrentPlayerColor}
                         />
                     </div>
                     <div className="col-12 col-sm-5 col-lg-3 order-lg-first
                                     d-flex justify-content-center align-items-center">
-                        <Timer board={board}/>
+                        <TimerAndBtns
+                            isMate={board.getMate}
+                            isStalemate={board.getStalemate}
+                            currentPlayerColor={board.getCurrentPlayerColor}
+                        />
                     </div>
                     <div className="col-12 col-sm-5 col-lg-3
                                     d-flex justify-content-center align-items-center">
-                        <Moves board={board} changeBoard={changeBoard}/>
+                        <Moves blackMoves={board.getBlackMoves}
+                               whiteMoves={board.getWhiteMoves}
+                               changeBoard={changeBoard}
+                               boardId={board.getId}
+                        />
                     </div>
                 </div>
             </div>

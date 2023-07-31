@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {RootState} from "../store";
 
 interface ModalsState {
     modalNewGame: boolean;
@@ -28,9 +29,9 @@ const modalsSlice = createSlice({
     }
 });
 
-export const getModalNewGame = (state: any) => state.modals.modalNewGame;
-export const getModalGameOver = (state: any) => state.modals.modalGameOver;
-export const getModalPromotePawn = (state: any) => state.modals.modalPromotePawn;
+export const getModalNewGame = (state: RootState) => state.modals.modalNewGame;
+export const getModalGameOver = (state: RootState) => state.modals.modalGameOver;
+export const getModalPromotePawn = (state: RootState) => state.modals.modalPromotePawn;
 export const {setModalNewGame, setModalGameOver, setModalPromotePawn} = modalsSlice.actions;
 
 export default modalsSlice.reducer;

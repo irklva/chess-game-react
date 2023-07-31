@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {RootState} from "../store";
 
 interface PlayersState {
     blackName: string;
@@ -23,8 +24,8 @@ const playersSlice = createSlice({
     }
 });
 
-export const getBlackName = (state: any) => state.players.blackName;
-export const getWhiteName = (state: any) => state.players.whiteName;
+export const getBlackName = (state: RootState) => state.players.blackName;
+export const getWhiteName = (state: RootState) => state.players.whiteName;
 export const {setBlackName, setWhiteName} = playersSlice.actions;
 
 export default playersSlice.reducer;

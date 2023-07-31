@@ -1,7 +1,7 @@
 import React, {Dispatch, FC, SetStateAction} from 'react';
 import st from "../new-game.module.css";
 import MyInput from "../../../UI/input/MyInput";
-import {minutesLimit, secondsLimit} from "../../../../utils/constants";
+import {minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
 
 interface TimerSettingsProps {
     timer: number | null;

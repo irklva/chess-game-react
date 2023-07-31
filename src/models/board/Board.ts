@@ -42,15 +42,15 @@ export class Board {
         return this.model.checkAndMate.getStalemate;
     }
 
-    get getCurrentPlayer() {
-        return this.model.players.getCurrent;
+    get getCurrentPlayerColor() {
+        return this.model.players.getCurrent.color;
     }
 
-    get getPromotedPawnObject() {
-        return this.model.flags.getPawnObject;
+    get getIsPromotedPawnObject() {
+        return !!this.model.flags.getPawnObject;
     }
 
-    get getPromotedPawnCellColor() {
+    get getPromotedPawnColor() {
         return this.model.flags.getPawnObject?.cell.cellFigure.getObject?.color;
     }
 

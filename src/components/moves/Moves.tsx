@@ -3,20 +3,21 @@ import st from "./moves.module.css";
 import MoveEntry from "./move-entry/MoveEntry";
 import {Colors} from "../../models/Colors";
 import {Move} from "../../models/interfaces/Move";
-import {Board} from "../../models/board/Board";
 
 interface MovesProps {
-    board: Board;
+    blackMoves: Move[];
+    whiteMoves: Move[];
     changeBoard: (move: Move) => any;
+    boardId: number;
 }
 
-const Moves: FC<MovesProps> = ({board, changeBoard}) => {
+const Moves: FC<MovesProps> = ({blackMoves, whiteMoves, changeBoard, boardId}) => {
 
     return (
         <div className={st.moves_block}>
             <h5>Moves</h5>
             <div className={st.moves}>
-                {board.getWhiteMoves.map((move: Move) =>
+                {whiteMoves.map((move: Move) =>
                     <div key={move.id} className="row">
                         <div className="col-3 d-flex align-items-end">
                             {move.id}.
@@ -24,13 +25,13 @@ const Moves: FC<MovesProps> = ({board, changeBoard}) => {
                         <div className="col d-flex align-items-end">
                             <MoveEntry move={move}
                                        playerColor={Colors.WHITE}
-                                       board={board}
+                                       boardId={boardId}
                                        changeBoard={changeBoard}
                             />
-                            {board.getBlackMoves[move.id - 1] &&
-                                <MoveEntry move={board.getBlackMoves[move.id - 1]}
+                            {blackMoves[move.id - 1] &&
+                                <MoveEntry move={blackMoves[move.id - 1]}
                                            playerColor={Colors.BLACK}
-                                           board={board}
+                                           boardId={boardId}
                                            changeBoard={changeBoard}
                                 />
                             }

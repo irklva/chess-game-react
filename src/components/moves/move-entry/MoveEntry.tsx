@@ -3,28 +3,30 @@ import {FigureNames} from "../../../models/figures/FigureModel";
 import st from "./entry.module.css";
 import {Colors} from "../../../models/Colors";
 import {Move} from "../../../models/interfaces/Move";
-import {Board} from "../../../models/board/Board";
 import {useDispatch} from "react-redux";
 import {
-    setBlackTimer,
+    setBlackTimer, setBlackTimerMoment, setTimeMoment,
     setTimeWinner,
-    setWhiteTimer
+    setWhiteTimer, setWhiteTimerMoment
 } from "../../../store/reducers/timersSlice";
 
 interface EntryProps {
     move: Move;
     playerColor: Colors;
-    board: Board;
+    boardId: number;
     changeBoard: (move: Move) => any;
 }
 
-const MoveEntry: FC<EntryProps> = ({move, playerColor, board, changeBoard}) => {
+const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) => {
 
     const dispatch = useDispatch();
 
     const changeMove = () => {
-        if (move.board?.getId !== board.getId) {
+        if (move.board?.getId !== boardId) {
             changeBoard(move);
+            dispatch(setTimeMoment(new Date().getTime()));
+            dispatch(setBlackTimerMoment(move.blackTimer));
+            dispatch(setWhiteTimerMoment(move.whiteTimer));
             dispatch(setBlackTimer(move.blackTimer));
             dispatch(setWhiteTimer(move.whiteTimer));
             dispatch(setTimeWinner(null));
@@ -34,15 +36,13 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, board, changeBoard}) => {
     return (
         <div className={`col-6 d-flex align-items-end 
                         ${st.entry}
-                        ${move.board?.getId !== board.getId && st.other} 
-                        ${move.board?.getId === board.getId && st.current}`}
+                        ${move.board?.getId !== boardId && st.other} 
+                        ${move.board?.getId === boardId && st.current}`}
              onClick={() => changeMove()}>
             {move.castling === 'big' &&
-                "0-0-0"
-            }
+                "0-0-0"}
             {move.castling === 'small' &&
-                "0-0"
-            }
+                "0-0"}
             {!move.castling &&
                 <>
                     {move.figure.getName !== FigureNames.PAWN &&
@@ -53,30 +53,24 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, board, changeBoard}) => {
                         </div>
                     }
                     {move.attack &&
-                        "x"
-                    }
+                        "x"}
                     {move.to}
                 </>
             }
             {playerColor === Colors.BLACK && move.board?.getWhiteCheck &&
                 move.board?.getMate &&
-                "#"
-            }
+                "#"}
             {playerColor === Colors.WHITE && move.board?.getBlackCheck &&
                 move.board?.getMate &&
-                "#"
-            }
+                "#"}
             {playerColor === Colors.BLACK && move.board?.getWhiteCheck &&
                 !move.board?.getMate &&
-                "+"
-            }
+                "+"}
             {playerColor === Colors.WHITE && move.board?.getBlackCheck &&
                 !move.board?.getMate &&
-                "+"
-            }
+                "+"}
             {move.board?.getStalemate &&
-                "="
-            }
+                "="}
             {move.promoFigure &&
                 <img src={move.promoFigure.getLogo}
                      alt={move.promoFigure.getName}
