@@ -3,7 +3,7 @@ import st from "./promote-pown.module.css";
 import {Colors} from "../../../models/Colors";
 import black_queen from "../../../assets/black-queen.png";
 import white_queen from "../../../assets/white-queen.png";
-import {FigureNames} from "../../../models/figures/FigureModel";
+import {FigureNames} from "../../../models/figures/functionality/FigureModel";
 import black_knight from "../../../assets/black-knight.png";
 import white_knight from "../../../assets/white-knight.png";
 import black_bishop from "../../../assets/black-bishop.png";

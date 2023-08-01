@@ -1,4 +1,4 @@
-import {FigureModel} from "./FigureModel";
+import {FigureModel} from "./functionality/FigureModel";
 
 export class Figure {
     private model: FigureModel;

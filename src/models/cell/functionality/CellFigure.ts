@@ -1,14 +1,14 @@
-import {FigureModel, FigureNames} from "../../figures/FigureModel";
+import {FigureModel, FigureNames} from "../../figures/functionality/FigureModel";
 import {CellModel} from "./CellModel";
 import {Colors} from "../../Colors";
 import {BoardModel} from "../../board/functionality/BoardModel";
 import {Move} from "../../interfaces/Move";
-import {Pawn} from "../../figures/all/Pawn";
-import {Rook} from "../../figures/all/Rook";
-import {Bishop} from "../../figures/all/Bishop";
-import {Knight} from "../../figures/all/Knight";
-import {Queen} from "../../figures/all/Queen";
-import {King} from "../../figures/all/King";
+import {Pawn} from "../../figures/functionality/all/Pawn";
+import {Rook} from "../../figures/functionality/all/Rook";
+import {Bishop} from "../../figures/functionality/all/Bishop";
+import {Knight} from "../../figures/functionality/all/Knight";
+import {Queen} from "../../figures/functionality/all/Queen";
+import {King} from "../../figures/functionality/all/King";
 
 export class CellFigure {
     private object: FigureModel | null;

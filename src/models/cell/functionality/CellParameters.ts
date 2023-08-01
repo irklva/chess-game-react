@@ -2,7 +2,7 @@ import {Colors} from "../../Colors";
 import {CellModel} from "./CellModel";
 import {CellFigure} from "./CellFigure";
 import {BoardCells} from "../../board/functionality/BoardCells";
-import {FigureNames} from "../../figures/FigureModel";
+import {FigureNames} from "../../figures/functionality/FigureModel";
 
 interface Coordinates {
     x: string,

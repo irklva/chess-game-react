@@ -1,8 +1,8 @@
-import {FigureModel, FigureNames} from "../../figures/FigureModel";
-import {Queen} from "../../figures/all/Queen";
-import {Knight} from "../../figures/all/Knight";
-import {Rook} from "../../figures/all/Rook";
-import {Bishop} from "../../figures/all/Bishop";
+import {FigureModel, FigureNames} from "../../figures/functionality/FigureModel";
+import {Queen} from "../../figures/functionality/all/Queen";
+import {Knight} from "../../figures/functionality/all/Knight";
+import {Rook} from "../../figures/functionality/all/Rook";
+import {Bishop} from "../../figures/functionality/all/Bishop";
 import {BoardCheckAndMate} from "./BoardCheckAndMate";
 import {PawnPromo} from "../../interfaces/PawnPromo";
 import {BoardModel} from "./BoardModel";

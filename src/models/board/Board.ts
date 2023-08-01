@@ -1,5 +1,5 @@
 import {BoardModel} from "./functionality/BoardModel";
-import {FigureNames} from "../figures/FigureModel";
+import {FigureNames} from "../figures/functionality/FigureModel";
 
 export class Board {
     private model: BoardModel;

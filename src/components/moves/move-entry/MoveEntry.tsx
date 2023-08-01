@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {FigureNames} from "../../../models/figures/FigureModel";
+import {FigureNames} from "../../../models/figures/functionality/FigureModel";
 import st from "./entry.module.css";
 import {Colors} from "../../../models/Colors";
 import {Move} from "../../../models/interfaces/Move";

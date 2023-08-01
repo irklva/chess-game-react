@@ -1,7 +1,7 @@
-import {Colors} from "../Colors";
-import logo from "../../assets/black-bishop.png";
-import {CellModel} from "../cell/functionality/CellModel";
-import {Figure} from "./Figure";
+import {Colors} from "../../Colors";
+import logo from "../../../assets/black-bishop.png";
+import {CellModel} from "../../cell/functionality/CellModel";
+import {Figure} from "../Figure";
 
 export enum FigureNames {
     FIGURE = 'Figure',

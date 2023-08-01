@@ -1,7 +1,7 @@
 import React, {Dispatch, FC, SetStateAction} from "react";
 import st from "./cell-component.module.css";
 import {Colors} from "../../models/Colors";
-import {FigureNames} from "../../models/figures/FigureModel";
+import {FigureNames} from "../../models/figures/functionality/FigureModel";
 import {Cell} from "../../models/cell/Cell";
 import {setModalGameOver, setModalPromotePawn} from "../../store/reducers/modalsSlice";
 import {useDispatch, useSelector} from "react-redux";

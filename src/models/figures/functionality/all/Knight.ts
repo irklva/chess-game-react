@@ -1,8 +1,8 @@
 import {FigureModel, FigureNames} from "../FigureModel";
-import blackLogo from "../../../assets/black-knight.png";
-import whiteLogo from "../../../assets/white-knight.png";
-import {Colors} from "../../Colors";
-import {CellModel} from "../../cell/functionality/CellModel";
+import blackLogo from "../../../../assets/black-knight.png";
+import whiteLogo from "../../../../assets/white-knight.png";
+import {Colors} from "../../../Colors";
+import {CellModel} from "../../../cell/functionality/CellModel";
 
 export class Knight extends FigureModel {
     constructor(color: Colors, cell: CellModel) {

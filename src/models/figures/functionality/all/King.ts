@@ -1,8 +1,8 @@
 import {FigureModel, FigureNames} from "../FigureModel";
-import {Colors} from "../../Colors";
-import whiteLogo from "../../../assets/white-king.png";
-import blackLogo from "../../../assets/black-king.png";
-import {CellModel} from "../../cell/functionality/CellModel";
+import {Colors} from "../../../Colors";
+import whiteLogo from "../../../../assets/white-king.png";
+import blackLogo from "../../../../assets/black-king.png";
+import {CellModel} from "../../../cell/functionality/CellModel";
 
 export class King extends FigureModel {
 
