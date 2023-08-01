@@ -48,7 +48,7 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) =>
                     {move.figure.getName !== FigureNames.PAWN &&
                         <div className={st.cell}>
                             <img src={move.figure.getLogo}
-                                 alt={move.figure.getName}
+                                 alt={`${move.figure.getColor} ${move.figure.getName}`}
                                  className={st.logo}/>
                         </div>
                     }
@@ -73,7 +73,7 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) =>
                 "="}
             {move.promoFigure &&
                 <img src={move.promoFigure.getLogo}
-                     alt={move.promoFigure.getName}
+                     alt={`${move.promoFigure.getColor} ${move.promoFigure.getName}`}
                      className={st.logo}/>
             }
         </div>

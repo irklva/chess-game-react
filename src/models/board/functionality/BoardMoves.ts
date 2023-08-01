@@ -29,7 +29,7 @@ export class BoardMoves {
     }
 
     set newMove(move: Move) {
-        move.figure.color === Colors.BLACK
+        move.figure.getColor === Colors.BLACK
             ?
             this.black.push(move)
             :

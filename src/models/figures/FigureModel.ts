@@ -1,6 +1,7 @@
 import {Colors} from "../Colors";
 import logo from "../../assets/black-bishop.png";
 import {CellModel} from "../cell/functionality/CellModel";
+import {Figure} from "./Figure";
 
 export enum FigureNames {
     FIGURE = 'Figure',
@@ -19,6 +20,7 @@ export class FigureModel {
     private name: FigureNames;
     readonly id: number;
     private isFirstStep: boolean | null;
+    readonly figure: Figure;
 
     constructor(color: Colors, cell: CellModel, isFirstStep: boolean | null = null) {
         this.color = color;
@@ -28,6 +30,7 @@ export class FigureModel {
         this.isFirstStep = isFirstStep;
         this.cell = cell;
         this.cell.cellFigure.setObject = this;
+        this.figure = new Figure(this);
     }
 
     canMove(target: CellModel, kingIsSaved = true): boolean {

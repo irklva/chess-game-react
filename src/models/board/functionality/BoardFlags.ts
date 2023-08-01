@@ -53,7 +53,7 @@ export class BoardFlags {
             promoMove.board = board.copyBoardDeep();
             promoMove.blackTimer = blackTimer;
             promoMove.whiteTimer = whiteTimer;
-            promoMove.promoFigure = newFigure;
+            promoMove.promoFigure = newFigure?.figure || null;
             board.moves.newMove = promoMove;
             this.promoPawnObject = null;
         }

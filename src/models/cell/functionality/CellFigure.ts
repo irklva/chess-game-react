@@ -63,7 +63,7 @@ export class CellFigure {
 
     private moveFlags(target: CellModel, moveObject: Move) {
         if (target.cellFigure.object) {
-            this.board.lostFigures.addLostFigure(target.cellFigure.object);
+            this.board.lostFigures.addLostFigure(target.cellFigure.object.figure);
             moveObject.attack = true;
         }
         if (this.board.flags.getCastling) {
@@ -102,7 +102,7 @@ export class CellFigure {
             const sameCoordinates = this.cellsPreparation(target);
             const moveObject: Move = {
                 id: boardMoves.black.length + 1,
-                figure: this.object,
+                figure: this.object.figure,
                 to: sameCoordinates +
                     targetParams.coordinates.x +
                     targetParams.coordinates.y,

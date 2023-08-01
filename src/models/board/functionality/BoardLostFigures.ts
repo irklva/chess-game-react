@@ -1,17 +1,17 @@
-import {FigureModel} from "../../figures/FigureModel";
 import {Colors} from "../../Colors";
+import {Figure} from "../../figures/Figure";
 
 export class BoardLostFigures {
-    readonly black: FigureModel[] = [];
-    readonly white: FigureModel[] = [];
+    readonly black: Figure[] = [];
+    readonly white: Figure[] = [];
 
-    constructor(black: FigureModel[] = [], white: FigureModel[] = []) {
+    constructor(black: Figure[] = [], white: Figure[] = []) {
         this.black = black;
         this.white = white;
     }
 
-    addLostFigure(figure: FigureModel) {
-        figure.color === Colors.WHITE
+    addLostFigure(figure: Figure) {
+        figure.getColor === Colors.WHITE
             ?
             this.white.push(figure)
             :
