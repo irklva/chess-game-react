@@ -2,7 +2,13 @@ import React, {FC, useState} from "react";
 import st from "./timer-and-btns.module.css";
 import MyButton from "../UI/button/MyButton";
 import {useDispatch} from "react-redux";
-import {setBlackTimer, setWhiteTimer} from "../../store/reducers/timersSlice";
+import {
+    setBlackTimer,
+    setBlackTimerMoment,
+    setTimeMoment,
+    setWhiteTimer,
+    setWhiteTimerMoment
+} from "../../store/reducers/timersSlice";
 import {setModalNewGame} from "../../store/reducers/modalsSlice";
 import Timer from "./timer/Timer";
 import {Colors} from "../../models/Colors";
@@ -30,6 +36,9 @@ const TimerAndBtns: FC<TimerAndBtnsProps> = ({
     const infiniteSeconds = () => {
         dispatch(setBlackTimer(null));
         dispatch(setWhiteTimer(null));
+        dispatch(setBlackTimerMoment(null));
+        dispatch(setWhiteTimerMoment(null));
+        dispatch(setTimeMoment(null));
     }
 
     return (

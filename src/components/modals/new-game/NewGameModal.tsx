@@ -36,11 +36,15 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
     const timerMs = timer ? (timer * 1000) : null;
 
     const gameSettings = () => {
+        if (timerMs) {
+            dispatch(setTimeMoment(new Date().getTime()));
+        } else {
+            dispatch(setTimeMoment(null));
+        }
         dispatch(setBlackTimer(timerMs));
         dispatch(setWhiteTimer(timerMs));
         dispatch(setBlackTimerMoment(timerMs));
         dispatch(setWhiteTimerMoment(timerMs));
-        dispatch(setTimeMoment(new Date().getTime()));
         dispatch(setTimeWinner(null));
         dispatch(setWhiteName(newWhiteName));
         dispatch(setBlackName(newBlackName));

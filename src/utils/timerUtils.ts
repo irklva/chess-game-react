@@ -19,16 +19,19 @@ export function momentsSettings(board: Board,
                                 oldMoment: number | null,
                                 blackTimerMoment: number | null,
                                 whiteTimerMoment: number | null) {
-    let newBlackMoment: number | null;
-    let newWhiteMoment: number | null;
-    const newMoment = new Date().getTime();
-    const interval = newMoment - (oldMoment || 0);
-    if (board.getCurrentPlayerColor === Colors.BLACK) {
-        newBlackMoment = (blackTimerMoment || 0) - interval;
-        newWhiteMoment = whiteTimerMoment;
-    } else {
-        newBlackMoment = blackTimerMoment;
-        newWhiteMoment = (whiteTimerMoment || 0) - interval;
+    let newBlackMoment: number | null = null;
+    let newWhiteMoment: number | null = null;
+    let newMoment: number | null = null;
+    if (oldMoment && blackTimerMoment && whiteTimerMoment) {
+        newMoment = new Date().getTime();
+        const interval = newMoment - (oldMoment || 0);
+        if (board.getCurrentPlayerColor === Colors.BLACK) {
+            newBlackMoment = (blackTimerMoment || 0) - interval;
+            newWhiteMoment = whiteTimerMoment;
+        } else {
+            newBlackMoment = blackTimerMoment;
+            newWhiteMoment = (whiteTimerMoment || 0) - interval;
+        }
     }
     return [newMoment, newBlackMoment, newWhiteMoment];
 }

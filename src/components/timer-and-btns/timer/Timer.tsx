@@ -4,8 +4,8 @@ import {formatTimer, secondDivisor} from "../../../utils/timerUtils";
 import {Colors} from "../../../models/Colors";
 import {
     blackTimerMove,
-    getBlackTimer,
-    getWhiteTimer, setBlackTimer,
+    getBlackTimer, getBlackTimerMoment,
+    getWhiteTimer, getWhiteTimerMoment, setBlackTimer,
     setTimeWinner, setWhiteTimer,
     whiteTimerMove
 } from "../../../store/reducers/timersSlice";
@@ -38,8 +38,10 @@ const Timer: FC<TimerProps> = ({
 
     const timerCheck = () => {
         if (blackTimer && blackTimer < 0) {
+            console.log('1')
             dispatch(setBlackTimer(0));
         } else if (whiteTimer && whiteTimer < 0) {
+            console.log('2')
             dispatch(setWhiteTimer(0));
         } else if (blackTimer === 0 || whiteTimer === 0) {
             setIsTimerRunning(false);

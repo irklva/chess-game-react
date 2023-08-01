@@ -41,12 +41,14 @@ const CellComponent: FC<CellProps> = ({
         if (selectedCell && cell.getAvailable) {
             const [newMoment, newBlackMoment, newWhiteMoment] = momentsSettings(board, oldMoment,
                 blackTimerMoment, whiteTimerMoment);
-            board.getCurrentPlayerColor === Colors.BLACK
-                ?
-                dispatch(setBlackTimerMoment(newBlackMoment))
-                :
-                dispatch(setWhiteTimerMoment(newWhiteMoment))
-            dispatch(setTimeMoment(newMoment));
+            if (newMoment && newBlackMoment && newWhiteMoment) {
+                board.getCurrentPlayerColor === Colors.BLACK
+                    ?
+                    dispatch(setBlackTimerMoment(newBlackMoment))
+                    :
+                    dispatch(setWhiteTimerMoment(newWhiteMoment))
+                dispatch(setTimeMoment(newMoment));
+            }
             selectedCell.move(cell, newBlackMoment, newWhiteMoment);
             selectedCell.highLightMoveCells(true);
             if (board.getMate || board.getStalemate || timeWinner) {
