@@ -9,6 +9,11 @@ import {BoardModel} from "./BoardModel";
 import {Cell} from "../../cell/Cell";
 import {CellModel} from "../../cell/functionality/CellModel";
 
+interface CellsCopy {
+    cells: Cell[][],
+    cellsModels: CellModel[][]
+}
+
 export class BoardCells {
     private all: Cell[][];
     private models: CellModel[][];
@@ -40,7 +45,7 @@ export class BoardCells {
         }
     }
 
-    getModel(x: number, y: number) {
+    getModel(x: number, y: number): CellModel {
         return this.models[y][x];
     }
 
@@ -48,7 +53,7 @@ export class BoardCells {
         this.models[y][x] = cellModel;
     }
 
-    copyAllCells(newBoard: BoardModel): {cells: Cell[][], cellsModels: CellModel[][]} {
+    copyAllCells(newBoard: BoardModel): CellsCopy {
         const newModelsArray: CellModel[][] = [];
         const newCellsArray: Cell[][] = [];
         for (let y = 0; y < this.models.length; y++) {
@@ -112,7 +117,7 @@ export class BoardCells {
         this.addRooks();
     }
 
-    get getAll() {
+    get getAll(): Cell[][] {
         return this.all;
     }
 
@@ -120,7 +125,7 @@ export class BoardCells {
         this.all = cells;
     }
 
-    get getModels() {
+    get getModels(): CellModel[][] {
         return this.models;
     }
 

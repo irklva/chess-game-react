@@ -1,4 +1,7 @@
 import {CellModel} from "./functionality/CellModel";
+import {Coordinates} from "./functionality/CellParameters";
+import {Colors} from "../Colors";
+import {FigureNames} from "../figures/functionality/FigureModel";
 
 export class Cell {
     private model: CellModel;
@@ -17,47 +20,47 @@ export class Cell {
         this.model.cellFigure.highLightMoveCells(reset);
     }
 
-    get getID() {
+    get getID(): number {
         return this.model.parameters.id;
     }
 
-    get getX() {
+    get getX(): number {
         return this.model.parameters.x;
     }
 
-    get getY() {
+    get getY(): number {
         return this.model.parameters.y;
     }
 
-    get getChessCoordinates() {
+    get getChessCoordinates(): Coordinates {
         return this.model.parameters.coordinates;
     }
 
-    get getColor() {
+    get getColor(): Colors {
         return this.model.parameters.color;
     }
 
-    get getAvailable() {
+    get getAvailable(): boolean {
         return this.model.parameters.getAvailable;
     }
 
-    get getMoveFrom() {
+    get getMoveFrom(): boolean {
         return this.model.parameters.getMoveFrom;
     }
 
-    get getMoveTo() {
+    get getMoveTo(): boolean {
         return this.model.parameters.getMoveTo;
     }
 
-    get getFigureColor() {
-        return this.model.cellFigure.getObject?.color;
+    get getFigureColor(): Colors | null {
+        return this.model.cellFigure.getObject?.color || null;
     }
 
-    get getFigureName() {
-        return this.model.cellFigure.getObject?.getName;
+    get getFigureName(): FigureNames | null {
+        return this.model.cellFigure.getObject?.getName || null;
     }
 
-    get getFigureLogo() {
-        return this.model.cellFigure.getObject?.getLogo;
+    get getFigureLogo(): string | null {
+        return this.model.cellFigure.getObject?.getLogo || null;
     }
 }

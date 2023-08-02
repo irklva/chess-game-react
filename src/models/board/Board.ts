@@ -1,5 +1,9 @@
 import {BoardModel} from "./functionality/BoardModel";
 import {FigureNames} from "../figures/functionality/FigureModel";
+import {Cell} from "../cell/Cell";
+import {Colors} from "../Colors";
+import {Move} from "../interfaces/Move";
+import {Figure} from "../figures/Figure";
 
 export class Board {
     private model: BoardModel;
@@ -18,55 +22,55 @@ export class Board {
         this.model.promotePawn(figure, blackTimer, whiteTimer);
     }
 
-    get getId() {
+    get getId(): number {
         return this.model.getId;
     }
 
-    get getCells() {
+    get getCells(): Cell[][] {
         return this.model.cells.getAll;
     }
 
-    get getBlackCheck() {
+    get getBlackCheck(): boolean {
         return this.model.checkAndMate.getBlackCheck;
     }
 
-    get getWhiteCheck() {
+    get getWhiteCheck(): boolean {
         return this.model.checkAndMate.getWhiteCheck;
     }
 
-    get getMate() {
+    get getMate(): boolean {
         return this.model.checkAndMate.getMate;
     }
 
-    get getStalemate() {
+    get getStalemate(): boolean {
         return this.model.checkAndMate.getStalemate;
     }
 
-    get getCurrentPlayerColor() {
+    get getCurrentPlayerColor(): Colors {
         return this.model.players.getCurrent.color;
     }
 
-    get getIsPromotedPawnObject() {
+    get getIsPromotedPawnObject(): boolean {
         return !!this.model.flags.getPawnObject;
     }
 
-    get getPromotedPawnColor() {
-        return this.model.flags.getPawnObject?.cell.cellFigure.getObject?.color;
+    get getPromotedPawnColor(): Colors | null {
+        return this.model.flags.getPawnObject?.cell.cellFigure.getObject?.color || null;
     }
 
-    get getBlackMoves() {
+    get getBlackMoves(): Move[] {
         return this.model.moves.black;
     }
 
-    get getWhiteMoves() {
+    get getWhiteMoves(): Move[] {
         return this.model.moves.white;
     }
 
-    get getLostBlackFigures() {
+    get getLostBlackFigures(): Figure[] {
         return this.model.lostFigures.black;
     }
 
-    get getLostWhiteFigures() {
+    get getLostWhiteFigures(): Figure[] {
         return this.model.lostFigures.white;
     }
 

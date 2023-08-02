@@ -43,7 +43,7 @@ export class FigureModel {
 
     moveFigure(target: CellModel) {}
 
-    get getName() {
+    get getName(): FigureNames {
         return this.name;
     }
 
@@ -51,7 +51,7 @@ export class FigureModel {
         this.name = name;
     }
 
-    get getLogo() {
+    get getLogo(): string {
         return this.logo;
     }
 
@@ -59,7 +59,7 @@ export class FigureModel {
         this.logo = newLogo;
     }
 
-    get getFirstStep() {
+    get getFirstStep(): boolean | null {
         return this.isFirstStep;
     }
 
@@ -67,7 +67,7 @@ export class FigureModel {
         this.isFirstStep = isFirstStep;
     }
 
-    get getCell() {
+    get getCell(): CellModel {
         return this.cell;
     }
 

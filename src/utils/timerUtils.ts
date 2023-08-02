@@ -3,7 +3,7 @@ import {Board} from "../models/board/Board";
 
 export const secondDivisor = 10;
 
-export function formatTimer(timer: number | null) {
+export function formatTimer(timer: number | null): string {
     if (timer === null) {
         return '∞';
     }
@@ -18,7 +18,7 @@ export function formatTimer(timer: number | null) {
 export function momentsSettings(board: Board,
                                 oldMoment: number | null,
                                 blackTimerMoment: number | null,
-                                whiteTimerMoment: number | null) {
+                                whiteTimerMoment: number | null): (number | null)[] {
     let newBlackMoment: number | null = null;
     let newWhiteMoment: number | null = null;
     let newMoment: number | null = null;

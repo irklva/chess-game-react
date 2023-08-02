@@ -24,8 +24,8 @@ const playersSlice = createSlice({
     }
 });
 
-export const getBlackName = (state: RootState) => state.players.blackName;
-export const getWhiteName = (state: RootState) => state.players.whiteName;
+export const getBlackName = (state: RootState): string => state.players.blackName;
+export const getWhiteName = (state: RootState): string => state.players.whiteName;
 export const {setBlackName, setWhiteName} = playersSlice.actions;
 
 export default playersSlice.reducer;

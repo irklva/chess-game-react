@@ -9,6 +9,7 @@ import {
     setTimeWinner,
     setWhiteTimer, setWhiteTimerMoment
 } from "../../../store/reducers/timersSlice";
+import {CastlingNames} from "../../../models/board/functionality/BoardFlags";
 
 interface EntryProps {
     move: Move;
@@ -39,9 +40,9 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) =>
                         ${move.board?.getId !== boardId && st.other} 
                         ${move.board?.getId === boardId && st.current}`}
              onClick={() => changeMove()}>
-            {move.castling === 'big' &&
+            {move.castling === CastlingNames.BIG &&
                 "0-0-0"}
-            {move.castling === 'small' &&
+            {move.castling === CastlingNames.SMALL &&
                 "0-0"}
             {!move.castling &&
                 <>

@@ -37,7 +37,7 @@ export class BoardCheckAndMate {
         this.isWhiteCheck = whiteKingCell.parameters.attacked(Colors.WHITE);
     }
 
-    private areCellsForMove(selectedCell: CellModel) {
+    private areCellsForMove(selectedCell: CellModel): boolean {
         return this.cells.getModels.some(row => {
             return row.some(target => {
                 return selectedCell?.cellFigure.getObject?.canMove(target) === true;
@@ -45,7 +45,7 @@ export class BoardCheckAndMate {
         })
     }
 
-    private areActiveCells() {
+    private areActiveCells(): boolean {
         return this.cells.getModels.some(row => {
             return row.some(target => {
                 if (target.cellFigure.getObject?.color !== this.players.getCurrent.color)
@@ -65,7 +65,7 @@ export class BoardCheckAndMate {
         }
     }
 
-    get getBlackCheck() {
+    get getBlackCheck(): boolean {
         return this.isBlackCheck;
     }
 
@@ -73,7 +73,7 @@ export class BoardCheckAndMate {
         this.isBlackCheck = blackCheck;
     }
 
-    get getWhiteCheck() {
+    get getWhiteCheck(): boolean {
         return this.isWhiteCheck;
     }
 
@@ -81,7 +81,7 @@ export class BoardCheckAndMate {
         this.isWhiteCheck = whiteCheck;
     }
 
-    get getMate() {
+    get getMate(): boolean {
         return this.isMate;
     }
 
@@ -89,7 +89,7 @@ export class BoardCheckAndMate {
         this.isMate = mate;
     }
 
-    get getStalemate() {
+    get getStalemate(): boolean {
         return this.isStalemate;
     }
 

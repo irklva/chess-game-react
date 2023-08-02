@@ -4,6 +4,11 @@ import {CellFigure} from "./CellFigure";
 import {Colors} from "../../Colors";
 import {Cell} from "../Cell";
 
+interface CellCopy {
+    cell: Cell,
+    cellModel: CellModel
+}
+
 export class CellModel {
     parameters: CellParameters;
     cellFigure: CellFigure;
@@ -17,7 +22,7 @@ export class CellModel {
             this.cellFigure, this.board.cells, moveFrom, moveTo);
     }
 
-    copy(board: BoardModel): {cell: Cell, cellModel: CellModel} {
+    copy(board: BoardModel): CellCopy {
         const newCellModel = new CellModel(
             board,
             this.parameters.x,

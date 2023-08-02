@@ -7,18 +7,27 @@ import {BoardCheckAndMate} from "./BoardCheckAndMate";
 import {PawnPromo} from "../../interfaces/PawnPromo";
 import {BoardModel} from "./BoardModel";
 
+export enum CastlingNames {
+    BIG = 'big',
+    SMALL = 'small'
+}
+
 
 export class BoardFlags {
     private promoPawnObject: PawnPromo | null;
-    private castling: string | null;
+    private castling: CastlingNames | null;
     private readonly checkAndMate: BoardCheckAndMate;
 
     constructor(checkAndMate: BoardCheckAndMate,
                 promoPawnObject: PawnPromo | null = null,
-                castling: string | null = null) {
+                castling: CastlingNames | null = null) {
         this.promoPawnObject = promoPawnObject;
         this.castling = castling;
         this.checkAndMate = checkAndMate;
+    }
+
+    private exhaustiveCheck(params: FigureNames) {
+        console.log("Unexpected value " + params);
     }
 
     public promotePawn(type: FigureNames,
@@ -45,6 +54,9 @@ export class BoardFlags {
                 case FigureNames.BISHOP:
                     newFigure = new Bishop(pawnColor,
                         this.promoPawnObject.cell);
+                    break
+                default:
+                    this.exhaustiveCheck(type);
             }
             board.players.swipePlayer();
             board.checkAndMate.checkUpd();
@@ -59,7 +71,7 @@ export class BoardFlags {
         }
     }
 
-    get getPawnObject() {
+    get getPawnObject(): PawnPromo | null {
         return this.promoPawnObject;
     }
 
@@ -67,12 +79,12 @@ export class BoardFlags {
         this.promoPawnObject = object;
     }
 
-    get getCastling() {
+    get getCastling(): CastlingNames | null {
         return this.castling;
     }
 
     set setCastling(castling: string | null) {
-        if (castling === null || castling === 'small' || castling === "big")
+        if (castling === null || castling === CastlingNames.SMALL || castling === CastlingNames.BIG)
             this.castling = castling;
     }
 }

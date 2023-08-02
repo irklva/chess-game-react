@@ -23,7 +23,7 @@ export class BoardPlayers {
             this.current = this.black
     }
 
-    get getCurrent() {
+    get getCurrent(): Player {
         return this.current;
     }
 }

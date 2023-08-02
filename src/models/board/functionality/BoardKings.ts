@@ -17,7 +17,7 @@ export class BoardKings {
         this.whiteKing = whiteKing;
     }
 
-    get getBlackKing() {
+    get getBlackKing(): KingCell {
         return this.blackKing;
     }
 
@@ -25,7 +25,7 @@ export class BoardKings {
         this.blackKing = cellParameters;
     }
 
-    get getWhiteKing() {
+    get getWhiteKing(): KingCell {
         return this.whiteKing;
     }
 

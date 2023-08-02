@@ -1,4 +1,5 @@
-import {FigureModel} from "./functionality/FigureModel";
+import {FigureModel, FigureNames} from "./functionality/FigureModel";
+import {Colors} from "../Colors";
 
 export class Figure {
     private model: FigureModel;
@@ -7,19 +8,19 @@ export class Figure {
         this.model = figureModel;
     }
 
-    get getId() {
+    get getId(): number {
         return this.model.id;
     }
 
-    get getLogo() {
+    get getLogo(): string {
         return this.model.getLogo;
     }
 
-    get getColor() {
+    get getColor(): Colors {
         return this.model.color;
     }
 
-    get getName() {
+    get getName(): FigureNames {
         return this.model.getName;
     }
 

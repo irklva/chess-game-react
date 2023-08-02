@@ -29,9 +29,9 @@ const modalsSlice = createSlice({
     }
 });
 
-export const getModalNewGame = (state: RootState) => state.modals.modalNewGame;
-export const getModalGameOver = (state: RootState) => state.modals.modalGameOver;
-export const getModalPromotePawn = (state: RootState) => state.modals.modalPromotePawn;
+export const getModalNewGame = (state: RootState): boolean => state.modals.modalNewGame;
+export const getModalGameOver = (state: RootState): boolean => state.modals.modalGameOver;
+export const getModalPromotePawn = (state: RootState): boolean => state.modals.modalPromotePawn;
 export const {setModalNewGame, setModalGameOver, setModalPromotePawn} = modalsSlice.actions;
 
 export default modalsSlice.reducer;

@@ -60,12 +60,12 @@ const timersSlice = createSlice({
     }
 });
 
-export const getBlackTimer = (state: RootState) => state.timers.blackTimer;
-export const getWhiteTimer = (state: RootState) => state.timers.whiteTimer;
-export const getBlackTimerMoment = (state: RootState) => state.timers.blackTimerMoment;
-export const getWhiteTimerMoment = (state: RootState) => state.timers.whiteTimerMoment;
-export const getTimeMoment = (state: RootState) => state.timers.timeMoment;
-export const getTimeWinner = (state: RootState) => state.timers.timeWinner;
+export const getBlackTimer = (state: RootState): number | null => state.timers.blackTimer;
+export const getWhiteTimer = (state: RootState): number | null => state.timers.whiteTimer;
+export const getBlackTimerMoment = (state: RootState): number | null => state.timers.blackTimerMoment;
+export const getWhiteTimerMoment = (state: RootState): number | null => state.timers.whiteTimerMoment;
+export const getTimeMoment = (state: RootState): number | null => state.timers.timeMoment;
+export const getTimeWinner = (state: RootState): string | null => state.timers.timeWinner;
 export const {setBlackTimer, setWhiteTimer, blackTimerMove, whiteTimerMove,
     setBlackTimerMoment, setWhiteTimerMoment, setTimeMoment, setTimeWinner} = timersSlice.actions;
 

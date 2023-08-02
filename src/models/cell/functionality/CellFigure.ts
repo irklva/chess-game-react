@@ -32,7 +32,7 @@ export class CellFigure {
         return this.object === null;
     }
 
-    private cellsPreparation(target: CellModel) {
+    private cellsPreparation(target: CellModel): string {
         const figures: CellModel[] = [];
         let difX: string = "";
         let difY: string = "";
@@ -128,7 +128,7 @@ export class CellFigure {
         }
     }
 
-    isMoveDangerousForKing(target: CellModel) {
+    isMoveDangerousForKing(target: CellModel): boolean {
         if (this.object) {
             const tempBoard = this.board.copyBoardModelForMoves();
             const newTargetModel = target.copy(tempBoard).cellModel;
@@ -148,6 +148,8 @@ export class CellFigure {
                 tempBoard.checkAndMate.getBlackCheck
                 :
                 tempBoard.checkAndMate.getWhiteCheck
+        } else {
+            return false;
         }
     }
 
@@ -159,7 +161,11 @@ export class CellFigure {
         })
     }
 
-    getCopyFigure(cell: CellModel) {
+    private exhaustiveCheck(params: CellModel) {
+        console.log("Unexpected value " + params);
+    }
+
+    getCopyFigure(cell: CellModel): FigureModel | null {
         const isFirstStep = this.object?.getFirstStep;
 
         switch (this.object?.getName) {
@@ -176,11 +182,12 @@ export class CellFigure {
             case FigureNames.KING:
                 return new King(this.object.color, cell, isFirstStep);
             default:
-                return null
+                this.exhaustiveCheck(cell);
+                return null;
         }
     }
 
-    get getObject() {
+    get getObject(): FigureModel | null {
         return this.object;
     }
 

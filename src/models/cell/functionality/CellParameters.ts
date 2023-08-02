@@ -4,7 +4,7 @@ import {CellFigure} from "./CellFigure";
 import {BoardCells} from "../../board/functionality/BoardCells";
 import {FigureNames} from "../../figures/functionality/FigureModel";
 
-interface Coordinates {
+export interface Coordinates {
     x: string,
     y: string
 }
@@ -104,7 +104,7 @@ export class CellParameters {
         return this.pawnCanAttack(target, true, direction);
     }
 
-    attacked(attackedPlayerColor: Colors) {
+    attacked(attackedPlayerColor: Colors): boolean {
         return this.boardCells.getModels.some((row) =>
             row.some((figureCell) => {
                 if (figureCell.cellFigure.getObject?.color !== attackedPlayerColor) {
@@ -123,7 +123,7 @@ export class CellParameters {
         )
     }
 
-    get getAvailable() {
+    get getAvailable(): boolean {
         return this.available;
     }
 
@@ -131,7 +131,7 @@ export class CellParameters {
         this.available = available;
     }
 
-    get getMoveFrom() {
+    get getMoveFrom(): boolean {
         return this.moveFrom;
     }
 
@@ -139,7 +139,7 @@ export class CellParameters {
         this.moveFrom = move;
     }
 
-    get getMoveTo() {
+    get getMoveTo(): boolean {
         return this.moveTo;
     }
 

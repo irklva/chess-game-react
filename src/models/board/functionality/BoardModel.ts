@@ -101,11 +101,11 @@ export class BoardModel {
         this.flags.promotePawn(figure, this, blackTimer, whiteTimer);
     }
 
-    get getId() {
+    get getId(): number {
         return this.id;
     }
 
-    get isDeepCopy() {
+    get isDeepCopy(): boolean {
         return this.deepCopy;
     }
 

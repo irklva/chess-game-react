@@ -3,6 +3,7 @@ import {Colors} from "../../../Colors";
 import whiteLogo from "../../../../assets/white-king.png";
 import blackLogo from "../../../../assets/black-king.png";
 import {CellModel} from "../../../cell/functionality/CellModel";
+import {CastlingNames} from "../../../board/functionality/BoardFlags";
 
 export class King extends FigureModel {
 
@@ -12,16 +13,18 @@ export class King extends FigureModel {
         this.setName = FigureNames.KING;
     }
 
-    private castlingParametersUpd(target: CellModel, xKing: number, xRook: number) {
+    private castlingParametersUpd(target: CellModel, xKing: number, xRook: number): boolean {
         const rookCell = target.board.cells.getModel(xRook, this.getCell.parameters.y);
         if (target.parameters.y === this.getCell.parameters.y && target.parameters.x === xKing &&
             rookCell.cellFigure.getObject?.getFirstStep
         ) {
             return true;
+        } else {
+            return false;
         }
     }
 
-    private castling(target: CellModel) {
+    private castling(target: CellModel): boolean {
         const boardCells = this.getCell.board.cells;
         const isCheck = this.color === Colors.BLACK
             ?
@@ -33,7 +36,7 @@ export class King extends FigureModel {
         const rightRook = boardCells.getModel(7, target.parameters.y);
         const rightRookTarget = boardCells.getModel(5, target.parameters.y);
 
-        return (this.getFirstStep && !isCheck &&
+        return !!(this.getFirstStep && !isCheck &&
             ((this.castlingParametersUpd(target, 2, 0) &&
                     this.getCell.parameters.isEmptyHorizontal(leftRook) &&
                 !leftRookTarget.parameters.attacked(this.color))
@@ -72,13 +75,13 @@ export class King extends FigureModel {
                 const leftRook = targetCells.getModel(0, cellY).cellFigure.getObject;
                 targetCells.getModel(3, cellY).cellFigure.setObject = leftRook;
                 targetCells.getModel(0, cellY).cellFigure.setObject = null;
-                this.getCell.board.flags.setCastling = "big";
+                this.getCell.board.flags.setCastling = CastlingNames.BIG;
             }
             if (target.parameters.x === 6) {
                 const rightRook = targetCells.getModel(7, cellY).cellFigure.getObject;
                 targetCells.getModel(5, cellY).cellFigure.setObject = rightRook;
                 targetCells.getModel(7, cellY).cellFigure.setObject = null;
-                this.getCell.board.flags.setCastling = "small";
+                this.getCell.board.flags.setCastling = CastlingNames.SMALL;
             }
         }
         this.setFirstStep = false;
