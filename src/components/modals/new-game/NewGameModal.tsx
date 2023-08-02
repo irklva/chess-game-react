@@ -1,6 +1,6 @@
 import React, {FC, useState} from 'react';
 import st from "./new-game.module.css";
-import MyInput from "../../UI/input/MyInput";
+import MyInput from "../../../UI/input/MyInput";
 import ModalWindow from "../ModalWindow";
 import {
     initialMinutes,
