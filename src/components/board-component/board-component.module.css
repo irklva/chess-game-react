@@ -1,7 +1,9 @@
+@import "../../styles/colors.css";
+
 .board {
     margin: 5px 0;
     box-sizing: content-box;
-    border: #759656 solid 5px;
+    border: var(--black-color) solid 5px;
     overflow: hidden;
     border-radius: 5px;
     display: flex;

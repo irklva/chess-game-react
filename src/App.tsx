@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './App.css';
+import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BoardComponent from "./components/board-component/BoardComponent";
 import TimerAndBtns from "./components/timer-and-btns/timerAndBtns";

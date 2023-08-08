@@ -1,8 +1,10 @@
+@import "../../styles/colors.css";
+
 .timer_and_names_block {
     width: 100%;
     margin: 4px 0;
     padding: 10px;
-    background-color: #c7bfb3;
+    background-color: var(--primary-color);
     border-radius: 5px;
     display: flex;
     flex-direction: column;

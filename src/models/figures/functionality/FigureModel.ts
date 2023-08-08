@@ -51,7 +51,7 @@ export class FigureModel {
         this.name = name;
     }
 
-    get getLogo(): string {
+    get getLogo(): string | null {
         return this.logo;
     }
 

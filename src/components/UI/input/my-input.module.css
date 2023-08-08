@@ -1,0 +1,8 @@
+@import "../../../styles/colors.css";
+
+.input {
+    border: solid 1px var(--btn-first-color);
+    border-radius: 5px;
+    padding: 1px 5px;
+    width: 100%;
+}

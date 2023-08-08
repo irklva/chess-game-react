@@ -1,17 +1,19 @@
+@import "../../../styles/colors.css";
+
 .entry {
     padding: 2px 5px 0 5px;
     height: 27px;
 }
 
 .current {
-    background-color: #8a857d;
-    color: white;
+    background-color: var(--btn-first-hover-color);
+    color: var(--btn-first-hover-font-color);
     cursor: default;
 }
 
 .other:hover {
-    background-color: #8a857d;
-    color: white;
+    background-color: var(--btn-first-hover-color);
+    color: var(--btn-first-hover-font-color);
     cursor: pointer;
 }
 

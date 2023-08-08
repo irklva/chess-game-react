@@ -1,5 +1,5 @@
 import React, {Dispatch, FC, SetStateAction} from 'react';
-import st from "./promote-pown.module.css";
+import st from "./promote-pawn.module.css";
 import {Colors} from "../../../models/Colors";
 import black_queen from "../../../assets/black-queen.png";
 import white_queen from "../../../assets/white-queen.png";

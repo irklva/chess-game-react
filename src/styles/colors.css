@@ -1,0 +1,23 @@
+:root {
+    --primary-color: #c7bfb3;
+
+    --black-color: #759656;
+    --white-color: #e5c486;
+
+    --selected-cell-color: #86A3E5;
+    --available-cell-color: royalblue;
+    --move-cell-color: rgba(135, 206, 250, 0.5);
+    --attacked-cell-color: rgba(238, 39, 39, 0.5);
+
+    --btn-first-color: #b2aba1;
+    --btn-first-hover-color: #8a857d;
+    --btn-first-font-color: black;
+    --btn-first-hover-font-color: white;
+
+    --btn-second-color: lightgray;
+    --btn-second-hover-color: #a6a6a6;
+    --btn-second-font-color: black;
+    --btn-second-hover-font-color: white;
+
+    --background-color: #dad2c5;
+}

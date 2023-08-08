@@ -12,7 +12,7 @@ export class Figure {
         return this.model.id;
     }
 
-    get getLogo(): string {
+    get getLogo(): string | null {
         return this.model.getLogo;
     }
 

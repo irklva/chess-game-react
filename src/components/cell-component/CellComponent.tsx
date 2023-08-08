@@ -69,22 +69,19 @@ const CellComponent: FC<CellProps> = ({
     }
 
     const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING &&
-        cell.getFigureColor === Colors.BLACK && board.getBlackCheck)
+        cell.getFigureColor === Colors.BLACK && board.getBlackCheck);
     const isWhiteKingAttacked = (cell.getFigureName === FigureNames.KING &&
-        cell.getFigureColor === Colors.WHITE && board.getWhiteCheck)
-    const isBlackMate = (cell.getFigureColor === Colors.BLACK && board.getBlackCheck && board.getMate)
-    const isWhiteMate = (cell.getFigureColor === Colors.WHITE && board.getWhiteCheck && board.getMate)
+        cell.getFigureColor === Colors.WHITE && board.getWhiteCheck);
+    const isBlackMate = (cell.getFigureColor === Colors.BLACK && board.getBlackCheck && board.getMate);
+    const isWhiteMate = (cell.getFigureColor === Colors.WHITE && board.getWhiteCheck && board.getMate);
     const isAttacked = cell.getAvailable && cell.getFigureName;
     const selected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
     const movedCell = (cell.getMoveFrom || cell.getMoveTo) && !(cell.getAvailable && cell.getFigureName);
+    const dangerCell = ((isAttacked || isBlackKingAttacked || isWhiteKingAttacked ||
+        isBlackMate || isWhiteMate) && !selected);
     const cellClasses = [
         st.cell,
         cell.getColor === Colors.BLACK ? st.black : st.white,
-        isAttacked ? st.attacked : '',
-        isBlackKingAttacked ? st.attacked : '',
-        isWhiteKingAttacked ? st.attacked : '',
-        isBlackMate ? st.attacked : '',
-        isWhiteMate ? st.attacked : '',
         selected ? st.selected : ''
     ]
 
@@ -97,8 +94,11 @@ const CellComponent: FC<CellProps> = ({
                 {cell.getAvailable && !cell.getFigureName &&
                     <div className={st.available}/>
                 }
+                {dangerCell &&
+                    <div className={`${st.shell} ${st.attacked}`}></div>
+                }
                 {movedCell &&
-                    <div className={st.move}></div>
+                    <div className={`${st.shell} ${st.move}`}></div>
                 }
                 {cell.getFigureLogo &&
                     <img src={cell.getFigureLogo} alt={`${cell.getFigureColor} ${cell.getFigureName}`}/>

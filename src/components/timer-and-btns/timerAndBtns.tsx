@@ -1,6 +1,6 @@
 import React, {FC, useState} from "react";
 import st from "./timer-and-btns.module.css";
-import MyButton from "../../UI/button/MyButton";
+import MyButton from "../UI/button/MyButton";
 import {useDispatch} from "react-redux";
 import {
     setBlackTimer,

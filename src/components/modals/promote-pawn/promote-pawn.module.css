@@ -1,3 +1,5 @@
+@import "../../../styles/colors.css";
+
 .figure_btns {
     width: 100%;
     display: flex;
@@ -7,7 +9,7 @@
 .figure_btn {
     width: 20%;
     padding: 10px;
-    background-color: #e5c486;
+    background-color: var(--white-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +17,7 @@
 
 .figure_btn:hover {
     cursor: pointer;
-    background-color: #759656;
+    background-color: var(--black-color);
 }
 
 .figure_btn img {

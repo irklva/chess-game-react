@@ -1,3 +1,5 @@
+@import "../../../styles/colors.css";
+
 .block {
     display: flex;
     margin-top: 5px;
@@ -45,7 +47,7 @@
 .checkbox span {
     height: 12px;
     width: 12px;
-    border: solid 1px #b2aba1;
+    border: solid 1px var(--btn-first-color);
     display: inline-block;
     position: relative;
     border-radius:2px;

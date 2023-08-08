@@ -1,0 +1,29 @@
+@import "../../../styles/colors.css";
+
+.btn {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: unset;
+    font-weight: bold;
+}
+
+.first {
+    background-color: var(--btn-first-color);
+    color: var(--btn-first-font-color);
+}
+
+.second {
+    background-color: var(--btn-second-color);
+    color: var(--btn-second-font-color);
+ }
+
+.first:hover {
+    background-color: var(--btn-first-hover-color);
+    color: var(--btn-first-hover-font-color);
+}
+
+.second:hover {
+    background-color: var(--btn-second-hover-color);
+    color: var(--btn-second-hover-font-color);
+}
