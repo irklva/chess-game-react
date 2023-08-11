@@ -1,5 +1,5 @@
 import React, {Dispatch, FC, SetStateAction} from 'react';
-import st from "../new-game.module.css";
+import st from "./time-settings.module.css";
 import MyInput from "../../../UI/input/MyInput";
 import {minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
 

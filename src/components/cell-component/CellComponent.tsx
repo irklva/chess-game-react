@@ -1,7 +1,6 @@
 import React, {Dispatch, FC, SetStateAction} from "react";
 import st from "./cell-component.module.css";
 import {Colors} from "../../models/Colors";
-import {FigureNames} from "../../models/figures/functionality/FigureModel";
 import {Cell} from "../../models/cell/Cell";
 import {setModalGameOver, setModalPromotePawn} from "../../store/reducers/modalsSlice";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,6 +15,7 @@ import {
 } from "../../store/reducers/timersSlice";
 import {Board} from "../../models/board/Board";
 import {momentsSettings} from "../../utils/timerUtils";
+import CellContent from "./cell-content/CellContent";
 
 interface CellProps {
     board: Board;
@@ -68,21 +68,11 @@ const CellComponent: FC<CellProps> = ({
         }
     }
 
-    const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING &&
-        cell.getFigureColor === Colors.BLACK && board.getBlackCheck);
-    const isWhiteKingAttacked = (cell.getFigureName === FigureNames.KING &&
-        cell.getFigureColor === Colors.WHITE && board.getWhiteCheck);
-    const isBlackMate = (cell.getFigureColor === Colors.BLACK && board.getBlackCheck && board.getMate);
-    const isWhiteMate = (cell.getFigureColor === Colors.WHITE && board.getWhiteCheck && board.getMate);
-    const isAttacked = cell.getAvailable && cell.getFigureName;
-    const selected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
-    const movedCell = (cell.getMoveFrom || cell.getMoveTo) && !(cell.getAvailable && cell.getFigureName);
-    const dangerCell = ((isAttacked || isBlackKingAttacked || isWhiteKingAttacked ||
-        isBlackMate || isWhiteMate) && !selected);
+    const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
     const cellClasses = [
         st.cell,
         cell.getColor === Colors.BLACK ? st.black : st.white,
-        selected ? st.selected : ''
+        isSelected ? st.selected : ''
     ]
 
     return (
@@ -90,30 +80,11 @@ const CellComponent: FC<CellProps> = ({
             className={cellClasses.join(' ')}
             onClick={() => click()}
         >
-            <div className={st.content}>
-                {cell.getAvailable && !cell.getFigureName &&
-                    <div className={st.available}/>
-                }
-                {dangerCell &&
-                    <div className={`${st.shell} ${st.attacked}`}></div>
-                }
-                {movedCell &&
-                    <div className={`${st.shell} ${st.move}`}></div>
-                }
-                {cell.getFigureLogo &&
-                    <img src={cell.getFigureLogo} alt={`${cell.getFigureColor} ${cell.getFigureName}`}/>
-                }
-                {cell.getY === 7 &&
-                    <div className={st.x}>
-                        {cell.getChessCoordinates.x}
-                    </div>
-                }
-                {cell.getX === 0 &&
-                    <div className={st.y}>
-                        {cell.getChessCoordinates.y}
-                    </div>
-                }
-            </div>
+            <CellContent
+                board={board}
+                cell={cell}
+                isSelected={isSelected}
+            />
         </div>
     );
 };

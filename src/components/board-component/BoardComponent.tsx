@@ -14,7 +14,7 @@ const BoardComponent: FC<BoardProps> = ({board, selectedCell, setSelectedCell}) 
 
     return (
         <div>
-            <div data-proportion-h="1" className={st.board}>
+            <div className={st.board}>
                 {board.getCells.map((row: Cell[], index: number) => (
                     <React.Fragment key={index}>
                         {row.map(cell => (

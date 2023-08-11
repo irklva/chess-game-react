@@ -1,0 +1,29 @@
+@import "../../../../styles/dimensions.css";
+
+.block {
+    display: flex;
+    margin-top: var(--standard-margin);
+}
+
+.block .input {
+    width: Calc(100% - 130px);
+}
+
+.block label {
+    width: 130px;
+}
+
+.block .time {
+    width: 49%;
+}
+
+.time .name {
+    margin-left: var(--standard-margin);
+    font-size: var(--form-message-font-size);
+}
+
+.message {
+    margin-left: var(--standard-margin);
+    font-size: var(--form-message-font-size);
+}
+

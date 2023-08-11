@@ -1,0 +1,49 @@
+:root {
+    --available-point-size: 26%;
+}
+
+.coordinate {
+    color: white;
+    font-size: 80%;
+    position: absolute;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.y {
+    top: 0;
+    left: 2%;
+}
+
+.x {
+    bottom: 0;
+    right: 4%;
+}
+
+.available {
+    z-index: 10;
+    width: var(--available-point-size);
+    height: var(--available-point-size);
+    background-color: var(--available-cell-color);
+    border-radius: 50%;
+    position: absolute;
+    right: Calc((100% - var(--available-point-size))/2);
+    top: Calc((100% - var(--available-point-size))/2);
+}
+
+.shell {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.move {
+    background-color: var(--move-cell-color);
+}
+
+.attacked {
+    background-color: var(--attacked-cell-color);
+}

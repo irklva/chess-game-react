@@ -1,8 +1,9 @@
 @import "../../../styles/colors.css";
+@import "../../../styles/dimensions.css";
 
 .block {
     display: flex;
-    margin-top: 5px;
+    margin-top: var(--standard-margin);
 }
 
 .block label {
@@ -13,22 +14,13 @@
     width: Calc(100% - 130px);
 }
 
-.block .time {
-    width: 49%;
-}
-
-.time .name {
-    padding-left: 5px;
-    font-size: 12px;
-}
-
 .message {
-    padding-left: 5px;
-    font-size: 12px;
+    margin-left: var(--standard-margin);
+    font-size: var(--form-message-font-size);
 }
 
 .checkbox {
-    margin-top: 5px;
+    margin-top: var(--standard-margin);
 }
 
 .checkbox .name {
@@ -50,7 +42,7 @@
     border: solid 1px var(--btn-first-color);
     display: inline-block;
     position: relative;
-    border-radius:2px;
+    border-radius: 2px;
 }
 .checkbox [type=checkbox]:checked + span:before {
     content: url('../../../assets/check.png');
