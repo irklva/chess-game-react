@@ -21,7 +21,7 @@ const TimerSettings: FC<TimerSettingsProps> = ({
                                                    setSecondsInput
                                                }) => {
 
-    const minutesChange = (minutes: any) => {
+    const minutesChange = (minutes: string | null) => {
         const newMinutes = minutes ? parseInt(minutes) : null;
         setMinutesInput(newMinutes);
         if (newMinutes !== null && secondsInput !== null) {
@@ -31,7 +31,7 @@ const TimerSettings: FC<TimerSettingsProps> = ({
         }
     }
 
-    const secondsChange = (seconds: any) => {
+    const secondsChange = (seconds: string | null) => {
         const newSeconds = seconds ? parseInt(seconds) : null;
         setSecondsInput(newSeconds);
         if (newSeconds !== null && minutesInput !== null) {
