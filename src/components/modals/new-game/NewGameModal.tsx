@@ -37,8 +37,8 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
         }
         dispatch(resetTimers(timerMs));
         dispatch(setNames({
-            whiteNames: newWhiteName,
-            blackNames: newBlackName
+            whiteName: newWhiteName,
+            blackName: newBlackName
         }))
         dispatch(setModalNewGame(false));
     }
