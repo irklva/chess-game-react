@@ -15,17 +15,15 @@ const playersSlice = createSlice({
     name: 'players',
     initialState,
     reducers: {
-        setBlackName(state, action) {
-            state.blackName = action.payload;
-        },
-        setWhiteName(state, action) {
-            state.whiteName = action.payload;
+        setNames(state, action) {
+            state.blackName = action.payload.blackName;
+            state.whiteName = action.payload.whiteName;
         }
     }
 });
 
 export const getBlackName = (state: RootState): string => state.players.blackName;
 export const getWhiteName = (state: RootState): string => state.players.whiteName;
-export const {setBlackName, setWhiteName} = playersSlice.actions;
+export const {setNames} = playersSlice.actions;
 
 export default playersSlice.reducer;

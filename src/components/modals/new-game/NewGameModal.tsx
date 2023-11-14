@@ -9,14 +9,8 @@ import {
     nameSymbolsLimit
 } from "../../../utils/newGameConstants";
 import {useDispatch, useSelector} from "react-redux";
-import {
-    setBlackTimer,
-    setBlackTimerMoment, setTimeMoment,
-    setTimeWinner,
-    setWhiteTimer,
-    setWhiteTimerMoment
-} from "../../../store/reducers/timersSlice";
-import {setBlackName, setWhiteName} from "../../../store/reducers/playersSlice";
+import {resetTimers, setTimeMoment} from "../../../store/reducers/timersSlice";
+import {setNames} from "../../../store/reducers/playersSlice";
 import {getModalNewGame, setModalNewGame} from "../../../store/reducers/modalsSlice";
 import TimerSettings from "./timer-settings/TimerSettings";
 
@@ -41,13 +35,11 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
         } else {
             dispatch(setTimeMoment(null));
         }
-        dispatch(setBlackTimer(timerMs));
-        dispatch(setWhiteTimer(timerMs));
-        dispatch(setBlackTimerMoment(timerMs));
-        dispatch(setWhiteTimerMoment(timerMs));
-        dispatch(setTimeWinner(null));
-        dispatch(setWhiteName(newWhiteName));
-        dispatch(setBlackName(newBlackName));
+        dispatch(resetTimers(timerMs));
+        dispatch(setNames({
+            whiteNames: newWhiteName,
+            blackNames: newBlackName
+        }))
         dispatch(setModalNewGame(false));
     }
 

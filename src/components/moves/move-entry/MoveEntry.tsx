@@ -4,11 +4,7 @@ import st from "./entry.module.css";
 import {Colors} from "../../../models/Colors";
 import {Move} from "../../../models/interfaces/Move";
 import {useDispatch} from "react-redux";
-import {
-    setBlackTimer, setBlackTimerMoment, setTimeMoment,
-    setTimeWinner,
-    setWhiteTimer, setWhiteTimerMoment
-} from "../../../store/reducers/timersSlice";
+import {setTimersFromEntry} from "../../../store/reducers/timersSlice";
 import {CastlingNames} from "../../../models/board/functionality/BoardFlags";
 
 interface EntryProps {
@@ -25,12 +21,10 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) =>
     const changeMove = () => {
         if (move.board?.getId !== boardId) {
             changeBoard(move);
-            dispatch(setTimeMoment(new Date().getTime()));
-            dispatch(setBlackTimerMoment(move.blackTimer));
-            dispatch(setWhiteTimerMoment(move.whiteTimer));
-            dispatch(setBlackTimer(move.blackTimer));
-            dispatch(setWhiteTimer(move.whiteTimer));
-            dispatch(setTimeWinner(null));
+            dispatch(setTimersFromEntry({
+                blackTimer: move.blackTimer,
+                whiteTimer: move.whiteTimer
+            }));
         }
     }
 

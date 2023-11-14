@@ -56,6 +56,28 @@ const timersSlice = createSlice({
         },
         setTimeWinner(state, action) {
             state.timeWinner = action.payload;
+        },
+        resetTimers(state, action) {
+            state.blackTimer = action.payload;
+            state.whiteTimer = action.payload;
+            state.blackTimerMoment = action.payload;
+            state.whiteTimerMoment = action.payload;
+            state.timeWinner = null;
+        },
+        setTimersFromEntry(state, action) {
+            state.timeMoment = new Date().getTime();
+            state.blackTimerMoment = action.payload.blackTimer;
+            state.whiteTimerMoment = action.payload.whiteTimer;
+            state.blackTimer = action.payload.blackTimer;
+            state.whiteTimer = action.payload.whiteTimer;
+            state.timeWinner = null;
+        },
+        setTimersToNull(state) {
+            state.blackTimer = null;
+            state.whiteTimer = null;
+            state.blackTimerMoment = null;
+            state.whiteTimerMoment = null;
+            state.timeMoment = null;
         }
     }
 });
@@ -67,6 +89,7 @@ export const getWhiteTimerMoment = (state: RootState): number | null => state.ti
 export const getTimeMoment = (state: RootState): number | null => state.timers.timeMoment;
 export const getTimeWinner = (state: RootState): string | null => state.timers.timeWinner;
 export const {setBlackTimer, setWhiteTimer, blackTimerMove, whiteTimerMove,
-    setBlackTimerMoment, setWhiteTimerMoment, setTimeMoment, setTimeWinner} = timersSlice.actions;
+    setBlackTimerMoment, setWhiteTimerMoment, setTimeMoment, setTimeWinner,
+    resetTimers, setTimersFromEntry, setTimersToNull} = timersSlice.actions;
 
 export default timersSlice.reducer;
