@@ -5,12 +5,8 @@ import {Cell} from "../../models/cell/Cell";
 import {setModalGameOver, setModalPromotePawn} from "../../store/reducers/modalsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {
-    getBlackTimerMoment,
-    getTimeMoment,
-    getTimeWinner,
-    getWhiteTimerMoment,
-    setBlackTimerMoment,
-    setTimeMoment,
+    getBlackTimerMoment, getTimeMoment, getTimeWinner,
+    getWhiteTimerMoment, setBlackTimerMoment, setTimeMoment,
     setWhiteTimerMoment
 } from "../../store/reducers/timersSlice";
 import {Board} from "../../models/board/Board";

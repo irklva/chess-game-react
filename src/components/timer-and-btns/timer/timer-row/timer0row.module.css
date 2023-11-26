@@ -1,0 +1,14 @@
+.name {
+    word-break: break-all;
+    margin: 2px 5px 2px 0;
+}
+
+.time {
+    width: 55px;
+    margin: 2px 0;
+}
+
+.infinite {
+    width: fit-content;
+    margin: 2px 0;
+}

@@ -7,7 +7,7 @@ import {Move} from "../../models/interfaces/Move";
 interface MovesProps {
     blackMoves: Move[];
     whiteMoves: Move[];
-    changeBoard: (move: Move) => any;
+    changeBoard: (move: Move) => void;
     boardId: number;
 }
 

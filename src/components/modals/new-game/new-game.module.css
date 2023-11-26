@@ -1,19 +1,6 @@
 @import "../../../styles/colors.css";
 @import "../../../styles/dimensions.css";
 
-.block {
-    display: flex;
-    margin-top: var(--standard-margin);
-}
-
-.block label {
-    width: 130px;
-}
-
-.block .input {
-    width: Calc(100% - 130px);
-}
-
 .message {
     margin-left: var(--standard-margin);
     font-size: var(--form-message-font-size);

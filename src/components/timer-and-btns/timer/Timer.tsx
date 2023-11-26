@@ -1,6 +1,6 @@
 import React, {Dispatch, FC, SetStateAction, useEffect, useRef} from 'react';
 import st from "./timer.module.css";
-import {formatTimer, secondsDivisor} from "../../../utils/timerUtils";
+import {secondsDivisor} from "../../../utils/timerUtils";
 import {Colors} from "../../../models/Colors";
 import {
     blackTimerMove, getBlackTimer, getWhiteTimer, setBlackTimer,
@@ -9,6 +9,7 @@ import {
 import {setModalGameOver} from "../../../store/reducers/modalsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {getBlackName, getWhiteName} from "../../../store/reducers/playersSlice";
+import TimerRow from "./timer-row/TimerRow";
 
 interface TimerProps {
     isMate: boolean;
@@ -80,22 +81,8 @@ const Timer: FC<TimerProps> = ({
 
     return (
         <div className={st.timer_block}>
-            <div className="d-flex align-items-center">
-                <h5 className={st.name}>
-                    {blackName}:
-                </h5>
-                <h5 className={blackTimer === null ? st.infinite : st.time}>
-                    {formatTimer(blackTimer)}
-                </h5>
-            </div>
-            <div className="d-flex align-items-center">
-                <h5 className={st.name}>
-                    {whiteName}:
-                </h5>
-                <h5 className={whiteTimer === null ? st.infinite : st.time}>
-                    {formatTimer(whiteTimer)}
-                </h5>
-            </div>
+            <TimerRow name={blackName} timer={blackTimer}/>
+            <TimerRow name={whiteName} timer={whiteTimer}/>
         </div>
     );
 };

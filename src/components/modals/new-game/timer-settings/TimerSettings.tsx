@@ -50,7 +50,7 @@ const TimerSettings: FC<TimerSettingsProps> = ({
                     <div className={st.time}>
                         <MyInput id="minutes" type="number" min="0" max={minutesLimit}
                                  value={minutesInput === null ? "" : minutesInput}
-                                 onChange={(e: any) => {
+                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                      minutesChange(e.target.value)
                                  }}/>
                         <div className={st.name}>minutes</div>
@@ -63,7 +63,7 @@ const TimerSettings: FC<TimerSettingsProps> = ({
                     <div className={st.time}>
                         <MyInput id="seconds" type="number" min="0" max={secondsLimit}
                                  value={secondsInput === null ? "" : secondsInput}
-                                 onChange={(e: any) => {
+                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                                      secondsChange(e.target.value)
                                  }}/>
                         <div className={st.name}>seconds</div>

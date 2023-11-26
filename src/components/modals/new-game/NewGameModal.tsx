@@ -1,6 +1,5 @@
 import React, {FC, useState} from 'react';
 import st from "./new-game.module.css";
-import MyInput from "../../UI/input/MyInput";
 import ModalWindow from "../ModalWindow";
 import {
     initialMinutes,
@@ -13,6 +12,7 @@ import {resetTimers, setTimeMoment, timerType} from "../../../store/reducers/tim
 import {setNames} from "../../../store/reducers/playersSlice";
 import {getModalNewGame, setModalNewGame} from "../../../store/reducers/modalsSlice";
 import TimerSettings from "./timer-settings/TimerSettings";
+import PlayerSettings from "./player-settings/PlayerSettings";
 
 interface ModalsComponentProps {
     boardSettings: () => void;
@@ -79,30 +79,18 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
             btnName={'Start'}
             closeBtn={false}
         >
-            <div className={st.block}>
-                <label htmlFor="blackPlayer">Black player: </label>
-                <div className={st.input}>
-                    <MyInput id="blackPlayer" type="text" value={newBlackName}
-                             onChange={(e: any) => setNewBlackName(e.target.value)}/>
-                    {(newBlackName === '' || newBlackName.length > nameSymbolsLimit) &&
-                        <div className={`text-danger ${st.message}`}>
-                            1 - {nameSymbolsLimit} symbols
-                        </div>
-                    }
-                </div>
-            </div>
-            <div className={st.block}>
-                <label htmlFor="whitePlayer">White player: </label>
-                <div className={st.input}>
-                    <MyInput id="whitePlayer" type="text" value={newWhiteName}
-                             onChange={(e: any) => setNewWhiteName(e.target.value)}/>
-                    {(newWhiteName === '' || newWhiteName.length > nameSymbolsLimit) &&
-                        <div className={`text-danger ${st.message}`}>
-                            1 - {nameSymbolsLimit} symbols
-                        </div>
-                    }
-                </div>
-            </div>
+            <PlayerSettings
+                inputId="blackPlayer"
+                newNameLabel="Black player:"
+                newName={newBlackName}
+                setNewName={setNewBlackName}
+            />
+            <PlayerSettings
+                inputId="whitePlayer"
+                newNameLabel="White player:"
+                newName={newWhiteName}
+                setNewName={setNewWhiteName}
+            />
             <div className={st.checkbox}>
                 <label htmlFor="infiniteSeconds">
                     <div className={st.name}>

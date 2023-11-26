@@ -11,7 +11,7 @@ interface EntryProps {
     move: Move;
     playerColor: Colors;
     boardId: number;
-    changeBoard: (move: Move) => any;
+    changeBoard: (move: Move) => void;
 }
 
 const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) => {

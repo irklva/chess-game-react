@@ -16,10 +16,8 @@ import {getModalPromotePawn, setModalGameOver, setModalPromotePawn} from "../../
 import {Board} from "../../../models/board/Board";
 import {Cell} from "../../../models/cell/Cell";
 import {
-    getBlackTimerMoment,
-    getTimeMoment, getWhiteTimerMoment,
-    setBlackTimerMoment, setTimeMoment,
-    setWhiteTimerMoment
+    getBlackTimerMoment, getTimeMoment, getWhiteTimerMoment,
+    setBlackTimerMoment, setTimeMoment, setWhiteTimerMoment
 } from "../../../store/reducers/timersSlice";
 import {momentsSettings} from "../../../utils/timerUtils";
 

@@ -1,0 +1,14 @@
+@import "../../../../styles/dimensions.css";
+
+.block {
+    display: flex;
+    margin-top: var(--standard-margin);
+}
+
+.block label {
+    width: 130px;
+}
+
+.block .input {
+    width: Calc(100% - 130px);
+}
