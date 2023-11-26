@@ -3,10 +3,8 @@ import st from "./timer.module.css";
 import {formatTimer, secondsDivisor} from "../../../utils/timerUtils";
 import {Colors} from "../../../models/Colors";
 import {
-    blackTimerMove, getBlackTimer,
-    getWhiteTimer, setBlackTimer,
-    setTimeWinner, setWhiteTimer,
-    whiteTimerMove
+    blackTimerMove, getBlackTimer, getWhiteTimer, setBlackTimer,
+    setTimeWinner, setWhiteTimer, whiteTimerMove
 } from "../../../store/reducers/timersSlice";
 import {setModalGameOver} from "../../../store/reducers/modalsSlice";
 import {useDispatch, useSelector} from "react-redux";

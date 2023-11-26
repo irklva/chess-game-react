@@ -1,9 +1,10 @@
 import {Colors} from "../models/Colors";
 import {Board} from "../models/board/Board";
+import {timerType} from "../store/reducers/timersSlice";
 
 export const secondsDivisor = 10;
 
-export function formatTimer(timer: number | null): string {
+export function formatTimer(timer: timerType): string {
     if (timer === null) {
         return '∞';
     }
@@ -16,12 +17,12 @@ export function formatTimer(timer: number | null): string {
 }
 
 export function momentsSettings(board: Board,
-                                oldMoment: number | null,
-                                blackTimerMoment: number | null,
-                                whiteTimerMoment: number | null): (number | null)[] {
-    let newBlackMoment: number | null = null;
-    let newWhiteMoment: number | null = null;
-    let newMoment: number | null = null;
+                                oldMoment: timerType,
+                                blackTimerMoment: timerType,
+                                whiteTimerMoment: timerType): (timerType)[] {
+    let newBlackMoment: timerType = null;
+    let newWhiteMoment: timerType = null;
+    let newMoment: timerType = null;
     if (oldMoment && blackTimerMoment && whiteTimerMoment) {
         newMoment = new Date().getTime();
         const interval = newMoment - (oldMoment || 0);

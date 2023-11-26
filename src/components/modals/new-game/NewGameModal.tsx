@@ -9,7 +9,7 @@ import {
     nameSymbolsLimit
 } from "../../../utils/newGameConstants";
 import {useDispatch, useSelector} from "react-redux";
-import {resetTimers, setTimeMoment} from "../../../store/reducers/timersSlice";
+import {resetTimers, setTimeMoment, timerType} from "../../../store/reducers/timersSlice";
 import {setNames} from "../../../store/reducers/playersSlice";
 import {getModalNewGame, setModalNewGame} from "../../../store/reducers/modalsSlice";
 import TimerSettings from "./timer-settings/TimerSettings";
@@ -24,9 +24,9 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
     const [newBlackName, setNewBlackName] = useState('Black');
     const [newWhiteName, setNewWhiteName] = useState('White');
     const [infiniteSeconds, setInfiniteSeconds] = useState(false);
-    const [minutesInput, setMinutesInput] = useState<number | null>(initialMinutes);
-    const [secondsInput, setSecondsInput] = useState<number | null>(initialSeconds);
-    const [timer, setTimer] = useState<number | null>(initialMinutes * 60);
+    const [minutesInput, setMinutesInput] = useState<timerType>(initialMinutes);
+    const [secondsInput, setSecondsInput] = useState<timerType>(initialSeconds);
+    const [timer, setTimer] = useState<timerType>(initialMinutes * 60);
     const timerMs = timer ? (timer * 1000) : null;
 
     const gameSettings = () => {

@@ -2,14 +2,15 @@ import React, {Dispatch, FC, SetStateAction} from 'react';
 import st from "./time-settings.module.css";
 import MyInput from "../../../UI/input/MyInput";
 import {minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
+import {timerType} from "../../../../store/reducers/timersSlice";
 
 interface TimerSettingsProps {
-    timer: number | null;
-    setTimer: Dispatch<SetStateAction<number | null>>;
-    minutesInput: number | null;
-    setMinutesInput: Dispatch<SetStateAction<number | null>>;
-    secondsInput: number | null;
-    setSecondsInput: Dispatch<SetStateAction<number | null>>;
+    timer: timerType;
+    setTimer: Dispatch<SetStateAction<timerType>>;
+    minutesInput: timerType;
+    setMinutesInput: Dispatch<SetStateAction<timerType>>;
+    secondsInput: timerType;
+    setSecondsInput: Dispatch<SetStateAction<timerType>>;
 }
 
 const TimerSettings: FC<TimerSettingsProps> = ({
