@@ -1,6 +1,6 @@
 import React, {Dispatch, FC, SetStateAction, useEffect, useRef} from 'react';
 import st from "./timer.module.css";
-import {formatTimer, secondDivisor} from "../../../utils/timerUtils";
+import {formatTimer, secondsDivisor} from "../../../utils/timerUtils";
 import {Colors} from "../../../models/Colors";
 import {
     blackTimerMove, getBlackTimer,
@@ -34,7 +34,6 @@ const Timer: FC<TimerProps> = ({
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
     const timer = useRef<null | ReturnType<typeof setInterval>>(null);
-    const isMountedRef = useRef<boolean>(false);
 
     const timerCheck = () => {
         if (blackTimer && blackTimer < 0) {
@@ -62,9 +61,9 @@ const Timer: FC<TimerProps> = ({
     }
 
     const startTimer = () => {
-        if (isTimerRunning && isMountedRef.current) {
+        if (isTimerRunning) {
             const callback = currentPlayerColor === Colors.WHITE ? decrementWhiteTimer : decrementBlackTimer;
-            timer.current = setInterval(callback, 1000 / secondDivisor);
+            timer.current = setInterval(callback, 1000 / secondsDivisor);
         }
     }
 
@@ -80,16 +79,6 @@ const Timer: FC<TimerProps> = ({
     useEffect(() => {
         timerCheck();
     }, [blackTimer, whiteTimer, isMate, isStalemate, currentPlayerColor]);
-
-    useEffect(() => {
-        isMountedRef.current = true;
-        return () => {
-            if (timer.current) {
-                clearInterval(timer.current);
-            }
-            isMountedRef.current = false;
-        };
-    }, []);
 
     return (
         <div className={st.timer_block}>

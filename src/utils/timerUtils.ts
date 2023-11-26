@@ -1,7 +1,7 @@
 import {Colors} from "../models/Colors";
 import {Board} from "../models/board/Board";
 
-export const secondDivisor = 10;
+export const secondsDivisor = 10;
 
 export function formatTimer(timer: number | null): string {
     if (timer === null) {
