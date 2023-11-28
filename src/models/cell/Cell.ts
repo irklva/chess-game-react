@@ -20,7 +20,7 @@ export class Cell {
         this.model.cellFigure.highLightMoveCells(reset);
     }
 
-    get getID(): number {
+    get getID(): string {
         return this.model.parameters.id;
     }
 

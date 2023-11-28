@@ -14,7 +14,7 @@ export class CellParameters {
     readonly y: number;
     readonly coordinates: Coordinates;
     readonly color: Colors;
-    readonly id: number; // react keys
+    readonly id: string; // react keys
     private available: boolean; // for a move
     private moveFrom: boolean;
     private moveTo: boolean;
@@ -28,7 +28,7 @@ export class CellParameters {
         this.y = y;
         this.coordinates = {x: String.fromCharCode(97 + this.x), y: (8 - this.y).toString()}
         this.color = color;
-        this.id = Math.random();
+        this.id = `${x} ${y}`;
         this.available = false;
         this.moveFrom = moveFrom;
         this.moveTo = moveTo;
