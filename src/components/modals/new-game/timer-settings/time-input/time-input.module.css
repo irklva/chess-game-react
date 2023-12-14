@@ -1,0 +1,13 @@
+.time {
+    width: 49%;
+}
+
+.time .name {
+    margin-left: var(--standard-margin);
+    font-size: var(--form-message-font-size);
+}
+
+.message {
+    margin-left: var(--standard-margin);
+    font-size: var(--form-message-font-size);
+}

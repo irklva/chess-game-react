@@ -18,7 +18,7 @@ const GameOverModal: FC<GameOverProps> = ({board}) => {
     const whiteName = useSelector(getWhiteName);
     const timeWinner = useSelector(getTimeWinner);
 
-    const openNewGameWindow = () => {
+    const openNewGameModal = () => {
         dispatch(setModalGameOver(false));
         dispatch(setModalNewGame(true));
     }
@@ -27,7 +27,7 @@ const GameOverModal: FC<GameOverProps> = ({board}) => {
         <ModalWindow show={modalGameOver}
                      setShow={() => dispatch(setModalGameOver(false))}
                      title={'Game over'}
-                     action={openNewGameWindow}
+                     action={openNewGameModal}
                      btnName={'New game'}
                      closeBtn={true}
         >

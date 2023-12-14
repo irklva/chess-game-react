@@ -17,16 +17,24 @@ const CellContent: FC<CellContentProps> = ({
                                                isSelected
                                            }) => {
 
-    const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING &&
-        cell.getFigureColor === Colors.BLACK && board.getBlackCheck);
-    const isWhiteKingAttacked = (cell.getFigureName === FigureNames.KING &&
-        cell.getFigureColor === Colors.WHITE && board.getWhiteCheck);
-    const isBlackMate = (cell.getFigureColor === Colors.BLACK && board.getBlackCheck && board.getMate);
-    const isWhiteMate = (cell.getFigureColor === Colors.WHITE && board.getWhiteCheck && board.getMate);
-    const isAttacked = cell.getAvailable && cell.getFigureName;
-    const movedCell = (cell.getMoveFrom || cell.getMoveTo) && !(cell.getAvailable && cell.getFigureName);
-    const dangerCell = ((isAttacked || isBlackKingAttacked || isWhiteKingAttacked ||
-        isBlackMate || isWhiteMate) && !isSelected);
+    const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING
+                                && cell.getFigureColor === Colors.BLACK
+                                && board.getBlackCheck);
+    const isWhiteKingAttacked = (cell.getFigureName === FigureNames.KING
+                                && cell.getFigureColor === Colors.WHITE
+                                && board.getWhiteCheck);
+    const isBlackMate = (cell.getFigureColor === Colors.BLACK
+                        && board.getBlackCheck
+                        && board.getMate);
+    const isWhiteMate = (cell.getFigureColor === Colors.WHITE
+                        && board.getWhiteCheck
+                        && board.getMate);
+    const isAttacked = cell.getAvailable
+                        && cell.getFigureName;
+    const movedCell = (cell.getMoveFrom || cell.getMoveTo)
+                        && !(cell.getAvailable && cell.getFigureName);
+    const dangerCell = ((isAttacked || isBlackKingAttacked || isWhiteKingAttacked || isBlackMate || isWhiteMate)
+                        && !isSelected);
 
     return (
         <div className={st.content}>
@@ -37,7 +45,7 @@ const CellContent: FC<CellContentProps> = ({
                 <div className={`${st.shell} ${st.attacked}`}></div>
             }
             {movedCell &&
-                <div className={`${st.shell} ${st.move}`}></div>
+                <div className={`${st.shell} ${st.moved}`}></div>
             }
             {cell.getFigureLogo &&
                 <img src={cell.getFigureLogo} alt={`${cell.getFigureColor} ${cell.getFigureName}`}/>

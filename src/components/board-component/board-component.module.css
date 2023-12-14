@@ -1,5 +1,5 @@
-@import "../../styles/colors.css";
-@import "../../styles/dimensions.css";
+@import "../../styles/variables/colors.css";
+@import "../../styles/variables/sizes.css";
 
 .board {
     margin: var(--standard-margin) 0;

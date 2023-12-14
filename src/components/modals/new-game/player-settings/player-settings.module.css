@@ -1,4 +1,4 @@
-@import "../../../../styles/dimensions.css";
+@import "../../../../styles/variables/sizes.css";
 
 .block {
     display: flex;

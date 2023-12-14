@@ -1,4 +1,4 @@
-@import "../../../../styles/dimensions.css";
+@import "../../../../styles/variables/sizes.css";
 
 .block {
     display: flex;
@@ -13,17 +13,7 @@
     width: 130px;
 }
 
-.block .time {
-    width: 49%;
-}
-
-.time .name {
+.block .input .message {
     margin-left: var(--standard-margin);
     font-size: var(--form-message-font-size);
 }
-
-.message {
-    margin-left: var(--standard-margin);
-    font-size: var(--form-message-font-size);
-}
-

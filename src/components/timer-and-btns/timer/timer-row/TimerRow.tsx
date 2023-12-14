@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import st from './timer0row.module.css';
+import st from './timer-row.module.css';
 import {formatTimer} from "../../../../utils/timerUtils";
-import {timerType} from "../../../../store/reducers/timersSlice";
+import {timerType} from "../../../../types/types";
 
 interface TimerRowProps {
     name: string;

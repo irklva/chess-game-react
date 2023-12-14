@@ -1,7 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../store";
-
-export type timerType = number | null;
+import {timerType} from "../../types/types";
 
 interface TimersState {
     blackTimer: timerType;
