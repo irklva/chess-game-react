@@ -10,7 +10,7 @@ interface TimerRowProps {
 
 const TimerRow: FC<TimerRowProps> = ({name, timer}) => {
     return (
-        <div className="d-flex align-items-center">
+        <div className="d-flex">
             <h5 className={st.name}>
                 {name}:
             </h5>

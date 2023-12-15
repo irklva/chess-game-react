@@ -6,9 +6,15 @@ import {Colors} from "../../../models/Colors";
 import {secondsDivisor} from "../../../utils/timerUtils";
 import {useRef} from "react";
 import {TimerProps} from "../../../types/types";
+import {useBoard} from "../../../board-context/useBoard";
 
-export const useTimer = ({isMate, isStalemate, currentPlayerColor, isTimerRunning, setIsTimerRunning}: TimerProps) => {
+export const useTimer = ({isTimerRunning, setIsTimerRunning}: TimerProps) => {
     const dispatch = useDispatch();
+    const {
+        getCurrentPlayerColor: currentPlayerColor,
+        getStalemate: isStalemate,
+        getMate: isMate
+    } = useBoard().board;
     const blackTimer = useSelector(getBlackTimer);
     const whiteTimer = useSelector(getWhiteTimer);
     const blackName = useSelector(getBlackName);

@@ -6,17 +6,18 @@ import {Move} from "../../../models/interfaces/Move";
 import {useDispatch} from "react-redux";
 import {setTimersFromEntry} from "../../../store/reducers/timersSlice";
 import {CastlingNames} from "../../../models/board/functionality/BoardFlags";
+import {useBoard} from "../../../board-context/useBoard";
 
 interface EntryProps {
     move: Move;
     playerColor: Colors;
-    boardId: number;
-    changeBoard: (move: Move) => void;
 }
 
-const MoveEntry: FC<EntryProps> = ({move, playerColor, boardId, changeBoard}) => {
+const MoveEntry: FC<EntryProps> = ({move, playerColor}) => {
 
     const dispatch = useDispatch();
+    const {board, changeBoard} = useBoard();
+    const boardId = board.getId;
 
     const changeMove = () => {
         if (move.board?.getId !== boardId) {

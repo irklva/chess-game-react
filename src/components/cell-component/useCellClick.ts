@@ -5,19 +5,16 @@ import {
     getWhiteTimerMoment, setBlackTimerMoment, setTimeMoment,
     setWhiteTimerMoment
 } from "../../store/reducers/timersSlice";
-import {Board} from "../../models/board/Board";
 import {Cell} from "../../models/cell/Cell";
 import {momentsSettings} from "../../utils/timerUtils";
 import {Colors} from "../../models/Colors";
-import {Dispatch, SetStateAction} from "react";
+import {useBoard} from "../../board-context/useBoard";
 
 export const useCellClick = (
-    board: Board,
-    selectedCell: Cell | null,
-    setSelectedCell: Dispatch<SetStateAction<Cell | null>>,
     cell: Cell
 ) => {
     const dispatch = useDispatch();
+    const {board, selectedCell, setSelectedCell} = useBoard();
     const timeWinner = useSelector(getTimeWinner);
     const oldMoment = useSelector(getTimeMoment);
     const blackTimerMoment = useSelector(getBlackTimerMoment);

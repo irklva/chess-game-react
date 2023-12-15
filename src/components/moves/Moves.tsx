@@ -3,15 +3,14 @@ import st from "./moves.module.css";
 import MoveEntry from "./move-entry/MoveEntry";
 import {Colors} from "../../models/Colors";
 import {Move} from "../../models/interfaces/Move";
+import {useBoard} from "../../board-context/useBoard";
 
-interface MovesProps {
-    blackMoves: Move[];
-    whiteMoves: Move[];
-    changeBoard: (move: Move) => void;
-    boardId: number;
-}
+const Moves: FC = () => {
 
-const Moves: FC<MovesProps> = ({blackMoves, whiteMoves, changeBoard, boardId}) => {
+    const {
+        getWhiteMoves: whiteMoves,
+        getBlackMoves: blackMoves
+    } = useBoard().board;
 
     return (
         <div className={st.moves_block}>
@@ -25,14 +24,10 @@ const Moves: FC<MovesProps> = ({blackMoves, whiteMoves, changeBoard, boardId}) =
                         <div className="col d-flex align-items-end">
                             <MoveEntry move={move}
                                        playerColor={Colors.WHITE}
-                                       boardId={boardId}
-                                       changeBoard={changeBoard}
                             />
                             {blackMoves[move.id - 1] &&
                                 <MoveEntry move={blackMoves[move.id - 1]}
                                            playerColor={Colors.BLACK}
-                                           boardId={boardId}
-                                           changeBoard={changeBoard}
                                 />
                             }
                         </div>

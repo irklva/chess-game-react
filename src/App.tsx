@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BoardComponent from "./components/board-component/BoardComponent";
@@ -9,39 +9,22 @@ import GameOverModal from "./components/modals/game-over/GameOverModal";
 import PromotePawnModal from "./components/modals/promote-pawn/PromotePawnModal";
 import PlayerAndFigures from "./components/player-and-figures/PlayerAndFigures";
 import {Colors} from "./models/Colors";
-import {Board} from "./models/board/Board";
-import {Move} from "./models/interfaces/Move";
 import {useSelector} from "react-redux";
 import {getBlackName, getWhiteName} from "./store/reducers/playersSlice";
-import {Cell} from "./models/cell/Cell";
+import {useBoard} from "./board-context/useBoard";
 
 function App() {
-    const [board, setBoard] = useState(new Board());
-    const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
+
+    const {board} = useBoard();
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
-
-    const boardSettings = () => {
-        const newBoard = new Board();
-        newBoard.initBaseLine();
-        setBoard(newBoard);
-        setSelectedCell(null);
-    }
-
-    const changeBoard = (move: Move) => {
-        if (move.board) {
-            selectedCell?.highLightMoveCells(true);
-            setSelectedCell(null);
-            setBoard(move.board);
-        }
-    }
 
     return (
         <div className="app">
 
-            <NewGameModal boardSettings={boardSettings}/>
-            <GameOverModal board={board}/>
-            <PromotePawnModal board={board} setSelectedCell={setSelectedCell}/>
+            <NewGameModal/>
+            <GameOverModal/>
+            <PromotePawnModal/>
 
             <div className="container">
                 <div className="row justify-content-center">
@@ -52,11 +35,7 @@ function App() {
                             playerColor={Colors.BLACK}
                             currentPlayerColor={board.getCurrentPlayerColor}
                         />
-                        <BoardComponent
-                            board={board}
-                            selectedCell={selectedCell}
-                            setSelectedCell={setSelectedCell}
-                        />
+                        <BoardComponent/>
                         <PlayerAndFigures
                             playerName={whiteName}
                             figures={board.getLostBlackFigures}
@@ -66,19 +45,11 @@ function App() {
                     </div>
                     <div className="col-12 col-sm-5 col-lg-3 order-lg-first
                                     d-flex justify-content-center align-items-center">
-                        <TimerAndBtns
-                            isMate={board.getMate}
-                            isStalemate={board.getStalemate}
-                            currentPlayerColor={board.getCurrentPlayerColor}
-                        />
+                        <TimerAndBtns/>
                     </div>
                     <div className="col-12 col-sm-5 col-lg-3
                                     d-flex justify-content-center align-items-center">
-                        <Moves blackMoves={board.getBlackMoves}
-                               whiteMoves={board.getWhiteMoves}
-                               changeBoard={changeBoard}
-                               boardId={board.getId}
-                        />
+                        <Moves/>
                     </div>
                 </div>
             </div>

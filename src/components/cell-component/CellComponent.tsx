@@ -1,26 +1,20 @@
-import React, {Dispatch, FC, SetStateAction} from "react";
+import React, {FC} from "react";
 import st from "./cell-component.module.css";
 import {Colors} from "../../models/Colors";
 import {Cell} from "../../models/cell/Cell";
-import {Board} from "../../models/board/Board";
 import CellContent from "./cell-content/CellContent";
 import {useCellClick} from "./useCellClick";
+import {useBoard} from "../../board-context/useBoard";
 
 interface CellProps {
-    board: Board;
-    selectedCell: Cell | null;
-    setSelectedCell: Dispatch<SetStateAction<Cell | null>>;
     cell: Cell;
 }
 
-const CellComponent: FC<CellProps> = ({
-                                          board,
-                                          selectedCell,
-                                          setSelectedCell,
-                                          cell
-                                      }) => {
+const CellComponent: FC<CellProps> = ({cell}) => {
 
-    const click = useCellClick(board, selectedCell, setSelectedCell, cell);
+    const {selectedCell} = useBoard();
+
+    const click = useCellClick(cell);
 
     const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
     const cellClasses = [
@@ -35,7 +29,6 @@ const CellComponent: FC<CellProps> = ({
             onClick={click}
         >
             <CellContent
-                board={board}
                 cell={cell}
                 isSelected={isSelected}
             />

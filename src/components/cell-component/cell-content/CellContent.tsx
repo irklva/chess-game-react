@@ -2,20 +2,17 @@ import React, {FC} from 'react';
 import st from "./cell-content.module.css";
 import {FigureNames} from "../../../models/figures/functionality/FigureModel";
 import {Colors} from "../../../models/Colors";
-import {Board} from "../../../models/board/Board";
 import {Cell} from "../../../models/cell/Cell";
+import {useBoard} from "../../../board-context/useBoard";
 
 interface CellContentProps {
-    board: Board;
     cell: Cell;
     isSelected: boolean;
 }
 
-const CellContent: FC<CellContentProps> = ({
-                                               board,
-                                               cell,
-                                               isSelected
-                                           }) => {
+const CellContent: FC<CellContentProps> = ({cell, isSelected}) => {
+
+    const {board} = useBoard();
 
     const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING
                                 && cell.getFigureColor === Colors.BLACK

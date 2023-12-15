@@ -9,11 +9,12 @@ import {FigureNames} from "../../../models/figures/functionality/FigureModel";
 import {momentsSettings} from "../../../utils/timerUtils";
 import {Colors} from "../../../models/Colors";
 import {setModalGameOver, setModalPromotePawn} from "../../../store/reducers/modalsSlice";
-import {PromotePawnProps} from "../../../types/types";
+import {useBoard} from "../../../board-context/useBoard";
 
-export const usePromotePawn = ({board, setSelectedCell}: PromotePawnProps) => {
+export const usePromotePawn = () => {
 
     const dispatch = useDispatch();
+    const {board, setSelectedCell} = useBoard();
     const oldMoment = useSelector(getTimeMoment);
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);

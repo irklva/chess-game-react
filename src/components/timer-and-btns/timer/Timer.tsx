@@ -1,29 +1,29 @@
 import React, {FC, useEffect} from 'react';
 import st from "./timer.module.css";
-import {getBlackTimer, getWhiteTimer} from "../../../store/reducers/timersSlice";
+import {getBlackTimer, getTimeMoment, getWhiteTimer} from "../../../store/reducers/timersSlice";
 import {useSelector} from "react-redux";
 import {getBlackName, getWhiteName} from "../../../store/reducers/playersSlice";
 import TimerRow from "./timer-row/TimerRow";
 import {useTimer} from "./useTimer";
 import {TimerProps} from "../../../types/types";
+import {useBoard} from "../../../board-context/useBoard";
 
 const Timer: FC<TimerProps> = ({
-                                   isMate,
-                                   isStalemate,
-                                   currentPlayerColor,
                                    isTimerRunning,
                                    setIsTimerRunning
                                }) => {
-
+    const {
+        getCurrentPlayerColor: currentPlayerColor,
+        getStalemate: isStalemate,
+        getMate: isMate
+    } = useBoard().board;
     const blackTimer = useSelector(getBlackTimer);
     const whiteTimer = useSelector(getWhiteTimer);
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
+    const timeMoment = useSelector(getTimeMoment);
 
     const {timer, timerCheck, startTimer} = useTimer({
-        isMate,
-        isStalemate,
-        currentPlayerColor,
         isTimerRunning,
         setIsTimerRunning
     });
@@ -44,8 +44,10 @@ const Timer: FC<TimerProps> = ({
 
     return (
         <div className={st.timer_block}>
-            <TimerRow name={blackName} timer={blackTimer}/>
-            <TimerRow name={whiteName} timer={whiteTimer}/>
+            <div className={`d-flex flex-column ${timeMoment ? "align-items-end" : "align-items-center"}`}>
+                <TimerRow name={blackName} timer={blackTimer}/>
+                <TimerRow name={whiteName} timer={whiteTimer}/>
+            </div>
         </div>
     );
 };

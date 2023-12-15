@@ -11,11 +11,7 @@ import {
 } from "../../../store/reducers/newGameSlice";
 import {useNewGame} from "./useNewGame";
 
-interface ModalsComponentProps {
-    boardSettings: () => void;
-}
-
-const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
+const NewGameModal: FC = () => {
     const dispatch = useDispatch();
     const modalNewGame = useSelector(getModalNewGame);
     const blackNameInput = useSelector(getBlackNameInput);
@@ -30,7 +26,7 @@ const NewGameModal: FC<ModalsComponentProps> = ({boardSettings}) => {
         dispatch(setWhiteNameInput(newName));
     }
 
-    const newGame = useNewGame(boardSettings);
+    const newGame = useNewGame();
 
     return (
         <ModalWindow

@@ -1,11 +1,11 @@
 # Chess React pet project 
 <p>
 Implemented chess logic: moves, check, mate, stalemate, castling, pawn promotion, moves saving.
-The chess models are accessed through the methods of the Board object. This abstraction allows isolating internal fields and methods.
+The chess models are accessed through the methods of the Board object. This abstraction allows for the isolation of internal fields and methods.
 </p>
 <p>
 Implemented in the external part of the application: game board, timers, move showing, return to other moves.
-The game is available for two players from one device. The application is adaptive for different screens.
+The game supports two players on a single device. The application is adaptive to different screen sizes. 
 </p>
 
 ## Stack

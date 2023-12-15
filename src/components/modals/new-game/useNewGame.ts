@@ -8,11 +8,11 @@ import {
     getNewTimer, getWhiteNameInput
 } from "../../../store/reducers/newGameSlice";
 import {minutesConditions, secondsConditions, timerConditions} from "../../../utils/timerUtils";
+import {useBoard} from "../../../board-context/useBoard";
 
-export const useNewGame = (
-    boardSettings: () => void
-) => {
+export const useNewGame = () => {
     const dispatch = useDispatch();
+    const {boardSettings} = useBoard();
     const blackNameInput = useSelector(getBlackNameInput);
     const whiteNameInput = useSelector(getWhiteNameInput);
     const minutesInput = useSelector(getMinutesInput);

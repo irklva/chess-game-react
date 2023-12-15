@@ -5,19 +5,8 @@ import {useDispatch} from "react-redux";
 import {setTimersToNull} from "../../store/reducers/timersSlice";
 import {setModalNewGame} from "../../store/reducers/modalsSlice";
 import Timer from "./timer/Timer";
-import {Colors} from "../../models/Colors";
 
-interface TimerAndBtnsProps {
-    isMate: boolean;
-    isStalemate: boolean;
-    currentPlayerColor: Colors;
-}
-
-const TimerAndBtns: FC<TimerAndBtnsProps> = ({
-                                                 isMate,
-                                                 isStalemate,
-                                                 currentPlayerColor
-                                             }) => {
+const TimerAndBtns: FC = () => {
 
     const dispatch = useDispatch();
     const [isTimerRunning, setIsTimerRunning] = useState(true);
@@ -35,9 +24,6 @@ const TimerAndBtns: FC<TimerAndBtnsProps> = ({
         <div className={st.timer_and_names_block}>
             <MyButton action={newGame}>New game</MyButton>
             <Timer
-                isMate={isMate}
-                isStalemate={isStalemate}
-                currentPlayerColor={currentPlayerColor}
                 isTimerRunning={isTimerRunning}
                 setIsTimerRunning={setIsTimerRunning}
             />

@@ -4,15 +4,12 @@ import {useDispatch, useSelector} from "react-redux";
 import {getModalGameOver, setModalGameOver, setModalNewGame} from "../../../store/reducers/modalsSlice";
 import {getBlackName, getWhiteName} from "../../../store/reducers/playersSlice";
 import {getTimeWinner} from "../../../store/reducers/timersSlice";
-import {Board} from "../../../models/board/Board";
+import {useBoard} from "../../../board-context/useBoard";
 
-interface GameOverProps {
-    board: Board;
-}
-
-const GameOverModal: FC<GameOverProps> = ({board}) => {
+const GameOverModal: FC = () => {
 
     const dispatch = useDispatch();
+    const {board} = useBoard();
     const modalGameOver = useSelector(getModalGameOver);
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
