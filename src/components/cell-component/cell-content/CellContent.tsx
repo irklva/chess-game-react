@@ -12,14 +12,16 @@ interface CellContentProps {
 
 const CellContent: FC<CellContentProps> = ({cell, isSelected}) => {
 
-    const {board} = useBoard();
+    const {board, selectedCell} = useBoard();
 
     const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING
                                 && cell.getFigureColor === Colors.BLACK
-                                && board.getBlackCheck);
+                                && board.getBlackCheck
+                                && !selectedCell);
     const isWhiteKingAttacked = (cell.getFigureName === FigureNames.KING
                                 && cell.getFigureColor === Colors.WHITE
-                                && board.getWhiteCheck);
+                                && board.getWhiteCheck
+                                && !selectedCell);
     const isBlackMate = (cell.getFigureColor === Colors.BLACK
                         && board.getBlackCheck
                         && board.getMate);
