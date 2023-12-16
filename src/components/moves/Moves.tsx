@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import st from "./moves.module.css";
 import MoveEntry from "./move-entry/MoveEntry";
-import {Colors} from "../../models/Colors";
-import {Move} from "../../models/interfaces/Move";
+import {Colors} from "../../models/other/Colors";
+import {Move} from "../../models/other/interfaces/Move";
 import {useBoard} from "../../board-context/useBoard";
 
 const Moves: FC = () => {

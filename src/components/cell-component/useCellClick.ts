@@ -5,9 +5,9 @@ import {
     getWhiteTimerMoment, setBlackTimerMoment, setTimeMoment,
     setWhiteTimerMoment
 } from "../../store/reducers/timersSlice";
-import {Cell} from "../../models/cell/Cell";
+import {Cell} from "../../models/other/cell/Cell";
 import {momentsSettings} from "../../utils/timerUtils";
-import {Colors} from "../../models/Colors";
+import {Colors} from "../../models/other/Colors";
 import {useBoard} from "../../board-context/useBoard";
 
 export const useCellClick = (

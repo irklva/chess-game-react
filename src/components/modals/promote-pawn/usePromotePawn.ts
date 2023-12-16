@@ -5,9 +5,9 @@ import {
     getWhiteTimerMoment,
     setBlackTimerMoment, setTimeMoment, setWhiteTimerMoment
 } from "../../../store/reducers/timersSlice";
-import {FigureNames} from "../../../models/figures/functionality/FigureModel";
+import {FigureNames} from "../../../models/other/figures/functionality/FigureModel";
 import {momentsSettings} from "../../../utils/timerUtils";
-import {Colors} from "../../../models/Colors";
+import {Colors} from "../../../models/other/Colors";
 import {setModalGameOver, setModalPromotePawn} from "../../../store/reducers/modalsSlice";
 import {useBoard} from "../../../board-context/useBoard";
 

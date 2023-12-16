@@ -1,9 +1,9 @@
 import {BoardModel} from "./functionality/BoardModel";
-import {FigureNames} from "../figures/functionality/FigureModel";
-import {Cell} from "../cell/Cell";
-import {Colors} from "../Colors";
-import {Move} from "../interfaces/Move";
-import {Figure} from "../figures/Figure";
+import {FigureNames} from "../other/figures/functionality/FigureModel";
+import {Cell} from "../other/cell/Cell";
+import {Colors} from "../other/Colors";
+import {Move} from "../other/interfaces/Move";
+import {Figure} from "../other/figures/Figure";
 
 export class Board {
     private model: BoardModel;

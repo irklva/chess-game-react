@@ -1,8 +1,8 @@
-import {Colors} from "../../Colors";
+import {Colors} from "../../other/Colors";
 import {BoardCells} from "./BoardCells";
 import {BoardPlayers} from "./BoardPlayers";
 import {BoardKings} from "./BoardKings";
-import {CellModel} from "../../cell/functionality/CellModel";
+import {CellModel} from "../../other/cell/functionality/CellModel";
 
 export class BoardCheckAndMate {
     private isBlackCheck: boolean;

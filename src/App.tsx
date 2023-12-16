@@ -8,7 +8,7 @@ import NewGameModal from "./components/modals/new-game/NewGameModal";
 import GameOverModal from "./components/modals/game-over/GameOverModal";
 import PromotePawnModal from "./components/modals/promote-pawn/PromotePawnModal";
 import PlayerAndFigures from "./components/player-and-figures/PlayerAndFigures";
-import {Colors} from "./models/Colors";
+import {Colors} from "./models/other/Colors";
 import {useSelector} from "react-redux";
 import {getBlackName, getWhiteName} from "./store/reducers/playersSlice";
 import {useBoard} from "./board-context/useBoard";

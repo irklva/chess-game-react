@@ -1,5 +1,5 @@
-import {CellModel} from "../../cell/functionality/CellModel";
-import {Colors} from "../../Colors";
+import {CellModel} from "../../other/cell/functionality/CellModel";
+import {Colors} from "../../other/Colors";
 
 interface KingCell {
     x: number,

@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import {FigureNames} from "../../../models/figures/functionality/FigureModel";
+import {FigureNames} from "../../../models/other/figures/functionality/FigureModel";
 import st from "./entry.module.css";
-import {Colors} from "../../../models/Colors";
-import {Move} from "../../../models/interfaces/Move";
+import {Colors} from "../../../models/other/Colors";
+import {Move} from "../../../models/other/interfaces/Move";
 import {useDispatch} from "react-redux";
 import {setTimersFromEntry} from "../../../store/reducers/timersSlice";
 import {CastlingNames} from "../../../models/board/functionality/BoardFlags";

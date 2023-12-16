@@ -1,5 +1,5 @@
-import {Player} from "../../Player";
-import {Colors} from "../../Colors";
+import {Player} from "../../other/Player";
+import {Colors} from "../../other/Colors";
 
 
 export class BoardPlayers {

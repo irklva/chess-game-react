@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import st from "./player-and-figures.module.css";
-import {Colors} from "../../models/Colors";
-import {Figure} from "../../models/figures/Figure";
+import {Colors} from "../../models/other/Colors";
+import {Figure} from "../../models/other/figures/Figure";
 
 interface LostFiguresProps {
     playerName: string;

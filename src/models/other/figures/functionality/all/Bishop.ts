@@ -1,7 +1,7 @@
 import {FigureModel, FigureNames} from "../FigureModel";
 import {Colors} from "../../../Colors";
-import blackLogo from "../../../../assets/black-bishop.png";
-import whiteLogo from "../../../../assets/white-bishop.png";
+import blackLogo from "../../../../../assets/black-bishop.png";
+import whiteLogo from "../../../../../assets/white-bishop.png";
 import {CellModel} from "../../../cell/functionality/CellModel";
 
 export class Bishop extends FigureModel {

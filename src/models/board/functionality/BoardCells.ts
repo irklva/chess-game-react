@@ -1,13 +1,13 @@
-import {Pawn} from "../../figures/functionality/all/Pawn";
-import {Colors} from "../../Colors";
-import {King} from "../../figures/functionality/all/King";
-import {Queen} from "../../figures/functionality/all/Queen";
-import {Bishop} from "../../figures/functionality/all/Bishop";
-import {Knight} from "../../figures/functionality/all/Knight";
-import {Rook} from "../../figures/functionality/all/Rook";
+import {Pawn} from "../../other/figures/functionality/all/Pawn";
+import {Colors} from "../../other/Colors";
+import {King} from "../../other/figures/functionality/all/King";
+import {Queen} from "../../other/figures/functionality/all/Queen";
+import {Bishop} from "../../other/figures/functionality/all/Bishop";
+import {Knight} from "../../other/figures/functionality/all/Knight";
+import {Rook} from "../../other/figures/functionality/all/Rook";
 import {BoardModel} from "./BoardModel";
-import {Cell} from "../../cell/Cell";
-import {CellModel} from "../../cell/functionality/CellModel";
+import {Cell} from "../../other/cell/Cell";
+import {CellModel} from "../../other/cell/functionality/CellModel";
 
 interface CellsCopy {
     cells: Cell[][],

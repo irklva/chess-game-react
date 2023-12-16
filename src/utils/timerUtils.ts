@@ -1,4 +1,4 @@
-import {Colors} from "../models/Colors";
+import {Colors} from "../models/other/Colors";
 import {Board} from "../models/board/Board";
 import {timerType} from "../types/types";
 import {minimumTimer, minutesLimit} from "./newGameConstants";

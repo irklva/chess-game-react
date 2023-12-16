@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {blackTimerMove, getBlackTimer, getWhiteTimer, setBlackTimer, setTimeWinner, setWhiteTimer, whiteTimerMove} from "../../../store/reducers/timersSlice";
 import {setModalGameOver} from "../../../store/reducers/modalsSlice";
 import {getBlackName, getWhiteName} from "../../../store/reducers/playersSlice";
-import {Colors} from "../../../models/Colors";
+import {Colors} from "../../../models/other/Colors";
 import {secondsDivisor} from "../../../utils/timerUtils";
 import {useRef} from "react";
 import {TimerProps} from "../../../types/types";

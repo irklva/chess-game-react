@@ -1,10 +1,10 @@
-import {FigureModel, FigureNames} from "../../figures/functionality/FigureModel";
-import {Queen} from "../../figures/functionality/all/Queen";
-import {Knight} from "../../figures/functionality/all/Knight";
-import {Rook} from "../../figures/functionality/all/Rook";
-import {Bishop} from "../../figures/functionality/all/Bishop";
+import {FigureModel, FigureNames} from "../../other/figures/functionality/FigureModel";
+import {Queen} from "../../other/figures/functionality/all/Queen";
+import {Knight} from "../../other/figures/functionality/all/Knight";
+import {Rook} from "../../other/figures/functionality/all/Rook";
+import {Bishop} from "../../other/figures/functionality/all/Bishop";
 import {BoardCheckAndMate} from "./BoardCheckAndMate";
-import {PawnPromo} from "../../interfaces/PawnPromo";
+import {PawnPromo} from "../../other/interfaces/PawnPromo";
 import {BoardModel} from "./BoardModel";
 
 export enum CastlingNames {

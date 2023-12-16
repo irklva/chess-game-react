@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import st from "./cell-content.module.css";
-import {FigureNames} from "../../../models/figures/functionality/FigureModel";
-import {Colors} from "../../../models/Colors";
-import {Cell} from "../../../models/cell/Cell";
+import {FigureNames} from "../../../models/other/figures/functionality/FigureModel";
+import {Colors} from "../../../models/other/Colors";
+import {Cell} from "../../../models/other/cell/Cell";
 import {useBoard} from "../../../board-context/useBoard";
 
 interface CellContentProps {

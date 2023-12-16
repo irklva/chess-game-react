@@ -1,6 +1,6 @@
 import {FigureModel, FigureNames} from "../FigureModel";
-import blackLogo from "../../../../assets/black-rook.png";
-import whiteLogo from "../../../../assets/white-rook.png";
+import blackLogo from "../../../../../assets/black-rook.png";
+import whiteLogo from "../../../../../assets/white-rook.png";
 import {Colors} from "../../../Colors";
 import {CellModel} from "../../../cell/functionality/CellModel";
 

@@ -1,8 +1,8 @@
 import {useContext} from "react";
 import {BoardContext} from "./BoardContext";
 import {Board} from "../models/board/Board";
-import {Move} from "../models/interfaces/Move";
-import {Cell} from "../models/cell/Cell";
+import {Move} from "../models/other/interfaces/Move";
+import {Cell} from "../models/other/cell/Cell";
 
 interface UseBoardResult {
     board: Board;

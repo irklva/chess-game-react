@@ -1,6 +1,6 @@
 import {createContext} from "react";
 import {Board} from "../models/board/Board";
-import {Cell} from "../models/cell/Cell";
+import {Cell} from "../models/other/cell/Cell";
 
 export interface BoardContextProps {
     board: Board;

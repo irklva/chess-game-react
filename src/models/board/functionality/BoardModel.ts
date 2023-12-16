@@ -6,7 +6,7 @@ import {BoardLostFigures} from "./BoardLostFigures";
 import {Board} from "../Board";
 import {BoardKings} from "./BoardKings";
 import {BoardFlags} from "./BoardFlags";
-import {FigureNames} from "../../figures/functionality/FigureModel";
+import {FigureNames} from "../../other/figures/functionality/FigureModel";
 
 export class BoardModel {
     private id: number;

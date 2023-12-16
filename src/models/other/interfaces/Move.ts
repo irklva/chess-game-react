@@ -1,4 +1,4 @@
-import {Board} from "../board/Board";
+import {Board} from "../../board/Board";
 import {Figure} from "../figures/Figure";
 
 export interface Move {

@@ -1,4 +1,4 @@
-import {BoardModel} from "../../board/functionality/BoardModel";
+import {BoardModel} from "../../../board/functionality/BoardModel";
 import {CellParameters} from "./CellParameters";
 import {CellFigure} from "./CellFigure";
 import {Colors} from "../../Colors";

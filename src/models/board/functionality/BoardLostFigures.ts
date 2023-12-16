@@ -1,5 +1,5 @@
-import {Colors} from "../../Colors";
-import {Figure} from "../../figures/Figure";
+import {Colors} from "../../other/Colors";
+import {Figure} from "../../other/figures/Figure";
 
 export class BoardLostFigures {
     readonly black: Figure[] = [];

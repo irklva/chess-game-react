@@ -1,6 +1,6 @@
 import {FC, useState, ReactNode} from 'react';
 import {Board} from "../models/board/Board";
-import {Cell} from "../models/cell/Cell";
+import {Cell} from "../models/other/cell/Cell";
 import {BoardContext} from "./BoardContext";
 
 type BoardProviderProps = {

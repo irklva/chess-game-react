@@ -1,9 +1,9 @@
 import {FigureModel, FigureNames} from "../FigureModel";
 import {Colors} from "../../../Colors";
-import whiteLogo from "../../../../assets/white-king.png";
-import blackLogo from "../../../../assets/black-king.png";
+import whiteLogo from "../../../../../assets/white-king.png";
+import blackLogo from "../../../../../assets/black-king.png";
 import {CellModel} from "../../../cell/functionality/CellModel";
-import {CastlingNames} from "../../../board/functionality/BoardFlags";
+import {CastlingNames} from "../../../../board/functionality/BoardFlags";
 
 export class King extends FigureModel {
 

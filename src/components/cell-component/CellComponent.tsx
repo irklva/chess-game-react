@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import st from "./cell-component.module.css";
-import {Colors} from "../../models/Colors";
-import {Cell} from "../../models/cell/Cell";
+import {Colors} from "../../models/other/Colors";
+import {Cell} from "../../models/other/cell/Cell";
 import CellContent from "./cell-content/CellContent";
 import {useCellClick} from "./useCellClick";
 import {useBoard} from "../../board-context/useBoard";
