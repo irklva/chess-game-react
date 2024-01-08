@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import st from "./board-component.module.css";
 import CellComponent from "../cell-component/CellComponent";
-import {Cell} from "../../models/other/cell/Cell";
+import {Cell} from "../../chess-models";
 import {useBoard} from "../../board-context/useBoard";
 
 const BoardComponent: FC = () => {

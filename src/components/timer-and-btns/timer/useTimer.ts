@@ -1,12 +1,19 @@
 import {useDispatch, useSelector} from "react-redux";
-import {blackTimerMove, getBlackTimer, getWhiteTimer, setBlackTimer, setTimeWinner, setWhiteTimer, whiteTimerMove} from "../../../store/reducers/timersSlice";
-import {setModalGameOver} from "../../../store/reducers/modalsSlice";
-import {getBlackName, getWhiteName} from "../../../store/reducers/playersSlice";
-import {Colors} from "../../../models/other/Colors";
+import {
+    blackTimerMove,
+    setBlackTimer,
+    setTimeWinner,
+    setWhiteTimer,
+    whiteTimerMove
+} from "../../../store/reducers/timers/timersReducer";
+import {Colors} from "../../../chess-models";
 import {secondsDivisor} from "../../../utils/timerUtils";
 import {useRef} from "react";
 import {TimerProps} from "../../../types/types";
 import {useBoard} from "../../../board-context/useBoard";
+import {setModalGameOver} from "../../../store/reducers/modal/modalsReducer";
+import {getBlackTimer, getWhiteTimer} from "../../../store/reducers/timers/timersSelectors";
+import {getBlackName, getWhiteName} from "../../../store/reducers/players/playersSelectors";
 
 export const useTimer = ({isTimerRunning, setIsTimerRunning}: TimerProps) => {
     const dispatch = useDispatch();

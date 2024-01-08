@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
 import ModalWindow from "../ModalWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {getModalGameOver, setModalGameOver, setModalNewGame} from "../../../store/reducers/modalsSlice";
-import {getBlackName, getWhiteName} from "../../../store/reducers/playersSlice";
-import {getTimeWinner} from "../../../store/reducers/timersSlice";
 import {useBoard} from "../../../board-context/useBoard";
+import {getModalGameOver} from "../../../store/reducers/modal/modalsSelectors";
+import {setModalGameOver, setModalNewGame} from "../../../store/reducers/modal/modalsReducer";
+import {getBlackName, getWhiteName} from "../../../store/reducers/players/playersSelectors";
+import {getTimeWinner} from "../../../store/reducers/timers/timersSelectors";
 
 const GameOverModal: FC = () => {
 

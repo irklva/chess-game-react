@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
-import {FigureNames} from "../../../models/other/figures/functionality/FigureModel";
+import {FigureNames} from "../../../chess-models";
 import st from "./entry.module.css";
-import {Colors} from "../../../models/other/Colors";
-import {Move} from "../../../models/other/interfaces/Move";
+import {Colors} from "../../../chess-models";
+import {Move} from "../../../chess-models";
 import {useDispatch} from "react-redux";
-import {setTimersFromEntry} from "../../../store/reducers/timersSlice";
-import {CastlingNames} from "../../../models/board/functionality/BoardFlags";
+import {setTimersFromEntry} from "../../../store/reducers/timers/timersReducer";
+import {CastlingNames} from "../../../chess-models";
 import {useBoard} from "../../../board-context/useBoard";
 
 interface EntryProps {

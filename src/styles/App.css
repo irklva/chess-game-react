@@ -1,3 +1,7 @@
+@import "./variables/colors.css";
+@import "./variables/sizes.css";
+@import "./variables/z-indexes.css";
+
 * {
     margin: 0;
     padding: 0;

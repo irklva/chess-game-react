@@ -1,14 +1,14 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import playersSlice from "./reducers/playersSlice";
-import modalsSlice from "./reducers/modalsSlice";
-import timersSlice from "./reducers/timersSlice";
-import newGameSlice from "./reducers/newGameSlice";
+import playersReducer from "./reducers/players/playersReducer";
+import modalsReducer from "./reducers/modal/modalsReducer";
+import timersReducer from "./reducers/timers/timersReducer";
+import newGameReducer from "./reducers/new-game/newGameReducer";
 
 const rootReducers = combineReducers({
-    players: playersSlice,
-    modals: modalsSlice,
-    timers: timersSlice,
-    newGame: newGameSlice
+    players: playersReducer,
+    modals: modalsReducer,
+    timers: timersReducer,
+    newGame: newGameReducer
 })
 
 export default configureStore({

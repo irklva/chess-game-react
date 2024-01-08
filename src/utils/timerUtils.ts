@@ -1,5 +1,5 @@
-import {Colors} from "../models/other/Colors";
-import {Board} from "../models/board/Board";
+import {Colors} from "../chess-models";
+import {Board} from "../chess-models";
 import {timerType} from "../types/types";
 import {minimumTimer, minutesLimit} from "./newGameConstants";
 

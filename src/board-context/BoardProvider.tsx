@@ -1,6 +1,6 @@
 import {FC, useState, ReactNode} from 'react';
-import {Board} from "../models/board/Board";
-import {Cell} from "../models/other/cell/Cell";
+import {Board} from "../chess-models";
+import {Cell} from "../chess-models";
 import {BoardContext} from "./BoardContext";
 
 type BoardProviderProps = {

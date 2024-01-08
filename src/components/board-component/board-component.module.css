@@ -1,6 +1,3 @@
-@import "../../styles/variables/colors.css";
-@import "../../styles/variables/sizes.css";
-
 .board {
     margin: var(--standard-margin) 0;
     box-sizing: content-box;

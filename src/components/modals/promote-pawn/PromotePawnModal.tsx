@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import st from "./promote-pawn.module.css";
-import {Colors} from "../../../models/other/Colors";
+import {Colors} from "../../../chess-models";
 import black_queen from "../../../assets/black-queen.png";
 import white_queen from "../../../assets/white-queen.png";
-import {FigureNames} from "../../../models/other/figures/functionality/FigureModel";
+import {FigureNames} from "../../../chess-models";
 import black_knight from "../../../assets/black-knight.png";
 import white_knight from "../../../assets/white-knight.png";
 import black_bishop from "../../../assets/black-bishop.png";
@@ -12,9 +12,9 @@ import black_rook from "../../../assets/black-rook.png";
 import white_rook from "../../../assets/white-rook.png";
 import ModalWindow from "../ModalWindow";
 import {useSelector} from "react-redux";
-import {getModalPromotePawn} from "../../../store/reducers/modalsSlice";
 import {usePromotePawn} from "./usePromotePawn";
 import {useBoard} from "../../../board-context/useBoard";
+import {getModalPromotePawn} from "../../../store/reducers/modal/modalsSelectors";
 
 const PromotePawnModal: FC = () => {
 

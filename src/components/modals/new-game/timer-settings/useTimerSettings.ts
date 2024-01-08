@@ -1,4 +1,4 @@
-import {setMinutesInput, setNewTimer, setSecondsInput} from "../../../../store/reducers/newGameSlice";
+import {setMinutesInput, setNewTimer, setSecondsInput} from "../../../../store/reducers/new-game/newGameReducer";
 import {minutesTimerChange, secondsTimerChange} from "../../../../utils/timerUtils";
 import {useDispatch} from "react-redux";
 import {timerType} from "../../../../types/types";

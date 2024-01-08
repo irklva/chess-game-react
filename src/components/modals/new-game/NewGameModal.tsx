@@ -2,14 +2,20 @@ import React, {FC} from 'react';
 import st from "./new-game.module.css";
 import ModalWindow from "../ModalWindow";
 import {useDispatch, useSelector} from "react-redux";
-import {getModalNewGame} from "../../../store/reducers/modalsSlice";
 import TimerSettings from "./timer-settings/TimerSettings";
 import PlayerSettings from "./player-settings/PlayerSettings";
-import {
-    getBlackNameInput, getInfiniteSeconds, getWhiteNameInput,
-    setBlackNameInput, setInfiniteSeconds, setWhiteNameInput
-} from "../../../store/reducers/newGameSlice";
 import {useNewGame} from "./useNewGame";
+import {getModalNewGame} from "../../../store/reducers/modal/modalsSelectors";
+import {
+    getBlackNameInput,
+    getInfiniteSeconds,
+    getWhiteNameInput
+} from "../../../store/reducers/new-game/newGameSelectors";
+import {
+    setBlackNameInput,
+    setInfiniteSeconds,
+    setWhiteNameInput
+} from "../../../store/reducers/new-game/newGameReducer";
 
 const NewGameModal: FC = () => {
     const dispatch = useDispatch();

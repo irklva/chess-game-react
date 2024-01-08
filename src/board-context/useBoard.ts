@@ -1,8 +1,8 @@
 import {useContext} from "react";
 import {BoardContext} from "./BoardContext";
-import {Board} from "../models/board/Board";
-import {Move} from "../models/other/interfaces/Move";
-import {Cell} from "../models/other/cell/Cell";
+import {Board} from "../chess-models";
+import {Move} from "../chess-models";
+import {Cell} from "../chess-models";
 
 interface UseBoardResult {
     board: Board;

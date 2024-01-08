@@ -1,15 +1,11 @@
 import {useDispatch, useSelector} from "react-redux";
-import {
-    getBlackTimerMoment,
-    getTimeMoment,
-    getWhiteTimerMoment,
-    setBlackTimerMoment, setTimeMoment, setWhiteTimerMoment
-} from "../../../store/reducers/timersSlice";
-import {FigureNames} from "../../../models/other/figures/functionality/FigureModel";
+import {FigureNames} from "../../../chess-models";
 import {momentsSettings} from "../../../utils/timerUtils";
-import {Colors} from "../../../models/other/Colors";
-import {setModalGameOver, setModalPromotePawn} from "../../../store/reducers/modalsSlice";
+import {Colors} from "../../../chess-models";
 import {useBoard} from "../../../board-context/useBoard";
+import {setModalGameOver, setModalPromotePawn} from "../../../store/reducers/modal/modalsReducer";
+import {getBlackTimerMoment, getTimeMoment, getWhiteTimerMoment} from "../../../store/reducers/timers/timersSelectors";
+import {setBlackTimerMoment, setTimeMoment, setWhiteTimerMoment} from "../../../store/reducers/timers/timersReducer";
 
 export const usePromotePawn = () => {
 

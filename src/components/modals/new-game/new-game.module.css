@@ -1,6 +1,3 @@
-@import "../../../styles/variables/colors.css";
-@import "../../../styles/variables/sizes.css";
-
 .message {
     margin-left: var(--standard-margin);
     font-size: var(--form-message-font-size);

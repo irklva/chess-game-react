@@ -1,5 +1,3 @@
-@import "../../../../styles/variables/sizes.css";
-
 .block {
     display: flex;
     margin-top: var(--standard-margin);

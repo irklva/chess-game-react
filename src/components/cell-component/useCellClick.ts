@@ -1,14 +1,20 @@
 import {useDispatch, useSelector} from "react-redux";
-import {setModalGameOver, setModalPromotePawn} from "../../store/reducers/modalsSlice";
 import {
-    getBlackTimerMoment, getTimeMoment, getTimeWinner,
-    getWhiteTimerMoment, setBlackTimerMoment, setTimeMoment,
+    setBlackTimerMoment,
+    setTimeMoment,
     setWhiteTimerMoment
-} from "../../store/reducers/timersSlice";
-import {Cell} from "../../models/other/cell/Cell";
+} from "../../store/reducers/timers/timersReducer";
+import {Cell} from "../../chess-models";
 import {momentsSettings} from "../../utils/timerUtils";
-import {Colors} from "../../models/other/Colors";
+import {Colors} from "../../chess-models";
 import {useBoard} from "../../board-context/useBoard";
+import {setModalGameOver, setModalPromotePawn} from "../../store/reducers/modal/modalsReducer";
+import {
+    getBlackTimerMoment,
+    getTimeMoment,
+    getTimeWinner,
+    getWhiteTimerMoment
+} from "../../store/reducers/timers/timersSelectors";
 
 export const useCellClick = (
     cell: Cell

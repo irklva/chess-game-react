@@ -1,14 +1,16 @@
-import {resetTimers, setTimeMoment} from "../../../store/reducers/timersSlice";
-import {setNames} from "../../../store/reducers/playersSlice";
-import {setModalNewGame} from "../../../store/reducers/modalsSlice";
+import {resetTimers, setTimeMoment} from "../../../store/reducers/timers/timersReducer";
+import {setNames} from "../../../store/reducers/players/playersReducer";
 import {nameSymbolsLimit} from "../../../utils/newGameConstants";
 import {useDispatch, useSelector} from "react-redux";
-import {
-    getBlackNameInput, getMinutesInput, getSecondsInput,
-    getNewTimer, getWhiteNameInput
-} from "../../../store/reducers/newGameSlice";
 import {minutesConditions, secondsConditions, timerConditions} from "../../../utils/timerUtils";
 import {useBoard} from "../../../board-context/useBoard";
+import {setModalNewGame} from "../../../store/reducers/modal/modalsReducer";
+import {
+    getBlackNameInput,
+    getMinutesInput, getNewTimer,
+    getSecondsInput,
+    getWhiteNameInput
+} from "../../../store/reducers/new-game/newGameSelectors";
 
 export const useNewGame = () => {
     const dispatch = useDispatch();

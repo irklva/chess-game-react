@@ -22,7 +22,7 @@
 }
 
 .available {
-    z-index: 10;
+    z-index: var(--avaliable-cell-z-index);
     width: var(--available-point-size);
     height: var(--available-point-size);
     background-color: var(--available-cell-color);

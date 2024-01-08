@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import st from './player-settings.module.css';
-import MyInput from "../../../UI/input/MyInput";
+import MyInput from "../../../ui/input/MyInput";
 import {nameSymbolsLimit} from "../../../../utils/newGameConstants";
 
 interface PlayerSettingsProps {

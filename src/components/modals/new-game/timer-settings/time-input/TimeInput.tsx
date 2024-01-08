@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import st from "./time-input.module.css";
-import MyInput from "../../../../UI/input/MyInput";
+import MyInput from "../../../../ui/input/MyInput";
 import {timerType} from "../../../../../types/types";
 
 interface TimeInputProps {
