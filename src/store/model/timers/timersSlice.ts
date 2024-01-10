@@ -1,7 +1,8 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {timersActions, TimersState} from "./timersActions";
+import {timersActions} from "./timersActions";
+import {TimersSchema} from "./timersSchema";
 
-const initialState: TimersState = {
+const initialState: TimersSchema = {
     blackTimer: null,
     whiteTimer: null,
     blackTimerMoment: null,
@@ -10,7 +11,7 @@ const initialState: TimersState = {
     timeWinner: null,
 }
 
-const timersReducer = createSlice({
+const timersSlice = createSlice({
     name: 'timers',
     initialState,
     reducers: timersActions,
@@ -18,6 +19,6 @@ const timersReducer = createSlice({
 
 export const {setBlackTimer, setWhiteTimer, blackTimerMove, whiteTimerMove,
     setBlackTimerMoment, setWhiteTimerMoment, setTimeMoment, setTimeWinner,
-    resetTimers, setTimersFromEntry, setTimersToNull} = timersReducer.actions;
+    resetTimers, setTimersFromEntry, setTimersToNull} = timersSlice.actions;
 
-export default timersReducer.reducer;
+export const timersReducer = timersSlice.reducer;

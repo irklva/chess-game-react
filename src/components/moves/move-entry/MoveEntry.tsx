@@ -4,7 +4,7 @@ import st from "./entry.module.css";
 import {Colors} from "../../../chess-models";
 import {Move} from "../../../chess-models";
 import {useDispatch} from "react-redux";
-import {setTimersFromEntry} from "../../../store/reducers/timers/timersReducer";
+import {setTimersFromEntry} from "../../../store/model/timers/timersSlice";
 import {CastlingNames} from "../../../chess-models";
 import {useBoard} from "../../../board-context/useBoard";
 

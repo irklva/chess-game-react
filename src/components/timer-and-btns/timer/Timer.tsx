@@ -5,8 +5,8 @@ import TimerRow from "./timer-row/TimerRow";
 import {useTimer} from "./useTimer";
 import {TimerProps} from "../../../types/types";
 import {useBoard} from "../../../board-context/useBoard";
-import {getBlackTimer, getTimeMoment, getWhiteTimer} from "../../../store/reducers/timers/timersSelectors";
-import {getBlackName, getWhiteName} from "../../../store/reducers/players/playersSelectors";
+import {getBlackTimer, getTimeMoment, getWhiteTimer} from "../../../store/model/timers/timersSelectors";
+import {getBlackName, getWhiteName} from "../../../store/model/players/playersSelectors";
 
 const Timer: FC<TimerProps> = ({
                                    isTimerRunning,

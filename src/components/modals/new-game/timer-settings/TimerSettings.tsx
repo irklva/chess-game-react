@@ -5,16 +5,16 @@ import TimeInput from "./time-input/TimeInput";
 import {useSelector} from "react-redux";
 import {useTimerSettings} from "./useTimerSettings";
 import {minutesConditions, secondsConditions, timerConditions} from "../../../../utils/timerUtils";
-import {getMinutesInput, getNewTimer, getSecondsInput} from "../../../../store/reducers/new-game/newGameSelectors";
+import {getMinutesInput, getNewGameTimer, getSecondsInput} from "../../../../store/model/new-game/newGameSelectors";
 
 const TimerSettings: FC = () => {
 
     const minutesInput = useSelector(getMinutesInput);
     const secondsInput = useSelector(getSecondsInput);
-    const timer = useSelector(getNewTimer);
+    const timer = useSelector(getNewGameTimer);
 
     const {minutesChange, secondsChange} = useTimerSettings(minutesInput, secondsInput);
-    const timerMessage = !timerConditions(timer)
+    const timerMessage: boolean = !timerConditions(timer)
         && minutesConditions(minutesInput)
         && secondsConditions(secondsInput);
 

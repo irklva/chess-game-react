@@ -32,7 +32,7 @@ export const formatTimer = (timer: timerType): string => {
 export const momentsSettings = (board: Board,
                                 oldMoment: timerType,
                                 blackTimerMoment: timerType,
-                                whiteTimerMoment: timerType): (timerType)[] => {
+                                whiteTimerMoment: timerType) => {
     let newBlackMoment: timerType = null;
     let newWhiteMoment: timerType = null;
     let newMoment: timerType = null;
@@ -47,35 +47,5 @@ export const momentsSettings = (board: Board,
             newWhiteMoment = (whiteTimerMoment || 0) - interval;
         }
     }
-    return [newMoment, newBlackMoment, newWhiteMoment];
-}
-
-export const minutesTimerChange = (
-    minutes: string,
-    setTimer: (seconds: number) => void,
-    setMinutesInput: (minutes: number | null) => void,
-    secondsInput: timerType
-) => {
-    const newMinutes = minutes ? parseInt(minutes) : null;
-    setMinutesInput(newMinutes);
-    if (newMinutes !== null && secondsInput !== null) {
-        setTimer(newMinutes * 60 + secondsInput);
-    } else {
-        setTimer(0);
-    }
-}
-
-export const secondsTimerChange = (
-    seconds: string,
-    setTimer: (seconds: number) => void,
-    setSecondsInput: (seconds: number | null) => void,
-    minutesInput: timerType
-) => {
-    const newSeconds = seconds ? parseInt(seconds) : null;
-    setSecondsInput(newSeconds);
-    if (newSeconds !== null && minutesInput !== null) {
-        setTimer(minutesInput * 60 + newSeconds);
-    } else {
-        setTimer(0);
-    }
+    return {newMoment, newBlackMoment, newWhiteMoment};
 }

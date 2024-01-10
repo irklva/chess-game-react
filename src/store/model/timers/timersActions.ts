@@ -1,23 +1,14 @@
-import {timerType} from "../../../types/types";
 import {PayloadAction} from "@reduxjs/toolkit";
-
-export interface TimersState {
-    blackTimer: timerType;
-    blackTimerMoment: timerType;
-    whiteTimer: timerType;
-    whiteTimerMoment: timerType;
-    timeMoment: timerType;
-    timeWinner: string | null;
-}
+import {TimersSchema} from "./timersSchema";
 
 export const timersActions = {
-    setBlackTimer(state: TimersState, action: PayloadAction<TimersState['blackTimer']>) {
+    setBlackTimer(state: TimersSchema, action: PayloadAction<TimersSchema['blackTimer']>) {
         state.blackTimer = action.payload;
     },
-    setWhiteTimer(state: TimersState, action: PayloadAction<TimersState['whiteTimer']>) {
+    setWhiteTimer(state: TimersSchema, action: PayloadAction<TimersSchema['whiteTimer']>) {
         state.whiteTimer = action.payload;
     },
-    blackTimerMove(state: TimersState) {
+    blackTimerMove(state: TimersSchema) {
         const moment = new Date().getTime();
         state.blackTimer = state.blackTimerMoment && state.timeMoment
             ?
@@ -25,7 +16,7 @@ export const timersActions = {
             :
             null
     },
-    whiteTimerMove(state: TimersState) {
+    whiteTimerMove(state: TimersSchema) {
         const moment = new Date().getTime();
         state.whiteTimer = state.whiteTimerMoment && state.timeMoment
             ?
@@ -33,26 +24,26 @@ export const timersActions = {
             :
             null
     },
-    setBlackTimerMoment(state: TimersState, action: PayloadAction<TimersState['blackTimerMoment']>) {
+    setBlackTimerMoment(state: TimersSchema, action: PayloadAction<TimersSchema['blackTimerMoment']>) {
         state.blackTimerMoment = action.payload;
     },
-    setWhiteTimerMoment(state: TimersState, action: PayloadAction<TimersState['whiteTimerMoment']>) {
+    setWhiteTimerMoment(state: TimersSchema, action: PayloadAction<TimersSchema['whiteTimerMoment']>) {
         state.whiteTimerMoment = action.payload;
     },
-    setTimeMoment(state: TimersState, action: PayloadAction<TimersState['timeMoment']>) {
+    setTimeMoment(state: TimersSchema, action: PayloadAction<TimersSchema['timeMoment']>) {
         state.timeMoment = action.payload;
     },
-    setTimeWinner(state: TimersState, action: PayloadAction<TimersState['timeWinner']>) {
+    setTimeWinner(state: TimersSchema, action: PayloadAction<TimersSchema['timeWinner']>) {
         state.timeWinner = action.payload;
     },
-    resetTimers(state: TimersState, action: PayloadAction<TimersState['timeMoment']>) {
+    resetTimers(state: TimersSchema, action: PayloadAction<TimersSchema['timeMoment']>) {
         state.blackTimer = action.payload;
         state.whiteTimer = action.payload;
         state.blackTimerMoment = action.payload;
         state.whiteTimerMoment = action.payload;
         state.timeWinner = null;
     },
-    setTimersFromEntry(state: TimersState, action: PayloadAction<Pick<TimersState, 'blackTimer' | 'whiteTimer'>>) {
+    setTimersFromEntry(state: TimersSchema, action: PayloadAction<Pick<TimersSchema, 'blackTimer' | 'whiteTimer'>>) {
         state.timeMoment = new Date().getTime();
         state.blackTimerMoment = action.payload.blackTimer;
         state.whiteTimerMoment = action.payload.whiteTimer;
@@ -60,7 +51,7 @@ export const timersActions = {
         state.whiteTimer = action.payload.whiteTimer;
         state.timeWinner = null;
     },
-    setTimersToNull(state: TimersState) {
+    setTimersToNull(state: TimersSchema) {
         state.blackTimer = null;
         state.whiteTimer = null;
         state.blackTimerMoment = null;

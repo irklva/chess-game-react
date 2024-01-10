@@ -3,18 +3,18 @@ import {
     setBlackTimerMoment,
     setTimeMoment,
     setWhiteTimerMoment
-} from "../../store/reducers/timers/timersReducer";
+} from "../../store/model/timers/timersSlice";
 import {Cell} from "../../chess-models";
 import {momentsSettings} from "../../utils/timerUtils";
 import {Colors} from "../../chess-models";
 import {useBoard} from "../../board-context/useBoard";
-import {setModalGameOver, setModalPromotePawn} from "../../store/reducers/modal/modalsReducer";
+import {setModalGameOver, setModalPromotePawn} from "../../store/model/modal/modalsSlice";
 import {
     getBlackTimerMoment,
     getTimeMoment,
     getTimeWinner,
     getWhiteTimerMoment
-} from "../../store/reducers/timers/timersSelectors";
+} from "../../store/model/timers/timersSelectors";
 
 export const useCellClick = (
     cell: Cell
@@ -28,7 +28,7 @@ export const useCellClick = (
 
     return () => {
 
-        const [newMoment, newBlackMoment, newWhiteMoment] = momentsSettings(board, oldMoment,
+        const {newMoment, newBlackMoment, newWhiteMoment} = momentsSettings(board, oldMoment,
             blackTimerMoment, whiteTimerMoment);
 
         const newTimerMoment = () => {

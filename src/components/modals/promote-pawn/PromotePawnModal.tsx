@@ -14,7 +14,7 @@ import ModalWindow from "../ModalWindow";
 import {useSelector} from "react-redux";
 import {usePromotePawn} from "./usePromotePawn";
 import {useBoard} from "../../../board-context/useBoard";
-import {getModalPromotePawn} from "../../../store/reducers/modal/modalsSelectors";
+import {getModalPromotePawn} from "../../../store/model/modal/modalsSelectors";
 
 const PromotePawnModal: FC = () => {
 

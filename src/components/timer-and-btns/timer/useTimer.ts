@@ -5,15 +5,15 @@ import {
     setTimeWinner,
     setWhiteTimer,
     whiteTimerMove
-} from "../../../store/reducers/timers/timersReducer";
+} from "../../../store/model/timers/timersSlice";
 import {Colors} from "../../../chess-models";
 import {secondsDivisor} from "../../../utils/timerUtils";
 import {useRef} from "react";
 import {TimerProps} from "../../../types/types";
 import {useBoard} from "../../../board-context/useBoard";
-import {setModalGameOver} from "../../../store/reducers/modal/modalsReducer";
-import {getBlackTimer, getWhiteTimer} from "../../../store/reducers/timers/timersSelectors";
-import {getBlackName, getWhiteName} from "../../../store/reducers/players/playersSelectors";
+import {setModalGameOver} from "../../../store/model/modal/modalsSlice";
+import {getBlackTimer, getWhiteTimer} from "../../../store/model/timers/timersSelectors";
+import {getBlackName, getWhiteName} from "../../../store/model/players/playersSelectors";
 
 export const useTimer = ({isTimerRunning, setIsTimerRunning}: TimerProps) => {
     const dispatch = useDispatch();

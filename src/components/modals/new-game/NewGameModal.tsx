@@ -5,17 +5,17 @@ import {useDispatch, useSelector} from "react-redux";
 import TimerSettings from "./timer-settings/TimerSettings";
 import PlayerSettings from "./player-settings/PlayerSettings";
 import {useNewGame} from "./useNewGame";
-import {getModalNewGame} from "../../../store/reducers/modal/modalsSelectors";
+import {getModalNewGame} from "../../../store/model/modal/modalsSelectors";
 import {
     getBlackNameInput,
     getInfiniteSeconds,
     getWhiteNameInput
-} from "../../../store/reducers/new-game/newGameSelectors";
+} from "../../../store/model/new-game/newGameSelectors";
 import {
     setBlackNameInput,
     setInfiniteSeconds,
     setWhiteNameInput
-} from "../../../store/reducers/new-game/newGameReducer";
+} from "../../../store/model/new-game/newGameSlice";
 
 const NewGameModal: FC = () => {
     const dispatch = useDispatch();

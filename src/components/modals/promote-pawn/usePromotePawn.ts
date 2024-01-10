@@ -3,9 +3,9 @@ import {FigureNames} from "../../../chess-models";
 import {momentsSettings} from "../../../utils/timerUtils";
 import {Colors} from "../../../chess-models";
 import {useBoard} from "../../../board-context/useBoard";
-import {setModalGameOver, setModalPromotePawn} from "../../../store/reducers/modal/modalsReducer";
-import {getBlackTimerMoment, getTimeMoment, getWhiteTimerMoment} from "../../../store/reducers/timers/timersSelectors";
-import {setBlackTimerMoment, setTimeMoment, setWhiteTimerMoment} from "../../../store/reducers/timers/timersReducer";
+import {setModalGameOver, setModalPromotePawn} from "../../../store/model/modal/modalsSlice";
+import {getBlackTimerMoment, getTimeMoment, getWhiteTimerMoment} from "../../../store/model/timers/timersSelectors";
+import {setBlackTimerMoment, setTimeMoment, setWhiteTimerMoment} from "../../../store/model/timers/timersSlice";
 
 export const usePromotePawn = () => {
 
@@ -16,7 +16,7 @@ export const usePromotePawn = () => {
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
 
     return (figure: FigureNames) => {
-        const [newMoment, newBlackMoment, newWhiteMoment] = momentsSettings(board, oldMoment,
+        const {newMoment, newBlackMoment, newWhiteMoment} = momentsSettings(board, oldMoment,
             blackTimerMoment, whiteTimerMoment);
         board.getCurrentPlayerColor === Colors.BLACK
             ?

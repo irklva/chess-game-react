@@ -1,5 +1,4 @@
-import {setMinutesInput, setNewTimer, setSecondsInput} from "../../../../store/reducers/new-game/newGameReducer";
-import {minutesTimerChange, secondsTimerChange} from "../../../../utils/timerUtils";
+import {setMinutesInput, setSecondsInput} from "../../../../store/model/new-game/newGameSlice";
 import {useDispatch} from "react-redux";
 import {timerType} from "../../../../types/types";
 
@@ -7,24 +6,14 @@ export const useTimerSettings = (minutesInput: timerType, secondsInput: timerTyp
 
     const dispatch = useDispatch();
 
-    const setMinutes = (minutes: number | null) => {
-        dispatch(setMinutesInput(minutes));
-    }
-
-    const setSeconds = (seconds: number | null) => {
-        dispatch(setSecondsInput(seconds));
-    }
-
-    const setInputTimer = (seconds: number) => {
-        dispatch(setNewTimer(seconds));
-    }
-
     const minutesChange = (minutes: string) => {
-        minutesTimerChange(minutes, setInputTimer, setMinutes, secondsInput);
+        const newMinutes = minutes ? parseInt(minutes) : null;
+        dispatch(setMinutesInput(newMinutes));
     }
 
     const secondsChange = (seconds: string) => {
-        secondsTimerChange(seconds, setInputTimer, setSeconds, minutesInput);
+        const newSeconds = seconds ? parseInt(seconds) : null;
+        dispatch(setSecondsInput(newSeconds));
     }
 
     return {minutesChange, secondsChange};

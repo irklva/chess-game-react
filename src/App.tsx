@@ -11,7 +11,7 @@ import PlayerAndFigures from "./components/player-and-figures/PlayerAndFigures";
 import {Colors} from "./chess-models";
 import {useSelector} from "react-redux";
 import {useBoard} from "./board-context/useBoard";
-import {getBlackName, getWhiteName} from "./store/reducers/players/playersSelectors";
+import {getBlackName, getWhiteName} from "./store/model/players/playersSelectors";
 
 function App() {
 
