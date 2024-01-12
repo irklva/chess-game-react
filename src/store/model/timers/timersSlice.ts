@@ -17,8 +17,6 @@ const timersSlice = createSlice({
     reducers: timersActions,
 });
 
-export const {setBlackTimer, setWhiteTimer, blackTimerMove, whiteTimerMove,
-    setBlackTimerMoment, setWhiteTimerMoment, setTimeMoment, setTimeWinner,
-    resetTimers, setTimersFromEntry, setTimersToNull} = timersSlice.actions;
+export const {setTimeWinner, setTimers, rememberAllMoments, timerMove} = timersSlice.actions;
 
 export const timersReducer = timersSlice.reducer;

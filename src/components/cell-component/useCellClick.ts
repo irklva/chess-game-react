@@ -1,20 +1,15 @@
 import {useDispatch, useSelector} from "react-redux";
-import {
-    setBlackTimerMoment,
-    setTimeMoment,
-    setWhiteTimerMoment
-} from "../../store/model/timers/timersSlice";
+import {rememberAllMoments} from "../../store/model/timers/timersSlice";
 import {Cell} from "../../chess-models";
-import {momentsSettings} from "../../utils/timerUtils";
-import {Colors} from "../../chess-models";
 import {useBoard} from "../../board-context/useBoard";
 import {setModalGameOver, setModalPromotePawn} from "../../store/model/modal/modalsSlice";
 import {
     getBlackTimerMoment,
     getTimeMoment,
     getTimeWinner,
-    getWhiteTimerMoment
+    getWhiteTimerMoment,
 } from "../../store/model/timers/timersSelectors";
+import {checkAllTimerMoments} from "../../utils/timerUtils";
 
 export const useCellClick = (
     cell: Cell
@@ -22,25 +17,11 @@ export const useCellClick = (
     const dispatch = useDispatch();
     const {board, selectedCell, setSelectedCell} = useBoard();
     const timeWinner = useSelector(getTimeWinner);
-    const oldMoment = useSelector(getTimeMoment);
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
+    const timeMoment = useSelector(getTimeMoment);
 
     return () => {
-
-        const {newMoment, newBlackMoment, newWhiteMoment} = momentsSettings(board, oldMoment,
-            blackTimerMoment, whiteTimerMoment);
-
-        const newTimerMoment = () => {
-            if (newMoment && newBlackMoment && newWhiteMoment) {
-                board.getCurrentPlayerColor === Colors.BLACK
-                    ?
-                    dispatch(setBlackTimerMoment(newBlackMoment))
-                    :
-                    dispatch(setWhiteTimerMoment(newWhiteMoment))
-                dispatch(setTimeMoment(newMoment));
-            }
-        }
 
         const gameOver = () => {
             if (board.getMate || board.getStalemate || timeWinner) {
@@ -48,7 +29,7 @@ export const useCellClick = (
             }
         }
 
-        const promotedPawn = () => {
+        const promotePawn = () => {
             if (board.getIsPromotedPawnObject) {
                 dispatch(setModalPromotePawn(true));
             } else {
@@ -56,17 +37,32 @@ export const useCellClick = (
             }
         }
 
+        const {
+            newBlackTimerMoment,
+            newWhiteTimerMoment,
+            newTimeMoment
+        } = checkAllTimerMoments(
+            board.getCurrentPlayerColor,
+            blackTimerMoment,
+            whiteTimerMoment,
+            timeMoment
+        );
+
         if (selectedCell && cell.getAvailable) {
-            newTimerMoment();
-            selectedCell.move(cell, newBlackMoment, newWhiteMoment);
+            dispatch(rememberAllMoments({
+                blackTimerMoment: newBlackTimerMoment,
+                whiteTimerMoment: newWhiteTimerMoment,
+                timeMoment: newTimeMoment
+            }));
+            selectedCell.move(cell, newBlackTimerMoment, newWhiteTimerMoment);
             selectedCell.highLightMoveCells(true);
             gameOver();
-            promotedPawn();
+            promotePawn();
         } else if (selectedCell === cell) {
             cell.highLightMoveCells(true);
             setSelectedCell(null);
         } else if (cell.getFigureColor === board.getCurrentPlayerColor) {
-            cell.highLightMoveCells();
+            cell.highLightMoveCells(false);
             setSelectedCell(cell);
         }
     }

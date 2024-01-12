@@ -1,7 +1,6 @@
-import {Colors} from "../chess-models";
-import {Board} from "../chess-models";
 import {timerType} from "../types/types";
 import {minimumTimer, minutesLimit} from "./newGameConstants";
+import {Colors} from "../chess-models";
 
 export const secondsDivisor = 10;
 
@@ -29,23 +28,33 @@ export const formatTimer = (timer: timerType): string => {
     return `${formattedMinutes.toString().padStart(2, '0')}:${formattedSeconds.toString().padStart(2, '0')}`;
 }
 
-export const momentsSettings = (board: Board,
-                                oldMoment: timerType,
-                                blackTimerMoment: timerType,
-                                whiteTimerMoment: timerType) => {
-    let newBlackMoment: timerType = null;
-    let newWhiteMoment: timerType = null;
-    let newMoment: timerType = null;
-    if (oldMoment && blackTimerMoment && whiteTimerMoment) {
+const checkTimerMoment = (
+    oldTimerMoment: timerType,
+    oldMoment: timerType
+) => {
+    let newTimerMoment = null;
+    let newMoment = null;
+    if (oldTimerMoment && oldMoment) {
         newMoment = new Date().getTime();
-        const interval = newMoment - (oldMoment || 0);
-        if (board.getCurrentPlayerColor === Colors.BLACK) {
-            newBlackMoment = (blackTimerMoment || 0) - interval;
-            newWhiteMoment = whiteTimerMoment;
-        } else {
-            newBlackMoment = blackTimerMoment;
-            newWhiteMoment = (whiteTimerMoment || 0) - interval;
-        }
+        newTimerMoment = oldTimerMoment - (newMoment - oldMoment);
+        newTimerMoment = newTimerMoment < 0 ? 0 : newTimerMoment;
     }
-    return {newMoment, newBlackMoment, newWhiteMoment};
+    return {newTimerMoment, newMoment};
+}
+
+export const checkAllTimerMoments = (
+    playerColor: Colors,
+    blackTimerMoment: timerType,
+    whiteTimerMoment: timerType,
+    timeMoment: timerType
+) => {
+    if (playerColor === Colors.BLACK) {
+        const {newTimerMoment: newBlackTimerMoment, newMoment: newTimeMoment} = checkTimerMoment(blackTimerMoment, timeMoment);
+        const newWhiteTimerMoment = whiteTimerMoment;
+        return {newBlackTimerMoment, newWhiteTimerMoment, newTimeMoment};
+    } else {
+        const {newTimerMoment: newWhiteTimerMoment, newMoment: newTimeMoment} = checkTimerMoment(whiteTimerMoment, timeMoment);
+        const newBlackTimerMoment = blackTimerMoment;
+        return {newBlackTimerMoment, newWhiteTimerMoment, newTimeMoment};
+    }
 }

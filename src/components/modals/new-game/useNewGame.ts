@@ -1,4 +1,4 @@
-import {resetTimers, setTimeMoment} from "../../../store/model/timers/timersSlice";
+import {setTimers} from "../../../store/model/timers/timersSlice";
 import {setNames} from "../../../store/model/players/playersSlice";
 import {nameSymbolsLimit} from "../../../utils/newGameConstants";
 import {useDispatch, useSelector} from "react-redux";
@@ -7,7 +7,8 @@ import {useBoard} from "../../../board-context/useBoard";
 import {setModalNewGame} from "../../../store/model/modal/modalsSlice";
 import {
     getBlackNameInput,
-    getMinutesInput, getNewGameTimer,
+    getMinutesInput,
+    getNewGameTimer,
     getSecondsInput,
     getWhiteNameInput
 } from "../../../store/model/new-game/newGameSelectors";
@@ -26,12 +27,10 @@ export const useNewGame = () => {
         const timerMs = timer ? (timer * 1000) : null;
 
         const gameSettings = () => {
-            if (timerMs) {
-                dispatch(setTimeMoment(new Date().getTime()));
-            } else {
-                dispatch(setTimeMoment(null));
-            }
-            dispatch(resetTimers(timerMs));
+            dispatch(setTimers({
+                blackTimer: timerMs,
+                whiteTimer: timerMs
+            }));
             dispatch(setNames({
                 whiteName: whiteNameInput,
                 blackName: blackNameInput

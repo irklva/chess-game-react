@@ -4,7 +4,7 @@ import st from "./entry.module.css";
 import {Colors} from "../../../chess-models";
 import {Move} from "../../../chess-models";
 import {useDispatch} from "react-redux";
-import {setTimersFromEntry} from "../../../store/model/timers/timersSlice";
+import {setTimers} from "../../../store/model/timers/timersSlice";
 import {CastlingNames} from "../../../chess-models";
 import {useBoard} from "../../../board-context/useBoard";
 
@@ -22,7 +22,7 @@ const MoveEntry: FC<EntryProps> = ({move, playerColor}) => {
     const changeMove = () => {
         if (move.board?.getId !== boardId) {
             changeBoard(move);
-            dispatch(setTimersFromEntry({
+            dispatch(setTimers({
                 blackTimer: move.blackTimer,
                 whiteTimer: move.whiteTimer
             }));
