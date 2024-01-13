@@ -1,10 +1,10 @@
-import {timerType} from "../../../types/types";
+import {TimerType} from "../../../types/types";
 
 export interface TimersSchema {
-    blackTimer: timerType;
-    blackTimerMoment: timerType;
-    whiteTimer: timerType;
-    whiteTimerMoment: timerType;
-    timeMoment: timerType;
+    blackTimer: TimerType;
+    blackTimerMoment: TimerType;
+    whiteTimer: TimerType;
+    whiteTimerMoment: TimerType;
+    timeMoment: TimerType;
     timeWinner: string | null;
 }

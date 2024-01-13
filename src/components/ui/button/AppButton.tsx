@@ -1,19 +1,19 @@
 import React, {FC, ReactNode, ButtonHTMLAttributes} from 'react';
-import st from "./my-button.module.css";
+import st from "./app-button.module.css";
 
-export enum ButtonType {
-    FIRST = 'first',
-    SECOND = 'second'
+export enum ButtonStyle {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary'
 }
 
-interface MyButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
-    myBtnType?: ButtonType;
+    buttonStyle?: ButtonStyle;
 }
 
-const MyButton: FC<MyButtonProps> = ({
+const AppButton: FC<AppButtonProps> = ({
                                          children,
-                                         myBtnType = ButtonType.FIRST,
+                                         buttonStyle = ButtonStyle.PRIMARY,
                                          className,
                                          ...props
                                      }) => {
@@ -21,7 +21,7 @@ const MyButton: FC<MyButtonProps> = ({
         <button
             className={
                 `${st.btn} 
-                ${myBtnType === ButtonType.SECOND ? st.second : st.first} 
+                ${buttonStyle === ButtonStyle.SECONDARY ? st.secondary : st.primary} 
                 ${className}`
             }
             {...props}
@@ -31,4 +31,4 @@ const MyButton: FC<MyButtonProps> = ({
     );
 };
 
-export default MyButton;
+export default AppButton;

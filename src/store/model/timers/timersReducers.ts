@@ -1,9 +1,9 @@
 import {PayloadAction} from "@reduxjs/toolkit";
 import {TimersSchema} from "./timersSchema";
-import {checkAllTimerMoments} from "../../../utils/timerUtils";
+import {checkAllTimerMoments} from "../../../utils/timerHelpers";
 import {Colors} from "../../../chess-models";
 
-export const timersActions = {
+export const timersReducers = {
     timerMove(state: TimersSchema, action: PayloadAction<Colors>) {
         const {newBlackTimerMoment, newWhiteTimerMoment} = checkAllTimerMoments(
             action.payload,

@@ -4,7 +4,7 @@ import {minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
 import TimeInput from "./time-input/TimeInput";
 import {useSelector} from "react-redux";
 import {useTimerSettings} from "./useTimerSettings";
-import {minutesConditions, secondsConditions, timerConditions} from "../../../../utils/timerUtils";
+import {minutesConditions, secondsConditions, timerConditions} from "../../../../utils/timerHelpers";
 import {getMinutesInput, getNewGameTimer, getSecondsInput} from "../../../../store/model/new-game/newGameSelectors";
 
 const TimerSettings: FC = () => {

@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import st from "./time-input.module.css";
-import MyInput from "../../../../ui/input/MyInput";
-import {timerType} from "../../../../../types/types";
+import AppInput from "../../../../ui/input/AppInput";
+import {TimerType} from "../../../../../types/types";
 
 interface TimeInputProps {
     name: string;
-    timeValue: timerType;
+    timeValue: TimerType;
     timeChange: (value: string) => void;
     maxLimit: number;
     message: string;
@@ -25,7 +25,7 @@ const TimeInput: FC<TimeInputProps> = ({
 
     return (
         <div className={st.time}>
-            <MyInput
+            <AppInput
                 id={name}
                 type="number"
                 min="0"

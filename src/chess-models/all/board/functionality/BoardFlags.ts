@@ -4,7 +4,7 @@ import {Knight} from "../../figures/functionality/all/Knight";
 import {Rook} from "../../figures/functionality/all/Rook";
 import {Bishop} from "../../figures/functionality/all/Bishop";
 import {BoardCheckAndMate} from "./BoardCheckAndMate";
-import {PawnPromo} from "../../interfaces/PawnPromo";
+import {PawnPromo} from "../../types/PawnPromo";
 import {BoardModel} from "./BoardModel";
 
 export enum CastlingNames {

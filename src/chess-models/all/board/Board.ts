@@ -2,7 +2,7 @@ import {BoardModel} from "./functionality/BoardModel";
 import {FigureNames} from "../figures/functionality/FigureModel";
 import {Cell} from "../cell/Cell";
 import {Colors} from "../Colors";
-import {Move} from "../interfaces/Move";
+import {Move} from "../types/Move";
 import {Figure} from "../figures/Figure";
 
 export class Board {

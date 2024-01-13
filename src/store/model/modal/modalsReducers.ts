@@ -1,7 +1,7 @@
 import {PayloadAction} from "@reduxjs/toolkit";
 import {ModalsSchema} from "./modalsSchema";
 
-export const modalsActions =  {
+export const modalsReducers =  {
     setModalNewGame(state: ModalsSchema, action: PayloadAction<ModalsSchema['modalNewGame']>) {
         state.modalNewGame = action.payload;
     },

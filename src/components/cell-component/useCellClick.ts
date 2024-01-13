@@ -9,7 +9,7 @@ import {
     getTimeWinner,
     getWhiteTimerMoment,
 } from "../../store/model/timers/timersSelectors";
-import {checkAllTimerMoments} from "../../utils/timerUtils";
+import {checkAllTimerMoments} from "../../utils/timerHelpers";
 
 export const useCellClick = (
     cell: Cell

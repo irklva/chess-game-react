@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {setTimeWinner, timerMove} from "../../../store/model/timers/timersSlice";
-import {secondsDivisor} from "../../../utils/timerUtils";
+import {secondsDivisor} from "../../../utils/timerHelpers";
 import {useRef} from "react";
 import {TimerProps} from "../../../types/types";
 import {useBoard} from "../../../board-context/useBoard";

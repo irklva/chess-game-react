@@ -1,8 +1,8 @@
 import {setMinutesInput, setSecondsInput} from "../../../../store/model/new-game/newGameSlice";
 import {useDispatch} from "react-redux";
-import {timerType} from "../../../../types/types";
+import {TimerType} from "../../../../types/types";
 
-export const useTimerSettings = (minutesInput: timerType, secondsInput: timerType) => {
+export const useTimerSettings = (minutesInput: TimerType, secondsInput: TimerType) => {
 
     const dispatch = useDispatch();
 

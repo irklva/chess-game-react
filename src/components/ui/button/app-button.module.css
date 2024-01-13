@@ -6,22 +6,22 @@
     font-weight: bold;
 }
 
-.first {
+.primary {
     background-color: var(--btn-first-color);
     color: var(--btn-first-font-color);
 }
 
-.second {
+.secondary {
     background-color: var(--btn-second-color);
     color: var(--btn-second-font-color);
  }
 
-.first:hover {
+.primary:hover {
     background-color: var(--btn-first-hover-color);
     color: var(--btn-first-hover-font-color);
 }
 
-.second:hover {
+.secondary:hover {
     background-color: var(--btn-second-hover-color);
     color: var(--btn-second-hover-font-color);
 }

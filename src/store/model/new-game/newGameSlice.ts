@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {initialMinutes, initialSeconds} from "../../../utils/newGameConstants";
-import {newGameActions} from "./newGameActions";
+import {newGameReducers} from "./newGameReducers";
 import {NewGameSchema} from "./newGameSchema";
 
 const initialState: NewGameSchema = {
@@ -14,7 +14,7 @@ const initialState: NewGameSchema = {
 const newGameSlice = createSlice({
     name: 'newGame',
     initialState,
-    reducers: newGameActions,
+    reducers: newGameReducers,
 });
 
 export const {setBlackNameInput, setWhiteNameInput, setInfiniteSeconds,

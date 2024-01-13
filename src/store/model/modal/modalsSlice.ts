@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {modalsActions} from "./modalsActions";
+import {modalsReducers} from "./modalsReducers";
 import {ModalsSchema} from "./modalsSchema";
 
 const initialState: ModalsSchema = {
@@ -11,7 +11,7 @@ const initialState: ModalsSchema = {
 export const modalsSlice = createSlice({
     name: 'modals',
     initialState,
-    reducers: modalsActions,
+    reducers: modalsReducers,
 });
 
 export const {setModalNewGame, setModalGameOver, setModalPromotePawn} = modalsSlice.actions;

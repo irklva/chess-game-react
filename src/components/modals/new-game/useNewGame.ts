@@ -2,7 +2,7 @@ import {setTimers} from "../../../store/model/timers/timersSlice";
 import {setNames} from "../../../store/model/players/playersSlice";
 import {nameSymbolsLimit} from "../../../utils/newGameConstants";
 import {useDispatch, useSelector} from "react-redux";
-import {minutesConditions, secondsConditions, timerConditions} from "../../../utils/timerUtils";
+import {minutesConditions, secondsConditions, timerConditions} from "../../../utils/timerHelpers";
 import {useBoard} from "../../../board-context/useBoard";
 import {setModalNewGame} from "../../../store/model/modal/modalsSlice";
 import {

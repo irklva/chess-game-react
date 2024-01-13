@@ -1,6 +1,6 @@
 import React, {Dispatch, FC, ReactNode, SetStateAction} from 'react';
 import {Modal} from "react-bootstrap";
-import MyButton, {ButtonType} from "../ui/button/MyButton";
+import AppButton, {ButtonStyle} from "../ui/button/AppButton";
 
 interface ModalProps {
     show: boolean;
@@ -45,14 +45,14 @@ const ModalWindow: FC<ModalProps> = ({
             </Modal.Body>
             <Modal.Footer>
                 {action &&
-                    <MyButton onClick={action}>
+                    <AppButton onClick={action}>
                         {btnName}
-                    </MyButton>
+                    </AppButton>
                 }
                 {closeBtn &&
-                    <MyButton onClick={handleClose} myBtnType={ButtonType.SECOND}>
+                    <AppButton onClick={handleClose} buttonStyle={ButtonStyle.SECONDARY}>
                         Close
-                    </MyButton>
+                    </AppButton>
                 }
             </Modal.Footer>
         </Modal>

@@ -2,7 +2,7 @@ import {FigureModel, FigureNames} from "../../figures/functionality/FigureModel"
 import {CellModel} from "./CellModel";
 import {Colors} from "../../Colors";
 import {BoardModel} from "../../board/functionality/BoardModel";
-import {Move} from "../../interfaces/Move";
+import {Move} from "../../types/Move";
 import {Pawn} from "../../figures/functionality/all/Pawn";
 import {Rook} from "../../figures/functionality/all/Rook";
 import {Bishop} from "../../figures/functionality/all/Bishop";

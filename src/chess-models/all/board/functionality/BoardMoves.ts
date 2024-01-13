@@ -1,5 +1,5 @@
 import {Colors} from "../../Colors";
-import {Move} from "../../interfaces/Move";
+import {Move} from "../../types/Move";
 import {BoardModel} from "./BoardModel";
 
 export class BoardMoves {

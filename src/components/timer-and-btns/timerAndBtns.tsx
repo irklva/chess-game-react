@@ -1,6 +1,6 @@
 import React, {FC, useState} from "react";
 import st from "./timer-and-btns.module.css";
-import MyButton from "../ui/button/MyButton";
+import AppButton from "../ui/button/AppButton";
 import {useDispatch} from "react-redux";
 import {setTimers} from "../../store/model/timers/timersSlice";
 import Timer from "./timer/Timer";
@@ -25,13 +25,13 @@ const TimerAndBtns: FC = () => {
 
     return (
         <div className={st.timer_and_names_block}>
-            <MyButton onClick={newGame}>New game</MyButton>
+            <AppButton onClick={newGame}>New game</AppButton>
             <Timer
                 isTimerRunning={isTimerRunning}
                 setIsTimerRunning={setIsTimerRunning}
             />
             {isTimerRunning &&
-                <MyButton onClick={infiniteSeconds}>Infinite timers</MyButton>
+                <AppButton onClick={infiniteSeconds}>Infinite timers</AppButton>
             }
         </div>
     );

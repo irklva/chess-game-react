@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {playersActions} from "./playersActions";
+import {playersReducers} from "./playersReducers";
 import {PlayersSchema} from "./playersSchema";
 
 const initialState: PlayersSchema = {
@@ -10,7 +10,7 @@ const initialState: PlayersSchema = {
 const playersSlice = createSlice({
     name: 'players',
     initialState,
-    reducers: playersActions,
+    reducers: playersReducers,
 });
 
 export const {setNames} = playersSlice.actions;

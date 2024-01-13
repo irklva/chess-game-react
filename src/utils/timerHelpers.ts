@@ -1,4 +1,4 @@
-import {timerType} from "../types/types";
+import {TimerType} from "../types/types";
 import {minimumTimer, minutesLimit} from "./newGameConstants";
 import {Colors} from "../chess-models";
 
@@ -16,7 +16,7 @@ export const secondsConditions = (seconds: number | null) => {
     return seconds !== null && seconds >= 0 && seconds <= 59;
 }
 
-export const formatTimer = (timer: timerType): string => {
+export const formatTimer = (timer: TimerType): string => {
     if (timer === null) {
         return '∞';
     }
@@ -29,8 +29,8 @@ export const formatTimer = (timer: timerType): string => {
 }
 
 const checkTimerMoment = (
-    oldTimerMoment: timerType,
-    oldMoment: timerType
+    oldTimerMoment: TimerType,
+    oldMoment: TimerType
 ) => {
     let newTimerMoment = null;
     let newMoment = null;
@@ -44,9 +44,9 @@ const checkTimerMoment = (
 
 export const checkAllTimerMoments = (
     playerColor: Colors,
-    blackTimerMoment: timerType,
-    whiteTimerMoment: timerType,
-    timeMoment: timerType
+    blackTimerMoment: TimerType,
+    whiteTimerMoment: TimerType,
+    timeMoment: TimerType
 ) => {
     if (playerColor === Colors.BLACK) {
         const {newTimerMoment: newBlackTimerMoment, newMoment: newTimeMoment} = checkTimerMoment(blackTimerMoment, timeMoment);

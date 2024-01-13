@@ -2,7 +2,7 @@ import {initialMinutes, initialSeconds} from "../../../utils/newGameConstants";
 import {PayloadAction} from "@reduxjs/toolkit";
 import {NewGameSchema} from "./newGameSchema";
 
-export const newGameActions = {
+export const newGameReducers = {
     setBlackNameInput(state: NewGameSchema, action: PayloadAction<NewGameSchema['blackNameInput']>) {
         state.blackNameInput = action.payload;
     },

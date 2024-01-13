@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 import st from './timer-row.module.css';
-import {formatTimer} from "../../../../utils/timerUtils";
-import {timerType} from "../../../../types/types";
+import {formatTimer} from "../../../../utils/timerHelpers";
+import {TimerType} from "../../../../types/types";
 
 interface TimerRowProps {
     name: string;
-    timer: timerType;
+    timer: TimerType;
 }
 
 const TimerRow: FC<TimerRowProps> = ({name, timer}) => {

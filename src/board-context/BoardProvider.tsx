@@ -3,7 +3,7 @@ import {Board} from "../chess-models";
 import {Cell} from "../chess-models";
 import {BoardContext} from "./BoardContext";
 
-type BoardProviderProps = {
+interface BoardProviderProps {
     children: ReactNode
 }
 

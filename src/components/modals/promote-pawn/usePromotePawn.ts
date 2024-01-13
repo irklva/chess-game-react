@@ -8,7 +8,7 @@ import {
     getWhiteTimerMoment
 } from "../../../store/model/timers/timersSelectors";
 import {rememberAllMoments} from "../../../store/model/timers/timersSlice";
-import {checkAllTimerMoments} from "../../../utils/timerUtils";
+import {checkAllTimerMoments} from "../../../utils/timerHelpers";
 
 export const usePromotePawn = () => {
 
