@@ -16,16 +16,23 @@ export const secondsConditions = (seconds: number | null) => {
     return seconds !== null && seconds >= 0 && seconds <= 59;
 }
 
-export const formatTimer = (timer: TimerType): string => {
+export enum formatTimerInputType {
+    MS = 1000,
+    SEC = 1,
+}
+
+export const formatTimer = (timer: TimerType, inputType: formatTimerInputType): string => {
     if (timer === null) {
         return '∞';
     }
-    const minutes = Math.floor(timer / 60000);
-    const seconds = Math.ceil((timer % 60000) / 1000);
-    const formattedSeconds = seconds === 60 ? 0 : seconds;
-    const formattedMinutes = seconds === 60 ? minutes + 1 : minutes;
+    let minutes = Math.floor(timer / (60 * inputType));
+    let seconds = Math.ceil((timer % (60 * inputType)) / inputType);
+    if (seconds === 60) {
+        minutes += 1
+        seconds = 0;
+    }
 
-    return `${formattedMinutes.toString().padStart(2, '0')}:${formattedSeconds.toString().padStart(2, '0')}`;
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
 const checkTimerMoment = (

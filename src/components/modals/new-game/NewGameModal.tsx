@@ -16,6 +16,7 @@ import {
     setInfiniteSeconds,
     setWhiteNameInput
 } from "../../../store/model/new-game/newGameSlice";
+import AppCheckbox from "../../ui/checkbox/AppCheckbox";
 
 const NewGameModal: FC = () => {
     const dispatch = useDispatch();
@@ -55,16 +56,15 @@ const NewGameModal: FC = () => {
                 newName={whiteNameInput}
                 setNewName={setNewWhiteName}
             />
-            <div className={st.checkbox}>
-                <label htmlFor="infiniteSeconds">
-                    <div className={st.name}>
-                        Infinite timers
-                    </div>
-                    <input id="infiniteSeconds" type="checkbox" checked={infiniteSeconds}
-                           onChange={() => dispatch(setInfiniteSeconds())}/>
-                    <span></span>
-                </label>
-            </div>
+            <AppCheckbox
+                checkboxId="infiniteSeconds"
+                checked={infiniteSeconds}
+                onChange={() => dispatch(setInfiniteSeconds())}
+            >
+                <div className={st.checkbox_label}>
+                    Infinite timers
+                </div>
+            </AppCheckbox>
             {!infiniteSeconds &&
                 <TimerSettings/>
             }

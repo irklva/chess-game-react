@@ -19,10 +19,14 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
 
     return (
         <div className={st.block}>
-            <label htmlFor={inputId}>{newNameLabel}</label>
+            <label htmlFor={inputId}>
+                {newNameLabel}
+            </label>
             <div className={st.input}>
-                <AppInput id={inputId} type="text" value={newName}
-                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewName(e.target.value)}
+                <AppInput
+                    id={inputId}
+                    type="text" value={newName}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewName(e.target.value)}
                 />
                 {(newName === '' || newName.length > nameSymbolsLimit) &&
                     <div className={`text-danger ${st.message}`}>

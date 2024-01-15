@@ -1,7 +1,6 @@
 import {FC, useState, ReactNode} from 'react';
-import {Board} from "../chess-models";
-import {Cell} from "../chess-models";
 import {BoardContext} from "./BoardContext";
+import {Board, Cell} from "../chess-models";
 
 interface BoardProviderProps {
     children: ReactNode

@@ -4,9 +4,9 @@
 }
 
 .block label {
-    width: 130px;
+    flex: 0 0 130px;
 }
 
 .block .input {
-    width: Calc(100% - 130px);
+    flex-grow: 1;
 }

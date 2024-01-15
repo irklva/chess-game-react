@@ -1,9 +1,7 @@
 import React, {FC} from 'react';
 import st from "./promote-pawn.module.css";
-import {Colors} from "../../../chess-models";
 import black_queen from "../../../assets/black-queen.png";
 import white_queen from "../../../assets/white-queen.png";
-import {FigureNames} from "../../../chess-models";
 import black_knight from "../../../assets/black-knight.png";
 import white_knight from "../../../assets/white-knight.png";
 import black_bishop from "../../../assets/black-bishop.png";
@@ -15,6 +13,7 @@ import {useSelector} from "react-redux";
 import {usePromotePawn} from "./usePromotePawn";
 import {useBoard} from "../../../board-context/useBoard";
 import {getModalPromotePawn} from "../../../store/model/modal/modalsSelectors";
+import {Colors, FigureNames} from "../../../chess-models";
 
 const PromotePawnModal: FC = () => {
 

@@ -1,9 +1,7 @@
 import React, {FC} from 'react';
 import st from "./cell-content.module.css";
-import {FigureNames} from "../../../chess-models";
-import {Colors} from "../../../chess-models";
-import {Cell} from "../../../chess-models";
 import {useBoard} from "../../../board-context/useBoard";
+import {Cell, Colors, FigureNames} from "../../../chess-models";
 
 interface CellContentProps {
     cell: Cell;
@@ -51,12 +49,12 @@ const CellContent: FC<CellContentProps> = ({cell, isSelected}) => {
             }
             {cell.getY === 7 &&
                 <div className={`${st.coordinate} ${st.x}`}>
-                    {cell.getChessCoordinates.x}
+                    {cell.getChessCoordinates?.x}
                 </div>
             }
             {cell.getX === 0 &&
                 <div className={`${st.coordinate} ${st.y}`}>
-                    {cell.getChessCoordinates.y}
+                    {cell.getChessCoordinates?.y}
                 </div>
             }
         </div>

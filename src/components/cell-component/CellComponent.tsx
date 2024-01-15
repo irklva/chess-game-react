@@ -1,10 +1,9 @@
 import React, {FC} from "react";
 import st from "./cell-component.module.css";
-import {Colors} from "../../chess-models";
-import {Cell} from "../../chess-models";
 import CellContent from "./cell-content/CellContent";
 import {useCellClick} from "./useCellClick";
 import {useBoard} from "../../board-context/useBoard";
+import {Cell, Colors} from "../../chess-models";
 
 interface CellProps {
     cell: Cell;

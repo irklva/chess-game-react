@@ -1,10 +1,16 @@
 import React, {FC} from 'react';
 import st from "./time-settings.module.css";
-import {minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
+import {minimumTimer, minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
 import TimeInput from "./time-input/TimeInput";
 import {useSelector} from "react-redux";
 import {useTimerSettings} from "./useTimerSettings";
-import {minutesConditions, secondsConditions, timerConditions} from "../../../../utils/timerHelpers";
+import {
+    formatTimer,
+    formatTimerInputType,
+    minutesConditions,
+    secondsConditions,
+    timerConditions
+} from "../../../../utils/timerHelpers";
 import {getMinutesInput, getNewGameTimer, getSecondsInput} from "../../../../store/model/new-game/newGameSelectors";
 
 const TimerSettings: FC = () => {
@@ -12,6 +18,8 @@ const TimerSettings: FC = () => {
     const minutesInput = useSelector(getMinutesInput);
     const secondsInput = useSelector(getSecondsInput);
     const timer = useSelector(getNewGameTimer);
+    const timerConditionsMinutes = formatTimer(minimumTimer, formatTimerInputType.SEC);
+    const timerConditionsSeconds = formatTimer(minutesLimit * 60, formatTimerInputType.SEC);
 
     const {minutesChange, secondsChange} = useTimerSettings(minutesInput, secondsInput);
     const timerMessage: boolean = !timerConditions(timer)
@@ -40,7 +48,7 @@ const TimerSettings: FC = () => {
                 </div>
                 {timerMessage &&
                     <div className={`text-danger ${st.message}`}>
-                        00:30 - 60:00
+                        {timerConditionsMinutes} - {timerConditionsSeconds}
                     </div>
                 }
             </div>

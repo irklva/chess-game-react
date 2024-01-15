@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
 import st from "./moves.module.css";
 import MoveEntry from "./move-entry/MoveEntry";
-import {Colors} from "../../chess-models";
-import {Move} from "../../chess-models";
 import {useBoard} from "../../board-context/useBoard";
+import {Colors, Move} from "../../chess-models";
 
 const Moves: FC = () => {
 
