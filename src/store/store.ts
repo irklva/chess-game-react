@@ -1,8 +1,8 @@
-import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {playersReducer} from "./model/players/playersSlice";
-import {modalsReducer} from "./model/modal/modalsSlice";
-import {timersReducer} from "./model/timers/timersSlice";
-import {newGameReducer} from "./model/new-game/newGameSlice";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { modalsReducer } from './model/modal/modalsSlice';
+import { newGameReducer } from './model/new-game/newGameSlice';
+import { playersReducer } from './model/players/playersSlice';
+import { timersReducer } from './model/timers/timersSlice';
 
 const rootReducers = combineReducers({
     players: playersReducer,
@@ -11,8 +11,6 @@ const rootReducers = combineReducers({
     newGame: newGameReducer
 });
 
-export default configureStore({
-    reducer: rootReducers
-});
+export default configureStore({ reducer: rootReducers });
 
 export type RootState = ReturnType<typeof rootReducers>;

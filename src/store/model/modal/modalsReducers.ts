@@ -1,7 +1,7 @@
-import {PayloadAction} from "@reduxjs/toolkit";
-import {ModalsSchema} from "./modalsSchema";
+import type { ModalsSchema } from './modalsSchema';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-export const modalsReducers =  {
+export const modalsReducers = {
     setModalNewGame(state: ModalsSchema, action: PayloadAction<ModalsSchema['modalNewGame']>) {
         state.modalNewGame = action.payload;
     },
@@ -11,4 +11,4 @@ export const modalsReducers =  {
     setModalPromotePawn(state: ModalsSchema, action: PayloadAction<ModalsSchema['modalPromotePawn']>) {
         state.modalPromotePawn = action.payload;
     }
-}
+};

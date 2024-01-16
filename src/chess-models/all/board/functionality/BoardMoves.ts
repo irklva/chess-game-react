@@ -1,6 +1,6 @@
-import {Colors} from "../../Colors";
-import {Move} from "../../types/Move";
-import {BoardModel} from "./BoardModel";
+import { Colors } from '../../Colors';
+import type { BoardModel } from './BoardModel';
+import type { Move } from '../../types/Move';
 
 export class BoardMoves {
     readonly black: Move[];
@@ -21,7 +21,7 @@ export class BoardMoves {
             } else {
                 return true;
             }
-        })
+        });
         movesArray.splice(index);
         if (index > 0 && movesArray[index - 1].board?.getId === boardId) {
             movesArray[index - 1].board = board.copyBoardDeep(false);
@@ -29,10 +29,8 @@ export class BoardMoves {
     }
 
     set newMove(move: Move) {
-        move.figure.getColor === Colors.BLACK
-            ?
-            this.black.push(move)
-            :
-            this.white.push(move)
+        move.figure.getColor === Colors.BLACK ?
+            this.black.push(move) :
+            this.white.push(move);
     }
 }

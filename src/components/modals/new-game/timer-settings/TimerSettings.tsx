@@ -1,17 +1,17 @@
-import React, {FC} from 'react';
-import st from "./time-settings.module.css";
-import {minimumTimer, minutesLimit, secondsLimit} from "../../../../utils/newGameConstants";
-import TimeInput from "./time-input/TimeInput";
-import {useSelector} from "react-redux";
-import {useTimerSettings} from "./useTimerSettings";
+import { useSelector } from 'react-redux';
+import { getMinutesInput, getNewGameTimer, getSecondsInput } from '../../../../store/model/new-game/newGameSelectors';
+import { minimumTimer, minutesLimit, secondsLimit } from '../../../../utils/newGameConstants';
 import {
     formatTimer,
     formatTimerInputType,
     minutesConditions,
     secondsConditions,
     timerConditions
-} from "../../../../utils/timerHelpers";
-import {getMinutesInput, getNewGameTimer, getSecondsInput} from "../../../../store/model/new-game/newGameSelectors";
+} from '../../../../utils/timerHelpers';
+import TimeInput from './time-input/TimeInput';
+import st from './time-settings.module.css';
+import { useTimerSettings } from './useTimerSettings';
+import type { FC } from 'react';
 
 const TimerSettings: FC = () => {
 
@@ -21,10 +21,10 @@ const TimerSettings: FC = () => {
     const timerConditionsMinutes = formatTimer(minimumTimer, formatTimerInputType.SEC);
     const timerConditionsSeconds = formatTimer(minutesLimit * 60, formatTimerInputType.SEC);
 
-    const {minutesChange, secondsChange} = useTimerSettings(minutesInput, secondsInput);
-    const timerMessage: boolean = !timerConditions(timer)
-        && minutesConditions(minutesInput)
-        && secondsConditions(secondsInput);
+    const { minutesChange, secondsChange } = useTimerSettings();
+    const timerMessage: boolean = !timerConditions(timer) &&
+        minutesConditions(minutesInput) &&
+        secondsConditions(secondsInput);
 
     return (
         <div className={st.block}>

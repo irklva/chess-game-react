@@ -1,21 +1,25 @@
-import {FigureModel, FigureNames} from "../../figures/functionality/FigureModel";
-import {CellModel} from "./CellModel";
-import {Colors} from "../../Colors";
-import {BoardModel} from "../../board/functionality/BoardModel";
-import {Move} from "../../types/Move";
-import {Pawn} from "../../figures/functionality/all/Pawn";
-import {Rook} from "../../figures/functionality/all/Rook";
-import {Bishop} from "../../figures/functionality/all/Bishop";
-import {Knight} from "../../figures/functionality/all/Knight";
-import {Queen} from "../../figures/functionality/all/Queen";
-import {King} from "../../figures/functionality/all/King";
+import { Colors } from '../../Colors';
+import { Bishop } from '../../figures/functionality/all/Bishop';
+import { King } from '../../figures/functionality/all/King';
+import { Knight } from '../../figures/functionality/all/Knight';
+import { Pawn } from '../../figures/functionality/all/Pawn';
+import { Queen } from '../../figures/functionality/all/Queen';
+import { Rook } from '../../figures/functionality/all/Rook';
+import { FigureNames } from '../../figures/functionality/FigureModel';
+import type { CellModel } from './CellModel';
+import type { BoardModel } from '../../board/functionality/BoardModel';
+import type { FigureModel } from '../../figures/functionality/FigureModel';
+import type { Move } from '../../types/Move';
 
 export class CellFigure {
     private object: FigureModel | null;
     private readonly cell: CellModel;
     private readonly board: BoardModel;
 
-    constructor(cell: CellModel, board: BoardModel) {
+    constructor(
+        cell: CellModel,
+        board: BoardModel
+    ) {
         this.object = null;
         this.cell = cell;
         this.board = board;
@@ -25,6 +29,7 @@ export class CellFigure {
         if (target.cellFigure.object) {
             return target.cellFigure.object.color !== this.object?.color;
         }
+
         return false;
     }
 
@@ -34,8 +39,8 @@ export class CellFigure {
 
     private cellsPreparation(target: CellModel): string {
         const figures: CellModel[] = [];
-        let difX: string = "";
-        let difY: string = "";
+        let difX: string = '';
+        let difY: string = '';
         this.board.cells.getModels.forEach(row => {
             row.forEach(cell => {
                 cell.parameters.setMoveFrom = false;
@@ -48,16 +53,18 @@ export class CellFigure {
                 ) {
                     figures.push(cell);
                 }
-            })
-        })
+            });
+        });
         figures.some((figure) => {
             const figureCoordinates = this.cell.parameters.coordinates;
             if (figure.parameters.coordinates.x !== figureCoordinates.x)
                 difX = figureCoordinates.x;
             else
                 difY = figureCoordinates.y;
+
             return (difX && difY);
-        })
+        });
+
         return (difX + difY);
     }
 
@@ -87,9 +94,11 @@ export class CellFigure {
         this.object = null;
     }
 
-    public move(target: CellModel,
-                blackTimer: number | null,
-                whiteTimer: number | null) {
+    public move(
+        target: CellModel,
+        blackTimer: number | null,
+        whiteTimer: number | null
+    ) {
         const targetParams = target.parameters;
         if (this.object && targetParams.getAvailable) {
             const boardMoves = this.board.moves;
@@ -112,7 +121,7 @@ export class CellFigure {
                 blackTimer: blackTimer,
                 whiteTimer: whiteTimer,
                 promoFigure: null
-            }
+            };
             this.object.moveFigure(target);
             this.moveFlags(target, moveObject);
             this.relocateObject(target);
@@ -143,11 +152,10 @@ export class CellFigure {
                 tempBoard.kings.kingMove(target, this.board.players.getCurrent.color);
             }
             tempBoard.checkAndMate.checkUpd();
-            return this.board.players.getCurrent.color === Colors.BLACK
-                ?
-                tempBoard.checkAndMate.getBlackCheck
-                :
-                tempBoard.checkAndMate.getWhiteCheck
+
+            return this.board.players.getCurrent.color === Colors.BLACK ?
+                tempBoard.checkAndMate.getBlackCheck :
+                tempBoard.checkAndMate.getWhiteCheck;
         } else {
             return false;
         }
@@ -157,33 +165,34 @@ export class CellFigure {
         this.board.cells.getModels.forEach(row => {
             row.forEach(cell => {
                 cell.parameters.setAvailable = (!resetAvailable && !!this.object?.canMove(cell));
-            })
-        })
+            });
+        });
     }
 
     private exhaustiveCheck(params: CellModel) {
-        console.log("Unexpected value " + params);
+        console.log('Unexpected value ' + params);
     }
 
     getCopyFigure(cell: CellModel): FigureModel | null {
         const isFirstStep = this.object?.getFirstStep;
 
         switch (this.object?.getName) {
-            case FigureNames.PAWN:
-                return new Pawn(this.object.color, cell, isFirstStep);
-            case FigureNames.ROOK:
-                return new Rook(this.object.color, cell, isFirstStep);
-            case FigureNames.BISHOP:
-                return new Bishop(this.object.color, cell);
-            case FigureNames.KNIGHT:
-                return new Knight(this.object.color, cell);
-            case FigureNames.QUEEN:
-                return new Queen(this.object.color, cell);
-            case FigureNames.KING:
-                return new King(this.object.color, cell, isFirstStep);
-            default:
-                this.exhaustiveCheck(cell);
-                return null;
+                case FigureNames.PAWN:
+                    return new Pawn(this.object.color, cell, isFirstStep);
+                case FigureNames.ROOK:
+                    return new Rook(this.object.color, cell, isFirstStep);
+                case FigureNames.BISHOP:
+                    return new Bishop(this.object.color, cell);
+                case FigureNames.KNIGHT:
+                    return new Knight(this.object.color, cell);
+                case FigureNames.QUEEN:
+                    return new Queen(this.object.color, cell);
+                case FigureNames.KING:
+                    return new King(this.object.color, cell, isFirstStep);
+                default:
+                    this.exhaustiveCheck(cell);
+
+                    return null;
         }
     }
 

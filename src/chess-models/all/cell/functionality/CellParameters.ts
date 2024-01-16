@@ -1,8 +1,8 @@
-import {Colors} from "../../Colors";
-import {CellModel} from "./CellModel";
-import {CellFigure} from "./CellFigure";
-import {BoardCells} from "../../board/functionality/BoardCells";
-import {FigureNames} from "../../figures/functionality/FigureModel";
+import { Colors } from '../../Colors';
+import { FigureNames } from '../../figures/functionality/FigureModel';
+import type { CellFigure } from './CellFigure';
+import type { CellModel } from './CellModel';
+import type { BoardCells } from '../../board/functionality/BoardCells';
 
 export interface Coordinates {
     x: string,
@@ -22,11 +22,13 @@ export class CellParameters {
     private readonly figure: CellFigure;
     private readonly boardCells: BoardCells;
 
-    constructor(x: number, y: number, color: Colors, cell: CellModel, figure: CellFigure,
-                boardCells: BoardCells, moveFrom: boolean, moveTo: boolean) {
+    constructor(
+        x: number, y: number, color: Colors, cell: CellModel, figure: CellFigure,
+        boardCells: BoardCells, moveFrom: boolean, moveTo: boolean
+    ) {
         this.x = x;
         this.y = y;
-        this.coordinates = {x: String.fromCharCode(97 + this.x), y: (8 - this.y).toString()}
+        this.coordinates = { x: String.fromCharCode(97 + this.x), y: (8 - this.y).toString() };
         this.color = color;
         this.id = `${x} ${y}`;
         this.available = false;
@@ -76,29 +78,35 @@ export class CellParameters {
         const dy = this.y < target.parameters.y ? 1 : -1;
 
         for (let i = 1; i < absY; i++) {
-            if (!this.boardCells.getModel(this.x + dx * i,
-                this.y + dy * i).cellFigure.noFigure())
+            if (!this.boardCells.getModel(
+                this.x + dx * i,
+                this.y + dy * i
+            ).cellFigure.noFigure())
                 return false;
         }
         return true;
     }
 
     pawnCanAttack(target: CellModel, needEnemy: boolean, direction: number): boolean {
-        return (target.parameters.y === this.y + direction
-            && (target.parameters.x === this.x + 1 || target.parameters.x === this.x - 1)
-            && (!needEnemy || this.figure.isEnemy(target)));
+        return (target.parameters.y === this.y + direction &&
+            (target.parameters.x === this.x + 1 || target.parameters.x === this.x - 1) &&
+            (!needEnemy || this.figure.isEnemy(target)));
     }
 
     pawnCanMove(target: CellModel, isFirstStep: boolean, direction: number, firstStepDirection: number): boolean {
-        if ((target.parameters.y === this.y + direction
-                || (isFirstStep && (target.parameters.y === this.y + firstStepDirection)))
-            && target.parameters.x === this.x
-            && this.boardCells.getModel(target.parameters.x,
-                target.parameters.y).cellFigure.noFigure()) {
+        if ((target.parameters.y === this.y + direction ||
+                (isFirstStep && (target.parameters.y === this.y + firstStepDirection))) &&
+            target.parameters.x === this.x &&
+            this.boardCells.getModel(
+                target.parameters.x,
+                target.parameters.y
+            ).cellFigure.noFigure()) {
             return (
                 !(isFirstStep &&
-                    !this.boardCells.getModel(this.x,
-                        this.y + direction).cellFigure.noFigure())
+                    !this.boardCells.getModel(
+                        this.x,
+                        this.y + direction
+                    ).cellFigure.noFigure())
             );
         }
         return this.pawnCanAttack(target, true, direction);
@@ -108,19 +116,17 @@ export class CellParameters {
         return this.boardCells.getModels.some((row) =>
             row.some((figureCell) => {
                 if (figureCell.cellFigure.getObject?.color !== attackedPlayerColor) {
-                    return figureCell.cellFigure.getObject?.getName === FigureNames.PAWN
-                        ?
+                    return figureCell.cellFigure.getObject?.getName === FigureNames.PAWN ?
                         figureCell.parameters.pawnCanAttack(
                             this.cell,
                             false,
-                            figureCell.cellFigure.getObject?.color === Colors.BLACK ? 1 : -1)
-                        :
-                        figureCell.cellFigure.getObject?.canMove(this.cell, false)
+                            figureCell.cellFigure.getObject?.color === Colors.BLACK ? 1 : -1
+                        ) :
+                        figureCell.cellFigure.getObject?.canMove(this.cell, false);
                 } else {
                     return false;
                 }
-            })
-        )
+            }));
     }
 
     get getAvailable(): boolean {

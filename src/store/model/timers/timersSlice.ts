@@ -1,6 +1,6 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {timersReducers} from "./timersReducers";
-import {TimersSchema} from "./timersSchema";
+import { createSlice } from '@reduxjs/toolkit';
+import { timersReducers } from './timersReducers';
+import type { TimersSchema } from './timersSchema';
 
 const initialState: TimersSchema = {
     blackTimer: null,
@@ -9,7 +9,7 @@ const initialState: TimersSchema = {
     whiteTimerMoment: null,
     timeMoment: null,
     timeWinner: null,
-}
+};
 
 const timersSlice = createSlice({
     name: 'timers',
@@ -17,6 +17,6 @@ const timersSlice = createSlice({
     reducers: timersReducers,
 });
 
-export const {setTimeWinner, setTimers, rememberAllMoments, timerMove} = timersSlice.actions;
+export const { setTimeWinner, setTimers, rememberAllMoments, timerMove } = timersSlice.actions;
 
 export const timersReducer = timersSlice.reducer;

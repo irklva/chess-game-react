@@ -1,8 +1,9 @@
-import React, {FC} from 'react';
-import st from "./moves.module.css";
-import MoveEntry from "./move-entry/MoveEntry";
-import {useBoard} from "../../board-context/useBoard";
-import {Colors, Move} from "../../chess-models";
+import { useBoard } from '../../board-context/useBoard';
+import { Colors } from '../../chess-models';
+import MoveEntry from './move-entry/MoveEntry';
+import st from './moves.module.css';
+import type { Move } from '../../chess-models';
+import type { FC } from 'react';
 
 const Moves: FC = () => {
 
@@ -22,16 +23,15 @@ const Moves: FC = () => {
                         </div>
                         <div className="col d-flex align-items-end">
                             <MoveEntry move={move}
-                                       playerColor={Colors.WHITE}
+                                playerColor={Colors.WHITE}
                             />
                             {blackMoves[move.id - 1] &&
                                 <MoveEntry move={blackMoves[move.id - 1]}
-                                           playerColor={Colors.BLACK}
+                                    playerColor={Colors.BLACK}
                                 />
                             }
                         </div>
-                    </div>
-                )}
+                    </div>)}
             </div>
         </div>
     );

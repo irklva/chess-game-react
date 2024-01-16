@@ -1,21 +1,21 @@
-import {setTimers} from "../../../store/model/timers/timersSlice";
-import {setNames} from "../../../store/model/players/playersSlice";
-import {nameSymbolsLimit} from "../../../utils/newGameConstants";
-import {useDispatch, useSelector} from "react-redux";
-import {minutesConditions, secondsConditions, timerConditions} from "../../../utils/timerHelpers";
-import {useBoard} from "../../../board-context/useBoard";
-import {setModalNewGame} from "../../../store/model/modal/modalsSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { useBoard } from '../../../board-context/useBoard';
+import { setModalNewGame } from '../../../store/model/modal/modalsSlice';
 import {
     getBlackNameInput,
     getMinutesInput,
     getNewGameTimer,
     getSecondsInput,
     getWhiteNameInput
-} from "../../../store/model/new-game/newGameSelectors";
+} from '../../../store/model/new-game/newGameSelectors';
+import { setNames } from '../../../store/model/players/playersSlice';
+import { setTimers } from '../../../store/model/timers/timersSlice';
+import { nameSymbolsLimit } from '../../../utils/newGameConstants';
+import { minutesConditions, secondsConditions, timerConditions } from '../../../utils/timerHelpers';
 
 export const useNewGame = () => {
     const dispatch = useDispatch();
-    const {boardSettings} = useBoard();
+    const { boardSettings } = useBoard();
     const blackNameInput = useSelector(getBlackNameInput);
     const whiteNameInput = useSelector(getWhiteNameInput);
     const minutesInput = useSelector(getMinutesInput);
@@ -34,13 +34,13 @@ export const useNewGame = () => {
             dispatch(setNames({
                 whiteName: whiteNameInput,
                 blackName: blackNameInput
-            }))
+            }));
             dispatch(setModalNewGame(false));
-        }
+        };
 
-        const timeConditions = timerConditions(timer)
-            && minutesConditions(minutesInput)
-            && secondsConditions(secondsInput);
+        const timeConditions = timerConditions(timer) &&
+            minutesConditions(minutesInput) &&
+            secondsConditions(secondsInput);
 
         const namesConditions = (whiteNameInput !== '' && whiteNameInput.length <= nameSymbolsLimit &&
             blackNameInput !== '' && blackNameInput.length <= nameSymbolsLimit);
@@ -49,6 +49,6 @@ export const useNewGame = () => {
             gameSettings();
             boardSettings();
         }
-    }
+    };
 
-}
+};

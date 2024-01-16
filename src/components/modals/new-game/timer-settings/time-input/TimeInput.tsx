@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
-import st from "./time-input.module.css";
-import AppInput from "../../../../ui/input/AppInput";
-import {TimerType} from "../../../../../types/types";
+import AppInput from '../../../../ui/input/AppInput';
+import st from './time-input.module.css';
+import type { TimerType } from '../../../../../types/types';
+import type { FC } from 'react';
 
 interface TimeInputProps {
     name: string;
@@ -12,16 +12,16 @@ interface TimeInputProps {
 }
 
 const TimeInput: FC<TimeInputProps> = ({
-                                           timeValue,
-                                           timeChange,
-                                           name,
-                                           maxLimit,
-                                           message
-                                       }) => {
+    timeValue,
+    timeChange,
+    name,
+    maxLimit,
+    message
+}) => {
 
-    const noInputCondition = timeValue === null
-                            || timeValue < 0
-                            || timeValue > maxLimit;
+    const noInputCondition = timeValue === null ||
+                            timeValue < 0 ||
+                            timeValue > maxLimit;
 
     return (
         <div className={st.time}>
@@ -30,9 +30,9 @@ const TimeInput: FC<TimeInputProps> = ({
                 type="number"
                 min="0"
                 max={maxLimit}
-                value={timeValue === null ? "" : timeValue}
+                value={timeValue === null ? '' : timeValue}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    timeChange(e.target.value)
+                    timeChange(e.target.value);
                 }}
             />
             <div className={st.name}>

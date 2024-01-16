@@ -1,16 +1,16 @@
-import {PayloadAction} from "@reduxjs/toolkit";
-import {TimersSchema} from "./timersSchema";
-import {checkAllTimerMoments} from "../../../utils/timerHelpers";
-import {Colors} from "../../../chess-models";
+import { checkAllTimerMoments } from '../../../utils/timerHelpers';
+import type { TimersSchema } from './timersSchema';
+import type { Colors } from '../../../chess-models';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 export const timersReducers = {
     timerMove(state: TimersSchema, action: PayloadAction<Colors>) {
-        const {newBlackTimerMoment, newWhiteTimerMoment} = checkAllTimerMoments(
+        const { newBlackTimerMoment, newWhiteTimerMoment } = checkAllTimerMoments(
             action.payload,
             state.blackTimerMoment,
             state.whiteTimerMoment,
             state.timeMoment
-        )
+        );
         state.blackTimer = newBlackTimerMoment;
         state.whiteTimer = newWhiteTimerMoment;
     },
@@ -27,13 +27,12 @@ export const timersReducers = {
     },
     setTimers(state: TimersSchema, action: PayloadAction<Pick<TimersSchema, 'blackTimer' | 'whiteTimer'>>) {
         action.payload ?
-            state.timeMoment = new Date().getTime()
-            :
-            state.timeMoment = null
+            state.timeMoment = new Date().getTime() :
+            state.timeMoment = null;
         state.blackTimerMoment = action.payload.blackTimer;
         state.whiteTimerMoment = action.payload.whiteTimer;
         state.blackTimer = action.payload.blackTimer;
         state.whiteTimer = action.payload.whiteTimer;
         state.timeWinner = null;
     }
-}
+};

@@ -1,5 +1,5 @@
-import {RootState} from "../../store";
-import {ModalsSchema} from "./modalsSchema";
+import type { ModalsSchema } from './modalsSchema';
+import type { RootState } from '../../store';
 
 export const getModalNewGame = (state: RootState): ModalsSchema['modalNewGame'] => state.modals.modalNewGame;
 export const getModalGameOver = (state: RootState): ModalsSchema['modalGameOver'] => state.modals.modalGameOver;

@@ -1,8 +1,8 @@
-import {FigureModel, FigureNames} from "../FigureModel";
-import blackLogo from "../../../../../assets/black-queen.png";
-import whiteLogo from "../../../../../assets/white-queen.png";
-import {Colors} from "../../../Colors";
-import {CellModel} from "../../../cell/functionality/CellModel";
+import blackLogo from '../../../../../assets/black-queen.png';
+import whiteLogo from '../../../../../assets/white-queen.png';
+import { Colors } from '../../../Colors';
+import { FigureModel, FigureNames } from '../FigureModel';
+import type { CellModel } from '../../../cell/functionality/CellModel';
 
 export class Queen extends FigureModel {
     constructor(color: Colors, cell: CellModel) {
@@ -15,9 +15,9 @@ export class Queen extends FigureModel {
         const cellParams = this.getCell.parameters;
         if (!super.canMove(target, kingIsSaved))
             return false;
-        if (!cellParams.isEmptyVertical(target)
-            && !cellParams.isEmptyHorizontal(target)
-            && !cellParams.isEmptyDiagonal(target))
+        if (!cellParams.isEmptyVertical(target) &&
+            !cellParams.isEmptyHorizontal(target) &&
+            !cellParams.isEmptyDiagonal(target))
             return false;
         if (this.getCell.cellFigure.isMoveDangerousForKing(target))
             return false;

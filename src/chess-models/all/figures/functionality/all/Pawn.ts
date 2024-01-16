@@ -1,8 +1,8 @@
-import {FigureModel, FigureNames} from "../FigureModel";
-import blackLogo from "../../../../../assets/black-pawn.png";
-import whiteLogo from "../../../../../assets/white-pawn.png";
-import {Colors} from "../../../Colors";
-import {CellModel} from "../../../cell/functionality/CellModel";
+import blackLogo from '../../../../../assets/black-pawn.png';
+import whiteLogo from '../../../../../assets/white-pawn.png';
+import { Colors } from '../../../Colors';
+import { FigureModel, FigureNames } from '../FigureModel';
+import type { CellModel } from '../../../cell/functionality/CellModel';
 
 export class Pawn extends FigureModel {
 
@@ -21,10 +21,10 @@ export class Pawn extends FigureModel {
         if (!super.canMove(target, kingIsSaved))
             return false;
         if (!this.getCell.parameters.pawnCanMove(target, !!this.getFirstStep, this.direction, this.firstStepDirection))
-             return false;
+            return false;
         if (this.getCell.cellFigure.isMoveDangerousForKing(target))
             return false;
-        return true
+        return true;
     }
 
     moveFigure(target: CellModel) {

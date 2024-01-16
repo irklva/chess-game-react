@@ -1,19 +1,19 @@
-import {useDispatch, useSelector} from "react-redux";
-import {FigureNames} from "../../../chess-models";
-import {useBoard} from "../../../board-context/useBoard";
-import {setModalGameOver, setModalPromotePawn} from "../../../store/model/modal/modalsSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { useBoard } from '../../../board-context/useBoard';
+import { setModalGameOver, setModalPromotePawn } from '../../../store/model/modal/modalsSlice';
 import {
     getBlackTimerMoment,
     getTimeMoment,
     getWhiteTimerMoment
-} from "../../../store/model/timers/timersSelectors";
-import {rememberAllMoments} from "../../../store/model/timers/timersSlice";
-import {checkAllTimerMoments} from "../../../utils/timerHelpers";
+} from '../../../store/model/timers/timersSelectors';
+import { rememberAllMoments } from '../../../store/model/timers/timersSlice';
+import { checkAllTimerMoments } from '../../../utils/timerHelpers';
+import type { FigureNames } from '../../../chess-models';
 
 export const usePromotePawn = () => {
 
     const dispatch = useDispatch();
-    const {board, setSelectedCell} = useBoard();
+    const { board, setSelectedCell } = useBoard();
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
     const timeMoment = useSelector(getTimeMoment);
@@ -42,5 +42,5 @@ export const usePromotePawn = () => {
         if (board.getMate || board.getStalemate) {
             dispatch(setModalGameOver(true));
         }
-    }
-}
+    };
+};

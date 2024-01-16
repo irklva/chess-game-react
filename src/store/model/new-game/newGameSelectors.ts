@@ -1,6 +1,6 @@
-import {RootState} from "../../store";
-import {createSelector} from "@reduxjs/toolkit";
-import {NewGameSchema} from "./newGameSchema";
+import { createSelector } from '@reduxjs/toolkit';
+import type { NewGameSchema } from './newGameSchema';
+import type { RootState } from '../../store';
 
 export const getBlackNameInput = (state: RootState): NewGameSchema['blackNameInput'] => state.newGame.blackNameInput;
 export const getWhiteNameInput = (state: RootState): NewGameSchema['whiteNameInput'] => state.newGame.whiteNameInput;
@@ -17,4 +17,4 @@ export const getNewGameTimer = createSelector(
             return null;
         }
     }
-)
+);

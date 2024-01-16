@@ -1,5 +1,5 @@
-import React, {FC, ReactNode} from 'react';
 import st from './app-checkbox.module.css';
+import type { FC, ReactNode } from 'react';
 
 interface AppCheckboxProps {
     children: ReactNode;
@@ -10,12 +10,12 @@ interface AppCheckboxProps {
 }
 
 const AppInput: FC<AppCheckboxProps> = ({
-                                            children,
-                                            className,
-                                            checkboxId,
-                                            checked,
-                                            onChange
-                                        }) => {
+    children,
+    className,
+    checkboxId,
+    checked,
+    onChange
+}) => {
     return (
         <div className={`${st.checkbox} ${className}`}>
             <label htmlFor={checkboxId}>
@@ -26,7 +26,7 @@ const AppInput: FC<AppCheckboxProps> = ({
                     checked={checked}
                     onChange={onChange}
                 />
-                <span></span>
+                <span />
             </label>
         </div>
     );

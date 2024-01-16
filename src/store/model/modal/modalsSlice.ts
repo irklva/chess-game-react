@@ -1,12 +1,12 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {modalsReducers} from "./modalsReducers";
-import {ModalsSchema} from "./modalsSchema";
+import { createSlice } from '@reduxjs/toolkit';
+import { modalsReducers } from './modalsReducers';
+import type { ModalsSchema } from './modalsSchema';
 
 const initialState: ModalsSchema = {
     modalNewGame: true,
     modalGameOver: false,
     modalPromotePawn: false,
-}
+};
 
 export const modalsSlice = createSlice({
     name: 'modals',
@@ -14,6 +14,6 @@ export const modalsSlice = createSlice({
     reducers: modalsReducers,
 });
 
-export const {setModalNewGame, setModalGameOver, setModalPromotePawn} = modalsSlice.actions;
+export const { setModalNewGame, setModalGameOver, setModalPromotePawn } = modalsSlice.actions;
 
 export const modalsReducer = modalsSlice.reducer;

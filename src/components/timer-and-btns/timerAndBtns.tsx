@@ -1,10 +1,11 @@
-import React, {FC, useState} from "react";
-import st from "./timer-and-btns.module.css";
-import AppButton from "../ui/button/AppButton";
-import {useDispatch} from "react-redux";
-import {setTimers} from "../../store/model/timers/timersSlice";
-import Timer from "./timer/Timer";
-import {setModalNewGame} from "../../store/model/modal/modalsSlice";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setModalNewGame } from '../../store/model/modal/modalsSlice';
+import { setTimers } from '../../store/model/timers/timersSlice';
+import AppButton from '../ui/button/AppButton';
+import Timer from './timer/Timer';
+import st from './timer-and-btns.module.css';
+import type { FC } from 'react';
 
 const TimerAndBtns: FC = () => {
 
@@ -14,14 +15,14 @@ const TimerAndBtns: FC = () => {
     const newGame = () => {
         dispatch(setModalNewGame(true));
         setIsTimerRunning(false);
-    }
+    };
 
     const infiniteSeconds = () => {
         dispatch(setTimers({
             blackTimer: null,
             whiteTimer: null
         }));
-    }
+    };
 
     return (
         <div className={st.timer_and_names_block}>

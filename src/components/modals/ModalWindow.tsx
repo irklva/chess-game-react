@@ -1,6 +1,6 @@
-import React, {Dispatch, FC, ReactNode, SetStateAction} from 'react';
-import {Modal} from "react-bootstrap";
-import AppButton, {ButtonStyle} from "../ui/button/AppButton";
+import { Modal } from 'react-bootstrap';
+import AppButton, { ButtonStyle } from '../ui/button/AppButton';
+import type { Dispatch, FC, ReactNode, SetStateAction } from 'react';
 
 interface ModalProps {
     show: boolean;
@@ -13,14 +13,14 @@ interface ModalProps {
 }
 
 const ModalWindow: FC<ModalProps> = ({
-                                         show,
-                                         setShow,
-                                         title,
-                                         children,
-                                         action,
-                                         btnName,
-                                         closeBtn
-                                     }) => {
+    show,
+    setShow,
+    title,
+    children,
+    action,
+    btnName,
+    closeBtn
+}) => {
 
     function handleClose() {
         if (setShow) {

@@ -1,7 +1,7 @@
-import {Colors} from "../../Colors";
-import logo from "../../../../assets/black-bishop.png";
-import {CellModel} from "../../cell/functionality/CellModel";
-import {Figure} from "../Figure";
+import { Figure } from '../Figure';
+import type logo from '../../../../assets/black-bishop.png';
+import type { CellModel } from '../../cell/functionality/CellModel';
+import type { Colors } from '../../Colors';
 
 export enum FigureNames {
     FIGURE = 'Figure',
@@ -41,7 +41,7 @@ export class FigureModel {
         return true;
     }
 
-    moveFigure(target: CellModel) {}
+    moveFigure(_target: CellModel) {}
 
     get getName(): FigureNames {
         return this.name;

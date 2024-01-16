@@ -1,8 +1,8 @@
-import {FigureModel, FigureNames} from "../FigureModel";
-import blackLogo from "../../../../../assets/black-knight.png";
-import whiteLogo from "../../../../../assets/white-knight.png";
-import {Colors} from "../../../Colors";
-import {CellModel} from "../../../cell/functionality/CellModel";
+import blackLogo from '../../../../../assets/black-knight.png';
+import whiteLogo from '../../../../../assets/white-knight.png';
+import { Colors } from '../../../Colors';
+import { FigureModel, FigureNames } from '../FigureModel';
+import type { CellModel } from '../../../cell/functionality/CellModel';
 
 export class Knight extends FigureModel {
     constructor(color: Colors, cell: CellModel) {
@@ -18,7 +18,7 @@ export class Knight extends FigureModel {
         const dx = Math.abs(this.getCell.parameters.x - target.parameters.x);
         const dy = Math.abs(this.getCell.parameters.y - target.parameters.y);
         if (!((dx === 2 && dy === 1) || (dy === 2 && dx === 1)))
-            return false
+            return false;
         if (this.getCell.cellFigure.isMoveDangerousForKing(target))
             return false;
         return true;

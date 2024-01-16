@@ -1,12 +1,14 @@
-import {FC, useState, ReactNode} from 'react';
-import {BoardContext} from "./BoardContext";
-import {Board, Cell} from "../chess-models";
+import { useState } from 'react';
+import { Board } from '../chess-models';
+import { BoardContext } from './BoardContext';
+import type { Cell } from '../chess-models';
+import type { FC, ReactNode } from 'react';
 
 interface BoardProviderProps {
     children: ReactNode
 }
 
-const BoardProvider: FC<BoardProviderProps> = ({children}) => {
+const BoardProvider: FC<BoardProviderProps> = ({ children }) => {
 
     const [board, setBoard] = useState(new Board());
     const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
@@ -16,13 +18,13 @@ const BoardProvider: FC<BoardProviderProps> = ({children}) => {
         setBoard: setBoard,
         selectedCell: selectedCell,
         setSelectedCell: setSelectedCell
-    }
+    };
 
     return (
         <BoardContext.Provider value={defaultProps}>
             {children}
         </BoardContext.Provider>
     );
-}
+};
 
 export default BoardProvider;

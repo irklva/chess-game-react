@@ -1,5 +1,6 @@
-import {createContext} from "react";
-import {Board, Cell} from "../chess-models";
+import { createContext } from 'react';
+import { Board } from '../chess-models';
+import type { Cell } from '../chess-models';
 
 export interface BoardContextProps {
     board: Board;
@@ -10,9 +11,9 @@ export interface BoardContextProps {
 
 const initialValues: BoardContextProps = {
     board: new Board(),
-    setBoard: (board) => console.warn(`Missing provider for setBoard in BoardContext`),
+    setBoard: (_board: Board) => console.warn('Missing provider for setBoard in BoardContext'),
     selectedCell: null,
-    setSelectedCell: (cell) => console.warn(`Missing provider for setSelectedCell in BoardContext`)
-}
+    setSelectedCell: (_cell) => console.warn('Missing provider for setSelectedCell in BoardContext')
+};
 
 export const BoardContext = createContext<BoardContextProps>(initialValues);

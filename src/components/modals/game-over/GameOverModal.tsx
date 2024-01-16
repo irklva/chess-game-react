@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
-import ModalWindow from "../ModalWindow";
-import {useDispatch, useSelector} from "react-redux";
-import {useBoard} from "../../../board-context/useBoard";
-import {getModalGameOver} from "../../../store/model/modal/modalsSelectors";
-import {setModalGameOver, setModalNewGame} from "../../../store/model/modal/modalsSlice";
-import {getBlackName, getWhiteName} from "../../../store/model/players/playersSelectors";
-import {getTimeWinner} from "../../../store/model/timers/timersSelectors";
+import { useDispatch, useSelector } from 'react-redux';
+import { useBoard } from '../../../board-context/useBoard';
+import { getModalGameOver } from '../../../store/model/modal/modalsSelectors';
+import { setModalGameOver, setModalNewGame } from '../../../store/model/modal/modalsSlice';
+import { getBlackName, getWhiteName } from '../../../store/model/players/playersSelectors';
+import { getTimeWinner } from '../../../store/model/timers/timersSelectors';
+import ModalWindow from '../ModalWindow';
+import type { FC } from 'react';
 
 const GameOverModal: FC = () => {
 
     const dispatch = useDispatch();
-    const {board} = useBoard();
+    const { board } = useBoard();
     const modalGameOver = useSelector(getModalGameOver);
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
@@ -19,15 +19,15 @@ const GameOverModal: FC = () => {
     const openNewGameModal = () => {
         dispatch(setModalGameOver(false));
         dispatch(setModalNewGame(true));
-    }
+    };
 
     return (
         <ModalWindow show={modalGameOver}
-                     setShow={() => dispatch(setModalGameOver(false))}
-                     title={'Game over'}
-                     action={openNewGameModal}
-                     btnName={'New game'}
-                     closeBtn={true}
+            setShow={() => dispatch(setModalGameOver(false))}
+            title={'Game over'}
+            action={openNewGameModal}
+            btnName={'New game'}
+            closeBtn={true}
         >
             {board.getMate && board.getWhiteCheck && !timeWinner &&
                 <>Mate! {blackName} wins</>

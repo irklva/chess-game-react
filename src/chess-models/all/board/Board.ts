@@ -1,9 +1,9 @@
-import {BoardModel} from "./functionality/BoardModel";
-import {FigureNames} from "../figures/functionality/FigureModel";
-import {Cell} from "../cell/Cell";
-import {Colors} from "../Colors";
-import {Move} from "../types/Move";
-import {Figure} from "../figures/Figure";
+import { BoardModel } from './functionality/BoardModel';
+import type { Cell } from '../cell/Cell';
+import type { Colors } from '../Colors';
+import type { Figure } from '../figures/Figure';
+import type { FigureNames } from '../figures/functionality/FigureModel';
+import type { Move } from '../types/Move';
 
 export class Board {
     private model: BoardModel;
@@ -16,9 +16,11 @@ export class Board {
         this.model.initBaseline();
     }
 
-    public promotePawn(figure: FigureNames,
-                       blackTimer: number | null = null,
-                       whiteTimer: number | null = null) {
+    public promotePawn(
+        figure: FigureNames,
+        blackTimer: number | null = null,
+        whiteTimer: number | null = null,
+    ) {
         this.model.promotePawn(figure, blackTimer, whiteTimer);
     }
 
@@ -73,5 +75,4 @@ export class Board {
     get getLostWhiteFigures(): Figure[] {
         return this.model.lostFigures.white;
     }
-
 }

@@ -1,6 +1,6 @@
-import {initialMinutes, initialSeconds} from "../../../utils/newGameConstants";
-import {PayloadAction} from "@reduxjs/toolkit";
-import {NewGameSchema} from "./newGameSchema";
+import { initialMinutes, initialSeconds } from '../../../utils/newGameConstants';
+import type { NewGameSchema } from './newGameSchema';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
 export const newGameReducers = {
     setBlackNameInput(state: NewGameSchema, action: PayloadAction<NewGameSchema['blackNameInput']>) {
@@ -25,4 +25,4 @@ export const newGameReducers = {
         }
         state.infiniteSeconds = !state.infiniteSeconds;
     },
-}
+};

@@ -1,8 +1,8 @@
-import {BoardModel} from "../../board/functionality/BoardModel";
-import {CellParameters} from "./CellParameters";
-import {CellFigure} from "./CellFigure";
-import {Colors} from "../../Colors";
-import {Cell} from "../Cell";
+import { Cell } from '../Cell';
+import { CellFigure } from './CellFigure';
+import { CellParameters } from './CellParameters';
+import type { BoardModel } from '../../board/functionality/BoardModel';
+import type { Colors } from '../../Colors';
 
 interface CellCopy {
     cell: Cell,
@@ -14,12 +14,22 @@ export class CellModel {
     cellFigure: CellFigure;
     board: BoardModel;
 
-    constructor(board: BoardModel, x: number, y: number, color: Colors,
-                moveFrom: boolean = false, moveTo: boolean = false) {
+    constructor(
+        board: BoardModel, x: number, y: number, color: Colors,
+        moveFrom: boolean = false, moveTo: boolean = false
+    ) {
         this.board = board;
         this.cellFigure = new CellFigure(this, this.board);
-        this.parameters = new CellParameters(x, y, color, this,
-            this.cellFigure, this.board.cells, moveFrom, moveTo);
+        this.parameters = new CellParameters(
+            x
+            , y,
+            color,
+            this,
+            this.cellFigure,
+            this.board.cells,
+            moveFrom,
+            moveTo
+        );
     }
 
     copy(board: BoardModel): CellCopy {
@@ -36,6 +46,6 @@ export class CellModel {
                 this.cellFigure.getCopyFigure(newCellModel);
         }
         const newCell = new Cell(newCellModel);
-        return {cell: newCell, cellModel: newCellModel};
+        return { cell: newCell, cellModel: newCellModel };
     }
 }

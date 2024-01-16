@@ -1,5 +1,5 @@
-import {CellModel} from "../../cell/functionality/CellModel";
-import {Colors} from "../../Colors";
+import { Colors } from '../../Colors';
+import type { CellModel } from '../../cell/functionality/CellModel';
 
 interface KingCell {
     x: number,
@@ -10,8 +10,9 @@ export class BoardKings {
     private blackKing: KingCell;
     private whiteKing: KingCell;
 
-    constructor(blackKing: KingCell = {x: 4, y: 0},
-                whiteKing: KingCell = {x: 4, y: 7}
+    constructor(
+        blackKing: KingCell = { x: 4, y: 0 },
+        whiteKing: KingCell = { x: 4, y: 7 }
     ) {
         this.blackKing = blackKing;
         this.whiteKing = whiteKing;
@@ -34,10 +35,8 @@ export class BoardKings {
     }
 
     kingMove(target: CellModel, color: Colors) {
-        color === Colors.BLACK
-            ?
-            this.blackKing = {x: target.parameters.x, y: target.parameters.y}
-            :
-            this.whiteKing = {x: target.parameters.x, y: target.parameters.y}
+        color === Colors.BLACK ?
+            this.blackKing = { x: target.parameters.x, y: target.parameters.y } :
+            this.whiteKing = { x: target.parameters.x, y: target.parameters.y };
     }
 }

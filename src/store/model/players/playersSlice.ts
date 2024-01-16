@@ -1,11 +1,11 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {playersReducers} from "./playersReducers";
-import {PlayersSchema} from "./playersSchema";
+import { createSlice } from '@reduxjs/toolkit';
+import { playersReducers } from './playersReducers';
+import type { PlayersSchema } from './playersSchema';
 
 const initialState: PlayersSchema = {
-    blackName: "Black",
-    whiteName: "White",
-}
+    blackName: 'Black',
+    whiteName: 'White',
+};
 
 const playersSlice = createSlice({
     name: 'players',
@@ -13,6 +13,6 @@ const playersSlice = createSlice({
     reducers: playersReducers,
 });
 
-export const {setNames} = playersSlice.actions;
+export const { setNames } = playersSlice.actions;
 
 export const playersReducer = playersSlice.reducer;

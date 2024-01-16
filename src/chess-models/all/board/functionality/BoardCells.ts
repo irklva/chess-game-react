@@ -1,13 +1,13 @@
-import {Pawn} from "../../figures/functionality/all/Pawn";
-import {Colors} from "../../Colors";
-import {King} from "../../figures/functionality/all/King";
-import {Queen} from "../../figures/functionality/all/Queen";
-import {Bishop} from "../../figures/functionality/all/Bishop";
-import {Knight} from "../../figures/functionality/all/Knight";
-import {Rook} from "../../figures/functionality/all/Rook";
-import {BoardModel} from "./BoardModel";
-import {Cell} from "../../cell/Cell";
-import {CellModel} from "../../cell/functionality/CellModel";
+import { Cell } from '../../cell/Cell';
+import { CellModel } from '../../cell/functionality/CellModel';
+import { Colors } from '../../Colors';
+import { Bishop } from '../../figures/functionality/all/Bishop';
+import { King } from '../../figures/functionality/all/King';
+import { Knight } from '../../figures/functionality/all/Knight';
+import { Pawn } from '../../figures/functionality/all/Pawn';
+import { Queen } from '../../figures/functionality/all/Queen';
+import { Rook } from '../../figures/functionality/all/Rook';
+import type { BoardModel } from './BoardModel';
 
 interface CellsCopy {
     cells: Cell[][],
@@ -63,11 +63,11 @@ export class BoardCells {
                 const newCell = x.copy(newBoard);
                 xModelsArray.push(newCell.cellModel);
                 xCellsArray.push(newCell.cell);
-            })
+            });
             newModelsArray.push(xModelsArray);
             newCellsArray.push(xCellsArray);
         }
-        return {cells: newCellsArray, cellsModels: newModelsArray};
+        return { cells: newCellsArray, cellsModels: newModelsArray };
     }
 
     private addPawns() {

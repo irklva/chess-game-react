@@ -1,22 +1,22 @@
-import React, {FC} from 'react';
-import st from "./new-game.module.css";
-import ModalWindow from "../ModalWindow";
-import {useDispatch, useSelector} from "react-redux";
-import TimerSettings from "./timer-settings/TimerSettings";
-import PlayerSettings from "./player-settings/PlayerSettings";
-import {useNewGame} from "./useNewGame";
-import {getModalNewGame} from "../../../store/model/modal/modalsSelectors";
+import { useDispatch, useSelector } from 'react-redux';
+import { getModalNewGame } from '../../../store/model/modal/modalsSelectors';
 import {
     getBlackNameInput,
     getInfiniteSeconds,
     getWhiteNameInput
-} from "../../../store/model/new-game/newGameSelectors";
+} from '../../../store/model/new-game/newGameSelectors';
 import {
     setBlackNameInput,
     setInfiniteSeconds,
     setWhiteNameInput
-} from "../../../store/model/new-game/newGameSlice";
-import AppCheckbox from "../../ui/checkbox/AppCheckbox";
+} from '../../../store/model/new-game/newGameSlice';
+import AppCheckbox from '../../ui/checkbox/AppCheckbox';
+import ModalWindow from '../ModalWindow';
+import st from './new-game.module.css';
+import PlayerSettings from './player-settings/PlayerSettings';
+import TimerSettings from './timer-settings/TimerSettings';
+import { useNewGame } from './useNewGame';
+import type { FC } from 'react';
 
 const NewGameModal: FC = () => {
     const dispatch = useDispatch();
@@ -27,11 +27,11 @@ const NewGameModal: FC = () => {
 
     const setNewBlackName = (newName: string) => {
         dispatch(setBlackNameInput(newName));
-    }
+    };
 
     const setNewWhiteName = (newName: string) => {
         dispatch(setWhiteNameInput(newName));
-    }
+    };
 
     const newGame = useNewGame();
 

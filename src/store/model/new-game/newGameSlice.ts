@@ -1,7 +1,7 @@
-import {createSlice} from "@reduxjs/toolkit";
-import {initialMinutes, initialSeconds} from "../../../utils/newGameConstants";
-import {newGameReducers} from "./newGameReducers";
-import {NewGameSchema} from "./newGameSchema";
+import { createSlice } from '@reduxjs/toolkit';
+import { initialMinutes, initialSeconds } from '../../../utils/newGameConstants';
+import { newGameReducers } from './newGameReducers';
+import type { NewGameSchema } from './newGameSchema';
 
 const initialState: NewGameSchema = {
     blackNameInput: 'Black',
@@ -9,7 +9,7 @@ const initialState: NewGameSchema = {
     infiniteSeconds: false,
     minutesInput: initialMinutes,
     secondsInput: initialSeconds,
-}
+};
 
 const newGameSlice = createSlice({
     name: 'newGame',
@@ -17,7 +17,9 @@ const newGameSlice = createSlice({
     reducers: newGameReducers,
 });
 
-export const {setBlackNameInput, setWhiteNameInput, setInfiniteSeconds,
-    setMinutesInput, setSecondsInput} = newGameSlice.actions;
+export const {
+    setBlackNameInput, setWhiteNameInput, setInfiniteSeconds,
+    setMinutesInput, setSecondsInput
+} = newGameSlice.actions;
 
 export const newGameReducer = newGameSlice.reducer;

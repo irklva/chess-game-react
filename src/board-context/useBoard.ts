@@ -1,6 +1,7 @@
-import {useContext} from "react";
-import {BoardContext} from "./BoardContext";
-import {Board, Cell, Move} from "../chess-models";
+import { useContext } from 'react';
+import { Board } from '../chess-models';
+import { BoardContext } from './BoardContext';
+import type { Cell, Move } from '../chess-models';
 
 interface UseBoardResult {
     board: Board;
@@ -11,14 +12,14 @@ interface UseBoardResult {
 }
 
 export function useBoard(): UseBoardResult {
-    const {board, setBoard, selectedCell, setSelectedCell} = useContext(BoardContext);
+    const { board, setBoard, selectedCell, setSelectedCell } = useContext(BoardContext);
 
     const boardSettings = () => {
         const newBoard = new Board();
         newBoard.initBaseLine();
         setBoard(newBoard);
         setSelectedCell(null);
-    }
+    };
 
     const changeBoard = (move: Move) => {
         if (move.board) {
@@ -26,7 +27,7 @@ export function useBoard(): UseBoardResult {
             setSelectedCell(null);
             setBoard(move.board);
         }
-    }
+    };
 
-    return {board, selectedCell, setSelectedCell, boardSettings, changeBoard}
+    return { board, selectedCell, setSelectedCell, boardSettings, changeBoard };
 }

@@ -1,8 +1,8 @@
-import {FigureModel, FigureNames} from "../FigureModel";
-import {Colors} from "../../../Colors";
-import blackLogo from "../../../../../assets/black-bishop.png";
-import whiteLogo from "../../../../../assets/white-bishop.png";
-import {CellModel} from "../../../cell/functionality/CellModel";
+import blackLogo from '../../../../../assets/black-bishop.png';
+import whiteLogo from '../../../../../assets/white-bishop.png';
+import { Colors } from '../../../Colors';
+import { FigureModel, FigureNames } from '../FigureModel';
+import type { CellModel } from '../../../cell/functionality/CellModel';
 
 export class Bishop extends FigureModel {
 

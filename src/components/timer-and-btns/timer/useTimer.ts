@@ -1,14 +1,14 @@
-import {useDispatch, useSelector} from "react-redux";
-import {setTimeWinner, timerMove} from "../../../store/model/timers/timersSlice";
-import {secondsDivisor} from "../../../utils/timerHelpers";
-import {useRef} from "react";
-import {TimerProps} from "../../../types/types";
-import {useBoard} from "../../../board-context/useBoard";
-import {setModalGameOver} from "../../../store/model/modal/modalsSlice";
-import {getBlackTimer, getWhiteTimer} from "../../../store/model/timers/timersSelectors";
-import {getBlackName, getWhiteName} from "../../../store/model/players/playersSelectors";
+import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useBoard } from '../../../board-context/useBoard';
+import { setModalGameOver } from '../../../store/model/modal/modalsSlice';
+import { getBlackName, getWhiteName } from '../../../store/model/players/playersSelectors';
+import { getBlackTimer, getWhiteTimer } from '../../../store/model/timers/timersSelectors';
+import { setTimeWinner, timerMove } from '../../../store/model/timers/timersSlice';
+import { secondsDivisor } from '../../../utils/timerHelpers';
+import type { TimerProps } from '../../../types/types';
 
-export const useTimer = ({isTimerRunning, setIsTimerRunning}: TimerProps) => {
+export const useTimer = ({ isTimerRunning, setIsTimerRunning }: TimerProps) => {
     const dispatch = useDispatch();
     const {
         getCurrentPlayerColor: currentPlayerColor,
@@ -31,14 +31,14 @@ export const useTimer = ({isTimerRunning, setIsTimerRunning}: TimerProps) => {
         } else {
             setIsTimerRunning(true);
         }
-    }
+    };
 
     const startTimer = () => {
         if (isTimerRunning) {
             const callback = () => dispatch(timerMove(currentPlayerColor));
             timer.current = setInterval(callback, 1000 / secondsDivisor);
         }
-    }
+    };
 
-    return {timer, timerCheck, startTimer};
-}
+    return { timer, timerCheck, startTimer };
+};

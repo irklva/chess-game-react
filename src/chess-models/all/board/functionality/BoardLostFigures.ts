@@ -1,5 +1,5 @@
-import {Colors} from "../../Colors";
-import {Figure} from "../../figures/Figure";
+import { Colors } from '../../Colors';
+import type { Figure } from '../../figures/Figure';
 
 export class BoardLostFigures {
     readonly black: Figure[] = [];
@@ -11,10 +11,8 @@ export class BoardLostFigures {
     }
 
     addLostFigure(figure: Figure) {
-        figure.getColor === Colors.WHITE
-            ?
-            this.white.push(figure)
-            :
-            this.black.push(figure)
+        figure.getColor === Colors.WHITE ?
+            this.white.push(figure) :
+            this.black.push(figure);
     }
 }

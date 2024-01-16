@@ -1,5 +1,5 @@
-import {Board} from "../board/Board";
-import {Figure} from "../figures/Figure";
+import type { Board } from '../board/Board';
+import type { Figure } from '../figures/Figure';
 
 export interface Move {
     id: number,

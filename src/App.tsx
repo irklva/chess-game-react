@@ -1,21 +1,20 @@
-import React from 'react';
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BoardComponent from "./components/board-component/BoardComponent";
-import TimerAndBtns from "./components/timer-and-btns/timerAndBtns";
-import Moves from "./components/moves/Moves";
-import NewGameModal from "./components/modals/new-game/NewGameModal";
-import GameOverModal from "./components/modals/game-over/GameOverModal";
-import PromotePawnModal from "./components/modals/promote-pawn/PromotePawnModal";
-import PlayerAndFigures from "./components/player-and-figures/PlayerAndFigures";
-import {Colors} from "./chess-models";
-import {useSelector} from "react-redux";
-import {useBoard} from "./board-context/useBoard";
-import {getBlackName, getWhiteName} from "./store/model/players/playersSelectors";
+import { useSelector } from 'react-redux';
+import { useBoard } from './board-context/useBoard';
+import { Colors } from './chess-models';
+import BoardComponent from './components/board-component/BoardComponent';
+import GameOverModal from './components/modals/game-over/GameOverModal';
+import NewGameModal from './components/modals/new-game/NewGameModal';
+import PromotePawnModal from './components/modals/promote-pawn/PromotePawnModal';
+import Moves from './components/moves/Moves';
+import PlayerAndFigures from './components/player-and-figures/PlayerAndFigures';
+import TimerAndBtns from './components/timer-and-btns/timerAndBtns';
+import { getBlackName, getWhiteName } from './store/model/players/playersSelectors';
 
-function App() {
+const App = () => {
 
-    const {board} = useBoard();
+    const { board } = useBoard();
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
 
@@ -55,6 +54,6 @@ function App() {
             </div>
         </div>
     );
-}
+};
 
 export default App;

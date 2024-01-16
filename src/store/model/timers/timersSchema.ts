@@ -1,4 +1,4 @@
-import {TimerType} from "../../../types/types";
+import type { TimerType } from '../../../types/types';
 
 export interface TimersSchema {
     blackTimer: TimerType;

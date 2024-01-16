@@ -1,7 +1,7 @@
-import {CellModel} from "./functionality/CellModel";
-import {Coordinates} from "./functionality/CellParameters";
-import {Colors} from "../Colors";
-import {FigureNames} from "../figures/functionality/FigureModel";
+import type { CellModel } from './functionality/CellModel';
+import type { Coordinates } from './functionality/CellParameters';
+import type { Colors } from '../Colors';
+import type { FigureNames } from '../figures/functionality/FigureModel';
 
 export class Cell {
     private model: CellModel;
@@ -10,9 +10,11 @@ export class Cell {
         this.model = cellModel;
     }
 
-    public move(targetCell: Cell,
-                blackTimer: number | null = null,
-                whiteTimer: number | null = null) {
+    public move(
+        targetCell: Cell,
+        blackTimer: number | null = null,
+        whiteTimer: number | null = null
+    ) {
         this.model.cellFigure.move(targetCell.model, blackTimer, whiteTimer);
     }
 

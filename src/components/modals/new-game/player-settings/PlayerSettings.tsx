@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import { nameSymbolsLimit } from '../../../../utils/newGameConstants';
+import AppInput from '../../../ui/input/AppInput';
 import st from './player-settings.module.css';
-import AppInput from "../../../ui/input/AppInput";
-import {nameSymbolsLimit} from "../../../../utils/newGameConstants";
+import type { FC } from 'react';
 
 interface PlayerSettingsProps {
     inputId: string;
@@ -11,11 +11,11 @@ interface PlayerSettingsProps {
 }
 
 const PlayerSettings: FC<PlayerSettingsProps> = ({
-                                                     inputId,
-                                                     newNameLabel,
-                                                     newName,
-                                                     setNewName
-                                                 }) => {
+    inputId,
+    newNameLabel,
+    newName,
+    setNewName
+}) => {
 
     return (
         <div className={st.block}>

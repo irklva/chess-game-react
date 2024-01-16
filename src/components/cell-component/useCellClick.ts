@@ -1,21 +1,19 @@
-import {useDispatch, useSelector} from "react-redux";
-import {rememberAllMoments} from "../../store/model/timers/timersSlice";
-import {Cell} from "../../chess-models";
-import {useBoard} from "../../board-context/useBoard";
-import {setModalGameOver, setModalPromotePawn} from "../../store/model/modal/modalsSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { useBoard } from '../../board-context/useBoard';
+import { setModalGameOver, setModalPromotePawn } from '../../store/model/modal/modalsSlice';
 import {
     getBlackTimerMoment,
     getTimeMoment,
     getTimeWinner,
     getWhiteTimerMoment,
-} from "../../store/model/timers/timersSelectors";
-import {checkAllTimerMoments} from "../../utils/timerHelpers";
+} from '../../store/model/timers/timersSelectors';
+import { rememberAllMoments } from '../../store/model/timers/timersSlice';
+import { checkAllTimerMoments } from '../../utils/timerHelpers';
+import type { Cell } from '../../chess-models';
 
-export const useCellClick = (
-    cell: Cell
-) => {
+export const useCellClick = (cell: Cell) => {
     const dispatch = useDispatch();
-    const {board, selectedCell, setSelectedCell} = useBoard();
+    const { board, selectedCell, setSelectedCell } = useBoard();
     const timeWinner = useSelector(getTimeWinner);
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
@@ -27,7 +25,7 @@ export const useCellClick = (
             if (board.getMate || board.getStalemate || timeWinner) {
                 dispatch(setModalGameOver(true));
             }
-        }
+        };
 
         const promotePawn = () => {
             if (board.getIsPromotedPawnObject) {
@@ -35,7 +33,7 @@ export const useCellClick = (
             } else {
                 setSelectedCell(null);
             }
-        }
+        };
 
         const {
             newBlackTimerMoment,
@@ -65,5 +63,5 @@ export const useCellClick = (
             cell.highLightMoveCells(false);
             setSelectedCell(cell);
         }
-    }
-}
+    };
+};

@@ -1,14 +1,14 @@
-import React, {FC} from 'react';
+import { formatTimer, formatTimerInputType } from '../../../../utils/timerHelpers';
 import st from './timer-row.module.css';
-import {formatTimer, formatTimerInputType} from "../../../../utils/timerHelpers";
-import {TimerType} from "../../../../types/types";
+import type { TimerType } from '../../../../types/types';
+import type { FC } from 'react';
 
 interface TimerRowProps {
     name: string;
     timer: TimerType;
 }
 
-const TimerRow: FC<TimerRowProps> = ({name, timer}) => {
+const TimerRow: FC<TimerRowProps> = ({ name, timer }) => {
     return (
         <div className="d-flex">
             <h5 className={st.name}>

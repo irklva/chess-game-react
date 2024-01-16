@@ -1,5 +1,5 @@
-import {FigureModel, FigureNames} from "./functionality/FigureModel";
-import {Colors} from "../Colors";
+import type { FigureModel, FigureNames } from './functionality/FigureModel';
+import type { Colors } from '../Colors';
 
 export class Figure {
     private model: FigureModel;

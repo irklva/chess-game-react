@@ -1,8 +1,8 @@
-import {Colors} from "../../Colors";
-import {BoardCells} from "./BoardCells";
-import {BoardPlayers} from "./BoardPlayers";
-import {BoardKings} from "./BoardKings";
-import {CellModel} from "../../cell/functionality/CellModel";
+import { Colors } from '../../Colors';
+import type { BoardCells } from './BoardCells';
+import type { BoardKings } from './BoardKings';
+import type { BoardPlayers } from './BoardPlayers';
+import type { CellModel } from '../../cell/functionality/CellModel';
 
 export class BoardCheckAndMate {
     private isBlackCheck: boolean;
@@ -13,13 +13,15 @@ export class BoardCheckAndMate {
     readonly kings: BoardKings;
     readonly players: BoardPlayers;
 
-    constructor(cells: BoardCells,
-                kings: BoardKings,
-                players: BoardPlayers,
-                blackCheck: boolean = false,
-                whiteCheck: boolean = false,
-                mate: boolean = false,
-                stalemate: boolean = false) {
+    constructor(
+        cells: BoardCells,
+        kings: BoardKings,
+        players: BoardPlayers,
+        blackCheck: boolean = false,
+        whiteCheck: boolean = false,
+        mate: boolean = false,
+        stalemate: boolean = false
+    ) {
         this.cells = cells;
         this.kings = kings;
         this.players = players;
@@ -41,8 +43,8 @@ export class BoardCheckAndMate {
         return this.cells.getModels.some(row => {
             return row.some(target => {
                 return selectedCell?.cellFigure.getObject?.canMove(target) === true;
-            })
-        })
+            });
+        });
     }
 
     private areActiveCells(): boolean {
@@ -51,7 +53,7 @@ export class BoardCheckAndMate {
                 if (target.cellFigure.getObject?.color !== this.players.getCurrent.color)
                     return false;
                 return this.areCellsForMove(target);
-            })
+            });
         });
     }
 

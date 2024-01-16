@@ -1,9 +1,9 @@
-import {FigureModel, FigureNames} from "../FigureModel";
-import {Colors} from "../../../Colors";
-import whiteLogo from "../../../../../assets/white-king.png";
-import blackLogo from "../../../../../assets/black-king.png";
-import {CellModel} from "../../../cell/functionality/CellModel";
-import {CastlingNames} from "../../../board/functionality/BoardFlags";
+import blackLogo from '../../../../../assets/black-king.png';
+import whiteLogo from '../../../../../assets/white-king.png';
+import { CastlingNames } from '../../../board/functionality/BoardFlags';
+import { Colors } from '../../../Colors';
+import { FigureModel, FigureNames } from '../FigureModel';
+import type { CellModel } from '../../../cell/functionality/CellModel';
 
 export class King extends FigureModel {
 
@@ -26,11 +26,9 @@ export class King extends FigureModel {
 
     private castling(target: CellModel): boolean {
         const boardCells = this.getCell.board.cells;
-        const isCheck = this.color === Colors.BLACK
-            ?
-            this.getCell.board.checkAndMate.getBlackCheck
-            :
-            this.getCell.board.checkAndMate.getWhiteCheck
+        const isCheck = this.color === Colors.BLACK ?
+            this.getCell.board.checkAndMate.getBlackCheck :
+            this.getCell.board.checkAndMate.getWhiteCheck;
         const leftRook = boardCells.getModel(0, target.parameters.y);
         const leftRookTarget = boardCells.getModel(3, target.parameters.y);
         const rightRook = boardCells.getModel(7, target.parameters.y);
@@ -39,8 +37,7 @@ export class King extends FigureModel {
         return !!(this.getFirstStep && !isCheck &&
             ((this.castlingParametersUpd(target, 2, 0) &&
                     this.getCell.parameters.isEmptyHorizontal(leftRook) &&
-                !leftRookTarget.parameters.attacked(this.color))
-                ||
+                !leftRookTarget.parameters.attacked(this.color)) ||
                 (this.castlingParametersUpd(target, 6, 7) &&
                     this.getCell.parameters.isEmptyHorizontal(rightRook) &&
                 !rightRookTarget.parameters.attacked(this.color))

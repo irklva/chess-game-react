@@ -1,12 +1,12 @@
-import {BoardCells} from "./BoardCells";
-import {BoardPlayers} from "./BoardPlayers";
-import {BoardCheckAndMate} from "./BoardCheckAndMate";
-import {BoardMoves} from "./BoardMoves";
-import {BoardLostFigures} from "./BoardLostFigures";
-import {Board} from "../Board";
-import {BoardKings} from "./BoardKings";
-import {BoardFlags} from "./BoardFlags";
-import {FigureNames} from "../../figures/functionality/FigureModel";
+import { Board } from '../Board';
+import { BoardCells } from './BoardCells';
+import { BoardCheckAndMate } from './BoardCheckAndMate';
+import { BoardFlags } from './BoardFlags';
+import { BoardKings } from './BoardKings';
+import { BoardLostFigures } from './BoardLostFigures';
+import { BoardMoves } from './BoardMoves';
+import { BoardPlayers } from './BoardPlayers';
+import type { FigureNames } from '../../figures/functionality/FigureModel';
 
 export class BoardModel {
     private id: number;
@@ -51,15 +51,15 @@ export class BoardModel {
             this.players.black,
             this.players.white,
             this.players.getCurrent.color
-        )
+        );
         const newMoves = new BoardMoves(
             this.moves.black,
             this.moves.white
-        )
+        );
         const newLostFigures = new BoardLostFigures(
             this.lostFigures.black.slice(0),
             this.lostFigures.white.slice(0)
-        )
+        );
         const boardModel = new BoardModel(
             newPlayers,
             true,
@@ -70,8 +70,8 @@ export class BoardModel {
         const newCells = this.cells.copyAllCells(boardModel);
         boardModel.cells.setAll = newCells.cells;
         boardModel.cells.setModels = newCells.cellsModels;
-        boardModel.kings.setBlackKing = {...this.kings.getBlackKing};
-        boardModel.kings.setWhiteKing = {...this.kings.getWhiteKing};
+        boardModel.kings.setBlackKing = { ...this.kings.getBlackKing };
+        boardModel.kings.setWhiteKing = { ...this.kings.getWhiteKing };
         boardModel.checkAndMate.setBlackCheck = this.checkAndMate.getBlackCheck;
         boardModel.checkAndMate.setWhiteCheck = this.checkAndMate.getWhiteCheck;
         boardModel.checkAndMate.setMate = this.checkAndMate.getMate;
@@ -90,14 +90,16 @@ export class BoardModel {
             true
         );
         newBoard.cells.setModels = this.cells.copyAllCells(newBoard).cellsModels;
-        newBoard.kings.setBlackKing = {...this.kings.getBlackKing};
-        newBoard.kings.setWhiteKing = {...this.kings.getWhiteKing};
+        newBoard.kings.setBlackKing = { ...this.kings.getBlackKing };
+        newBoard.kings.setWhiteKing = { ...this.kings.getWhiteKing };
         return newBoard;
     }
 
-    public promotePawn(figure: FigureNames,
-                       blackTimer: number | null,
-                       whiteTimer: number | null) {
+    public promotePawn(
+        figure: FigureNames,
+        blackTimer: number | null,
+        whiteTimer: number | null
+    ) {
         this.flags.promotePawn(figure, this, blackTimer, whiteTimer);
     }
 
