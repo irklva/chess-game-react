@@ -1,7 +1,7 @@
 import { nameSymbolsLimit } from '../../../../utils/newGameConstants';
 import AppInput from '../../../ui/input/AppInput';
 import st from './player-settings.module.css';
-import type { FC } from 'react';
+import type { ChangeEvent, FC } from 'react';
 
 interface PlayerSettingsProps {
     inputId: string;
@@ -26,7 +26,7 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
                 <AppInput
                     id={inputId}
                     type="text" value={newName}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewName(e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLInputElement>) => setNewName(e.target.value)}
                 />
                 {(newName === '' || newName.length > nameSymbolsLimit) &&
                     <div className={`text-danger ${st.message}`}>

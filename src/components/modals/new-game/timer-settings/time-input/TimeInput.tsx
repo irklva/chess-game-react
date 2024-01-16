@@ -1,7 +1,7 @@
 import AppInput from '../../../../ui/input/AppInput';
 import st from './time-input.module.css';
 import type { TimerType } from '../../../../../types/types';
-import type { FC } from 'react';
+import type { ChangeEvent, FC } from 'react';
 
 interface TimeInputProps {
     name: string;
@@ -31,7 +31,7 @@ const TimeInput: FC<TimeInputProps> = ({
                 min="0"
                 max={maxLimit}
                 value={timeValue === null ? '' : timeValue}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                     timeChange(e.target.value);
                 }}
             />

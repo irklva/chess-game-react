@@ -10,3 +10,7 @@
 .block .input {
     flex-grow: 1;
 }
+
+.block .input input {
+    width: 100%;
+}
