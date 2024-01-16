@@ -57,6 +57,7 @@ export class King extends FigureModel {
         }
         if (this.getCell.cellFigure.isMoveDangerousForKing(target))
             return false;
+
         return true;
     }
 

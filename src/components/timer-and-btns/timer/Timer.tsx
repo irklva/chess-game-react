@@ -33,6 +33,7 @@ const Timer: FC<TimerProps> = ({
     useEffect(() => {
         startTimer();
         const currentTimer = timer.current;
+
         return () => {
             if (currentTimer) {
                 clearInterval(currentTimer);

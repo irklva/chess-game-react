@@ -67,6 +67,7 @@ export class BoardCells {
             newModelsArray.push(xModelsArray);
             newCellsArray.push(xCellsArray);
         }
+
         return { cells: newCellsArray, cellsModels: newModelsArray };
     }
 

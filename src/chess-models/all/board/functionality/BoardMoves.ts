@@ -17,6 +17,7 @@ export class BoardMoves {
         movesArray.some(move => {
             if (move.board && move.board?.getId <= boardId) {
                 index += 1;
+
                 return false;
             } else {
                 return true;

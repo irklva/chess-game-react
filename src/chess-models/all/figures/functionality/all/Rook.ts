@@ -22,6 +22,7 @@ export class Rook extends FigureModel {
         if (this.getCell.cellFigure.isMoveDangerousForKing(target)) {
             return false;
         }
+
         return true;
     }
 

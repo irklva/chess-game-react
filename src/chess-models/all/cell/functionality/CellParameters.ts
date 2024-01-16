@@ -50,6 +50,7 @@ export class CellParameters {
             if (!this.boardCells.getModel(this.x, y).cellFigure.noFigure())
                 return false;
         }
+
         return true;
     }
 
@@ -64,6 +65,7 @@ export class CellParameters {
             if (!this.boardCells.getModel(x, this.y).cellFigure.noFigure())
                 return false;
         }
+
         return true;
     }
 
@@ -84,6 +86,7 @@ export class CellParameters {
             ).cellFigure.noFigure())
                 return false;
         }
+
         return true;
     }
 
@@ -109,6 +112,7 @@ export class CellParameters {
                     ).cellFigure.noFigure())
             );
         }
+
         return this.pawnCanAttack(target, true, direction);
     }
 

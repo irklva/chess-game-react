@@ -24,6 +24,7 @@ export class Pawn extends FigureModel {
             return false;
         if (this.getCell.cellFigure.isMoveDangerousForKing(target))
             return false;
+
         return true;
     }
 

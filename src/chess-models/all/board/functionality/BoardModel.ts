@@ -77,6 +77,7 @@ export class BoardModel {
         boardModel.checkAndMate.setMate = this.checkAndMate.getMate;
         boardModel.checkAndMate.setStalemate = this.checkAndMate.getStalemate;
         this.id = this.id + 1;
+
         return new Board(boardModel);
     }
 
@@ -92,6 +93,7 @@ export class BoardModel {
         newBoard.cells.setModels = this.cells.copyAllCells(newBoard).cellsModels;
         newBoard.kings.setBlackKing = { ...this.kings.getBlackKing };
         newBoard.kings.setWhiteKing = { ...this.kings.getWhiteKing };
+
         return newBoard;
     }
 

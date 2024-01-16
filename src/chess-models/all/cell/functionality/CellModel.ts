@@ -46,6 +46,7 @@ export class CellModel {
                 this.cellFigure.getCopyFigure(newCellModel);
         }
         const newCell = new Cell(newCellModel);
+
         return { cell: newCell, cellModel: newCellModel };
     }
 }

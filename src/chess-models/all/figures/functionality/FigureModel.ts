@@ -38,6 +38,7 @@ export class FigureModel {
             return false;
         if (kingIsSaved && target.cellFigure.getObject?.name === FigureNames.KING)
             return false;
+
         return true;
     }
 

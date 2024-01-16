@@ -2,7 +2,7 @@ import st from './app-checkbox.module.css';
 import type { FC, ReactNode } from 'react';
 
 interface AppCheckboxProps {
-    children: ReactNode;
+    children?: ReactNode;
     checkboxId: string;
     className?: string;
     checked: boolean;

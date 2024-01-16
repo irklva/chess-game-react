@@ -46,6 +46,7 @@ const checkTimerMoment = (
         newTimerMoment = oldTimerMoment - (newMoment - oldMoment);
         newTimerMoment = newTimerMoment < 0 ? 0 : newTimerMoment;
     }
+
     return { newTimerMoment, newMoment };
 };
 
@@ -59,11 +60,13 @@ export const checkAllTimerMoments = (
         const { newTimerMoment: newBlackTimerMoment, newMoment: newTimeMoment } =
             checkTimerMoment(blackTimerMoment, timeMoment);
         const newWhiteTimerMoment = whiteTimerMoment;
+
         return { newBlackTimerMoment, newWhiteTimerMoment, newTimeMoment };
     } else {
         const { newTimerMoment: newWhiteTimerMoment, newMoment: newTimeMoment } =
             checkTimerMoment(whiteTimerMoment, timeMoment);
         const newBlackTimerMoment = blackTimerMoment;
+
         return { newBlackTimerMoment, newWhiteTimerMoment, newTimeMoment };
     }
 };

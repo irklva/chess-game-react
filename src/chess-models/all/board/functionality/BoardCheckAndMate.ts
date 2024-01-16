@@ -52,6 +52,7 @@ export class BoardCheckAndMate {
             return row.some(target => {
                 if (target.cellFigure.getObject?.color !== this.players.getCurrent.color)
                     return false;
+
                 return this.areCellsForMove(target);
             });
         });
