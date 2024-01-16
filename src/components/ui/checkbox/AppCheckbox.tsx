@@ -9,7 +9,7 @@ interface AppCheckboxProps {
     onChange: () => void;
 }
 
-const AppInput: FC<AppCheckboxProps> = ({
+const AppCheckbox: FC<AppCheckboxProps> = ({
     children,
     className,
     checkboxId,
@@ -32,4 +32,4 @@ const AppInput: FC<AppCheckboxProps> = ({
     );
 };
 
-export default AppInput;
+export default AppCheckbox;
