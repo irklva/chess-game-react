@@ -37,7 +37,7 @@ export const formatTimer = (timer: TimerType, inputType: formatTimerInputType): 
 
 const checkTimerMoment = (
     oldTimerMoment: TimerType,
-    oldMoment: TimerType
+    oldMoment: TimerType,
 ) => {
     let newTimerMoment = null;
     let newMoment = null;
@@ -54,7 +54,7 @@ export const checkAllTimerMoments = (
     playerColor: Colors,
     blackTimerMoment: TimerType,
     whiteTimerMoment: TimerType,
-    timeMoment: TimerType
+    timeMoment: TimerType,
 ) => {
     if (playerColor === Colors.BLACK) {
         const { newTimerMoment: newBlackTimerMoment, newMoment: newTimeMoment } =

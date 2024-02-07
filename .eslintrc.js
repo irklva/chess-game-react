@@ -3,7 +3,10 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ['react-app', 'plugin:react/recommended'],
+    extends: [
+        'react-app',
+        'plugin:react/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
@@ -13,7 +16,7 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'react-hooks',
-        'eslint-plugin-import'
+        'eslint-plugin-import',
     ],
     rules: {
         quotes: ['error', 'single'],
@@ -21,7 +24,7 @@ module.exports = {
         semi: ['error', 'always'],
         'no-trailing-spaces': ['error'],
         'no-multi-spaces': ['error'],
-        'comma-dangle': ['error', 'only-multiline'],
+        'comma-dangle': ['error', 'always-multiline'],
         'quote-props': ['error', 'as-needed'],
         'object-curly-spacing': ['error', 'always'],
         indent: ['error', 4, { SwitchCase: 2 }],
@@ -44,8 +47,8 @@ module.exports = {
             {
                 argsIgnorePattern: '^_',
                 varsIgnorePattern: '^_',
-                caughtErrorsIgnorePattern: '^_'
-            }
+                caughtErrorsIgnorePattern: '^_',
+            },
         ],
         '@typescript-eslint/no-shadow': ['error'],
         'no-param-reassign': ['warn'],
@@ -53,8 +56,8 @@ module.exports = {
             'error',
             {
                 namedComponents: 'arrow-function',
-                unnamedComponents: 'arrow-function'
-            }
+                unnamedComponents: 'arrow-function',
+            },
         ],
         'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'react/jsx-props-no-spreading': ['warn'],
@@ -73,11 +76,12 @@ module.exports = {
                     'sibling',
                     'index',
                     'object',
-                    'type'
+                    'type',
                 ],
-                alphabetize: { order: 'asc', caseInsensitive: true }
-            }
+                alphabetize: { order: 'asc', caseInsensitive: true },
+            },
         ],
-        'import/newline-after-import': ['error']
-    }
+        'import/newline-after-import': ['error'],
+        'import/no-duplicates': 'error',
+    },
 };

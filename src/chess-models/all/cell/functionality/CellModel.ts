@@ -16,7 +16,7 @@ export class CellModel {
 
     constructor(
         board: BoardModel, x: number, y: number, color: Colors,
-        moveFrom: boolean = false, moveTo: boolean = false
+        moveFrom: boolean = false, moveTo: boolean = false,
     ) {
         this.board = board;
         this.cellFigure = new CellFigure(this, this.board);
@@ -28,7 +28,7 @@ export class CellModel {
             this.cellFigure,
             this.board.cells,
             moveFrom,
-            moveTo
+            moveTo,
         );
     }
 
@@ -39,7 +39,7 @@ export class CellModel {
             this.parameters.y,
             this.parameters.color,
             this.parameters.getMoveFrom,
-            this.parameters.getMoveTo
+            this.parameters.getMoveTo,
         );
         if (this.cellFigure.getObject) {
             newCellModel.cellFigure.setObject =

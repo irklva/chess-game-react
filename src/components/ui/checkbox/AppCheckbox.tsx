@@ -14,7 +14,7 @@ const AppCheckbox: FC<AppCheckboxProps> = ({
     className,
     checkboxId,
     checked,
-    onChange
+    onChange,
 }) => {
     return (
         <div className={`${st.checkbox} ${className}`}>

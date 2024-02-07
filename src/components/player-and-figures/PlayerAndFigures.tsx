@@ -13,7 +13,7 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
     playerName,
     figures,
     playerColor,
-    currentPlayerColor
+    currentPlayerColor,
 }) => {
     return (
         <div className={st.player_block}>

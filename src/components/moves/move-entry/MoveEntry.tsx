@@ -22,7 +22,7 @@ const MoveEntry: FC<EntryProps> = ({ move, playerColor }) => {
             changeBoard(move);
             dispatch(setTimers({
                 blackTimer: move.blackTimer,
-                whiteTimer: move.whiteTimer
+                whiteTimer: move.whiteTimer,
             }));
         }
     };

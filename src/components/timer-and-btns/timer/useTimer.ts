@@ -13,7 +13,7 @@ export const useTimer = ({ isTimerRunning, setIsTimerRunning }: TimerProps) => {
     const {
         getCurrentPlayerColor: currentPlayerColor,
         getStalemate: isStalemate,
-        getMate: isMate
+        getMate: isMate,
     } = useBoard().board;
     const blackTimer = useSelector(getBlackTimer);
     const whiteTimer = useSelector(getWhiteTimer);

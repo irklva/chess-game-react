@@ -16,7 +16,7 @@ const TimeInput: FC<TimeInputProps> = ({
     timeChange,
     name,
     maxLimit,
-    message
+    message,
 }) => {
 
     const noInputCondition = timeValue === null ||

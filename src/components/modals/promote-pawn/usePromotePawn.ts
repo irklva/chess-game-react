@@ -4,7 +4,7 @@ import { setModalGameOver, setModalPromotePawn } from '../../../store/model/moda
 import {
     getBlackTimerMoment,
     getTimeMoment,
-    getWhiteTimerMoment
+    getWhiteTimerMoment,
 } from '../../../store/model/timers/timersSelectors';
 import { rememberAllMoments } from '../../../store/model/timers/timersSlice';
 import { checkAllTimerMoments } from '../../../utils/timerHelpers';
@@ -23,18 +23,18 @@ export const usePromotePawn = () => {
         const {
             newBlackTimerMoment,
             newWhiteTimerMoment,
-            newTimeMoment
+            newTimeMoment,
         } = checkAllTimerMoments(
             board.getCurrentPlayerColor,
             blackTimerMoment,
             whiteTimerMoment,
-            timeMoment
+            timeMoment,
         );
 
         dispatch(rememberAllMoments({
             blackTimerMoment: newBlackTimerMoment,
             whiteTimerMoment: newWhiteTimerMoment,
-            timeMoment: newTimeMoment
+            timeMoment: newTimeMoment,
         }));
         board.promotePawn(figure, newBlackTimerMoment, newWhiteTimerMoment);
         dispatch(setModalPromotePawn(false));

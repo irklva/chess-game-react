@@ -9,7 +9,7 @@ const Moves: FC = () => {
 
     const {
         getWhiteMoves: whiteMoves,
-        getBlackMoves: blackMoves
+        getBlackMoves: blackMoves,
     } = useBoard().board;
 
     return (

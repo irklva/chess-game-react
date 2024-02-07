@@ -11,13 +11,13 @@ import type { FC } from 'react';
 
 const Timer: FC<TimerProps> = ({
     isTimerRunning,
-    setIsTimerRunning
+    setIsTimerRunning,
 }) => {
 
     const {
         getCurrentPlayerColor: currentPlayerColor,
         getStalemate: isStalemate,
-        getMate: isMate
+        getMate: isMate,
     } = useBoard().board;
     const blackTimer = useSelector(getBlackTimer);
     const whiteTimer = useSelector(getWhiteTimer);
@@ -27,7 +27,7 @@ const Timer: FC<TimerProps> = ({
 
     const { timer, timerCheck, startTimer } = useTimer({
         isTimerRunning,
-        setIsTimerRunning
+        setIsTimerRunning,
     });
 
     useEffect(() => {

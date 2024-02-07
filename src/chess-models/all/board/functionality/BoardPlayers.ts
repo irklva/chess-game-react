@@ -10,7 +10,7 @@ export class BoardPlayers {
     constructor(
         blackPlayer: Player = new Player(Colors.BLACK),
         whitePlayer: Player = new Player(Colors.WHITE),
-        currentColor: Colors = Colors.WHITE
+        currentColor: Colors = Colors.WHITE,
     ) {
         this.black = blackPlayer;
         this.white = whitePlayer;

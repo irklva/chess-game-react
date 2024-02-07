@@ -10,5 +10,5 @@ export const modalsReducers = {
     },
     setModalPromotePawn(state: ModalsSchema, action: PayloadAction<ModalsSchema['modalPromotePawn']>) {
         state.modalPromotePawn = action.payload;
-    }
+    },
 };

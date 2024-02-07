@@ -12,7 +12,7 @@ export class BoardKings {
 
     constructor(
         blackKing: KingCell = { x: 4, y: 0 },
-        whiteKing: KingCell = { x: 4, y: 7 }
+        whiteKing: KingCell = { x: 4, y: 7 },
     ) {
         this.blackKing = blackKing;
         this.whiteKing = whiteKing;

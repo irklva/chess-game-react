@@ -14,7 +14,7 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
     inputId,
     newNameLabel,
     newName,
-    setNewName
+    setNewName,
 }) => {
 
     return (
@@ -25,7 +25,8 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
             <div className={st.input}>
                 <AppInput
                     id={inputId}
-                    type="text" value={newName}
+                    type="text"
+                    value={newName}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setNewName(e.target.value)}
                 />
                 {(newName === '' || newName.length > nameSymbolsLimit) &&

@@ -38,19 +38,19 @@ export const useCellClick = (cell: Cell) => {
         const {
             newBlackTimerMoment,
             newWhiteTimerMoment,
-            newTimeMoment
+            newTimeMoment,
         } = checkAllTimerMoments(
             board.getCurrentPlayerColor,
             blackTimerMoment,
             whiteTimerMoment,
-            timeMoment
+            timeMoment,
         );
 
         if (selectedCell && cell.getAvailable) {
             dispatch(rememberAllMoments({
                 blackTimerMoment: newBlackTimerMoment,
                 whiteTimerMoment: newWhiteTimerMoment,
-                timeMoment: newTimeMoment
+                timeMoment: newTimeMoment,
             }));
             selectedCell.move(cell, newBlackTimerMoment, newWhiteTimerMoment);
             selectedCell.highLightMoveCells(true);

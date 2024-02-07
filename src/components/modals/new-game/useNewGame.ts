@@ -6,7 +6,7 @@ import {
     getMinutesInput,
     getNewGameTimer,
     getSecondsInput,
-    getWhiteNameInput
+    getWhiteNameInput,
 } from '../../../store/model/new-game/newGameSelectors';
 import { setNames } from '../../../store/model/players/playersSlice';
 import { setTimers } from '../../../store/model/timers/timersSlice';
@@ -29,11 +29,11 @@ export const useNewGame = () => {
         const gameSettings = () => {
             dispatch(setTimers({
                 blackTimer: timerMs,
-                whiteTimer: timerMs
+                whiteTimer: timerMs,
             }));
             dispatch(setNames({
                 whiteName: whiteNameInput,
-                blackName: blackNameInput
+                blackName: blackNameInput,
             }));
             dispatch(setModalNewGame(false));
         };

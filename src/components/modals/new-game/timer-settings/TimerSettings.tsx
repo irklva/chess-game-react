@@ -6,7 +6,7 @@ import {
     formatTimerInputType,
     minutesConditions,
     secondsConditions,
-    timerConditions
+    timerConditions,
 } from '../../../../utils/timerHelpers';
 import TimeInput from './time-input/TimeInput';
 import st from './time-settings.module.css';

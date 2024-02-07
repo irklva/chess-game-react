@@ -28,7 +28,7 @@ export class BoardModel {
         cells: BoardCells = new BoardCells(),
         kings: BoardKings = new BoardKings(),
         checkAndMate: BoardCheckAndMate = new BoardCheckAndMate(cells, kings, players),
-        flags: BoardFlags = new BoardFlags(checkAndMate)
+        flags: BoardFlags = new BoardFlags(checkAndMate),
     ) {
         this.id = id;
         this.deepCopy = deepCopy;
@@ -50,22 +50,22 @@ export class BoardModel {
         const newPlayers = new BoardPlayers(
             this.players.black,
             this.players.white,
-            this.players.getCurrent.color
+            this.players.getCurrent.color,
         );
         const newMoves = new BoardMoves(
             this.moves.black,
-            this.moves.white
+            this.moves.white,
         );
         const newLostFigures = new BoardLostFigures(
             this.lostFigures.black.slice(0),
-            this.lostFigures.white.slice(0)
+            this.lostFigures.white.slice(0),
         );
         const boardModel = new BoardModel(
             newPlayers,
             true,
             newId ? this.id + 1 : this.id,
             newMoves,
-            newLostFigures
+            newLostFigures,
         );
         const newCells = this.cells.copyAllCells(boardModel);
         boardModel.cells.setAll = newCells.cells;
@@ -86,9 +86,9 @@ export class BoardModel {
             new BoardPlayers(
                 this.players.black,
                 this.players.white,
-                this.players.getCurrent.color
+                this.players.getCurrent.color,
             ),
-            true
+            true,
         );
         newBoard.cells.setModels = this.cells.copyAllCells(newBoard).cellsModels;
         newBoard.kings.setBlackKing = { ...this.kings.getBlackKing };
@@ -100,7 +100,7 @@ export class BoardModel {
     public promotePawn(
         figure: FigureNames,
         blackTimer: number | null,
-        whiteTimer: number | null
+        whiteTimer: number | null,
     ) {
         this.flags.promotePawn(figure, this, blackTimer, whiteTimer);
     }

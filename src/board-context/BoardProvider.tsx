@@ -17,7 +17,7 @@ const BoardProvider: FC<BoardProviderProps> = ({ children }) => {
         board: board,
         setBoard: setBoard,
         selectedCell: selectedCell,
-        setSelectedCell: setSelectedCell
+        setSelectedCell: setSelectedCell,
     };
 
     return (

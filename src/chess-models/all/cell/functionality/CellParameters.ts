@@ -24,7 +24,7 @@ export class CellParameters {
 
     constructor(
         x: number, y: number, color: Colors, cell: CellModel, figure: CellFigure,
-        boardCells: BoardCells, moveFrom: boolean, moveTo: boolean
+        boardCells: BoardCells, moveFrom: boolean, moveTo: boolean,
     ) {
         this.x = x;
         this.y = y;
@@ -82,7 +82,7 @@ export class CellParameters {
         for (let i = 1; i < absY; i++) {
             if (!this.boardCells.getModel(
                 this.x + dx * i,
-                this.y + dy * i
+                this.y + dy * i,
             ).cellFigure.noFigure())
                 return false;
         }
@@ -102,13 +102,13 @@ export class CellParameters {
             target.parameters.x === this.x &&
             this.boardCells.getModel(
                 target.parameters.x,
-                target.parameters.y
+                target.parameters.y,
             ).cellFigure.noFigure()) {
             return (
                 !(isFirstStep &&
                     !this.boardCells.getModel(
                         this.x,
-                        this.y + direction
+                        this.y + direction,
                     ).cellFigure.noFigure())
             );
         }
@@ -124,7 +124,7 @@ export class CellParameters {
                         figureCell.parameters.pawnCanAttack(
                             this.cell,
                             false,
-                            figureCell.cellFigure.getObject?.color === Colors.BLACK ? 1 : -1
+                            figureCell.cellFigure.getObject?.color === Colors.BLACK ? 1 : -1,
                         ) :
                         figureCell.cellFigure.getObject?.canMove(this.cell, false);
                 } else {

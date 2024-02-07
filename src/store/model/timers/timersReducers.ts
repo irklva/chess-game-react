@@ -9,7 +9,7 @@ export const timersReducers = {
             action.payload,
             state.blackTimerMoment,
             state.whiteTimerMoment,
-            state.timeMoment
+            state.timeMoment,
         );
         state.blackTimer = newBlackTimerMoment;
         state.whiteTimer = newWhiteTimerMoment;
@@ -19,7 +19,7 @@ export const timersReducers = {
     },
     rememberAllMoments(
         state: TimersSchema,
-        action: PayloadAction<Pick<TimersSchema, 'blackTimerMoment' | 'whiteTimerMoment' | 'timeMoment'>>
+        action: PayloadAction<Pick<TimersSchema, 'blackTimerMoment' | 'whiteTimerMoment' | 'timeMoment'>>,
     ) {
         state.blackTimerMoment = action.payload.blackTimerMoment;
         state.whiteTimerMoment = action.payload.whiteTimerMoment;
@@ -34,5 +34,5 @@ export const timersReducers = {
         state.blackTimer = action.payload.blackTimer;
         state.whiteTimer = action.payload.whiteTimer;
         state.timeWinner = null;
-    }
+    },
 };

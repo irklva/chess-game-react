@@ -19,7 +19,7 @@ const newGameSlice = createSlice({
 
 export const {
     setBlackNameInput, setWhiteNameInput, setInfiniteSeconds,
-    setMinutesInput, setSecondsInput
+    setMinutesInput, setSecondsInput,
 } = newGameSlice.actions;
 
 export const newGameReducer = newGameSlice.reducer;

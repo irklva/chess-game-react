@@ -13,7 +13,7 @@ export class Cell {
     public move(
         targetCell: Cell,
         blackTimer: number | null = null,
-        whiteTimer: number | null = null
+        whiteTimer: number | null = null,
     ) {
         this.model.cellFigure.move(targetCell.model, blackTimer, whiteTimer);
     }

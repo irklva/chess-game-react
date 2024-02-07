@@ -20,7 +20,7 @@ export class BoardCheckAndMate {
         blackCheck: boolean = false,
         whiteCheck: boolean = false,
         mate: boolean = false,
-        stalemate: boolean = false
+        stalemate: boolean = false,
     ) {
         this.cells = cells;
         this.kings = kings;

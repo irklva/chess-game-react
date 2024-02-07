@@ -3,12 +3,12 @@ import { getModalNewGame } from '../../../store/model/modal/modalsSelectors';
 import {
     getBlackNameInput,
     getInfiniteSeconds,
-    getWhiteNameInput
+    getWhiteNameInput,
 } from '../../../store/model/new-game/newGameSelectors';
 import {
     setBlackNameInput,
     setInfiniteSeconds,
-    setWhiteNameInput
+    setWhiteNameInput,
 } from '../../../store/model/new-game/newGameSlice';
 import AppCheckbox from '../../ui/checkbox/AppCheckbox';
 import ModalWindow from '../ModalWindow';

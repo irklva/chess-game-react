@@ -18,7 +18,7 @@ export class CellFigure {
 
     constructor(
         cell: CellModel,
-        board: BoardModel
+        board: BoardModel,
     ) {
         this.object = null;
         this.cell = cell;
@@ -84,7 +84,7 @@ export class CellFigure {
                     target.parameters.y === 7))) {
             this.board.flags.setPawnObject = {
                 cell: target,
-                moveObject: moveObject
+                moveObject: moveObject,
             };
         }
     }
@@ -97,7 +97,7 @@ export class CellFigure {
     public move(
         target: CellModel,
         blackTimer: number | null,
-        whiteTimer: number | null
+        whiteTimer: number | null,
     ) {
         const targetParams = target.parameters;
         if (this.object && targetParams.getAvailable) {
@@ -120,7 +120,7 @@ export class CellFigure {
                 board: null,
                 blackTimer: blackTimer,
                 whiteTimer: whiteTimer,
-                promoFigure: null
+                promoFigure: null,
             };
             this.object.moveFigure(target);
             this.moveFlags(target, moveObject);

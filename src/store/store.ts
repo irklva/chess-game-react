@@ -8,7 +8,7 @@ const rootReducers = combineReducers({
     players: playersReducer,
     modals: modalsReducer,
     timers: timersReducer,
-    newGame: newGameReducer
+    newGame: newGameReducer,
 });
 
 export default configureStore({ reducer: rootReducers });

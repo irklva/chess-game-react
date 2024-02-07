@@ -19,7 +19,7 @@ const ModalWindow: FC<ModalProps> = ({
     children,
     action,
     btnName,
-    closeBtn
+    closeBtn,
 }) => {
 
     function handleClose() {

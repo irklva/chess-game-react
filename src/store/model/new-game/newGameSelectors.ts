@@ -16,5 +16,5 @@ export const getNewGameTimer = createSelector(
         } else {
             return null;
         }
-    }
+    },
 );

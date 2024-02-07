@@ -20,7 +20,7 @@ const TimerAndBtns: FC = () => {
     const infiniteSeconds = () => {
         dispatch(setTimers({
             blackTimer: null,
-            whiteTimer: null
+            whiteTimer: null,
         }));
     };
 

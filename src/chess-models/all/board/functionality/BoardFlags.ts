@@ -22,7 +22,7 @@ export class BoardFlags {
     constructor(
         checkAndMate: BoardCheckAndMate,
         promoPawnObject: PawnPromo | null = null,
-        castling: CastlingNames | null = null
+        castling: CastlingNames | null = null,
     ) {
         this.promoPawnObject = promoPawnObject;
         this.castling = castling;
@@ -37,7 +37,7 @@ export class BoardFlags {
         type: FigureNames,
         board: BoardModel,
         blackTimer: number | null,
-        whiteTimer: number | null
+        whiteTimer: number | null,
     ) {
         if (this.promoPawnObject &&
             this.promoPawnObject.cell.cellFigure.getObject?.getName === FigureNames.PAWN) {
@@ -47,25 +47,25 @@ export class BoardFlags {
                     case FigureNames.QUEEN:
                         newFigure = new Queen(
                             pawnColor,
-                            this.promoPawnObject.cell
+                            this.promoPawnObject.cell,
                         );
                         break;
                     case FigureNames.KNIGHT:
                         newFigure = new Knight(
                             pawnColor,
-                            this.promoPawnObject.cell
+                            this.promoPawnObject.cell,
                         );
                         break;
                     case FigureNames.ROOK:
                         newFigure = new Rook(
                             pawnColor,
-                            this.promoPawnObject.cell
+                            this.promoPawnObject.cell,
                         );
                         break;
                     case FigureNames.BISHOP:
                         newFigure = new Bishop(
                             pawnColor,
-                            this.promoPawnObject.cell
+                            this.promoPawnObject.cell,
                         );
                         break;
                     default:
