@@ -11,13 +11,6 @@
     align-items: center;
 }
 
-.cell img {
-    width: 80%;
-    position: absolute;
-    right: 10%;
-    top: 10%;
-}
-
 .selected {
     background-color: var(--selected-cell-color) !important;
 }

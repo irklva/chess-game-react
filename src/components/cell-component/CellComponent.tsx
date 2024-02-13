@@ -4,7 +4,7 @@ import st from './cell-component.module.css';
 import CellContent from './cell-content/CellContent';
 import { useCellClick } from './useCellClick';
 import type { Cell } from '../../chess-models';
-import type { FC } from 'react';
+import type { DragEvent , FC } from 'react';
 
 interface CellProps {
     cell: Cell;
@@ -14,7 +14,7 @@ const CellComponent: FC<CellProps> = ({ cell }) => {
 
     const { selectedCell } = useBoard();
 
-    const click = useCellClick(cell);
+    const handleClick = useCellClick(cell);
 
     const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
     const cellClasses = [
@@ -23,14 +23,26 @@ const CellComponent: FC<CellProps> = ({ cell }) => {
         isSelected ? st.selected : '',
     ];
 
+    const handleDrop = (e: DragEvent<HTMLDivElement>) => {
+        e.preventDefault();
+        handleClick(false);
+    };
+
+    const handleDragOver = (e: DragEvent<HTMLDivElement>) => {
+        e.preventDefault();
+    };
+
     return (
         <div
             className={cellClasses.join(' ')}
-            onClick={click}
+            onClick={() => handleClick()}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
         >
             <CellContent
                 cell={cell}
                 isSelected={isSelected}
+                handleClick={handleClick}
             />
         </div>
     );

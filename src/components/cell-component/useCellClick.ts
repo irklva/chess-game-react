@@ -19,7 +19,7 @@ export const useCellClick = (cell: Cell) => {
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
     const timeMoment = useSelector(getTimeMoment);
 
-    return () => {
+    return (changeFigureDuringMove = true) => {
 
         const gameOver = () => {
             if (board.getMate || board.getStalemate || timeWinner) {
@@ -56,10 +56,10 @@ export const useCellClick = (cell: Cell) => {
             selectedCell.highLightMoveCells(true);
             gameOver();
             promotePawn();
-        } else if (selectedCell === cell) {
+        } else if (cell.getFigureColor !== board.getCurrentPlayerColor) {
             cell.highLightMoveCells(true);
             setSelectedCell(null);
-        } else if (cell.getFigureColor === board.getCurrentPlayerColor) {
+        } else if (changeFigureDuringMove && cell.getFigureColor === board.getCurrentPlayerColor) {
             cell.highLightMoveCells(false);
             setSelectedCell(cell);
         }

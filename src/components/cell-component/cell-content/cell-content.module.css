@@ -1,3 +1,5 @@
+@import "../../../styles/variables/z-indexes.css";
+
 :root {
     --available-point-size: 26%;
 }
@@ -46,4 +48,17 @@
 
 .attacked {
     background-color: var(--attacked-cell-color);
+}
+
+.figure {
+    z-index: var(--figures-z-index);
+    cursor: grab;
+    width: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.figure:active {
+    cursor: grabbing;
 }
