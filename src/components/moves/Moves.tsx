@@ -1,8 +1,8 @@
 import { useBoard } from '../../board-context/useBoard';
-import { Colors } from '../../chess-models';
+import { Colors } from '../../chess-model';
 import MoveEntry from './move-entry/MoveEntry';
 import st from './moves.module.css';
-import type { Move } from '../../chess-models';
+import type { Move } from '../../chess-model';
 import type { FC } from 'react';
 
 const Moves: FC = () => {

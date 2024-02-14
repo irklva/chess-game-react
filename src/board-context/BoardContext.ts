@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { Board } from '../chess-models';
-import type { Cell } from '../chess-models';
+import { Board } from '../chess-model';
+import type { Cell } from '../chess-model';
 
 export interface BoardContextProps {
     board: Board;

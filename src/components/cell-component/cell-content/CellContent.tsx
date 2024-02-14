@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useBoard } from '../../../board-context/useBoard';
-import { Colors, FigureNames } from '../../../chess-models';
+import { Colors, FigureNames } from '../../../chess-model';
 import st from './cell-content.module.css';
-import type { Cell } from '../../../chess-models';
+import type { Cell } from '../../../chess-model';
 import type { DragEvent , FC } from 'react';
 
 
@@ -29,7 +29,7 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
     }
 
     function handleDrag(e: DragEvent<HTMLImageElement>) {
-        const draggedItem = e.target as HTMLImageElement;
+        const draggedItem = e.target as HTMLImageElement; // change if necessary
         if (draggedItem) {
             draggedItem.style.pointerEvents = 'none';
             draggedItem.style.zIndex = '100';
@@ -39,7 +39,7 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
     }
 
     function handleDragEnd(e: DragEvent<HTMLImageElement>) {
-        const draggedItem = e.target as HTMLImageElement;
+        const draggedItem = e.target as HTMLImageElement; // change if necessary
         if (draggedItem) {
             draggedItem.removeAttribute('style');
         }

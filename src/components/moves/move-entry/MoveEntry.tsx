@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useBoard } from '../../../board-context/useBoard';
-import { CastlingNames, Colors, FigureNames } from '../../../chess-models';
+import { CastlingNames, Colors, FigureNames } from '../../../chess-model';
 import { setTimers } from '../../../store/model/timers/timersSlice';
 import st from './entry.module.css';
-import type { Move } from '../../../chess-models';
+import type { Move } from '../../../chess-model';
 import type { FC } from 'react';
 
 interface EntryProps {

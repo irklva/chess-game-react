@@ -34,7 +34,7 @@ const AppButton: FC<AppButtonProps> = ({
             className={
                 `${st.btn} ${buttonStyleClass} ${className}`
             }
-            {...props}
+            {...props} // eslint-disable-line react/jsx-props-no-spreading
         >
             {children}
         </button>

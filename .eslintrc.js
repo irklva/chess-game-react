@@ -31,7 +31,7 @@ module.exports = {
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
         'max-len': ['warn', { code: 120, tabWidth: 4, ignoreUrls: true }],
-        'function-paren-newline': ['error', 'multiline'],
+        'function-paren-newline': ['error', 'multiline-arguments'],
         'function-call-argument-newline': ['error', 'consistent'],
         'object-curly-newline': ['error', { multiline: true }],
         'array-element-newline': ['error', 'consistent'],

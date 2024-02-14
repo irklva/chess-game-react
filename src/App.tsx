@@ -2,7 +2,7 @@ import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector } from 'react-redux';
 import { useBoard } from './board-context/useBoard';
-import { Colors } from './chess-models';
+import { Colors } from './chess-model';
 import BoardComponent from './components/board-component/BoardComponent';
 import GameOverModal from './components/modals/game-over/GameOverModal';
 import NewGameModal from './components/modals/new-game/NewGameModal';

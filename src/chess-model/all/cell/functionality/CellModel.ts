@@ -15,8 +15,12 @@ export class CellModel {
     board: BoardModel;
 
     constructor(
-        board: BoardModel, x: number, y: number, color: Colors,
-        moveFrom: boolean = false, moveTo: boolean = false,
+        board: BoardModel,
+        x: number,
+        y: number,
+        color: Colors,
+        moveFrom: boolean = false,
+        moveTo: boolean = false,
     ) {
         this.board = board;
         this.cellFigure = new CellFigure(this, this.board);

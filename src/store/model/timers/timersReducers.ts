@@ -1,6 +1,6 @@
 import { checkAllTimerMoments } from '../../../utils/timerHelpers';
 import type { TimersSchema } from './timersSchema';
-import type { Colors } from '../../../chess-models';
+import type { Colors } from '../../../chess-model';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export const timersReducers = {

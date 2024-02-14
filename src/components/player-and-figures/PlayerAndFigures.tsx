@@ -1,5 +1,5 @@
 import st from './player-and-figures.module.css';
-import type { Colors, Figure } from '../../chess-models';
+import type { Colors, Figure } from '../../chess-model';
 import type { FC } from 'react';
 
 interface LostFiguresProps {

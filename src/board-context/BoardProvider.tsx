@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Board } from '../chess-models';
+import { Board } from '../chess-model';
 import { BoardContext } from './BoardContext';
-import type { Cell } from '../chess-models';
+import type { Cell } from '../chess-model';
 import type { FC, ReactNode } from 'react';
 
 interface BoardProviderProps {

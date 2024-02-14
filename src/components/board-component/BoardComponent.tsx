@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { useBoard } from '../../board-context/useBoard';
 import CellComponent from '../cell-component/CellComponent';
 import st from './board-component.module.css';
-import type { Cell } from '../../chess-models';
+import type { Cell } from '../../chess-model';
 import type { FC } from 'react';
 
 const BoardComponent: FC = () => {

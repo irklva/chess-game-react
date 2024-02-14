@@ -7,7 +7,7 @@ const AppInput: FC<AppInputProps> = ({ className, ...props }) => {
     return (
         <input
             className={`${st.input} ${className}`}
-            {...props}
+            {...props} // eslint-disable-line react/jsx-props-no-spreading
         />
     );
 };

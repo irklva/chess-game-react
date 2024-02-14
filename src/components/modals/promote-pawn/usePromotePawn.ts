@@ -8,7 +8,7 @@ import {
 } from '../../../store/model/timers/timersSelectors';
 import { rememberAllMoments } from '../../../store/model/timers/timersSlice';
 import { checkAllTimerMoments } from '../../../utils/timerHelpers';
-import type { FigureNames } from '../../../chess-models';
+import type { FigureNames } from '../../../chess-model';
 
 export const usePromotePawn = () => {
 

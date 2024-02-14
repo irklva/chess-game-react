@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { Board } from '../chess-models';
+import { Board } from '../chess-model';
 import { BoardContext } from './BoardContext';
-import type { Cell, Move } from '../chess-models';
+import type { Cell, Move } from '../chess-model';
 
 interface UseBoardResult {
     board: Board;

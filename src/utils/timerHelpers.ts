@@ -1,4 +1,4 @@
-import { Colors } from '../chess-models';
+import { Colors } from '../chess-model';
 import { minimumTimer, minutesLimit } from './newGameConstants';
 import type { TimerType } from '../types/types';
 

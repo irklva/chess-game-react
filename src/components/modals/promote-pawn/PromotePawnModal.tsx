@@ -8,7 +8,7 @@ import white_knight from '../../../assets/white-knight.png';
 import white_queen from '../../../assets/white-queen.png';
 import white_rook from '../../../assets/white-rook.png';
 import { useBoard } from '../../../board-context/useBoard';
-import { Colors, FigureNames } from '../../../chess-models';
+import { Colors, FigureNames } from '../../../chess-model';
 import { getModalPromotePawn } from '../../../store/model/modal/modalsSelectors';
 import ModalWindow from '../ModalWindow';
 import st from './promote-pawn.module.css';

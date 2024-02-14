@@ -9,7 +9,7 @@ import {
 } from '../../store/model/timers/timersSelectors';
 import { rememberAllMoments } from '../../store/model/timers/timersSlice';
 import { checkAllTimerMoments } from '../../utils/timerHelpers';
-import type { Cell } from '../../chess-models';
+import type { Cell } from '../../chess-model';
 
 export const useCellClick = (cell: Cell) => {
     const dispatch = useDispatch();

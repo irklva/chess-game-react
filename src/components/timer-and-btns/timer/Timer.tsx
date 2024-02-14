@@ -39,10 +39,12 @@ const Timer: FC<TimerProps> = ({
                 clearInterval(currentTimer);
             }
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentPlayerColor, isTimerRunning]);
 
     useEffect(() => {
         timerCheck();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [blackTimer, whiteTimer, isMate, isStalemate, currentPlayerColor]);
 
     return (

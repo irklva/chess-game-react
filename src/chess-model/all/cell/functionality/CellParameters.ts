@@ -23,8 +23,14 @@ export class CellParameters {
     private readonly boardCells: BoardCells;
 
     constructor(
-        x: number, y: number, color: Colors, cell: CellModel, figure: CellFigure,
-        boardCells: BoardCells, moveFrom: boolean, moveTo: boolean,
+        x: number,
+        y: number,
+        color: Colors,
+        cell: CellModel,
+        figure: CellFigure,
+        boardCells: BoardCells,
+        moveFrom: boolean,
+        moveTo: boolean,
     ) {
         this.x = x;
         this.y = y;
