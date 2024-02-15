@@ -21,11 +21,8 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
     function handleDragStart(e: DragEvent<HTMLImageElement>) {
         handleClick();
         const draggedItem = e.target as HTMLImageElement; // change if necessary
-        const parentRect = e.currentTarget.getBoundingClientRect();
-        const offsetX = (draggedItem.offsetLeft / parentRect.width) * 100;
-        const offsetY = (draggedItem.offsetTop / parentRect.height) * 100;
-        setStartingX(e.clientX - offsetX * parentRect.width / 100);
-        setStartingY(e.clientY - offsetY * parentRect.height / 100);
+        setStartingX(e.clientX - draggedItem.offsetLeft);
+        setStartingY(e.clientY - draggedItem.offsetTop);
     }
 
     function handleDrag(e: DragEvent<HTMLImageElement>) {

@@ -12,7 +12,7 @@
 }
 
 .moves {
-    height: Calc(100% - 43px);
+    height: Calc(100% - 39px);
     overflow: auto;
     overflow-x: hidden;
     font-size: 90%;

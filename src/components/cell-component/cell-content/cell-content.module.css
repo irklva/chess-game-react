@@ -6,7 +6,7 @@
 
 .coordinate {
     color: white;
-    font-size: 80%;
+    font: 80% bold;
     position: absolute;
     -moz-user-select: none;
     -webkit-user-select: none;
