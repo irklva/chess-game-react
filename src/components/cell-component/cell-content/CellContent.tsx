@@ -68,6 +68,28 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
             {cell.getAvailable && !cell.getFigureName &&
                 <div className={st.available}/>
             }
+            {cell.getY === 7 &&
+                <div
+                    className={`
+                        ${st.coordinate} 
+                        ${cell.getColor === Colors.WHITE ? st.black : st.white} 
+                        ${st.x}
+                    `}
+                >
+                    {cell.getChessCoordinates?.x}
+                </div>
+            }
+            {cell.getX === 0 &&
+                <div
+                    className={`
+                        ${st.coordinate} 
+                        ${cell.getColor === Colors.WHITE ? st.black : st.white} 
+                        ${st.y}
+                    `}
+                >
+                    {cell.getChessCoordinates?.y}
+                </div>
+            }
             {dangerCell &&
                 <div className={`${st.shell} ${st.attacked}`} />
             }
@@ -84,16 +106,6 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
                     onDrag={handleDrag}
                     onDragEnd={handleDragEnd}
                 />
-            }
-            {cell.getY === 7 &&
-                <div className={`${st.coordinate} ${st.x}`}>
-                    {cell.getChessCoordinates?.x}
-                </div>
-            }
-            {cell.getX === 0 &&
-                <div className={`${st.coordinate} ${st.y}`}>
-                    {cell.getChessCoordinates?.y}
-                </div>
             }
         </>
     );

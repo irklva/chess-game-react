@@ -20,7 +20,7 @@
     border-radius: 2px;
 }
 .checkbox [type=checkbox]:checked + span:before {
-    content: url('../../../assets/check.png');
+    content: url('../../../assets/png/check.png');
     position: absolute;
     top: -7px;
     left: 0;

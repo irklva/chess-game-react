@@ -15,7 +15,7 @@ const Moves: FC = () => {
     return (
         <div className={st.moves_block}>
             <h5>Moves</h5>
-            <div className={st.moves}>
+            <div className={st.list}>
                 {whiteMoves.map((move: Move) =>
                     <div key={move.id} className="row">
                         <div className="col-3 d-flex align-items-end">

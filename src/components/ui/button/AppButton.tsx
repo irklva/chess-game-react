@@ -17,22 +17,11 @@ const AppButton: FC<AppButtonProps> = ({
     className,
     ...props
 }) => {
-    const buttonStyleClassCheck = () => {
-        switch (buttonStyle) {
-                case ButtonStyle.PRIMARY:
-                    return st.primary;
-                case ButtonStyle.SECONDARY:
-                    return st.secondary;
-                default:
-                    return '';
-        }
-    };
-    const buttonStyleClass = buttonStyleClassCheck();
 
     return (
         <button
             className={
-                `${st.btn} ${buttonStyleClass} ${className}`
+                `${st.btn} ${st[buttonStyle]} ${className}`
             }
             {...props} // eslint-disable-line react/jsx-props-no-spreading
         >

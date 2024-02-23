@@ -1,12 +1,12 @@
 import { useSelector } from 'react-redux';
-import black_bishop from '../../../assets/black-bishop.png';
-import black_knight from '../../../assets/black-knight.png';
-import black_queen from '../../../assets/black-queen.png';
-import black_rook from '../../../assets/black-rook.png';
-import white_bishop from '../../../assets/white-bishop.png';
-import white_knight from '../../../assets/white-knight.png';
-import white_queen from '../../../assets/white-queen.png';
-import white_rook from '../../../assets/white-rook.png';
+import black_bishop from '../../../assets/png/black-bishop.png';
+import black_knight from '../../../assets/png/black-knight.png';
+import black_queen from '../../../assets/png/black-queen.png';
+import black_rook from '../../../assets/png/black-rook.png';
+import white_bishop from '../../../assets/png/white-bishop.png';
+import white_knight from '../../../assets/png/white-knight.png';
+import white_queen from '../../../assets/png/white-queen.png';
+import white_rook from '../../../assets/png/white-rook.png';
 import { useBoard } from '../../../board-context/useBoard';
 import { Colors, FigureNames } from '../../../chess-model';
 import { getModalPromotePawn } from '../../../store/model/modal/modalsSelectors';
@@ -29,20 +29,20 @@ const PromotePawnModal: FC = () => {
             btnName={''}
             closeBtn={false}
         >
-            <div className={st.figure_btns}>
-                <div className={st.figure_btn}>
+            <div className={st.figure_buttons_block}>
+                <div className={st.figure_button}>
                     <img src={promotedPawnColor === Colors.BLACK ? black_queen : white_queen}
                         alt="black_queen" onClick={() => promotePawn(FigureNames.QUEEN)}/>
                 </div>
-                <div className={st.figure_btn}>
+                <div className={st.figure_button}>
                     <img src={promotedPawnColor === Colors.BLACK ? black_knight : white_knight}
                         alt="black_knight" onClick={() => promotePawn(FigureNames.KNIGHT)}/>
                 </div>
-                <div className={st.figure_btn}>
+                <div className={st.figure_button}>
                     <img src={promotedPawnColor === Colors.BLACK ? black_bishop : white_bishop}
                         alt="black_bishop" onClick={() => promotePawn(FigureNames.BISHOP)}/>
                 </div>
-                <div className={st.figure_btn}>
+                <div className={st.figure_button}>
                     <img src={promotedPawnColor === Colors.BLACK ? black_rook : white_rook}
                         alt="black_rook" onClick={() => promotePawn(FigureNames.ROOK)}/>
                 </div>

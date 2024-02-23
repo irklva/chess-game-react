@@ -1,5 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
+import captureSound from '../../assets/mp3/capture.mp3';
+import moveSound from '../../assets/mp3/move.mp3';
+import winSound from '../../assets/mp3/win.mp3';
 import { useBoard } from '../../board-context/useBoard';
+import { getGameSounds } from '../../store/model/game-settings/gameSettingsSelectors';
 import { setModalGameOver, setModalPromotePawn } from '../../store/model/modal/modalsSlice';
 import {
     getBlackTimerMoment,
@@ -18,12 +22,20 @@ export const useCellClick = (cell: Cell) => {
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
     const timeMoment = useSelector(getTimeMoment);
+    const sounds = useSelector(getGameSounds);
 
     return (changeFigureDuringMove = true) => {
 
-        const gameOver = () => {
+        const checkGameOver = () => {
             if (board.getMate || board.getStalemate || timeWinner) {
+                if (sounds) {
+                    new Audio(winSound).play();
+                }
                 dispatch(setModalGameOver(true));
+            } else if (sounds && (board.getWhiteCheck || board.getBlackCheck)) {
+                new Audio(captureSound).play();
+            } else if (sounds) {
+                new Audio(moveSound).play();
             }
         };
 
@@ -54,7 +66,7 @@ export const useCellClick = (cell: Cell) => {
             }));
             selectedCell.move(cell, newBlackTimerMoment, newWhiteTimerMoment);
             selectedCell.highLightMoveCells(true);
-            gameOver();
+            checkGameOver();
             promotePawn();
         } else if (cell.getFigureColor !== board.getCurrentPlayerColor) {
             cell.highLightMoveCells(true);

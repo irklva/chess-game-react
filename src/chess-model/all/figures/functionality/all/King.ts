@@ -1,5 +1,5 @@
-import blackLogo from '../../../../../assets/black-king.png';
-import whiteLogo from '../../../../../assets/white-king.png';
+import blackLogo from '../../../../../assets/png/black-king.png';
+import whiteLogo from '../../../../../assets/png/white-king.png';
 import { CastlingNames } from '../../../board/functionality/BoardFlags';
 import { Colors } from '../../../Colors';
 import { FigureModel, FigureNames } from '../FigureModel';

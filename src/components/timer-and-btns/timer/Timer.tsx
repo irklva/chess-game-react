@@ -4,7 +4,6 @@ import { useBoard } from '../../../board-context/useBoard';
 import { getBlackName, getWhiteName } from '../../../store/model/players/playersSelectors';
 import { getBlackTimer, getTimeMoment, getWhiteTimer } from '../../../store/model/timers/timersSelectors';
 import TimerRow from './timer-row/TimerRow';
-import st from './timer.module.css';
 import { useTimer } from './useTimer';
 import type { TimerProps } from '../../../types/types';
 import type { FC } from 'react';
@@ -48,7 +47,7 @@ const Timer: FC<TimerProps> = ({
     }, [blackTimer, whiteTimer, isMate, isStalemate, currentPlayerColor]);
 
     return (
-        <div className={st.timer_block}>
+        <div className="timer">
             <div className={`d-flex flex-column ${timeMoment ? 'align-items-end' : 'align-items-center'}`}>
                 <TimerRow name={blackName} timer={blackTimer}/>
                 <TimerRow name={whiteName} timer={whiteTimer}/>

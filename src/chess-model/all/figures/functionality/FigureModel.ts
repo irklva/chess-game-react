@@ -1,5 +1,5 @@
 import { Figure } from '../Figure';
-import type logo from '../../../../assets/black-bishop.png';
+import type logo from '../../../../assets/png/black-bishop.png';
 import type { CellModel } from '../../cell/functionality/CellModel';
 import type { Colors } from '../../Colors';
 

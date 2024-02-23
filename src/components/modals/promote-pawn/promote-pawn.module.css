@@ -1,10 +1,10 @@
-.figure_btns {
+.figure_buttons_block {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.figure_btn {
+.figure_button {
     width: 20%;
     padding: 10px;
     background-color: var(--white-color);
@@ -13,11 +13,11 @@
     justify-content: center;
 }
 
-.figure_btn:hover {
+.figure_button:hover {
     cursor: pointer;
     background-color: var(--black-color);
 }
 
-.figure_btn img {
+.figure_button img {
     width: 80%;
 }

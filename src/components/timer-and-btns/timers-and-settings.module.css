@@ -1,0 +1,41 @@
+.timer_and_settings_block {
+    width: 100%;
+    margin: var(--standard-margin) 0;
+    padding: var(--standard-padding);
+    background-color: var(--primary-color);
+    border-radius: var(--standard-border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 220px;
+    transition: height 0.3s;
+}
+
+.timer_and_settings_block.no_timers {
+    height: 100px;
+}
+
+.settings_block,
+.timer_block {
+    width: 100%;
+    display: flex;
+    gap: var(--standard-margin);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timer_block {
+    margin-bottom: 20px;
+    opacity: 1;
+    transition: opacity 0s 0.3s;
+    max-height: 1000px;
+    overflow: hidden;
+}
+
+.timer_block.collapsed {
+    margin: 0;
+    max-height: 0;
+    opacity: 0;
+}

@@ -9,7 +9,7 @@ import NewGameModal from './components/modals/new-game/NewGameModal';
 import PromotePawnModal from './components/modals/promote-pawn/PromotePawnModal';
 import Moves from './components/moves/Moves';
 import PlayerAndFigures from './components/player-and-figures/PlayerAndFigures';
-import TimerAndBtns from './components/timer-and-btns/timerAndBtns';
+import TimersAndSettings from './components/timer-and-btns/timersAndSettings';
 import { getBlackName, getWhiteName } from './store/model/players/playersSelectors';
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
                     </div>
                     <div className="col-12 col-sm-5 col-lg-3 order-lg-first
                                     d-flex justify-content-center align-items-center">
-                        <TimerAndBtns/>
+                        <TimersAndSettings/>
                     </div>
                     <div className="col-12 col-sm-5 col-lg-3
                                     d-flex justify-content-center align-items-center">

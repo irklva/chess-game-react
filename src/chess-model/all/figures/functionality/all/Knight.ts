@@ -1,5 +1,5 @@
-import blackLogo from '../../../../../assets/black-knight.png';
-import whiteLogo from '../../../../../assets/white-knight.png';
+import blackLogo from '../../../../../assets/png/black-knight.png';
+import whiteLogo from '../../../../../assets/png/white-knight.png';
 import { Colors } from '../../../Colors';
 import { FigureModel, FigureNames } from '../FigureModel';
 import type { CellModel } from '../../../cell/functionality/CellModel';

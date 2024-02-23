@@ -1,26 +1,31 @@
-@import "../../../styles/variables/z-indexes.css";
-
 :root {
     --available-point-size: 26%;
 }
 
 .coordinate {
-    color: white;
-    font: 80% bold;
+    font-weight: bold;
     position: absolute;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
 }
 
-.y {
+.coordinate.black {
+    color: var(--black-color);
+}
+
+.coordinate.white {
+    color: var(--white-color);
+}
+
+.coordinate.y {
     top: 0;
     left: 2%;
 }
 
-.x {
+.coordinate.x {
     bottom: 0;
-    right: 4%;
+    right: 5%;
 }
 
 .available {

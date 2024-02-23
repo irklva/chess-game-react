@@ -11,25 +11,25 @@
     border-radius: var(--standard-border-radius);
 }
 
-.moves {
-    height: Calc(100% - 39px);
+.list {
+    height: Calc(100% - 38px);
     overflow: auto;
     overflow-x: hidden;
     font-size: 90%;
 }
 
-.moves::-webkit-scrollbar {
+.list::-webkit-scrollbar {
     width: 12px;
     background-color: var(--primary-color);
 }
 
-.moves::-webkit-scrollbar-thumb {
+.list::-webkit-scrollbar-thumb {
     border: 2px var(--btn-first-color) solid;
     border-radius: var(--webkit-size);
     background-color: var(--btn-first-hover-color);
 }
 
-.moves::-webkit-scrollbar-track {
+.list::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 var(--webkit-size) rgba(0,0,0,0.2);
     border-radius: var(--webkit-size);
     background-color: var(--btn-first-color);
