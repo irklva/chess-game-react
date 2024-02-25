@@ -26,16 +26,13 @@ export const useCellClick = (cell: Cell) => {
 
     return (changeFigureDuringMove = true) => {
 
-        const checkGameOver = () => {
+        const checkGameOver = (): boolean => {
             if (board.getMate || board.getStalemate || timeWinner) {
-                if (sounds) {
-                    new Audio(winSound).play();
-                }
                 dispatch(setModalGameOver(true));
-            } else if (sounds && (board.getWhiteCheck || board.getBlackCheck)) {
-                new Audio(captureSound).play();
-            } else if (sounds) {
-                new Audio(moveSound).play();
+
+                return true;
+            } else {
+                return false;
             }
         };
 
@@ -59,6 +56,7 @@ export const useCellClick = (cell: Cell) => {
         );
 
         if (selectedCell && cell.getAvailable) {
+            const attackedFigure = cell.getFigureName;
             dispatch(rememberAllMoments({
                 blackTimerMoment: newBlackTimerMoment,
                 whiteTimerMoment: newWhiteTimerMoment,
@@ -66,8 +64,20 @@ export const useCellClick = (cell: Cell) => {
             }));
             selectedCell.move(cell, newBlackTimerMoment, newWhiteTimerMoment);
             selectedCell.highLightMoveCells(true);
-            checkGameOver();
+            const gameOver = checkGameOver();
             promotePawn();
+            if (sounds) {
+                if (gameOver) {
+                    new Audio(winSound).play();
+                } else if (
+                    (board.getWhiteCheck || board.getBlackCheck) ||
+                    (attackedFigure)
+                ) {
+                    new Audio(captureSound).play();
+                } else if (sounds) {
+                    new Audio(moveSound).play();
+                }
+            }
         } else if (cell.getFigureColor !== board.getCurrentPlayerColor) {
             cell.highLightMoveCells(true);
             setSelectedCell(null);
