@@ -17,3 +17,8 @@
     padding: 10px;
     background-color: #dad2c5;
 }
+
+#ghost {
+    position: absolute;
+    opacity: 0;
+}

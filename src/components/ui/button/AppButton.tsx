@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import st from './app-button.module.css';
 import type { FC, ReactNode, ButtonHTMLAttributes } from 'react';
 
@@ -30,4 +31,4 @@ const AppButton: FC<AppButtonProps> = ({
     );
 };
 
-export default AppButton;
+export default memo(AppButton);

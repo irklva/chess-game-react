@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as SoundOff } from '../../assets/svg/sound-off.svg';
 import { ReactComponent as SoundOn } from '../../assets/svg/sound-on.svg';
@@ -18,17 +18,17 @@ const TimersAndSettings: FC = () => {
     const [isTimerRunning, setIsTimerRunning] = useState(false);
     const sounds = useSelector(getGameSounds);
 
-    const newGame = () => {
+    const newGame = useCallback(() => {
         dispatch(setModalNewGame(true));
         setIsTimerRunning(false);
-    };
+    }, [dispatch]);
 
-    const infiniteSeconds = () => {
+    const infiniteSeconds = useCallback(() => {
         dispatch(setTimers({
             blackTimer: null,
             whiteTimer: null,
         }));
-    };
+    }, [dispatch]);
 
     return (
         <div className={`

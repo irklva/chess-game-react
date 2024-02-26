@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { memo } from 'react';
 import { useBoard } from '../../../board-context/useBoard';
 import { Colors, FigureNames } from '../../../chess-model';
 import st from './cell-content.module.css';
 import type { Cell } from '../../../chess-model';
-import type { DragEvent , FC } from 'react';
+import type { FC } from 'react';
 
 
 interface CellContentProps {
@@ -15,31 +15,9 @@ interface CellContentProps {
 const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) => {
 
     const { board, selectedCell } = useBoard();
-    const [startingX, setStartingX] = useState(0);
-    const [startingY, setStartingY] = useState(0);
 
-    function handleDragStart(e: DragEvent<HTMLImageElement>) {
+    function handleDragStart() {
         handleClick();
-        const draggedItem = e.target as HTMLImageElement; // change if necessary
-        setStartingX(e.clientX - draggedItem.offsetLeft);
-        setStartingY(e.clientY - draggedItem.offsetTop);
-    }
-
-    function handleDrag(e: DragEvent<HTMLImageElement>) {
-        const draggedItem = e.target as HTMLImageElement; // change if necessary
-        if (draggedItem) {
-            draggedItem.style.pointerEvents = 'none';
-            draggedItem.style.zIndex = '100';
-            draggedItem.style.left = (e.clientX - startingX) + 'px';
-            draggedItem.style.top = (e.clientY - startingY) + 'px';
-        }
-    }
-
-    function handleDragEnd(e: DragEvent<HTMLImageElement>) {
-        const draggedItem = e.target as HTMLImageElement; // change if necessary
-        if (draggedItem) {
-            draggedItem.removeAttribute('style');
-        }
     }
 
     const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING &&
@@ -103,12 +81,10 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
                     className={st.figure}
                     draggable={true}
                     onDragStart={handleDragStart}
-                    onDrag={handleDrag}
-                    onDragEnd={handleDragEnd}
                 />
             }
         </>
     );
 };
 
-export default CellContent;
+export default memo(CellContent);
