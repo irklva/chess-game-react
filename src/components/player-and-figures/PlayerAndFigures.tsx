@@ -15,6 +15,7 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
     playerColor,
     currentPlayerColor,
 }) => {
+
     return (
         <div className={st.player_block}>
             <h5 className={playerColor === currentPlayerColor ? st.player + ' ' + st.active : st.player}>

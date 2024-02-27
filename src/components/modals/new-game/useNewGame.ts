@@ -1,5 +1,8 @@
+import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useBoard } from '../../../board-context/useBoard';
+import { BoardContext } from '../../../board-context/board/BoardContext';
+import { SelectedCellContext } from '../../../board-context/selected-cell/SelectedCellContext';
+import { Board, Colors } from '../../../chess-model';
 import { setModalNewGame } from '../../../store/model/modal/modalsSlice';
 import {
     getBlackNameInput,
@@ -15,7 +18,8 @@ import { minutesConditions, secondsConditions, timerConditions } from '../../../
 
 export const useNewGame = () => {
     const dispatch = useDispatch();
-    const { boardSettings } = useBoard();
+    const { setBoard, setCurrentPlayerColor } = useContext(BoardContext);
+    const { setSelectedCell } = useContext(SelectedCellContext);
     const blackNameInput = useSelector(getBlackNameInput);
     const whiteNameInput = useSelector(getWhiteNameInput);
     const minutesInput = useSelector(getMinutesInput);
@@ -38,6 +42,13 @@ export const useNewGame = () => {
             dispatch(setModalNewGame(false));
         };
 
+        const boardSettings = () => {
+            const newBoard = new Board();
+            newBoard.initBaseLine();
+            setBoard(newBoard);
+            setSelectedCell(null);
+        };
+
         const timeConditions = timerConditions(timer) &&
             minutesConditions(minutesInput) &&
             secondsConditions(secondsInput);
@@ -48,6 +59,7 @@ export const useNewGame = () => {
         if (namesConditions && (timer === null || timeConditions)) {
             gameSettings();
             boardSettings();
+            setCurrentPlayerColor(Colors.WHITE);
         }
     };
 

@@ -1,7 +1,3 @@
-:root {
-    --available-point-size: 26%;
-}
-
 .coordinate {
     font-weight: bold;
     position: absolute;
@@ -26,33 +22,6 @@
 .coordinate.x {
     bottom: 0;
     right: 5%;
-}
-
-.available {
-    z-index: var(--avaliable-cell-z-index);
-    width: var(--available-point-size);
-    height: var(--available-point-size);
-    background-color: var(--available-cell-color);
-    border-radius: 50%;
-    position: absolute;
-    right: Calc((100% - var(--available-point-size))/2);
-    top: Calc((100% - var(--available-point-size))/2);
-}
-
-.shell {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.moved {
-    background-color: var(--move-cell-color);
-}
-
-.attacked {
-    background-color: var(--attacked-cell-color);
 }
 
 .figure {

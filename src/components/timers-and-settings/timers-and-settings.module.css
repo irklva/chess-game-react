@@ -28,14 +28,21 @@
 
 .timer_block {
     margin-bottom: 20px;
-    opacity: 1;
-    transition: opacity 0s 0.3s;
-    max-height: 1000px;
     overflow: hidden;
 }
 
 .timer_block.collapsed {
-    margin: 0;
-    max-height: 0;
-    opacity: 0;
+    display: none;
+}
+
+.infinity_btn {
+    width: 100%;
+    height: 35px;
+    transition: height 0.3s;
+    overflow: hidden;
+}
+
+.infinity_btn.collapsed {
+    height: 0;
+    transition: height 0.3s;
 }

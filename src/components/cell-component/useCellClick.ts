@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import captureSound from '../../assets/mp3/capture.mp3';
 import moveSound from '../../assets/mp3/move.mp3';
 import winSound from '../../assets/mp3/win.mp3';
-import { useBoard } from '../../board-context/useBoard';
+import { BoardContext } from '../../board-context/board/BoardContext';
+import { SelectedCellContext } from '../../board-context/selected-cell/SelectedCellContext';
 import { getGameSounds } from '../../store/model/game-settings/gameSettingsSelectors';
 import { setModalGameOver, setModalPromotePawn } from '../../store/model/modal/modalsSlice';
 import {
@@ -17,7 +19,8 @@ import type { Cell } from '../../chess-model';
 
 export const useCellClick = (cell: Cell) => {
     const dispatch = useDispatch();
-    const { board, selectedCell, setSelectedCell } = useBoard();
+    const { board, setCurrentPlayerColor } = useContext(BoardContext);
+    const { selectedCell, setSelectedCell } = useContext(SelectedCellContext);
     const timeWinner = useSelector(getTimeWinner);
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
@@ -66,6 +69,7 @@ export const useCellClick = (cell: Cell) => {
             selectedCell.highLightMoveCells(true);
             const gameOver = checkGameOver();
             promotePawn();
+            setCurrentPlayerColor(board.getCurrentPlayerColor);
             if (sounds) {
                 if (gameOver) {
                     new Audio(winSound).play();

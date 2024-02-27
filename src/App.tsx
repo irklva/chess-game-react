@@ -1,7 +1,8 @@
 import './styles/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { useBoard } from './board-context/useBoard';
+import { BoardContext } from './board-context/board/BoardContext';
 import { Colors } from './chess-model';
 import BoardComponent from './components/board-component/BoardComponent';
 import GameOverModal from './components/modals/game-over/GameOverModal';
@@ -9,12 +10,12 @@ import NewGameModal from './components/modals/new-game/NewGameModal';
 import PromotePawnModal from './components/modals/promote-pawn/PromotePawnModal';
 import Moves from './components/moves/Moves';
 import PlayerAndFigures from './components/player-and-figures/PlayerAndFigures';
-import TimersAndSettings from './components/timer-and-btns/timersAndSettings';
+import TimersAndSettings from './components/timers-and-settings/timersAndSettings';
 import { getBlackName, getWhiteName } from './store/model/players/playersSelectors';
 
 const App = () => {
 
-    const { board } = useBoard();
+    const { board } = useContext(BoardContext);
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);
 

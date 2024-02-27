@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import st from './app-switch.module.css';
 import type { FC , SVGProps , ReactNode } from 'react';
 
@@ -39,4 +39,4 @@ const AppSwitch: FC<SwitchProps> = ({
     );
 };
 
-export default AppSwitch;
+export default memo(AppSwitch);

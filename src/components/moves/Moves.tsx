@@ -1,4 +1,5 @@
-import { useBoard } from '../../board-context/useBoard';
+import { useContext } from 'react';
+import { BoardContext } from '../../board-context/board/BoardContext';
 import { Colors } from '../../chess-model';
 import MoveEntry from './move-entry/MoveEntry';
 import st from './moves.module.css';
@@ -7,16 +8,13 @@ import type { FC } from 'react';
 
 const Moves: FC = () => {
 
-    const {
-        getWhiteMoves: whiteMoves,
-        getBlackMoves: blackMoves,
-    } = useBoard().board;
+    const { board } = useContext(BoardContext);
 
     return (
         <div className={st.moves_block}>
             <h5>Moves</h5>
             <div className={st.list}>
-                {whiteMoves.map((move: Move) =>
+                {board.getWhiteMoves.map((move: Move) =>
                     <div key={move.id} className="row">
                         <div className="col-3 d-flex align-items-end">
                             {move.id}.
@@ -25,8 +23,8 @@ const Moves: FC = () => {
                             <MoveEntry move={move}
                                 playerColor={Colors.WHITE}
                             />
-                            {blackMoves[move.id - 1] &&
-                                <MoveEntry move={blackMoves[move.id - 1]}
+                            {board.getBlackMoves[move.id - 1] &&
+                                <MoveEntry move={board.getBlackMoves[move.id - 1]}
                                     playerColor={Colors.BLACK}
                                 />
                             }

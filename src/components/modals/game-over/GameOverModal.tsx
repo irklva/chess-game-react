@@ -1,5 +1,6 @@
+import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useBoard } from '../../../board-context/useBoard';
+import { BoardContext } from '../../../board-context/board/BoardContext';
 import { getModalGameOver } from '../../../store/model/modal/modalsSelectors';
 import { setModalGameOver, setModalNewGame } from '../../../store/model/modal/modalsSlice';
 import { getBlackName, getWhiteName } from '../../../store/model/players/playersSelectors';
@@ -10,7 +11,7 @@ import type { FC } from 'react';
 const GameOverModal: FC = () => {
 
     const dispatch = useDispatch();
-    const { board } = useBoard();
+    const { board } = useContext(BoardContext);
     const modalGameOver = useSelector(getModalGameOver);
     const blackName = useSelector(getBlackName);
     const whiteName = useSelector(getWhiteName);

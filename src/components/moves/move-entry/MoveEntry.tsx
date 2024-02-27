@@ -1,5 +1,6 @@
+import { memo, useContext } from 'react';
 import { useDispatch } from 'react-redux';
-import { useBoard } from '../../../board-context/useBoard';
+import { BoardContext } from '../../../board-context/board/BoardContext';
 import { CastlingNames, Colors, FigureNames } from '../../../chess-model';
 import { setTimers } from '../../../store/model/timers/timersSlice';
 import st from './entry.module.css';
@@ -14,12 +15,21 @@ interface EntryProps {
 const MoveEntry: FC<EntryProps> = ({ move, playerColor }) => {
 
     const dispatch = useDispatch();
-    const { board, changeBoard } = useBoard();
+    const { board, setBoard, setCurrentPlayerColor } = useContext(BoardContext);
     const boardId = board.getId;
+
+    const changeBoard = () => {
+        if (move.board) {
+            // selectedCell?.highLightMoveCells(true);
+            // setSelectedCell(null);
+            setBoard(move.board);
+            setCurrentPlayerColor(move.board.getCurrentPlayerColor);
+        }
+    };
 
     const changeMove = () => {
         if (move.board?.getId !== boardId) {
-            changeBoard(move);
+            changeBoard();
             dispatch(setTimers({
                 blackTimer: move.blackTimer,
                 whiteTimer: move.whiteTimer,
@@ -86,4 +96,4 @@ const MoveEntry: FC<EntryProps> = ({ move, playerColor }) => {
     );
 };
 
-export default MoveEntry;
+export default memo(MoveEntry);

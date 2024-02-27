@@ -1,6 +1,6 @@
-import { memo } from 'react';
-import { useBoard } from '../../../board-context/useBoard';
-import { Colors, FigureNames } from '../../../chess-model';
+import { memo, useContext } from 'react';
+import { BoardContext } from '../../../board-context/board/BoardContext';
+import { Colors } from '../../../chess-model';
 import st from './cell-content.module.css';
 import type { Cell } from '../../../chess-model';
 import type { FC } from 'react';
@@ -8,44 +8,23 @@ import type { FC } from 'react';
 
 interface CellContentProps {
     cell: Cell;
-    isSelected: boolean;
     handleClick: () => void;
 }
 
-const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) => {
+const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
 
-    const { board, selectedCell } = useBoard();
+    // next line is needed for better rendering
+    const { currentPlayerColor } = useContext(BoardContext); // eslint-disable-line @typescript-eslint/no-unused-vars
 
     function handleDragStart() {
         handleClick();
     }
 
-    const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING &&
-                                cell.getFigureColor === Colors.BLACK &&
-                                board.getBlackCheck &&
-                                !selectedCell);
-    const isWhiteKingAttacked = (cell.getFigureName === FigureNames.KING &&
-                                cell.getFigureColor === Colors.WHITE &&
-                                board.getWhiteCheck &&
-                                !selectedCell);
-    const isBlackMate = (cell.getFigureColor === Colors.BLACK &&
-                        board.getBlackCheck &&
-                        board.getMate);
-    const isWhiteMate = (cell.getFigureColor === Colors.WHITE &&
-                        board.getWhiteCheck &&
-                        board.getMate);
-    const isAttacked = cell.getAvailable &&
-                        cell.getFigureName;
     const movedCell = (cell.getMoveFrom || cell.getMoveTo) &&
-                        !(cell.getAvailable && cell.getFigureName);
-    const dangerCell = ((isAttacked || isBlackKingAttacked || isWhiteKingAttacked || isBlackMate || isWhiteMate) &&
-                        !isSelected);
+        !(cell.getAvailable && cell.getFigureName);
 
     return (
         <>
-            {cell.getAvailable && !cell.getFigureName &&
-                <div className={st.available}/>
-            }
             {cell.getY === 7 &&
                 <div
                     className={`
@@ -67,9 +46,6 @@ const CellContent: FC<CellContentProps> = ({ cell, isSelected , handleClick }) =
                 >
                     {cell.getChessCoordinates?.y}
                 </div>
-            }
-            {dangerCell &&
-                <div className={`${st.shell} ${st.attacked}`} />
             }
             {movedCell &&
                 <div className={`${st.shell} ${st.moved}`} />

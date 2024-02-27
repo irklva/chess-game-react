@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Board } from '../chess-model';
+import { Board, Colors } from '../../chess-model';
 import { BoardContext } from './BoardContext';
-import type { Cell } from '../chess-model';
 import type { FC, ReactNode } from 'react';
 
 interface BoardProviderProps {
@@ -11,13 +10,15 @@ interface BoardProviderProps {
 const BoardProvider: FC<BoardProviderProps> = ({ children }) => {
 
     const [board, setBoard] = useState(new Board());
-    const [selectedCell, setSelectedCell] = useState<Cell | null>(null);
+    // state currentPlayerColor is for rendering optimization only
+    // it is better to use board.getCurrentPlayerColor in components
+    const [currentPlayerColor, setCurrentPlayerColor] = useState<Colors | null>(Colors.WHITE);
 
     const defaultProps = {
         board: board,
         setBoard: setBoard,
-        selectedCell: selectedCell,
-        setSelectedCell: setSelectedCell,
+        currentPlayerColor: currentPlayerColor,
+        setCurrentPlayerColor: setCurrentPlayerColor,
     };
 
     return (

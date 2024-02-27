@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import black_bishop from '../../../assets/png/black-bishop.png';
 import black_knight from '../../../assets/png/black-knight.png';
@@ -7,7 +8,7 @@ import white_bishop from '../../../assets/png/white-bishop.png';
 import white_knight from '../../../assets/png/white-knight.png';
 import white_queen from '../../../assets/png/white-queen.png';
 import white_rook from '../../../assets/png/white-rook.png';
-import { useBoard } from '../../../board-context/useBoard';
+import { BoardContext } from '../../../board-context/board/BoardContext';
 import { Colors, FigureNames } from '../../../chess-model';
 import { getModalPromotePawn } from '../../../store/model/modal/modalsSelectors';
 import ModalWindow from '../ModalWindow';
@@ -17,7 +18,8 @@ import type { FC } from 'react';
 
 const PromotePawnModal: FC = () => {
 
-    const promotedPawnColor = useBoard().board.getPromotedPawnColor;
+    const { board } = useContext(BoardContext);
+    const promotedPawnColor = board.getPromotedPawnColor;
     const modalPromotePawn = useSelector(getModalPromotePawn);
     const promotePawn = usePromotePawn();
 

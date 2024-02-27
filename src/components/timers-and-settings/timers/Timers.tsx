@@ -1,23 +1,22 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useBoard } from '../../../board-context/useBoard';
+import { BoardContext } from '../../../board-context/board/BoardContext';
 import { getBlackName, getWhiteName } from '../../../store/model/players/playersSelectors';
 import { getBlackTimer, getTimeMoment, getWhiteTimer } from '../../../store/model/timers/timersSelectors';
 import TimerRow from './timer-row/TimerRow';
 import { useTimer } from './useTimer';
-import type { TimerProps } from '../../../types/types';
-import type { FC } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
 
-const Timer: FC<TimerProps> = ({
-    isTimerRunning,
-    setIsTimerRunning,
-}) => {
+export interface TimersProps {
+    setIsTimerVisible: (isVisible: boolean) => void;
+    isTimerRunning: boolean;
+    setIsTimerRunning: Dispatch<SetStateAction<boolean>>;
+}
 
-    const {
-        getCurrentPlayerColor: currentPlayerColor,
-        getStalemate: isStalemate,
-        getMate: isMate,
-    } = useBoard().board;
+const Timers: FC<TimersProps> = ({ setIsTimerVisible, isTimerRunning, setIsTimerRunning }) => {
+
+    const { board } = useContext(BoardContext);
+    const { getCurrentPlayerColor: currentPlayerColor } = board;
     const blackTimer = useSelector(getBlackTimer);
     const whiteTimer = useSelector(getWhiteTimer);
     const blackName = useSelector(getBlackName);
@@ -27,6 +26,7 @@ const Timer: FC<TimerProps> = ({
     const { timer, timerCheck, startTimer } = useTimer({
         isTimerRunning,
         setIsTimerRunning,
+        setIsTimerVisible,
     });
 
     useEffect(() => {
@@ -44,7 +44,7 @@ const Timer: FC<TimerProps> = ({
     useEffect(() => {
         timerCheck();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [blackTimer, whiteTimer, isMate, isStalemate, currentPlayerColor]);
+    }, [blackTimer, whiteTimer, currentPlayerColor]);
 
     return (
         <div className="timer">
@@ -56,4 +56,4 @@ const Timer: FC<TimerProps> = ({
     );
 };
 
-export default Timer;
+export default Timers;

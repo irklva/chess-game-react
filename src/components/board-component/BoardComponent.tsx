@@ -1,12 +1,14 @@
-import { Fragment, useState } from 'react';
-import { useBoard } from '../../board-context/useBoard';
+import { Fragment, useContext, useEffect, useState } from 'react';
+import { BoardContext } from '../../board-context/board/BoardContext';
+import { SelectedCellContext } from '../../board-context/selected-cell/SelectedCellContext';
 import CellComponent from '../cell-component/CellComponent';
 import st from './board-component.module.css';
 import type { Cell } from '../../chess-model';
-import type { FC , DragEvent } from 'react';
+import type { DragEvent, FC } from 'react';
 
 const BoardComponent: FC = () => {
-    const { board } = useBoard();
+    const { board } = useContext(BoardContext);
+    const { selectedCell, setSelectedCell } = useContext(SelectedCellContext);
     const [startingX, setStartingX] = useState(0);
     const [startingY, setStartingY] = useState(0);
     let clientX = 0;
@@ -45,6 +47,11 @@ const BoardComponent: FC = () => {
             draggedItem.removeAttribute('style');
         }
     }
+
+    useEffect(() => {
+        selectedCell?.highLightMoveCells(true);
+        setSelectedCell(null);
+    }, [board]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>

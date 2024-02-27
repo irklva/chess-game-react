@@ -8,54 +8,63 @@ import { setModalNewGame } from '../../store/model/modal/modalsSlice';
 import { setTimers } from '../../store/model/timers/timersSlice';
 import AppButton from '../ui/button/AppButton';
 import AppSwitch from '../ui/switch/AppSwitch';
-import Timer from './timer/Timer';
+import Timers from './timers/Timers';
 import st from './timers-and-settings.module.css';
 import type { FC } from 'react';
 
 const TimersAndSettings: FC = () => {
 
     const dispatch = useDispatch();
+    const [isTimerVisible, setIsTimerVisible] = useState(true);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
     const sounds = useSelector(getGameSounds);
 
-    const newGame = useCallback(() => {
-        dispatch(setModalNewGame(true));
+    const startNewGame = useCallback(() => {
         setIsTimerRunning(false);
+        setIsTimerVisible(false);
+        dispatch(setModalNewGame(true));
     }, [dispatch]);
 
-    const infiniteSeconds = useCallback(() => {
+    const enableInfiniteSeconds = useCallback(() => {
         dispatch(setTimers({
             blackTimer: null,
             whiteTimer: null,
         }));
     }, [dispatch]);
 
+    const handleSetSounds = useCallback(() => {
+        dispatch(setSounds());
+    }, [dispatch]);
+
     return (
         <div className={`
             ${st.timer_and_settings_block}
-            ${isTimerRunning ? '' : st.no_timers}
+            ${isTimerVisible ? '' : st.no_timers}
         `}>
-            <div className={`${st.timer_block} ${isTimerRunning ? '' : st.collapsed}`}>
-                <Timer
+            <div className={`${st.timer_block} ${isTimerVisible ? '' : st.collapsed}`}>
+                <Timers
+                    setIsTimerVisible={setIsTimerVisible}
                     isTimerRunning={isTimerRunning}
                     setIsTimerRunning={setIsTimerRunning}
                 />
-                <AppButton
-                    onClick={infiniteSeconds}
-                >
-                    Infinite timers
-                </AppButton>
+                <div className={`${st.infinity_btn} ${isTimerRunning ? '' : st.collapsed}`}>
+                    <AppButton
+                        onClick={enableInfiniteSeconds}
+                    >
+                        Infinite timers
+                    </AppButton>
+                </div>
             </div>
             <div className={st.settings_block}>
                 <AppButton
-                    onClick={newGame}
+                    onClick={startNewGame}
                 >
                     New game
                 </AppButton>
                 <AppSwitch
                     switchId="sounds"
                     checked={sounds}
-                    onChange={() => dispatch(setSounds())}
+                    onChange={handleSetSounds}
                     SwitchOnSvg={SoundOn}
                     SwitchOffSvg={SoundOff}
                 />
