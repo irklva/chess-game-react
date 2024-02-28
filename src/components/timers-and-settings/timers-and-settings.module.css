@@ -1,4 +1,4 @@
-.timer_and_settings_block {
+.main {
     width: 100%;
     margin: var(--standard-margin) 0;
     padding: var(--standard-padding);
@@ -12,12 +12,12 @@
     transition: height var(--standard-animation-time);
 }
 
-.timer_and_settings_block.no_timers {
+.main.no_timers {
     height: 100px;
 }
 
-.settings_block,
-.timer_block {
+.settings,
+.timer {
     width: 100%;
     display: flex;
     gap: var(--standard-margin);
@@ -26,12 +26,12 @@
     justify-content: center;
 }
 
-.timer_block {
+.timer {
     margin-bottom: 20px;
     overflow: hidden;
 }
 
-.timer_block.collapsed {
+.timer.collapsed {
     display: none;
 }
 

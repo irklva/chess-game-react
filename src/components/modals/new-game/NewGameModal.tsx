@@ -65,9 +65,9 @@ const NewGameModal: FC = () => {
                     Infinite timers
                 </div>
             </AppCheckbox>
-            <div className={`${st.infinite_seconds_block} ${areInfiniteSeconds ? st.collapsed : ''}`}>
-                <TimerSettings/>
-            </div>
+            <TimerSettings
+                areInfiniteSeconds={areInfiniteSeconds}
+            />
         </ModalWindow>
     );
 };

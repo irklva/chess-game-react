@@ -15,14 +15,14 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const AppButton: FC<AppButtonProps> = ({
     children,
     buttonStyle = ButtonStyle.PRIMARY,
-    className,
+    className = '',
     ...props
 }) => {
 
     return (
         <button
             className={
-                `${st.btn} ${st[buttonStyle]} ${className}`
+                `${st.main} ${st[buttonStyle]} ${className}`
             }
             {...props} // eslint-disable-line react/jsx-props-no-spreading
         >

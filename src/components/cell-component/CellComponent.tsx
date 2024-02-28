@@ -25,7 +25,7 @@ const CellComponent: FC<CellProps> = ({ cell }) => {
 
     const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
     const cellClasses = [
-        st.cell,
+        st.main,
         cell.getColor === Colors.BLACK ? st.black : st.white,
         isSelected ? st.selected : '',
     ];

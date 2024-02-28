@@ -1,4 +1,4 @@
-.entry {
+.main {
     padding: 2px 5px 0 5px;
     height: 27px;
 }
@@ -20,6 +20,3 @@
     margin-bottom: 4px;
 }
 
-.cell {
-    margin-left: -5px;
-}

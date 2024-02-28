@@ -14,7 +14,7 @@ const TimerRow: FC<TimerRowProps> = ({ name, timer }) => {
             <h5 className={st.name}>
                 {name}:
             </h5>
-            <h5 className={timer === null ? st.infinite : st.time}>
+            <h5 className={timer === null ? st.infinite : st.timer}>
                 {formatTimer(timer, formatTimerInputType.MS)}
             </h5>
         </div>

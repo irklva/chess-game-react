@@ -11,13 +11,13 @@ interface AppCheckboxProps {
 
 const AppCheckbox: FC<AppCheckboxProps> = ({
     children,
-    className,
+    className = '',
     checkboxId,
     checked,
     onChange,
 }) => {
     return (
-        <div className={`${st.checkbox} ${className}`}>
+        <div className={`${st.main} ${className}`}>
             <label htmlFor={checkboxId}>
                 {children}
                 <input

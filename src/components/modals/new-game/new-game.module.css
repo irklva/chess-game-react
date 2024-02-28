@@ -1,20 +1,3 @@
-.message {
-    margin-left: var(--standard-margin);
-    font-size: var(--form-message-font-size);
-}
-
 .checkbox_label {
     width: 130px;
-}
-
-.infinite_seconds_block {
-    height: 46px;
-    width: 100%;
-    transition: height var(--standard-animation-time);
-    overflow: hidden;
-}
-
-.infinite_seconds_block.collapsed {
-    height: 0;
-    transition: height var(--standard-animation-time);
 }

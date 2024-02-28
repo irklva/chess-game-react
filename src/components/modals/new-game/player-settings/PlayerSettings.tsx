@@ -18,7 +18,7 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
 }) => {
 
     return (
-        <div className={st.block}>
+        <div className={st.main}>
             <label htmlFor={inputId}>
                 {newNameLabel}
             </label>

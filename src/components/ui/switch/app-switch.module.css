@@ -1,3 +1,5 @@
+.main {}
+
 :root {
     --slider-height: Calc(var(--button-height) - var(--standard-margin) * 2);
 }

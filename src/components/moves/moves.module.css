@@ -2,7 +2,7 @@
     --scrollbar-border-radius: 6px;
 }
 
-.moves_block {
+.main {
     width: 100%;
     height: 45vh;
     margin: var(--standard-margin) 0;

@@ -1,16 +1,21 @@
-.block {
+.main {
     display: flex;
     margin-top: var(--standard-margin);
 }
 
-.block label {
+.main label {
     flex: 0 0 130px;
 }
 
-.block .input {
+.input {
     flex-grow: 1;
 }
 
-.block .input input {
+.input input {
     width: 100%;
+}
+
+.message {
+    margin-left: var(--standard-margin);
+    font-size: var(--form-message-font-size);
 }

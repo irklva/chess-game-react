@@ -22,7 +22,7 @@ const AppSwitch: FC<SwitchProps> = ({
     SwitchOffSvg,
 }) => {
     return (
-        <>
+        <div className={st.main}>
             <label className={`${st.switch} ${className}`}>
                 {children}
                 <input
@@ -35,7 +35,7 @@ const AppSwitch: FC<SwitchProps> = ({
                 <SwitchOnSvg className={st.sound_on_icon}/>
                 <SwitchOffSvg className={st.sound_off_icon}/>
             </label>
-        </>
+        </div>
     );
 };
 

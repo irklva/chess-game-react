@@ -22,6 +22,15 @@
     right: 5%;
 }
 
+.moved {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: var(--move-cell-color);
+}
+
 .figure {
     z-index: var(--figures-z-index);
     cursor: grab;

@@ -73,7 +73,7 @@ const MoveEntry: FC<EntryProps> = ({ move, playerColor }) => {
 
     return (
         <div
-            className={`col-6 d-flex align-items-end ${st.entry} ${entryClass}`}
+            className={`col-6 d-flex align-items-end ${st.main} ${entryClass}`}
             onClick={changeMove}
         >
             {renderCastling()}

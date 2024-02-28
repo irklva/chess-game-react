@@ -1,4 +1,4 @@
-.board {
+.main {
     margin: var(--standard-margin) 0;
     box-sizing: content-box;
     /*border: var(--btn-first-hover-color) double 5px;*/

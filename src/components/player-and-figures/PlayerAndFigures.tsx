@@ -17,11 +17,11 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
 }) => {
 
     return (
-        <div className={st.player_block}>
+        <div className={st.main}>
             <h5 className={playerColor === currentPlayerColor ? st.player + ' ' + st.active : st.player}>
                 {playerName}
             </h5>
-            <div className={st.figures}>
+            <div className={st.figures_block}>
                 {figures.map(figure =>
                     <div key={figure.getId} className={st.figure}>
                         {figure.getLogo &&

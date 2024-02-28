@@ -2,7 +2,7 @@
     --cells-in-row: 8;
 }
 
-.cell {
+.main {
     width: Calc(100%/var(--cells-in-row));
     padding-bottom: Calc(100%/var(--cells-in-row));
     position: relative;

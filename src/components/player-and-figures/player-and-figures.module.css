@@ -1,4 +1,4 @@
-.player_block {
+.main {
     padding: 5px;
     width: 100%;
     display: flex;
@@ -20,7 +20,7 @@
     border-radius: 5px;
 }
 
-.figures {
+.figures_block {
     min-height: 25px;
     display: flex;
     flex-wrap: wrap;

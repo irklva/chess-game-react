@@ -11,7 +11,7 @@ const Moves: FC = () => {
     const { board } = useContext(BoardContext);
 
     return (
-        <div className={st.moves_block}>
+        <div className={st.main}>
             <h5>Moves</h5>
             <div className={st.list}>
                 {board.getWhiteMoves.map((move: Move) =>

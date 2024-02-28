@@ -1,21 +1,30 @@
-.block {
+.main {
     display: flex;
     margin-top: var(--standard-margin);
+    height: 65px;
+    width: 100%;
+    transition: height var(--standard-animation-time);
+    overflow: hidden;
 }
 
-.block .input {
+.main.collapsed {
+    height: 0;
+    transition: height var(--standard-animation-time);
+}
+
+.input {
     width: Calc(100% - 130px);
 }
 
-.block label {
+.main label {
     width: 130px;
 }
 
-.block .input .message {
+.input .message {
     margin-left: var(--standard-margin);
     font-size: var(--form-message-font-size);
 }
 
-.block .input input {
+.input input {
     width: 100%;
 }

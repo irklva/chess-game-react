@@ -41,7 +41,7 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
                 </div>
             }
             {movedCell &&
-                <div className={`${st.shell} ${st.moved}`} />
+                <div className={st.moved} />
             }
             {cell.getFigureLogo &&
                 <img

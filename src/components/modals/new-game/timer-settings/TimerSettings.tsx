@@ -13,7 +13,11 @@ import st from './time-settings.module.css';
 import { useTimerSettings } from './useTimerSettings';
 import type { FC } from 'react';
 
-const TimerSettings: FC = () => {
+interface TimerSettingsProps {
+    areInfiniteSeconds: boolean;
+}
+
+const TimerSettings: FC<TimerSettingsProps> = ({ areInfiniteSeconds }) => {
 
     const minutesInput = useSelector(getMinutesInput);
     const secondsInput = useSelector(getSecondsInput);
@@ -27,7 +31,7 @@ const TimerSettings: FC = () => {
         secondsConditions(secondsInput);
 
     return (
-        <div className={st.block}>
+        <div className={`${st.main} ${areInfiniteSeconds ? st.collapsed : ''}`}>
             <label>Timer: </label>
             <div className={st.input}>
                 <div className="d-flex justify-content-between">
@@ -36,14 +40,14 @@ const TimerSettings: FC = () => {
                         timeValue={minutesInput}
                         timeChange={minutesChange}
                         maxLimit={minutesLimit}
-                        message={`0 - ${minutesLimit} minutes`}
+                        message={areInfiniteSeconds ? '' : `0 - ${minutesLimit} minutes`}
                     />
                     <TimeInput
                         name="seconds"
                         timeValue={secondsInput}
                         timeChange={secondsChange}
                         maxLimit={secondsLimit}
-                        message={`0 - ${secondsLimit} seconds`}
+                        message={areInfiniteSeconds ? '' : `0 - ${secondsLimit} seconds`}
                     />
                 </div>
                 {timerMessage &&

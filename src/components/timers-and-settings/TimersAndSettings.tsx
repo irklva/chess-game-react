@@ -38,10 +38,10 @@ const TimersAndSettings: FC = () => {
 
     return (
         <div className={`
-            ${st.timer_and_settings_block}
+            ${st.main}
             ${isTimerVisible ? '' : st.no_timers}
         `}>
-            <div className={`${st.timer_block} ${isTimerVisible ? '' : st.collapsed}`}>
+            <div className={`${st.timer} ${isTimerVisible ? '' : st.collapsed}`}>
                 <Timers
                     setIsTimerVisible={setIsTimerVisible}
                     isTimerRunning={isTimerRunning}
@@ -55,7 +55,7 @@ const TimersAndSettings: FC = () => {
                     </AppButton>
                 </div>
             </div>
-            <div className={st.settings_block}>
+            <div className={st.settings}>
                 <AppButton
                     onClick={startNewGame}
                 >

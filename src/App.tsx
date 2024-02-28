@@ -10,7 +10,7 @@ import NewGameModal from './components/modals/new-game/NewGameModal';
 import PromotePawnModal from './components/modals/promote-pawn/PromotePawnModal';
 import Moves from './components/moves/Moves';
 import PlayerAndFigures from './components/player-and-figures/PlayerAndFigures';
-import TimersAndSettings from './components/timers-and-settings/timersAndSettings';
+import TimersAndSettings from './components/timers-and-settings/TimersAndSettings';
 import { getBlackName, getWhiteName } from './store/model/players/playersSelectors';
 
 const App = () => {

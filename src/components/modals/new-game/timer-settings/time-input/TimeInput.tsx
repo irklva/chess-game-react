@@ -24,7 +24,7 @@ const TimeInput: FC<TimeInputProps> = ({
                             timeValue > maxLimit;
 
     return (
-        <div className={st.time}>
+        <div className={st.main}>
             <AppInput
                 id={name}
                 type="number"

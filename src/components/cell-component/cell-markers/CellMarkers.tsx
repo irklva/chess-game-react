@@ -43,7 +43,7 @@ const CellMarkers: FC<CellMarkersProps> = ({ cell, isSelected }) => {
                 <div className={st.available}/>
             }
             {dangerCell &&
-                <div className={`${st.shell} ${st.attacked}`} />
+                <div className={st.attacked} />
             }
         </>
     );
