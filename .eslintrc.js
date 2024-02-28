@@ -24,6 +24,14 @@ module.exports = {
         semi: ['error', 'always'],
         'no-trailing-spaces': ['error'],
         'no-multi-spaces': ['error'],
+        'react/jsx-tag-spacing': [
+            'error', {
+                closingSlash: 'never',
+                beforeSelfClosing: 'always',
+                afterOpening: 'never',
+                beforeClosing: 'always',
+            },
+        ],
         'comma-dangle': ['error', 'always-multiline'],
         'quote-props': ['error', 'as-needed'],
         'object-curly-spacing': ['error', 'always'],

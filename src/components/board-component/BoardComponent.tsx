@@ -68,16 +68,16 @@ const BoardComponent: FC = () => {
                 onDragOver={handleDragOver}
             >
                 {board.getCells.map((row: Cell[], index: number) => (
-                    <Fragment key={index}>
+                    <Fragment key={index} >
                         {row.map((cell) => (
                             <CellComponent
                                 cell={cell}
                                 key={cell.getID}
                             />
                         ))}
-                    </Fragment>
+                    </Fragment >
                 ))}
-            </div>
+            </div >
         </>
     );
 };

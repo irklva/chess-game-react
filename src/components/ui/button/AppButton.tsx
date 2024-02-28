@@ -27,7 +27,7 @@ const AppButton: FC<AppButtonProps> = ({
             {...props} // eslint-disable-line react/jsx-props-no-spreading
         >
             {children}
-        </button>
+        </button >
     );
 };
 

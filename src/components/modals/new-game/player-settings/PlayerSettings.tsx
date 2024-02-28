@@ -18,11 +18,11 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
 }) => {
 
     return (
-        <div className={st.main}>
-            <label htmlFor={inputId}>
+        <div className={st.main} >
+            <label htmlFor={inputId} >
                 {newNameLabel}
-            </label>
-            <div className={st.input}>
+            </label >
+            <div className={st.input} >
                 <AppInput
                     id={inputId}
                     type="text"
@@ -30,12 +30,12 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setNewName(e.target.value)}
                 />
                 {(newName === '' || newName.length > nameSymbolsLimit) &&
-                    <div className={`text-danger ${st.message}`}>
+                    <div className={`text-danger ${st.message}`} >
                         1 - {nameSymbolsLimit} symbols
-                    </div>
+                    </div >
                 }
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

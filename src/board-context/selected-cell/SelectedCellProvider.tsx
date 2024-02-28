@@ -17,9 +17,9 @@ const SelectedCellProvider: FC<BoardProviderProps> = ({ children }) => {
     };
 
     return (
-        <SelectedCellContext.Provider value={defaultProps}>
+        <SelectedCellContext.Provider value={defaultProps} >
             {children}
-        </SelectedCellContext.Provider>
+        </SelectedCellContext.Provider >
     );
 };
 

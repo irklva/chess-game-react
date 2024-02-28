@@ -20,40 +20,40 @@ const App = () => {
     const whiteName = useSelector(getWhiteName);
 
     return (
-        <div className="app">
+        <div className="app" >
 
-            <NewGameModal/>
-            <GameOverModal/>
-            <PromotePawnModal/>
+            <NewGameModal />
+            <GameOverModal />
+            <PromotePawnModal />
 
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-12 col-sm-10 col-lg-5 my-1">
+            <div className="container" >
+                <div className="row justify-content-center" >
+                    <div className="col-12 col-sm-10 col-lg-5 my-1" >
                         <PlayerAndFigures
                             playerName={blackName}
                             figures={board.getLostWhiteFigures}
                             playerColor={Colors.BLACK}
                             currentPlayerColor={board.getCurrentPlayerColor}
                         />
-                        <BoardComponent/>
+                        <BoardComponent />
                         <PlayerAndFigures
                             playerName={whiteName}
                             figures={board.getLostBlackFigures}
                             playerColor={Colors.WHITE}
                             currentPlayerColor={board.getCurrentPlayerColor}
                         />
-                    </div>
+                    </div >
                     <div className="col-12 col-sm-5 col-lg-3 order-lg-first
                                     d-flex justify-content-center align-items-center">
-                        <TimersAndSettings/>
-                    </div>
+                        <TimersAndSettings />
+                    </div >
                     <div className="col-12 col-sm-5 col-lg-3
                                     d-flex justify-content-center align-items-center">
-                        <Moves/>
-                    </div>
-                </div>
-            </div>
-        </div>
+                        <Moves />
+                    </div >
+                </div >
+            </div >
+        </div >
     );
 };
 

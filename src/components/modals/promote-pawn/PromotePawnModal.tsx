@@ -31,25 +31,25 @@ const PromotePawnModal: FC = () => {
             btnName={''}
             closeBtn={false}
         >
-            <div className={st.figure_buttons_block}>
-                <div className={st.figure_button}>
+            <div className={st.figure_buttons_block} >
+                <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_queen : white_queen}
-                        alt="black_queen" onClick={() => promotePawn(FigureNames.QUEEN)}/>
-                </div>
-                <div className={st.figure_button}>
+                        alt="black_queen" onClick={() => promotePawn(FigureNames.QUEEN)} />
+                </div >
+                <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_knight : white_knight}
-                        alt="black_knight" onClick={() => promotePawn(FigureNames.KNIGHT)}/>
-                </div>
-                <div className={st.figure_button}>
+                        alt="black_knight" onClick={() => promotePawn(FigureNames.KNIGHT)} />
+                </div >
+                <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_bishop : white_bishop}
-                        alt="black_bishop" onClick={() => promotePawn(FigureNames.BISHOP)}/>
-                </div>
-                <div className={st.figure_button}>
+                        alt="black_bishop" onClick={() => promotePawn(FigureNames.BISHOP)} />
+                </div >
+                <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_rook : white_rook}
-                        alt="black_rook" onClick={() => promotePawn(FigureNames.ROOK)}/>
-                </div>
-            </div>
-        </ModalWindow>
+                        alt="black_rook" onClick={() => promotePawn(FigureNames.ROOK)} />
+                </div >
+            </div >
+        </ModalWindow >
     );
 };
 

@@ -42,7 +42,7 @@ const GameOverModal: FC = () => {
             {timeWinner &&
                 <>Time is over! {timeWinner} wins</>
             }
-        </ModalWindow>
+        </ModalWindow >
     );
 };
 

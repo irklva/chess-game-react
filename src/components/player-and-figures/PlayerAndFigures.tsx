@@ -17,18 +17,18 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
 }) => {
 
     return (
-        <div className={st.main}>
-            <h5 className={playerColor === currentPlayerColor ? st.player + ' ' + st.active : st.player}>
+        <div className={st.main} >
+            <h5 className={playerColor === currentPlayerColor ? st.player + ' ' + st.active : st.player} >
                 {playerName}
-            </h5>
-            <div className={st.figures_block}>
+            </h5 >
+            <div className={st.figures_block} >
                 {figures.map(figure =>
-                    <div key={figure.getId} className={st.figure}>
+                    <div key={figure.getId} className={st.figure} >
                         {figure.getLogo &&
-                            <img src={figure.getLogo} alt={`${figure.getColor} ${figure.getName}`}/>}
-                    </div>)}
-            </div>
-        </div>
+                            <img src={figure.getLogo} alt={`${figure.getColor} ${figure.getName}`} />}
+                    </div >)}
+            </div >
+        </div >
     );
 };
 

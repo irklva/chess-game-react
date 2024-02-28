@@ -8,13 +8,13 @@ import store from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-    <StrictMode>
-        <Provider store={store}>
-            <BoardProvider>
-                <SelectedCellProvider>
-                    <App/>
-                </SelectedCellProvider>
-            </BoardProvider>
-        </Provider>
-    </StrictMode>,
+    <StrictMode >
+        <Provider store={store} >
+            <BoardProvider >
+                <SelectedCellProvider >
+                    <App />
+                </SelectedCellProvider >
+            </BoardProvider >
+        </Provider >
+    </StrictMode >,
 );

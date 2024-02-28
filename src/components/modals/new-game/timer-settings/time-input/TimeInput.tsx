@@ -24,7 +24,7 @@ const TimeInput: FC<TimeInputProps> = ({
                             timeValue > maxLimit;
 
     return (
-        <div className={st.main}>
+        <div className={st.main} >
             <AppInput
                 id={name}
                 type="number"
@@ -35,15 +35,15 @@ const TimeInput: FC<TimeInputProps> = ({
                     timeChange(e.target.value);
                 }}
             />
-            <div className={st.name}>
+            <div className={st.name} >
                 {name}
-            </div>
+            </div >
             {noInputCondition &&
-                <div className={`text-danger ${st.message}`}>
+                <div className={`text-danger ${st.message}`} >
                     {message}
-                </div>
+                </div >
             }
-        </div>
+        </div >
     );
 };
 

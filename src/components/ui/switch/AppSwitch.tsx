@@ -22,8 +22,8 @@ const AppSwitch: FC<SwitchProps> = ({
     SwitchOffSvg,
 }) => {
     return (
-        <div className={st.main}>
-            <label className={`${st.switch} ${className}`}>
+        <div className={st.main} >
+            <label className={`${st.switch} ${className}`} >
                 {children}
                 <input
                     type="checkbox"
@@ -31,11 +31,11 @@ const AppSwitch: FC<SwitchProps> = ({
                     checked={checked}
                     onChange={onChange}
                 />
-                <span className={`${st.slider} ${st.round}`}/>
-                <SwitchOnSvg className={st.sound_on_icon}/>
-                <SwitchOffSvg className={st.sound_off_icon}/>
-            </label>
-        </div>
+                <span className={`${st.slider} ${st.round}`} />
+                <SwitchOnSvg className={st.sound_on_icon} />
+                <SwitchOffSvg className={st.sound_off_icon} />
+            </label >
+        </div >
     );
 };
 

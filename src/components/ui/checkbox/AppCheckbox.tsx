@@ -17,8 +17,8 @@ const AppCheckbox: FC<AppCheckboxProps> = ({
     onChange,
 }) => {
     return (
-        <div className={`${st.main} ${className}`}>
-            <label htmlFor={checkboxId}>
+        <div className={`${st.main} ${className}`} >
+            <label htmlFor={checkboxId} >
                 {children}
                 <input
                     id={checkboxId}
@@ -27,8 +27,8 @@ const AppCheckbox: FC<AppCheckboxProps> = ({
                     onChange={onChange}
                 />
                 <span />
-            </label>
-        </div>
+            </label >
+        </div >
     );
 };
 

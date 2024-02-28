@@ -35,27 +35,27 @@ const ModalWindow: FC<ModalProps> = ({
             backdrop="static"
             keyboard={false}
         >
-            <Modal.Header>
-                <Modal.Title>
+            <Modal.Header >
+                <Modal.Title >
                     {title}
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
+                </Modal.Title >
+            </Modal.Header >
+            <Modal.Body >
                 {children}
-            </Modal.Body>
-            <Modal.Footer>
+            </Modal.Body >
+            <Modal.Footer >
                 {action &&
-                    <AppButton onClick={action}>
+                    <AppButton onClick={action} >
                         {btnName}
-                    </AppButton>
+                    </AppButton >
                 }
                 {closeBtn &&
-                    <AppButton onClick={handleClose} buttonStyle={ButtonStyle.SECONDARY}>
+                    <AppButton onClick={handleClose} buttonStyle={ButtonStyle.SECONDARY} >
                         Close
-                    </AppButton>
+                    </AppButton >
                 }
-            </Modal.Footer>
-        </Modal>
+            </Modal.Footer >
+        </Modal >
     );
 };
 

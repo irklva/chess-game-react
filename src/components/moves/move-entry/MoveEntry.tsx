@@ -61,11 +61,11 @@ const MoveEntry: FC<EntryProps> = ({ move, playerColor }) => {
         return (
             <>
                 {move.figure?.getName !== FigureNames.PAWN && move.figure?.getLogo &&
-                    <div className={st.cell}>
+                    <div className={st.cell} >
                         <img src={move.figure.getLogo}
                             alt={`${move.figure.getColor} ${move.figure.getName}`}
-                            className={st.logo}/>
-                    </div>
+                            className={st.logo} />
+                    </div >
                 }
             </>
         );
@@ -92,7 +92,7 @@ const MoveEntry: FC<EntryProps> = ({ move, playerColor }) => {
                     className={st.logo}
                 />
             }
-        </div>
+        </div >
     );
 };
 

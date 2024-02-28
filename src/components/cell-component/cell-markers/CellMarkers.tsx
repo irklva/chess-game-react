@@ -40,7 +40,7 @@ const CellMarkers: FC<CellMarkersProps> = ({ cell, isSelected }) => {
     return (
         <>
             {cell.getAvailable && !cell.getFigureName &&
-                <div className={st.available}/>
+                <div className={st.available} />
             }
             {dangerCell &&
                 <div className={st.attacked} />

@@ -11,15 +11,15 @@ const Moves: FC = () => {
     const { board } = useContext(BoardContext);
 
     return (
-        <div className={st.main}>
-            <h5>Moves</h5>
-            <div className={st.list}>
+        <div className={st.main} >
+            <h5 >Moves</h5 >
+            <div className={st.list} >
                 {board.getWhiteMoves.map((move: Move) =>
-                    <div key={move.id} className="row">
-                        <div className="col-3 d-flex align-items-end">
+                    <div key={move.id} className="row" >
+                        <div className="col-3 d-flex align-items-end" >
                             {move.id}.
-                        </div>
-                        <div className="col d-flex align-items-end">
+                        </div >
+                        <div className="col d-flex align-items-end" >
                             <MoveEntry move={move}
                                 playerColor={Colors.WHITE}
                             />
@@ -28,10 +28,10 @@ const Moves: FC = () => {
                                     playerColor={Colors.BLACK}
                                 />
                             }
-                        </div>
-                    </div>)}
-            </div>
-        </div>
+                        </div >
+                    </div >)}
+            </div >
+        </div >
     );
 };
 

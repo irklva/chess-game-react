@@ -61,14 +61,14 @@ const NewGameModal: FC = () => {
                 checked={areInfiniteSeconds}
                 onChange={() => dispatch(setInfiniteSeconds())}
             >
-                <div className={st.checkbox_label}>
+                <div className={st.checkbox_label} >
                     Infinite timers
-                </div>
-            </AppCheckbox>
+                </div >
+            </AppCheckbox >
             <TimerSettings
                 areInfiniteSeconds={areInfiniteSeconds}
             />
-        </ModalWindow>
+        </ModalWindow >
     );
 };
 

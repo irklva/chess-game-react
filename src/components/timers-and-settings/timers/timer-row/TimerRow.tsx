@@ -10,14 +10,14 @@ interface TimerRowProps {
 
 const TimerRow: FC<TimerRowProps> = ({ name, timer }) => {
     return (
-        <div className="d-flex">
-            <h5 className={st.name}>
+        <div className="d-flex" >
+            <h5 className={st.name} >
                 {name}:
-            </h5>
-            <h5 className={timer === null ? st.infinite : st.timer}>
+            </h5 >
+            <h5 className={timer === null ? st.infinite : st.timer} >
                 {formatTimer(timer, formatTimerInputType.MS)}
-            </h5>
-        </div>
+            </h5 >
+        </div >
     );
 };
 

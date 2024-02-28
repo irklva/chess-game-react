@@ -30,7 +30,7 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
                     className={`${st.coordinate} ${cell.getColor === Colors.WHITE ? st.black : st.white} ${st.x}`}
                 >
                     {cell.getChessCoordinates?.x}
-                </div>
+                </div >
             }
             {cell.getX === 0 &&
                 <div
@@ -38,7 +38,7 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
                     `}
                 >
                     {cell.getChessCoordinates?.y}
-                </div>
+                </div >
             }
             {movedCell &&
                 <div className={st.moved} />

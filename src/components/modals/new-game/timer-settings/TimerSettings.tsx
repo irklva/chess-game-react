@@ -31,10 +31,10 @@ const TimerSettings: FC<TimerSettingsProps> = ({ areInfiniteSeconds }) => {
         secondsConditions(secondsInput);
 
     return (
-        <div className={`${st.main} ${areInfiniteSeconds ? st.collapsed : ''}`}>
-            <label>Timer: </label>
-            <div className={st.input}>
-                <div className="d-flex justify-content-between">
+        <div className={`${st.main} ${areInfiniteSeconds ? st.collapsed : ''}`} >
+            <label >Timer: </label >
+            <div className={st.input} >
+                <div className="d-flex justify-content-between" >
                     <TimeInput
                         name="minutes"
                         timeValue={minutesInput}
@@ -49,14 +49,14 @@ const TimerSettings: FC<TimerSettingsProps> = ({ areInfiniteSeconds }) => {
                         maxLimit={secondsLimit}
                         message={areInfiniteSeconds ? '' : `0 - ${secondsLimit} seconds`}
                     />
-                </div>
+                </div >
                 {timerMessage &&
-                    <div className={`text-danger ${st.message}`}>
+                    <div className={`text-danger ${st.message}`} >
                         {timerConditionsMinutes} - {timerConditionsSeconds}
-                    </div>
+                    </div >
                 }
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

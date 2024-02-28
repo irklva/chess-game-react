@@ -47,12 +47,12 @@ const Timers: FC<TimersProps> = ({ setIsTimerVisible, isTimerRunning, setIsTimer
     }, [blackTimer, whiteTimer, currentPlayerColor]);
 
     return (
-        <div className="timer">
-            <div className={`d-flex flex-column ${timeMoment ? 'align-items-end' : 'align-items-center'}`}>
-                <TimerRow name={blackName} timer={blackTimer}/>
-                <TimerRow name={whiteName} timer={whiteTimer}/>
-            </div>
-        </div>
+        <div className="timer" >
+            <div className={`d-flex flex-column ${timeMoment ? 'align-items-end' : 'align-items-center'}`} >
+                <TimerRow name={blackName} timer={blackTimer} />
+                <TimerRow name={whiteName} timer={whiteTimer} />
+            </div >
+        </div >
     );
 };
 

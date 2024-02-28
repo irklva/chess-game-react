@@ -22,9 +22,9 @@ const BoardProvider: FC<BoardProviderProps> = ({ children }) => {
     };
 
     return (
-        <BoardContext.Provider value={defaultProps}>
+        <BoardContext.Provider value={defaultProps} >
             {children}
-        </BoardContext.Provider>
+        </BoardContext.Provider >
     );
 };
 

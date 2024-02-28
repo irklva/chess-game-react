@@ -40,27 +40,27 @@ const TimersAndSettings: FC = () => {
         <div className={`
             ${st.main}
             ${isTimerVisible ? '' : st.no_timers}
-        `}>
-            <div className={`${st.timer} ${isTimerVisible ? '' : st.collapsed}`}>
+        `} >
+            <div className={`${st.timer} ${isTimerVisible ? '' : st.collapsed}`} >
                 <Timers
                     setIsTimerVisible={setIsTimerVisible}
                     isTimerRunning={isTimerRunning}
                     setIsTimerRunning={setIsTimerRunning}
                 />
-                <div className={`${st.infinity_btn} ${isTimerRunning ? '' : st.collapsed}`}>
+                <div className={`${st.infinity_btn} ${isTimerRunning ? '' : st.collapsed}`} >
                     <AppButton
                         onClick={enableInfiniteSeconds}
                     >
                         Infinite timers
-                    </AppButton>
-                </div>
-            </div>
-            <div className={st.settings}>
+                    </AppButton >
+                </div >
+            </div >
+            <div className={st.settings} >
                 <AppButton
                     onClick={startNewGame}
                 >
                     New game
-                </AppButton>
+                </AppButton >
                 <AppSwitch
                     switchId="sounds"
                     checked={sounds}
@@ -68,8 +68,8 @@ const TimersAndSettings: FC = () => {
                     SwitchOnSvg={SoundOn}
                     SwitchOffSvg={SoundOff}
                 />
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
