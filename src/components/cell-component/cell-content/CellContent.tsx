@@ -1,5 +1,4 @@
-import { memo, useContext } from 'react';
-import { BoardContext } from '../../../board-context/board/BoardContext';
+import { memo } from 'react';
 import { Colors } from '../../../chess-model';
 import st from './cell-content.module.css';
 import type { Cell } from '../../../chess-model';
@@ -12,9 +11,6 @@ interface CellContentProps {
 }
 
 const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
-
-    // next line is needed for better rendering
-    const { currentPlayerColor } = useContext(BoardContext); // eslint-disable-line @typescript-eslint/no-unused-vars
 
     function handleDragStart() {
         handleClick();

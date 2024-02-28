@@ -36,6 +36,7 @@ export const useTimer = ({
         if (blackTimer === 0 || whiteTimer === 0) {
             dispatch(setTimeWinner(blackTimer ? blackName : whiteName));
             dispatch(setModalGameOver(true));
+            setIsTimerRunning(false);
         } else if (isStalemate || isMate) {
             setIsTimerRunning(false);
         } else if (blackTimer === null || whiteTimer === null) {

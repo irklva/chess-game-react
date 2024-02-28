@@ -1,4 +1,5 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
+import { BoardContext } from '../../board-context/board/BoardContext';
 import { SelectedCellContext } from '../../board-context/selected-cell/SelectedCellContext';
 import { Colors } from '../../chess-model';
 import st from './cell-component.module.css';
@@ -15,8 +16,14 @@ interface CellProps {
 const CellComponent: FC<CellProps> = ({ cell }) => {
 
     const { selectedCell } = useContext(SelectedCellContext);
+    const { currentPlayerColor } = useContext(BoardContext);
 
     const handleClick = useCellClick(cell);
+    const handleMemoClick = useCallback(
+        (changeFigureDuringMove = true) => handleClick(changeFigureDuringMove),
+        // only currentPlayerColor and cell in deps for better rendering
+        [currentPlayerColor, cell], // eslint-disable-line react-hooks/exhaustive-deps
+    );
 
     const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
     const cellClasses = [
@@ -37,7 +44,7 @@ const CellComponent: FC<CellProps> = ({ cell }) => {
         >
             <CellContent
                 cell={cell}
-                handleClick={handleClick}
+                handleClick={handleMemoClick}
             />
             <CellMarkers
                 cell={cell}
