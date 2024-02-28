@@ -27,21 +27,14 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
         <>
             {cell.getY === 7 &&
                 <div
-                    className={`
-                        ${st.coordinate} 
-                        ${cell.getColor === Colors.WHITE ? st.black : st.white} 
-                        ${st.x}
-                    `}
+                    className={`${st.coordinate} ${cell.getColor === Colors.WHITE ? st.black : st.white} ${st.x}`}
                 >
                     {cell.getChessCoordinates?.x}
                 </div>
             }
             {cell.getX === 0 &&
                 <div
-                    className={`
-                        ${st.coordinate} 
-                        ${cell.getColor === Colors.WHITE ? st.black : st.white} 
-                        ${st.y}
+                    className={`${st.coordinate} ${cell.getColor === Colors.WHITE ? st.black : st.white} ${st.y}
                     `}
                 >
                     {cell.getChessCoordinates?.y}

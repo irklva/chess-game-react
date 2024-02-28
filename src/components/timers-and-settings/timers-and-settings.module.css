@@ -9,7 +9,7 @@
     align-items: center;
     justify-content: center;
     height: 220px;
-    transition: height 0.3s;
+    transition: height var(--standard-animation-time);
 }
 
 .timer_and_settings_block.no_timers {
@@ -37,12 +37,12 @@
 
 .infinity_btn {
     width: 100%;
-    height: 35px;
-    transition: height 0.3s;
+    height: 46px;
+    transition: height var(--standard-animation-time);
     overflow: hidden;
 }
 
 .infinity_btn.collapsed {
     height: 0;
-    transition: height 0.3s;
+    transition: height var(--standard-animation-time);
 }

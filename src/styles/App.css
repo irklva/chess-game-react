@@ -1,6 +1,7 @@
 @import "./variables/colors.css";
 @import "./variables/sizes.css";
 @import "./variables/z-indexes.css";
+@import "variables/time.css";
 
 * {
     margin: 0;

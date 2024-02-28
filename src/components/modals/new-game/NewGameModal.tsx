@@ -23,7 +23,7 @@ const NewGameModal: FC = () => {
     const modalNewGame = useSelector(getModalNewGame);
     const blackNameInput = useSelector(getBlackNameInput);
     const whiteNameInput = useSelector(getWhiteNameInput);
-    const infiniteSeconds = useSelector(getInfiniteSeconds);
+    const areInfiniteSeconds = useSelector(getInfiniteSeconds);
 
     const setNewBlackName = (newName: string) => {
         dispatch(setBlackNameInput(newName));
@@ -58,16 +58,16 @@ const NewGameModal: FC = () => {
             />
             <AppCheckbox
                 checkboxId="infiniteSeconds"
-                checked={infiniteSeconds}
+                checked={areInfiniteSeconds}
                 onChange={() => dispatch(setInfiniteSeconds())}
             >
                 <div className={st.checkbox_label}>
                     Infinite timers
                 </div>
             </AppCheckbox>
-            {!infiniteSeconds &&
+            <div className={`${st.infinite_seconds_block} ${areInfiniteSeconds ? st.collapsed : ''}`}>
                 <TimerSettings/>
-            }
+            </div>
         </ModalWindow>
     );
 };

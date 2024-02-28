@@ -1,5 +1,5 @@
 :root {
-    --webkit-size: 6px;
+    --scrollbar-border-radius: 6px;
 }
 
 .moves_block {
@@ -18,6 +18,12 @@
     font-size: 90%;
 }
 
+@-moz-document url-prefix() {
+    .list {
+        scrollbar-color: var(--btn-first-hover-color) var(--btn-first-color);
+    }
+}
+
 .list::-webkit-scrollbar {
     width: 12px;
     background-color: var(--primary-color);
@@ -25,12 +31,14 @@
 
 .list::-webkit-scrollbar-thumb {
     border: 2px var(--btn-first-color) solid;
-    border-radius: var(--webkit-size);
+    border-radius: var(--scrollbar-border-radius);
     background-color: var(--btn-first-hover-color);
 }
 
 .list::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 var(--webkit-size) rgba(0,0,0,0.2);
-    border-radius: var(--webkit-size);
+    -webkit-box-shadow: inset 0 0 var(--scrollbar-border-radius) rgba(0,0,0,0.2);
+    border-radius: var(--scrollbar-border-radius);
     background-color: var(--btn-first-color);
 }
+
+

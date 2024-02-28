@@ -19,7 +19,7 @@ const CellComponent: FC<CellProps> = ({ cell }) => {
     const handleClick = useCellClick(cell);
     const handleMemoClick = useCallback(
         (changeFigureDuringMove = true) => handleClick(changeFigureDuringMove),
-        // cell in deps is needed for better rendering
+        // only cell in deps is needed for better rendering
         [cell], // eslint-disable-line react-hooks/exhaustive-deps
     );
 

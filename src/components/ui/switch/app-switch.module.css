@@ -52,8 +52,7 @@ input:before {
     right: 0;
     bottom: 0;
     background-color: var(--btn-first-color);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    transition: var(--standard-animation-time);
 }
 
 .slider:before {
@@ -65,14 +64,11 @@ input:before {
     left: var(--standard-margin);
     bottom: var(--standard-margin);
     background-color: var(--btn-first-hover-color);
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+    transition: var(--standard-animation-time);
 }
 
 input:checked + .slider:before {
     background-color: var(--background-color);
-    -webkit-transform: translateX(Calc(100% - var(--standard-margin) * 2));
-    -ms-transform: translateX(Calc(100% - var(--standard-margin) * 2));
     transform: translateX(Calc(100% - var(--standard-margin) * 2));
 }
 

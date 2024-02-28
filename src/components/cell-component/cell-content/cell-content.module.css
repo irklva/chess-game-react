@@ -1,8 +1,6 @@
 .coordinate {
     font-weight: bold;
     position: absolute;
-    -moz-user-select: none;
-    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -31,7 +29,7 @@
     position: absolute;
     top: 10%;
     left: 10%;
-    transition: left 0.5s, top 0.5s;
+    transition: left var(--standard-animation-time), top var(--standard-animation-time);
 }
 
 .figure:active {
