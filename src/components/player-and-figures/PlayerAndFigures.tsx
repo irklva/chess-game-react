@@ -1,20 +1,31 @@
+import { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { BoardContext } from '../../board-context/board/BoardContext';
+import { Colors } from '../../chess-model';
+import { getBlackName, getWhiteName } from '../../store/model/players/playersSelectors';
 import st from './player-and-figures.module.css';
-import type { Colors, Figure } from '../../chess-model';
 import type { FC } from 'react';
 
 interface LostFiguresProps {
-    playerName: string;
-    figures: Figure[];
+    // playerName: string;
+    // figures: Figure[];
     playerColor: Colors;
-    currentPlayerColor: Colors;
+    // currentPlayerColor: Colors;
 }
 
 const PlayerAndFigures: FC<LostFiguresProps> = ({
-    playerName,
-    figures,
+    // playerName,
+    // figures,
     playerColor,
-    currentPlayerColor,
+    // currentPlayerColor,
 }) => {
+
+    const { board, currentPlayerColor } = useContext(BoardContext);
+    const blackName = useSelector(getBlackName);
+    const whiteName = useSelector(getWhiteName);
+
+    const figures = playerColor === Colors.BLACK ? board.getLostWhiteFigures : board.getLostBlackFigures;
+    const playerName = playerColor === Colors.BLACK ? blackName : whiteName;
 
     return (
         <div className={st.main} >

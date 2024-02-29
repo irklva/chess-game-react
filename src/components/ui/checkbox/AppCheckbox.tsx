@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import st from './app-checkbox.module.css';
 import type { FC, ReactNode } from 'react';
 
@@ -32,4 +33,4 @@ const AppCheckbox: FC<AppCheckboxProps> = ({
     );
 };
 
-export default AppCheckbox;
+export default memo(AppCheckbox);

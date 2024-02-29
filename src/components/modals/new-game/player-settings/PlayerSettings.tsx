@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { nameSymbolsLimit } from '../../../../utils/newGameConstants';
 import AppInput from '../../../ui/input/AppInput';
 import st from './player-settings.module.css';
@@ -39,4 +40,4 @@ const PlayerSettings: FC<PlayerSettingsProps> = ({
     );
 };
 
-export default PlayerSettings;
+export default memo(PlayerSettings);

@@ -14,7 +14,7 @@ interface SwitchProps {
 
 const AppSwitch: FC<SwitchProps> = ({
     children,
-    className,
+    className = '',
     switchId,
     checked,
     onChange,
@@ -23,7 +23,7 @@ const AppSwitch: FC<SwitchProps> = ({
 }) => {
     return (
         <div className={st.main} >
-            <label className={`${st.switch} ${className}`} >
+            <label className={`${st.label} ${className}`} >
                 {children}
                 <input
                     type="checkbox"

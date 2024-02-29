@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import AppInput from '../../../../ui/input/AppInput';
 import st from './time-input.module.css';
 import type { TimerType } from '../../../../../types/types';
@@ -47,4 +48,4 @@ const TimeInput: FC<TimeInputProps> = ({
     );
 };
 
-export default TimeInput;
+export default memo(TimeInput);

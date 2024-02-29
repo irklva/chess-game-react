@@ -21,7 +21,7 @@
     fill: var(--btn-first-hover-color);
 }
 
-.switch {
+.label {
     cursor: pointer;
     position: relative;
     display: inline-block;
@@ -29,13 +29,13 @@
     height: var(--button-height);
 }
 
-.switch input {
+.label input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-.switch:before input {
+.label:before input {
     content: "switch";
     opacity: 0;
     width: 0;

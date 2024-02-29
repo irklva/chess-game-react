@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { setMinutesInput, setSecondsInput } from '../../../../store/model/new-game/newGameSlice';
 
@@ -5,15 +6,15 @@ export const useTimerSettings = () => {
 
     const dispatch = useDispatch();
 
-    const minutesChange = (minutes: string) => {
+    const changeMinutes = useCallback((minutes: string) => {
         const newMinutes = minutes ? parseInt(minutes) : null;
         dispatch(setMinutesInput(newMinutes));
-    };
+    }, [dispatch]);
 
-    const secondsChange = (seconds: string) => {
+    const changeSeconds = useCallback((seconds: string) => {
         const newSeconds = seconds ? parseInt(seconds) : null;
         dispatch(setSecondsInput(newSeconds));
-    };
+    }, [dispatch]);
 
-    return { minutesChange, secondsChange };
+    return { changeMinutes, changeSeconds };
 };

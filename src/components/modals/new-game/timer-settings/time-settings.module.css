@@ -1,7 +1,7 @@
 .main {
     display: flex;
     margin-top: var(--standard-margin);
-    height: 65px;
+    height: 67px;
     width: 100%;
     transition: height var(--standard-animation-time);
     overflow: hidden;
@@ -12,7 +12,7 @@
     transition: height var(--standard-animation-time);
 }
 
-.input {
+.inputs_block {
     width: Calc(100% - 130px);
 }
 
@@ -20,11 +20,11 @@
     width: 130px;
 }
 
-.input .message {
+.inputs_block .message {
     margin-left: var(--standard-margin);
     font-size: var(--form-message-font-size);
 }
 
-.input input {
+.inputs_block input {
     width: 100%;
 }

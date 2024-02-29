@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BoardContext } from '../../../board-context/board/BoardContext';
 import { setModalGameOver } from '../../../store/model/modal/modalsSlice';
@@ -55,5 +55,20 @@ export const useTimer = ({
         }
     };
 
-    return { timer, timerCheck, startTimer };
+    useEffect(() => {
+        startTimer();
+        const currentTimer = timer.current;
+
+        return () => {
+            if (currentTimer) {
+                clearInterval(currentTimer);
+            }
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [currentPlayerColor, isTimerRunning]);
+
+    useEffect(() => {
+        timerCheck();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [blackTimer, whiteTimer, currentPlayerColor]);
 };

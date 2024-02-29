@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import captureSound from '../../assets/mp3/capture.mp3';
 import moveSound from '../../assets/mp3/move.mp3';
@@ -19,7 +19,7 @@ import type { Cell } from '../../chess-model';
 
 export const useCellClick = (cell: Cell) => {
     const dispatch = useDispatch();
-    const { board, setCurrentPlayerColor } = useContext(BoardContext);
+    const { board, currentPlayerColor, setCurrentPlayerColor } = useContext(BoardContext);
     const { selectedCell, setSelectedCell } = useContext(SelectedCellContext);
     const timeWinner = useSelector(getTimeWinner);
     const blackTimerMoment = useSelector(getBlackTimerMoment);
@@ -27,7 +27,7 @@ export const useCellClick = (cell: Cell) => {
     const timeMoment = useSelector(getTimeMoment);
     const sounds = useSelector(getGameSounds);
 
-    return (changeFigureDuringMove = true) => {
+    const cellClick = (changeFigureDuringMove = true) => {
 
         const checkGameOver = (): boolean => {
             if (board.getMate || board.getStalemate || timeWinner) {
@@ -90,4 +90,12 @@ export const useCellClick = (cell: Cell) => {
             setSelectedCell(cell);
         }
     };
+
+    // currentPlayerColor and no selectedCell in deps for better CellContent rendering
+    const memoCellClick = useCallback(cellClick, [ // eslint-disable-line react-hooks/exhaustive-deps
+        currentPlayerColor,
+        board,
+    ]);
+
+    return [cellClick, memoCellClick];
 };

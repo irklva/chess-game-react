@@ -37,10 +37,7 @@ const TimersAndSettings: FC = () => {
     }, [dispatch]);
 
     return (
-        <div className={`
-            ${st.main}
-            ${isTimerVisible ? '' : st.no_timers}
-        `} >
+        <div className={`${st.main} ${isTimerVisible ? '' : st.no_timers}`} >
             <div className={`${st.timer} ${isTimerVisible ? '' : st.collapsed}`} >
                 <Timers
                     setIsTimerVisible={setIsTimerVisible}

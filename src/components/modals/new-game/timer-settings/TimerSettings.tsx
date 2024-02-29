@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getMinutesInput, getNewGameTimer, getSecondsInput } from '../../../../store/model/new-game/newGameSelectors';
 import { minimumTimer, minutesLimit, secondsLimit } from '../../../../utils/newGameConstants';
@@ -25,32 +26,32 @@ const TimerSettings: FC<TimerSettingsProps> = ({ areInfiniteSeconds }) => {
     const timerConditionsMinutes = formatTimer(minimumTimer, formatTimerInputType.SEC);
     const timerConditionsSeconds = formatTimer(minutesLimit * 60, formatTimerInputType.SEC);
 
-    const { minutesChange, secondsChange } = useTimerSettings();
-    const timerMessage: boolean = !timerConditions(timer) &&
+    const { changeMinutes, changeSeconds } = useTimerSettings();
+    const isTimerMessage: boolean = !timerConditions(timer) &&
         minutesConditions(minutesInput) &&
         secondsConditions(secondsInput);
 
     return (
         <div className={`${st.main} ${areInfiniteSeconds ? st.collapsed : ''}`} >
             <label >Timer: </label >
-            <div className={st.input} >
-                <div className="d-flex justify-content-between" >
+            <div className={st.inputs_block} >
+                <div className="d-flex justify-content-around" >
                     <TimeInput
                         name="minutes"
                         timeValue={minutesInput}
-                        timeChange={minutesChange}
+                        timeChange={changeMinutes}
                         maxLimit={minutesLimit}
                         message={areInfiniteSeconds ? '' : `0 - ${minutesLimit} minutes`}
                     />
                     <TimeInput
                         name="seconds"
                         timeValue={secondsInput}
-                        timeChange={secondsChange}
+                        timeChange={changeSeconds}
                         maxLimit={secondsLimit}
                         message={areInfiniteSeconds ? '' : `0 - ${secondsLimit} seconds`}
                     />
                 </div >
-                {timerMessage &&
+                {isTimerMessage &&
                     <div className={`text-danger ${st.message}`} >
                         {timerConditionsMinutes} - {timerConditionsSeconds}
                     </div >
@@ -60,4 +61,4 @@ const TimerSettings: FC<TimerSettingsProps> = ({ areInfiniteSeconds }) => {
     );
 };
 
-export default TimerSettings;
+export default memo(TimerSettings);

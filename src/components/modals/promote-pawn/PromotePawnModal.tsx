@@ -20,11 +20,12 @@ const PromotePawnModal: FC = () => {
 
     const { board } = useContext(BoardContext);
     const promotedPawnColor = board.getPromotedPawnColor;
-    const modalPromotePawn = useSelector(getModalPromotePawn);
+    const isPromotePawnModal = useSelector(getModalPromotePawn);
     const promotePawn = usePromotePawn();
 
     return (
-        <ModalWindow show={modalPromotePawn}
+        <ModalWindow
+            show={isPromotePawnModal}
             setShow={null}
             title={'Choose the figure to promote your pawn'}
             action={null}
@@ -34,19 +35,19 @@ const PromotePawnModal: FC = () => {
             <div className={st.figure_buttons_block} >
                 <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_queen : white_queen}
-                        alt="black_queen" onClick={() => promotePawn(FigureNames.QUEEN)} />
+                        alt={FigureNames.QUEEN} onClick={() => promotePawn(FigureNames.QUEEN)} />
                 </div >
                 <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_knight : white_knight}
-                        alt="black_knight" onClick={() => promotePawn(FigureNames.KNIGHT)} />
+                        alt={FigureNames.KNIGHT} onClick={() => promotePawn(FigureNames.KNIGHT)} />
                 </div >
                 <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_bishop : white_bishop}
-                        alt="black_bishop" onClick={() => promotePawn(FigureNames.BISHOP)} />
+                        alt={FigureNames.BISHOP} onClick={() => promotePawn(FigureNames.BISHOP)} />
                 </div >
                 <div className={st.figure_button} >
                     <img src={promotedPawnColor === Colors.BLACK ? black_rook : white_rook}
-                        alt="black_rook" onClick={() => promotePawn(FigureNames.ROOK)} />
+                        alt={FigureNames.ROOK} onClick={() => promotePawn(FigureNames.ROOK)} />
                 </div >
             </div >
         </ModalWindow >

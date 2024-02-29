@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import st from './app-input.module.css';
 import type { FC, InputHTMLAttributes } from 'react';
 
@@ -15,4 +16,4 @@ const AppInput: FC<AppInputProps> = ({
     );
 };
 
-export default AppInput;
+export default memo(AppInput);

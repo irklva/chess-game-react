@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getModalNewGame } from '../../../store/model/modal/modalsSelectors';
 import {
@@ -25,15 +26,27 @@ const NewGameModal: FC = () => {
     const whiteNameInput = useSelector(getWhiteNameInput);
     const areInfiniteSeconds = useSelector(getInfiniteSeconds);
 
-    const setNewBlackName = (newName: string) => {
+    const setNewBlackName = useCallback((newName: string) => {
         dispatch(setBlackNameInput(newName));
-    };
+    }, [dispatch]);
 
-    const setNewWhiteName = (newName: string) => {
+    const setNewWhiteName = useCallback((newName: string) => {
         dispatch(setWhiteNameInput(newName));
-    };
+    }, [dispatch]);
+
+    const handleInfiniteSecondsCheckbox = useCallback(() => {
+        dispatch(setInfiniteSeconds());
+    }, [dispatch]);
 
     const newGame = useNewGame();
+
+    const infiniteSecondsLabel = useMemo(() => {
+        return (
+            <div className={st.checkbox_label} >
+                Infinite timers
+            </div >
+        );
+    }, []);
 
     return (
         <ModalWindow
@@ -59,11 +72,9 @@ const NewGameModal: FC = () => {
             <AppCheckbox
                 checkboxId="infiniteSeconds"
                 checked={areInfiniteSeconds}
-                onChange={() => dispatch(setInfiniteSeconds())}
+                onChange={handleInfiniteSecondsCheckbox}
             >
-                <div className={st.checkbox_label} >
-                    Infinite timers
-                </div >
+                {infiniteSecondsLabel}
             </AppCheckbox >
             <TimerSettings
                 areInfiniteSeconds={areInfiniteSeconds}
