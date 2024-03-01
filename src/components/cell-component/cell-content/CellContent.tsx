@@ -16,9 +16,6 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
         handleClick();
     }
 
-    const movedCell = (cell.getMoveFrom || cell.getMoveTo) &&
-        !(cell.getAvailable && cell.getFigureName);
-
     return (
         <>
             {cell.getY === 7 &&
@@ -35,9 +32,6 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
                 >
                     {cell.getChessCoordinates?.y}
                 </div >
-            }
-            {movedCell &&
-                <div className={st.moved} />
             }
             {cell.getFigureLogo &&
                 <img

@@ -37,6 +37,9 @@ const CellMarkers: FC<CellMarkersProps> = ({ cell, isSelected }) => {
     const dangerCell = ((isAttacked || isBlackKingAttacked || isWhiteKingAttacked || isBlackMate || isWhiteMate) &&
         !isSelected);
 
+    const movedCell = (cell.getMoveFrom || cell.getMoveTo) &&
+        !(cell.getAvailable && cell.getFigureName);
+
     return (
         <>
             {cell.getAvailable && !cell.getFigureName &&
@@ -44,6 +47,9 @@ const CellMarkers: FC<CellMarkersProps> = ({ cell, isSelected }) => {
             }
             {dangerCell &&
                 <div className={st.attacked} />
+            }
+            {movedCell &&
+                <div className={st.moved} />
             }
         </>
     );

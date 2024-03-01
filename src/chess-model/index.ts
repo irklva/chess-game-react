@@ -1,3 +1,8 @@
+// 'public' is specified for methods if they can be used outside the chess-model direction
+
+// ending file name with 'Model' means objects for internal use
+// Only classes and types exported from this file can be used outside the model
+
 export { Board } from './all/board/Board';
 
 

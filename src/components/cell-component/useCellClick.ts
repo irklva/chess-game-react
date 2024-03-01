@@ -82,12 +82,12 @@ export const useCellClick = (cell: Cell) => {
                     new Audio(moveSound).play();
                 }
             }
-        } else if (cell.getFigureColor !== board.getCurrentPlayerColor) {
-            cell.highLightMoveCells(true);
-            setSelectedCell(null);
         } else if (changeFigureDuringMove && cell.getFigureColor === board.getCurrentPlayerColor) {
             cell.highLightMoveCells(false);
             setSelectedCell(cell);
+        } else {
+            cell.highLightMoveCells(true);
+            setSelectedCell(null);
         }
     };
 

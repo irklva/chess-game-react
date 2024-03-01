@@ -97,6 +97,10 @@ export class BoardModel {
         return newBoard;
     }
 
+    changeToNotCopy() {
+        this.deepCopy = false;
+    }
+
     public promotePawn(
         figure: FigureNames,
         blackTimer: number | null,
@@ -111,9 +115,5 @@ export class BoardModel {
 
     get isDeepCopy(): boolean {
         return this.deepCopy;
-    }
-
-    notCopy() {
-        this.deepCopy = false;
     }
 }

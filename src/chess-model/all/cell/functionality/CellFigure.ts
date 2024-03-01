@@ -106,7 +106,7 @@ export class CellFigure {
                 const boardId = this.board.getId;
                 boardMoves.newMovesArray(this.board, boardId, Colors.BLACK);
                 boardMoves.newMovesArray(this.board, boardId, Colors.WHITE);
-                this.board.notCopy();
+                this.board.changeToNotCopy();
             }
             const sameCoordinates = this.cellsPreparation(target);
             const moveObject: Move = {

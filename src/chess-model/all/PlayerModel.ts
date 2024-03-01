@@ -1,6 +1,6 @@
 import type { Colors } from './Colors';
 
-export class Player {
+export class PlayerModel {
     color: Colors;
 
     constructor(color: Colors) {

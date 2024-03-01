@@ -1,15 +1,15 @@
 import { Colors } from '../../Colors';
-import { Player } from '../../Player';
+import { PlayerModel } from '../../PlayerModel';
 
 
 export class BoardPlayers {
-    readonly black: Player;
-    readonly white: Player;
-    private current: Player;
+    readonly black: PlayerModel;
+    readonly white: PlayerModel;
+    private current: PlayerModel;
 
     constructor(
-        blackPlayer: Player = new Player(Colors.BLACK),
-        whitePlayer: Player = new Player(Colors.WHITE),
+        blackPlayer: PlayerModel = new PlayerModel(Colors.BLACK),
+        whitePlayer: PlayerModel = new PlayerModel(Colors.WHITE),
         currentColor: Colors = Colors.WHITE,
     ) {
         this.black = blackPlayer;
@@ -23,7 +23,7 @@ export class BoardPlayers {
             this.current = this.black;
     }
 
-    get getCurrent(): Player {
+    get getCurrent(): PlayerModel {
         return this.current;
     }
 }
