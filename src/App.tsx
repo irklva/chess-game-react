@@ -18,7 +18,7 @@ const App = () => {
 
             <div className="container" >
                 <div className="row d-flex gap-2 justify-content-center" >
-                    <section className="col-12 col-sm-10 col-lg-5 d-flex flex-column gap-1" >
+                    <section className="col-12 col-sm-10 col-lg-5" >
                         <BoardBlock />
                     </section >
                     <section className="col-12 col-sm-5 col-lg-3 order-lg-first

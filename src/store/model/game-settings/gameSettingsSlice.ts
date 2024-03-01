@@ -5,12 +5,14 @@ export interface GameSettingsSchema {
     areSounds: boolean;
     isBoardReversed: boolean;
     boardReversing: boolean;
+    areCardsReversed: boolean;
 }
 
 const initialState: GameSettingsSchema = {
     areSounds: true,
     isBoardReversed: false,
     boardReversing: false,
+    areCardsReversed: false,
 };
 
 export const gameSettingsSlice = createSlice({
@@ -25,6 +27,9 @@ export const gameSettingsSlice = createSlice({
         },
         setBoardReversing(state: GameSettingsSchema, action: PayloadAction<boolean>) {
             state.boardReversing = action.payload;
+            if (action.payload) {
+                state.areCardsReversed = !state.areCardsReversed;
+            }
         },
     },
 });

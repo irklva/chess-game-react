@@ -1,18 +1,29 @@
 .main {
     padding: 5px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+    z-index: var(--player-and-losses-z-index);
     background-color: var(--primary-color);
     border-radius: var(--standard-border-radius);
-}
-
-.main.top {
-    order: 1;
+    transition: var(--board-reverse-animation-time);
 }
 
 .main.bottom {
-    order: 3;
+    bottom: 0;
+}
+
+.main.top {
+    top: 0;
+}
+
+.main.moved_bottom {
+    top: calc(100% - 64px);
+    bottom: unset;
+}
+
+.main.moved_top {
+    bottom: calc(100% - 64px);
+    top: unset;
 }
 
 .player {

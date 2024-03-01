@@ -1,6 +1,8 @@
 export type TimerType = number | null;
 
 export enum BlockOrder {
-    TOP= 'top',
+    MOVED_BOTTOM = 'moved_bottom',
+    MOVED_TOP = 'moved_top',
+    TOP = 'top',
     BOTTOM = 'bottom',
 }
