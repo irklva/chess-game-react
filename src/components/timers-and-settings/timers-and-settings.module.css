@@ -1,6 +1,5 @@
 .main {
     width: 100%;
-    margin: var(--standard-margin) 0;
     padding: var(--standard-padding);
     background-color: var(--primary-color);
     border-radius: var(--standard-border-radius);
@@ -16,7 +15,7 @@
     height: 100px;
 }
 
-.settings,
+.options,
 .timer {
     width: 100%;
     display: flex;
@@ -45,4 +44,15 @@
 .infinity_btn.collapsed {
     height: 0;
     transition: height var(--standard-animation-time);
+}
+
+.settings {
+    width: 100%;
+    display: flex;
+    gap: var(--standard-margin);
+    justify-content: space-around;
+}
+
+.reverse_button {
+    fill: var(--background-color);
 }

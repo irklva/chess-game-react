@@ -1,9 +1,10 @@
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ReactComponent as SoundOff } from '../../assets/svg/sound-off.svg';
-import { ReactComponent as SoundOn } from '../../assets/svg/sound-on.svg';
-import { getGameSounds } from '../../store/model/game-settings/gameSettingsSelectors';
-import { setSounds } from '../../store/model/game-settings/gameSettingsSlice';
+import { ReactComponent as ReverseSvg } from '../../assets/svg/reverse.svg';
+import { ReactComponent as SoundOffSvg } from '../../assets/svg/sound-off.svg';
+import { ReactComponent as SoundOnSvg } from '../../assets/svg/sound-on.svg';
+import { getAreSounds } from '../../store/model/game-settings/gameSettingsSelectors';
+import { setIsBoardReversed, setSounds } from '../../store/model/game-settings/gameSettingsSlice';
 import { setModalNewGame } from '../../store/model/modal/modalsSlice';
 import { setTimers } from '../../store/model/timers/timersSlice';
 import AppButton from '../ui/button/AppButton';
@@ -17,7 +18,7 @@ const TimersAndSettings: FC = () => {
     const dispatch = useDispatch();
     const [isTimerVisible, setIsTimerVisible] = useState(true);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
-    const sounds = useSelector(getGameSounds);
+    const sounds = useSelector(getAreSounds);
 
     const startNewGame = useCallback(() => {
         setIsTimerRunning(false);
@@ -36,6 +37,10 @@ const TimersAndSettings: FC = () => {
         dispatch(setSounds());
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+    const handleSetIsBoardReversed = useCallback(() => {
+        dispatch(setIsBoardReversed());
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
     return (
         <div className={`${st.main} ${isTimerVisible ? '' : st.no_timers}`} >
             <div className={`${st.timer} ${isTimerVisible ? '' : st.collapsed}`} >
@@ -52,19 +57,26 @@ const TimersAndSettings: FC = () => {
                     </AppButton >
                 </div >
             </div >
-            <div className={st.settings} >
+            <div className={st.options} >
                 <AppButton
                     onClick={startNewGame}
                 >
                     New game
                 </AppButton >
-                <AppSwitch
-                    switchId="sounds"
-                    checked={sounds}
-                    onChange={handleSetSounds}
-                    SwitchOnSvg={SoundOn}
-                    SwitchOffSvg={SoundOff}
-                />
+                <div className={st.settings} >
+                    <AppSwitch
+                        switchId="sounds"
+                        checked={sounds}
+                        onChange={handleSetSounds}
+                        SwitchOnSvg={SoundOnSvg}
+                        SwitchOffSvg={SoundOffSvg}
+                    />
+                    <AppButton
+                        onClick={handleSetIsBoardReversed}
+                    >
+                        <ReverseSvg className={st.left_icon} />
+                    </AppButton >
+                </div >
             </div >
         </div >
     );

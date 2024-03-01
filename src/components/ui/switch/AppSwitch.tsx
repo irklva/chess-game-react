@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import st from './app-switch.module.css';
-import type { FC , SVGProps , ReactNode } from 'react';
+import type { FC, ReactNode, SVGProps } from 'react';
 
 interface SwitchProps {
     children?: ReactNode;
@@ -32,8 +32,8 @@ const AppSwitch: FC<SwitchProps> = ({
                     onChange={onChange}
                 />
                 <span className={`${st.slider} ${st.round}`} />
-                <SwitchOnSvg className={st.sound_on_icon} />
-                <SwitchOffSvg className={st.sound_off_icon} />
+                <SwitchOnSvg className={st.left_icon} />
+                <SwitchOffSvg className={st.right_icon} />
             </label >
         </div >
     );

@@ -1,5 +1,5 @@
 .main {
-    margin: var(--standard-margin) 0;
+    order: 2;
     box-sizing: content-box;
     /*border: var(--btn-first-hover-color) double 5px;*/
     overflow: hidden;

@@ -10,19 +10,23 @@
 .primary {
     background-color: var(--btn-first-color);
     color: var(--btn-first-font-color);
+    fill: var(--btn-first-font-color);
 }
 
 .secondary {
     background-color: var(--btn-second-color);
     color: var(--btn-second-font-color);
+    fill: var(--btn-second-font-color);
  }
 
 .primary:hover {
     background-color: var(--btn-first-hover-color);
     color: var(--btn-first-hover-font-color);
+    fill: var(--btn-first-hover-font-color);
 }
 
 .secondary:hover {
     background-color: var(--btn-second-hover-color);
     color: var(--btn-second-hover-font-color);
+    fill: var(--btn-second-hover-font-color);
 }

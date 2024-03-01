@@ -1,21 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface GameSettingsSchema {
-    sounds: boolean;
+    areSounds: boolean;
+    isBoardReversed: boolean;
 }
 
-const initialState: GameSettingsSchema = { sounds: true };
+const initialState: GameSettingsSchema = {
+    areSounds: true,
+    isBoardReversed: false,
+};
 
 export const gameSettingsSlice = createSlice({
     name: 'gameSettings',
     initialState,
     reducers: {
         setSounds(state: GameSettingsSchema) {
-            state.sounds = !state.sounds;
+            state.areSounds = !state.areSounds;
+        },
+        setIsBoardReversed(state: GameSettingsSchema) {
+            state.isBoardReversed = !state.isBoardReversed;
         },
     },
 });
 
-export const { setSounds } = gameSettingsSlice.actions;
+export const { setSounds, setIsBoardReversed } = gameSettingsSlice.actions;
 
 export const gameSettingsReducer = gameSettingsSlice.reducer;

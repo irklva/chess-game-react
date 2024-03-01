@@ -1,24 +1,18 @@
 import { useContext } from 'react';
 import { useSelector } from 'react-redux';
-import { BoardContext } from '../../board-context/board/BoardContext';
-import { Colors } from '../../chess-model';
-import { getBlackName, getWhiteName } from '../../store/model/players/playersSelectors';
-import st from './player-and-figures.module.css';
+import { BoardContext } from '../../../board-context/board/BoardContext';
+import { Colors } from '../../../chess-model';
+import { getBlackName, getWhiteName } from '../../../store/model/players/playersSelectors';
+import st from './player-and-losses.module.css';
+import type { BlockOrder } from '../../../types/types';
 import type { FC } from 'react';
 
 interface LostFiguresProps {
-    // playerName: string;
-    // figures: Figure[];
     playerColor: Colors;
-    // currentPlayerColor: Colors;
+    order: BlockOrder;
 }
 
-const PlayerAndFigures: FC<LostFiguresProps> = ({
-    // playerName,
-    // figures,
-    playerColor,
-    // currentPlayerColor,
-}) => {
+const PlayerAndLosses: FC<LostFiguresProps> = ({ playerColor , order }) => {
 
     const { board, currentPlayerColor } = useContext(BoardContext);
     const blackName = useSelector(getBlackName);
@@ -28,7 +22,7 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
     const playerName = playerColor === Colors.BLACK ? blackName : whiteName;
 
     return (
-        <div className={st.main} >
+        <div className={`${st.main} ${st[order]}`} >
             <h5 className={playerColor === currentPlayerColor ? st.player + ' ' + st.active : st.player} >
                 {playerName}
             </h5 >
@@ -43,4 +37,4 @@ const PlayerAndFigures: FC<LostFiguresProps> = ({
     );
 };
 
-export default PlayerAndFigures;
+export default PlayerAndLosses;

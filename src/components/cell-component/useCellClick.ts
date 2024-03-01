@@ -5,7 +5,7 @@ import moveSound from '../../assets/mp3/move.mp3';
 import winSound from '../../assets/mp3/win.mp3';
 import { BoardContext } from '../../board-context/board/BoardContext';
 import { SelectedCellContext } from '../../board-context/selected-cell/SelectedCellContext';
-import { getGameSounds } from '../../store/model/game-settings/gameSettingsSelectors';
+import { getAreSounds } from '../../store/model/game-settings/gameSettingsSelectors';
 import { setModalGameOver, setModalPromotePawn } from '../../store/model/modal/modalsSlice';
 import {
     getBlackTimerMoment,
@@ -25,7 +25,7 @@ export const useCellClick = (cell: Cell) => {
     const blackTimerMoment = useSelector(getBlackTimerMoment);
     const whiteTimerMoment = useSelector(getWhiteTimerMoment);
     const timeMoment = useSelector(getTimeMoment);
-    const sounds = useSelector(getGameSounds);
+    const sounds = useSelector(getAreSounds);
 
     const cellClick = (changeFigureDuringMove = true) => {
 

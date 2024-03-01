@@ -4,19 +4,19 @@
     --slider-height: Calc(var(--button-height) - var(--standard-margin) * 2);
 }
 
-.sound_off_icon,
-.sound_on_icon {
+.right_icon,
+.left_icon {
     z-index: 0;
     position: absolute;
     top: var(--standard-margin);
 }
 
-.sound_on_icon {
+.left_icon {
     left: var(--standard-margin);
     fill: var(--background-color);
 }
 
-.sound_off_icon {
+.right_icon {
     right: var(--standard-margin);
     fill: var(--btn-first-hover-color);
 }

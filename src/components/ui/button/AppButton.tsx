@@ -21,9 +21,7 @@ const AppButton: FC<AppButtonProps> = ({
 
     return (
         <button
-            className={
-                `${st.main} ${st[buttonStyle]} ${className}`
-            }
+            className={`${st.main} ${st[buttonStyle]} ${className}`}
             {...props} // eslint-disable-line react/jsx-props-no-spreading
         >
             {children}

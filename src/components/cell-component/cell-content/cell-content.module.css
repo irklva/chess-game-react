@@ -22,6 +22,16 @@
     right: 5%;
 }
 
+.coordinate.y_reversed {
+    bottom: 0;
+    right: 2%;
+}
+
+.coordinate.x_reversed {
+    top: 0;
+    left: 5%;
+}
+
 .figure {
     z-index: var(--figures-z-index);
     cursor: grab;
