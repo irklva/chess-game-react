@@ -28,15 +28,15 @@ const NewGameModal: FC = () => {
 
     const setNewBlackName = useCallback((newName: string) => {
         dispatch(setBlackNameInput(newName));
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const setNewWhiteName = useCallback((newName: string) => {
         dispatch(setWhiteNameInput(newName));
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleInfiniteSecondsCheckbox = useCallback(() => {
         dispatch(setInfiniteSeconds());
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const newGame = useNewGame();
 

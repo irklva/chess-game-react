@@ -23,18 +23,18 @@ const TimersAndSettings: FC = () => {
         setIsTimerRunning(false);
         setIsTimerVisible(false);
         dispatch(setModalNewGame(true));
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const enableInfiniteSeconds = useCallback(() => {
         dispatch(setTimers({
             blackTimer: null,
             whiteTimer: null,
         }));
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleSetSounds = useCallback(() => {
         dispatch(setSounds());
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className={`${st.main} ${isTimerVisible ? '' : st.no_timers}`} >

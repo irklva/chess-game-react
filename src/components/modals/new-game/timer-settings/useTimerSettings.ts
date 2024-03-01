@@ -9,12 +9,12 @@ export const useTimerSettings = () => {
     const changeMinutes = useCallback((minutes: string) => {
         const newMinutes = minutes ? parseInt(minutes) : null;
         dispatch(setMinutesInput(newMinutes));
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const changeSeconds = useCallback((seconds: string) => {
         const newSeconds = seconds ? parseInt(seconds) : null;
         dispatch(setSecondsInput(newSeconds));
-    }, [dispatch]);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return { changeMinutes, changeSeconds };
 };
