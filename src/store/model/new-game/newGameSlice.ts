@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { initialMinutes, initialSeconds } from '../../../utils/newGameConstants';
+import { initialMinutes, initialSeconds } from '../../../utils/constants';
 import { newGameReducers } from './newGameReducers';
 import type { NewGameSchema } from './newGameSchema';
 

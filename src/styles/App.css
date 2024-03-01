@@ -17,6 +17,7 @@
     min-height: 100vh;
     padding: 10px;
     background-color: #dad2c5;
+    overflow: hidden;
 }
 
 #ghost {

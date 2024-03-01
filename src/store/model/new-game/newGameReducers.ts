@@ -1,4 +1,4 @@
-import { initialMinutes, initialSeconds } from '../../../utils/newGameConstants';
+import { initialMinutes, initialSeconds } from '../../../utils/constants';
 import type { NewGameSchema } from './newGameSchema';
 import type { PayloadAction } from '@reduxjs/toolkit';
 

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { nameSymbolsLimit } from '../../../../utils/newGameConstants';
+import { nameSymbolsLimit } from '../../../../utils/constants';
 import AppInput from '../../../ui/input/AppInput';
 import st from './player-settings.module.css';
 import type { ChangeEvent, FC } from 'react';

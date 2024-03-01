@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Colors } from '../../../chess-model';
-import { getIsBoardReversed } from '../../../store/model/game-settings/gameSettingsSelectors';
+import { getBoardReversing, getIsBoardReversed } from '../../../store/model/game-settings/gameSettingsSelectors';
 import st from './cell-content.module.css';
 import type { Cell } from '../../../chess-model';
 import type { FC } from 'react';
@@ -15,6 +15,7 @@ interface CellContentProps {
 const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
 
     const isBoardReversed = useSelector(getIsBoardReversed);
+    const boardReversing = useSelector(getBoardReversing);
 
     function handleDragStart() {
         handleClick();
@@ -22,12 +23,14 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
 
     const xCoordinatesClasses = [
         st.coordinate,
+        boardReversing ? st.reversing : '',
         cell.getColor === Colors.WHITE ? st.black : st.white,
         isBoardReversed ? st.x_reversed : st.x,
     ];
 
     const yCoordinatesClasses = [
         st.coordinate,
+        boardReversing ? st.reversing : '',
         cell.getColor === Colors.WHITE ? st.black : st.white,
         isBoardReversed ? st.y_reversed : st.y,
     ];
@@ -52,7 +55,7 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
                 <img
                     src={cell.getFigureLogo}
                     alt={`${cell.getFigureColor} ${cell.getFigureName}`}
-                    className={st.figure}
+                    className={`${st.figure} ${boardReversing ? st.reversing : ''}`}
                     draggable={true}
                     onDragStart={handleDragStart}
                 />

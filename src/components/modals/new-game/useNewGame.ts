@@ -13,7 +13,7 @@ import {
 } from '../../../store/model/new-game/newGameSelectors';
 import { setNames } from '../../../store/model/players/playersSlice';
 import { setTimers } from '../../../store/model/timers/timersSlice';
-import { nameSymbolsLimit } from '../../../utils/newGameConstants';
+import { nameSymbolsLimit } from '../../../utils/constants';
 import { minutesConditions, secondsConditions, timerConditions } from '../../../utils/timerHelpers';
 
 export const useNewGame = () => {

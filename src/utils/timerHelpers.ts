@@ -1,5 +1,5 @@
 import { Colors } from '../chess-model';
-import { minimumTimer, minutesLimit } from './newGameConstants';
+import { minimumTimer, minutesLimit } from './constants';
 import type { TimerType } from '../types/types';
 
 export const secondsDivisor = 10;

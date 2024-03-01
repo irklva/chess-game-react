@@ -1,7 +1,7 @@
 import { Fragment, useContext, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { BoardContext } from '../../../board-context/board/BoardContext';
-import { getIsBoardReversed } from '../../../store/model/game-settings/gameSettingsSelectors';
+import { getBoardReversing, getIsBoardReversed } from '../../../store/model/game-settings/gameSettingsSelectors';
 import CellComponent from '../../cell-component/CellComponent';
 import st from './board-component.module.css';
 import { useBoard } from './useBoard';
@@ -11,6 +11,7 @@ import type { FC } from 'react';
 const BoardComponent: FC = () => {
     const { board } = useContext(BoardContext);
     const isBoardReversed = useSelector(getIsBoardReversed);
+    const boardReversing = useSelector(getBoardReversing);
     const [reversedSells, setReversedSells] = useState<Cell[][] | null>(null);
 
     const {
@@ -51,7 +52,7 @@ const BoardComponent: FC = () => {
                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             />
             <div
-                className={st.main}
+                className={`${st.main} ${boardReversing ? st.reversing : ''}`}
                 onDragStart={handleDragStart}
                 onDrag={handleDrag}
                 onDragEnd={handleDragEnd}

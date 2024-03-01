@@ -1,9 +1,14 @@
 .main {
     order: 2;
-    box-sizing: content-box;
+    /*box-sizing: content-box;*/
     /*border: var(--btn-first-hover-color) double 5px;*/
     overflow: hidden;
     border-radius: var(--standard-border-radius);
     display: flex;
     flex-wrap: wrap;
+}
+
+.main.reversing {
+    transform: rotate(0.5turn);
+    transition: transform var(--board-reverse-animation-time);
 }

@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { getMinutesInput, getNewGameTimer, getSecondsInput } from '../../../../store/model/new-game/newGameSelectors';
-import { minimumTimer, minutesLimit, secondsLimit } from '../../../../utils/newGameConstants';
+import { minimumTimer, minutesLimit, secondsLimit } from '../../../../utils/constants';
 import {
     formatTimer,
     formatTimerInputType,

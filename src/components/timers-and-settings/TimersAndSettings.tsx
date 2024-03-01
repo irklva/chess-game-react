@@ -1,12 +1,13 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as ReverseSvg } from '../../assets/svg/reverse.svg';
 import { ReactComponent as SoundOffSvg } from '../../assets/svg/sound-off.svg';
 import { ReactComponent as SoundOnSvg } from '../../assets/svg/sound-on.svg';
 import { getAreSounds } from '../../store/model/game-settings/gameSettingsSelectors';
-import { setIsBoardReversed, setSounds } from '../../store/model/game-settings/gameSettingsSlice';
+import { setBoardReversing, setIsBoardReversed, setSounds } from '../../store/model/game-settings/gameSettingsSlice';
 import { setModalNewGame } from '../../store/model/modal/modalsSlice';
 import { setTimers } from '../../store/model/timers/timersSlice';
+import { boardAnimationTime } from '../../utils/constants';
 import AppButton from '../ui/button/AppButton';
 import AppSwitch from '../ui/switch/AppSwitch';
 import Timers from './timers/Timers';
@@ -19,6 +20,7 @@ const TimersAndSettings: FC = () => {
     const [isTimerVisible, setIsTimerVisible] = useState(true);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
     const sounds = useSelector(getAreSounds);
+    const timer = useRef<null | ReturnType<typeof setTimeout>>(null);
 
     const startNewGame = useCallback(() => {
         setIsTimerRunning(false);
@@ -38,8 +40,22 @@ const TimersAndSettings: FC = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleSetIsBoardReversed = useCallback(() => {
-        dispatch(setIsBoardReversed());
+        dispatch(setBoardReversing(true));
+        timer.current = setTimeout(() => {
+            dispatch(setIsBoardReversed());
+            dispatch(setBoardReversing(false));
+        }, boardAnimationTime);
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        let currentTimer = timer.current;
+
+        return () => {
+            if (currentTimer) {
+                clearInterval(currentTimer);
+            }
+        };
+    }, []);
 
     return (
         <div className={`${st.main} ${isTimerVisible ? '' : st.no_timers}`} >

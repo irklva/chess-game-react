@@ -2,6 +2,12 @@
     font-weight: bold;
     position: absolute;
     user-select: none;
+    transition:
+            transform var(--board-reverse-animation-time),
+            top var(--board-reverse-animation-time),
+            bottom var(--board-reverse-animation-time),
+            right var(--board-reverse-animation-time),
+            left var(--board-reverse-animation-time);
 }
 
 .coordinate.black {
@@ -39,9 +45,16 @@
     position: absolute;
     top: 10%;
     left: 10%;
-    transition: left var(--standard-animation-time), top var(--standard-animation-time);
+    transition:
+            transform var(--board-reverse-animation-time),
+            left var(--standard-animation-time),
+            top var(--standard-animation-time);
 }
 
 .figure:active {
     cursor: grabbing;
+}
+
+.reversing {
+    transform: rotate(-0.5turn);
 }
