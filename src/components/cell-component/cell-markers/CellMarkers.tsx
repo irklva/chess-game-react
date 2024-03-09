@@ -9,14 +9,22 @@ import type { FC } from 'react';
 
 interface CellMarkersProps {
     cell: Cell;
-    isSelected: boolean;
 }
 
-const CellMarkers: FC<CellMarkersProps> = ({ cell, isSelected }) => {
+const CellMarkers: FC<CellMarkersProps> = ({ cell }) => {
 
     const { board } = useContext(BoardContext);
     const { selectedCell } = useContext(SelectedCellContext);
 
+    const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
+    // base colors are independent of others
+    const baseCellColors = [
+        st.main,
+        cell.getColor === Colors.BLACK ? st.black : st.white,
+        isSelected ? st.selected : '',
+    ];
+
+    // these markers are semi-transparent and depend on other colors
     const isBlackKingAttacked = (cell.getFigureName === FigureNames.KING &&
         cell.getFigureColor === Colors.BLACK &&
         board.getBlackCheck &&
@@ -41,17 +49,26 @@ const CellMarkers: FC<CellMarkersProps> = ({ cell, isSelected }) => {
         !(cell.getAvailable && cell.getFigureName);
 
     return (
-        <>
+        <div
+            className={baseCellColors.join(' ')}
+            onDragStart={e => e.preventDefault()}
+        >
             {cell.getAvailable && !cell.getFigureName &&
-                <div className={st.available} />
+                <div
+                    className={st.available}
+                />
             }
             {dangerCell &&
-                <div className={st.attacked} />
+                <div
+                    className={st.attacked}
+                />
             }
             {movedCell &&
-                <div className={st.moved} />
+                <div
+                    className={st.moved}
+                />
             }
-        </>
+        </div >
     );
 };
 

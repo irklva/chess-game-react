@@ -2,6 +2,7 @@
     font-weight: bold;
     position: absolute;
     user-select: none;
+    z-index: var(--coordinate-z-index);
     transition:
             transform var(--board-reverse-animation-time),
             top var(--board-reverse-animation-time),
@@ -39,7 +40,7 @@
 }
 
 .figure {
-    z-index: var(--figures-z-index);
+    z-index: var(--figure-z-index);
     cursor: grab;
     width: 80%;
     position: absolute;

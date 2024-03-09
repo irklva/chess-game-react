@@ -40,6 +40,7 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
             {cell.getY === 7 &&
                 <div
                     className={xCoordinatesClasses.join(' ')}
+                    onDragStart={e => e.preventDefault()}
                 >
                     {cell.getChessCoordinates?.x}
                 </div >
@@ -47,6 +48,7 @@ const CellContent: FC<CellContentProps> = ({ cell, handleClick }) => {
             {cell.getX === 0 &&
                 <div
                     className={yCoordinatesClasses.join(' ')}
+                    onDragStart={e => e.preventDefault()}
                 >
                     {cell.getChessCoordinates?.y}
                 </div >

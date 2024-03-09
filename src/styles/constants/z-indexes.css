@@ -1,6 +1,8 @@
 :root {
-    --avaliable-cell-z-index: 10;
-    --figures-z-index: 15;
     --switch-slider-z-index: 1;
-    --player-and-losses-z-index: 20;
+    --avaliable-cell-z-index: 10;
+    --coordinate-z-index: 10;
+    --marker-z-index: 15;
+    --figure-z-index: 20;
+    --player-and-losses-z-index: 25;
 }

@@ -1,6 +1,3 @@
-import { useContext } from 'react';
-import { SelectedCellContext } from '../../board-context/selected-cell/SelectedCellContext';
-import { Colors } from '../../chess-model';
 import st from './cell-component.module.css';
 import CellContent from './cell-content/CellContent';
 import CellMarkers from './cell-markers/CellMarkers';
@@ -14,20 +11,11 @@ interface CellProps {
 
 const CellComponent: FC<CellProps> = ({ cell }) => {
 
-    const { selectedCell } = useContext(SelectedCellContext);
-
     const [handleClick, handleMemoClick] = useCellClick(cell);
-
-    const isSelected = (cell.getX === selectedCell?.getX && cell.getY === selectedCell?.getY);
-    const cellClasses = [
-        st.main,
-        cell.getColor === Colors.BLACK ? st.black : st.white,
-        isSelected ? st.selected : '',
-    ];
 
     return (
         <div
-            className={cellClasses.join(' ')}
+            className={st.main}
             onClick={() => handleClick(true)}
             onDrop={() => handleClick(false)}
         >
@@ -37,7 +25,6 @@ const CellComponent: FC<CellProps> = ({ cell }) => {
             />
             <CellMarkers
                 cell={cell}
-                isSelected={isSelected}
             />
         </div >
     );
